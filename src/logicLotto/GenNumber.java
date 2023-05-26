@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GenNumber {
-
+// 수정 확인용
 	List<Integer> list;
 
 	// 로또 매니저에 정보를 가져오기 위해서 로또 매니저 초기화
