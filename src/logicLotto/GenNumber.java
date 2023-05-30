@@ -62,11 +62,10 @@ public class GenNumber {
 		list = getList();
 		Random random = new Random();
 		int count = 0;
-		System.out.println(1);
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
+//			System.out.println(1);
 		}
-
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
 				lotto.getNum()[i] = (int) random.nextInt(45) + 1;
@@ -80,53 +79,15 @@ public class GenNumber {
 			count++;
 		}
 //		System.out.println(lotto.toString());
-		m.setValue(key);
+		m.setValue(key,lotto);
+		System.out.println(m.getValue(1).toString());
 		list.removeAll(list);
 		return count;
 	}
-	
-	public void Retouch(int i) {
-		Integer key = m.setValue(i);
+	// 수정필요
+	public void Retouch(int i,Lotto lotto) {
+		Integer key = m.setValue(i,lotto);
 		System.out.println(key);
 	}
-//
-//	public static void main(String[] args) {
-//		LottoManager m = new LottoManager();
-//		
-//		
-//		GenNumber gen = new GenNumber();
-//		Scanner scan = new Scanner(System.in);
-//		for (int i = 0; gen.list.size() < 7; i++) {
-//			
-//			if (gen.list.size() == 6) {
-//				gen.Confirmed(2, new Lotto());
-//			}
-//			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
-//			int choice = scan.nextInt();
-//
-//			switch (choice) {
-//			case 1:
-//				System.out.println("수동 선택\n번호 입력");
-//				int num = scan.nextInt();
-//				if (!(num >= 1 && num <= 45)) {
-//					System.out.println("1 에서 45 사이의 숫자만 선택");
-//					continue;
-//				}
-//				gen.SelectNumber(num);
-//				break;
-//			case 2:
-//				gen.Confirmed(1, new Lotto());
-//				break;
-//			case 3:
-//				System.out.println("수정할 key값");
-//				int select = scan.nextInt();
-//				gen.Retouch(select);
-//
-//			default:
-//				break;
-//			}
-//
-//		}
-//	}
 
 }
