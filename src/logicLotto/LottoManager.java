@@ -15,21 +15,6 @@ public class LottoManager {
 	private int[] winNumber;
 	GenNumber gen;
 
-	public Map<Integer, Lotto> getLottoMap() {
-		return lottoMap;
-	}
-
-	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
-		this.lottoMap = lottoMap;
-	}
-
-	public Map<Integer, ImageIcon> getBallMap() {
-		return ballMap;
-	}
-
-	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
-		this.ballMap = ballMap;
-	}
 
 	public LottoManager() {
 		ballMap = new HashMap<>();
@@ -58,26 +43,42 @@ public class LottoManager {
 		return winNumber;
 		
 		}
-	
+	// 이미지 아이콘 전체 세팅
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
 			ballMap.put(i, new ImageIcon("공/번호("+i+").png"));
 			}
 	}
-
+	// 키의 로또를 가져옴
 	public Lotto getValue(int i) {
 		return lottoMap.get(i);
 	}
 
-	public void ViewLotto() {
-
+	public int[] getLotto(int key) {
+		return lottoMap.get(key).getNum();
 	}
-	public ImageIcon setIMage(int i) {
-		return ballMap.get(i);
+	public ImageIcon setIMage(int key) {
+		return ballMap.get(key);
 	}
 	
 	public int setValue(int key, Lotto lotto) {
 		lottoMap.put(key,lotto);
 		return lottoMap.keySet().size();
 	}
+	public Map<Integer, Lotto> getLottoMap() {
+		return lottoMap;
+	}
+	
+	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
+		this.lottoMap = lottoMap;
+	}
+	
+	public Map<Integer, ImageIcon> getBallMap() {
+		return ballMap;
+	}
+	
+	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
+		this.ballMap = ballMap;
+	}
+
 }
