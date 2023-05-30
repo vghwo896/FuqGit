@@ -86,8 +86,8 @@ class Lotto extends JFrame {
 	}
 }
 
-public class MainLotto {
-	public static void main(String[] args) {
-		new Lotto();
-	}
-}
+//public class MainLotto {
+//	public static void main(String[] args) {
+//		new Lotto();
+//	}
+//}

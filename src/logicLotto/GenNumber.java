@@ -9,10 +9,11 @@ import java.util.Scanner;
 public class GenNumber {
 
 	List<Integer> list;
-
+	LottoManager m;
 	// 로또 매니저에 정보를 가져오기 위해서 로또 매니저 초기화
 
-	public GenNumber() {
+	public GenNumber(LottoManager lottomanager) {
+		m = lottomanager;
 		list = new ArrayList<>();
 	}
 
@@ -24,24 +25,24 @@ public class GenNumber {
 		this.list = list;
 	}
 
-//	// 맵의 getKey 메서드를 통해서 해당 value 의 로또를 랜덤으로 초기화 하는 메서드.
-//	public int RandomGen(Lotto lotto) {
-//		Random random = new Random();
-//		int count = 0;
-//		for (int i = 0; i < lotto.getNum().length; i++) {
-//			lotto.getNum()[i] = random.nextInt(45) + 1;
-//			for (int j = 0; j < i; j++) {
-//				if (!(lotto.getNum()[j] == lotto.getNum()[i])) {
-//					lotto.getNum()[i] = random.nextInt(45) + 1;
-//				}
-//			}
-//			count++;
-//		}
-//		Arrays.sort(lotto.getNum());
-//		System.out.println(lotto.toString());
-//		System.out.println(count);
-//		return count;
-//	}
+	// 맵의 getKey 메서드를 통해서 해당 value 의 로또를 랜덤으로 초기화 하는 메서드.
+	public int RandomGen(Lotto lotto) {
+		Random random = new Random();
+		int count = 0;
+		for (int i = 0; i < lotto.getNum().length; i++) {
+			lotto.getNum()[i] = random.nextInt(45) + 1;
+			for (int j = 0; j < i; j++) {
+				if (!(lotto.getNum()[j] == lotto.getNum()[i])) {
+					lotto.getNum()[i] = random.nextInt(45) + 1;
+				}
+			}
+			count++;
+		}
+		Arrays.sort(lotto.getNum());
+		System.out.println(lotto.toString());
+		System.out.println(count);
+		return count;
+	}
 
 	// 클릭 액션
 	public void SelectNumber(int i) {
@@ -61,6 +62,7 @@ public class GenNumber {
 		list = getList();
 		Random random = new Random();
 		int count = 0;
+		System.out.println(1);
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
 		}
@@ -77,55 +79,58 @@ public class GenNumber {
 			}
 			count++;
 		}
-		System.out.println(lotto.toString());
+//		System.out.println(lotto.toString());
+		m.setValue(key);
 		list.removeAll(list);
 		System.out.println(count);
 		return count;
 	}
 	
 	public void Retouch(int i) {
-		LottoManager m = new LottoManager();
 		Integer key = m.setValue(i);
 		System.out.println(key);
 	}
-
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		
-		
-		GenNumber gen = new GenNumber();
-		Scanner scan = new Scanner(System.in);
-		for (int i = 0; gen.list.size() < 7; i++) {
-			
-			if (gen.list.size() == 6) {
-				gen.Confirmed(2, new Lotto());
-			}
-			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
-			int choice = scan.nextInt();
-
-			switch (choice) {
-			case 1:
-				System.out.println("수동 선택\n번호 입력");
-				int num = scan.nextInt();
-				if (!(num >= 1 && num <= 45)) {
-					System.out.println("1 에서 45 사이의 숫자만 선택");
-					continue;
-				}
-				gen.SelectNumber(num);
-				break;
-			case 2:
-				gen.Confirmed(1, new Lotto());
-				break;
-			case 3:
-				System.out.println("수정할 key값");
-				int select = scan.nextInt();
-				gen.Retouch(select);
-
-			default:
-				break;
-			}
-
-		}
+	
+	public void panbyeolForm() {
 	}
+//
+//	public static void main(String[] args) {
+//		LottoManager m = new LottoManager();
+//		
+//		
+//		GenNumber gen = new GenNumber();
+//		Scanner scan = new Scanner(System.in);
+//		for (int i = 0; gen.list.size() < 7; i++) {
+//			
+//			if (gen.list.size() == 6) {
+//				gen.Confirmed(2, new Lotto());
+//			}
+//			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
+//			int choice = scan.nextInt();
+//
+//			switch (choice) {
+//			case 1:
+//				System.out.println("수동 선택\n번호 입력");
+//				int num = scan.nextInt();
+//				if (!(num >= 1 && num <= 45)) {
+//					System.out.println("1 에서 45 사이의 숫자만 선택");
+//					continue;
+//				}
+//				gen.SelectNumber(num);
+//				break;
+//			case 2:
+//				gen.Confirmed(1, new Lotto());
+//				break;
+//			case 3:
+//				System.out.println("수정할 key값");
+//				int select = scan.nextInt();
+//				gen.Retouch(select);
+//
+//			default:
+//				break;
+//			}
+//
+//		}
+//	}
 
 }
