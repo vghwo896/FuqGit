@@ -45,7 +45,7 @@ public class LottoManager {
 	
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
-			ballMap.put(i, new JLabel(new ImageIcon("번호("+i+").png")));
+			ballMap.put(i, new JLabel(new ImageIcon("공/번호("+i+").png")));
 			}
 	}
 
