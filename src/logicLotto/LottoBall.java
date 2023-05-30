@@ -78,8 +78,9 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {				
 				gn.Confirmed(key, new Lotto());
+				key++;
 //				key =lm.getLottoMap().size()+1;
-				System.out.println(key);
+//				System.out.println(key);
 //				System.out.println(key);
 			}
 		};
