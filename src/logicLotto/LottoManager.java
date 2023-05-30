@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
@@ -16,8 +17,8 @@ public class LottoManager {
 	GenNumber gen;
 
 	public LottoManager() {
-		m = new BallMachine();
-		ballMap = m.getBall();
+		ballMap = new HashMap<>();
+		setImage();
 		gen = new GenNumber();
 		lottoMap = new HashMap<>();
 		lottoMap.put(1, new Lotto());
@@ -46,6 +47,11 @@ public class LottoManager {
 		for (int i = 0; i < winNumber.length; i++) {
 			System.out.println(winNumber[i]);
 		}
+	}
+	public void setImage() {
+		for (int i = 1; i < 46; i++) {
+			ballMap.put(i, new JLabel(new ImageIcon("번호("+i+").png")));
+			}
 	}
 
 	public Lotto getValue(int i) {
