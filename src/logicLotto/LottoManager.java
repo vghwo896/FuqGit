@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
@@ -16,12 +17,14 @@ public class LottoManager {
 	GenNumber gen;
 
 	public LottoManager() {
-		m = new BallMachine();
-		ballMap = m.getBall();
+		ballMap = new HashMap<>();
+		setImage();
 		gen = new GenNumber();
 		lottoMap = new HashMap<>();
 		lottoMap.put(1, new Lotto());
 		lottoMap.put(2, new Lotto());
+		lottoMap.put(3, new Lotto());
+		lottoMap.put(4, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다
@@ -45,6 +48,11 @@ public class LottoManager {
 			System.out.println(winNumber[i]);
 		}
 	}
+	public void setImage() {
+		for (int i = 1; i < 46; i++) {
+			ballMap.put(i, new JLabel(new ImageIcon("번호("+i+").png")));
+			}
+	}
 
 	public Lotto getValue(int i) {
 		return lottoMap.get(i);
@@ -55,6 +63,11 @@ public class LottoManager {
 	}
 	public JLabel setIMage(int i) {
 		return ballMap.get(i);
+	}
+	
+	public int setValue(int key) {
+		lottoMap.put(key, new Lotto());
+		return lottoMap.keySet().size();
 	}
 
 //	public static void main(String[] args) {
