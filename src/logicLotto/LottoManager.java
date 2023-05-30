@@ -30,7 +30,7 @@ public class LottoManager {
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다
-	public void winNumberGen() {
+	public int[] winNumberGen() {
 		winNumber = new int[7];
 		Random random = new Random();
 		for (int i = 0; i < winNumber.length; i++) {
@@ -50,7 +50,7 @@ public class LottoManager {
 		
 //		for (int i = 0; i < winNumber.length; i++) {
 //			System.out.print(winNumber[i]+" ");
-//		}
+		}
 	
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
