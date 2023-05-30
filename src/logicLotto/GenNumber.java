@@ -24,24 +24,24 @@ public class GenNumber {
 		this.list = list;
 	}
 
-	// 맵의 getKey 메서드를 통해서 해당 value 의 로또를 랜덤으로 초기화 하는 메서드.
-	public int RandomGen(Lotto lotto) {
-		Random random = new Random();
-		int count = 0;
-		for (int i = 0; i < lotto.getNum().length; i++) {
-			lotto.getNum()[i] = random.nextInt(45) + 1;
-			for (int j = 0; j < i; j++) {
-				if (!(lotto.getNum()[j] == lotto.getNum()[i])) {
-					lotto.getNum()[i] = random.nextInt(45) + 1;
-				}
-			}
-			count++;
-		}
-		Arrays.sort(lotto.getNum());
-		System.out.println(lotto.toString());
-		System.out.println(count);
-		return count;
-	}
+//	// 맵의 getKey 메서드를 통해서 해당 value 의 로또를 랜덤으로 초기화 하는 메서드.
+//	public int RandomGen(Lotto lotto) {
+//		Random random = new Random();
+//		int count = 0;
+//		for (int i = 0; i < lotto.getNum().length; i++) {
+//			lotto.getNum()[i] = random.nextInt(45) + 1;
+//			for (int j = 0; j < i; j++) {
+//				if (!(lotto.getNum()[j] == lotto.getNum()[i])) {
+//					lotto.getNum()[i] = random.nextInt(45) + 1;
+//				}
+//			}
+//			count++;
+//		}
+//		Arrays.sort(lotto.getNum());
+//		System.out.println(lotto.toString());
+//		System.out.println(count);
+//		return count;
+//	}
 
 	// 클릭 액션
 	public void SelectNumber(int i) {
@@ -57,7 +57,7 @@ public class GenNumber {
 	}
 	// 선택 확정 버튼에 들어갈 액션.
 
-	public int Confirmed(List<Integer> list, Lotto lotto) {
+	public int Confirmed(int key, Lotto lotto) {
 		list = getList();
 		Random random = new Random();
 		int count = 0;
@@ -79,15 +79,16 @@ public class GenNumber {
 		}
 		System.out.println(lotto.toString());
 		list.removeAll(list);
+		System.out.println(count);
 		return count;
 	}
-
+	
 	public void Retouch(int i) {
 		LottoManager m = new LottoManager();
 		Integer key = m.setValue(i);
 		System.out.println(key);
 	}
-	
+
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		
@@ -97,7 +98,7 @@ public class GenNumber {
 		for (int i = 0; gen.list.size() < 7; i++) {
 			
 			if (gen.list.size() == 6) {
-				gen.Confirmed(gen.list, new Lotto());
+				gen.Confirmed(2, new Lotto());
 			}
 			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
 			int choice = scan.nextInt();
@@ -113,7 +114,7 @@ public class GenNumber {
 				gen.SelectNumber(num);
 				break;
 			case 2:
-				gen.Confirmed(gen.list, new Lotto());
+				gen.Confirmed(1, new Lotto());
 				break;
 			case 3:
 				System.out.println("수정할 key값");
