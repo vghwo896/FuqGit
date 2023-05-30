@@ -82,15 +82,12 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
 				
 				gn.Confirmed(Key, new Lotto());
 				
-=======
 
-				gn.Confirmed(KeyCount, new Lotto());
+				gn.Confirmed(Key, new Lotto());
 
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 				System.out.println(gn.getList());
 				Key =lm.getLottoMap().size()+1;
 //				System.out.println(lm.getValue(1).toString());
@@ -102,12 +99,9 @@ class ImageFrame extends JFrame {
 				}
 			}
 		};
-<<<<<<< HEAD
 		// 수정 버튼에 그 . key =2
 		
-=======
 
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		Select.addMouseListener(send);
 
 		lm.setImage();
