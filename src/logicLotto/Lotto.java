@@ -10,7 +10,7 @@ public class Lotto  {
 	private String winOrLose;
 
 	public Lotto() {
-		num=new int[]{1,2,3,4,5,6};
+		num=new int[]{0,0,0,0,0,0};
 		form = "자동";
 		winOrLose = "낙첨";
 	}

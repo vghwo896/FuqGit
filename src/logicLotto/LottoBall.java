@@ -15,13 +15,14 @@ class ImageFrame extends JFrame {
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
 	LottoManager lm;
-	GenNumber GN= new GenNumber(lm);
+	GenNumber gn;
 
 	int j;
 
 
-	public ImageFrame(LottoManager lottoManager) {
-		lm = lottoManager;
+	public ImageFrame(GenNumber gen) {
+		lm = gen.m;
+		gn = gen;
 		JPanel pnlGuide = new JPanel(); // 설명란
 		pnlGuide.setBounds(0, 0, 220, 760);
 		JPanel pnlLeft = new JPanel(); // 번호 선택란
@@ -43,7 +44,7 @@ class ImageFrame extends JFrame {
 
 					condition = true;
 					int num=Integer.valueOf(oooo.getName());
-					GN.SelectNumber(num);
+					gn.SelectNumber(num);
 					
 					SelectCount++;
 					
@@ -86,11 +87,11 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				GN.Confirmed(KeyCount, new Lotto());
+				gn.Confirmed(KeyCount, new Lotto());
 				
-//				System.out.println(GN.getList());
+				System.out.println(gn.getList());
 				KeyCount++;
-				System.out.println(lm.getValue(1).toString());
+//				System.out.println(lm.getValue(1).toString());
 
 			}
 		};
@@ -126,7 +127,8 @@ class ImageFrame extends JFrame {
 public class LottoBall {
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
-		ImageFrame imageFrame = new ImageFrame(m);
+		GenNumber gen = new GenNumber(m);
+		ImageFrame imageFrame = new ImageFrame(gen);
 		imageFrame.getContentPane().setLayout(null);
 		
 		

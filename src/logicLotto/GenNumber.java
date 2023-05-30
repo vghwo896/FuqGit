@@ -62,11 +62,10 @@ public class GenNumber {
 		list = getList();
 		Random random = new Random();
 		int count = 0;
-		System.out.println(1);
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
+//			System.out.println(1);
 		}
-
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
 				lotto.getNum()[i] = (int) random.nextInt(45) + 1;
@@ -80,16 +79,13 @@ public class GenNumber {
 			count++;
 		}
 //		System.out.println(lotto.toString());
-		m.setValue(key);
+		m.setValue(key,lotto);
+		System.out.println(m.getValue(1).toString());
 		list.removeAll(list);
 		System.out.println(count);
 		return count;
 	}
-	
-	public void Retouch(int i) {
-		Integer key = m.setValue(i);
-		System.out.println(key);
-	}
+	// 수정필요
 	
 	public void panbyeolForm() {
 	}
