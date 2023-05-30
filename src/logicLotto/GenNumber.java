@@ -84,7 +84,7 @@ public class GenNumber {
 
 	public void Retouch(int i) {
 		LottoManager m = new LottoManager();
-		int key = m.setValue(i);
+		Integer key = m.setValue(i);
 		System.out.println(key);
 	}
 	
