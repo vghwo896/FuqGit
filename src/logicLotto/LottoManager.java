@@ -12,19 +12,13 @@ import javax.swing.JLabel;
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
 	Map<Integer, JLabel> ballMap;
-	BallMachine m;
 	private int[] winNumber;
 	GenNumber gen;
 
 	public LottoManager() {
 		ballMap = new HashMap<>();
 		setImage();
-		gen = new GenNumber();
 		lottoMap = new HashMap<>();
-		lottoMap.put(1, new Lotto());
-		lottoMap.put(2, new Lotto());
-		lottoMap.put(3, new Lotto());
-		lottoMap.put(4, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다

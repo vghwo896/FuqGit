@@ -1,27 +1,31 @@
-package lottoUi;
+package logicLotto;
 
 import javax.swing.*;
+
+
+//import logicLotto.;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class ImageFrame extends JFrame {
-	private JPanel panel;
-	private JLabel lbl;
+	
+	private int SelectCount;
+	private int KeyCount = 1;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
+	LottoManager lm;
+	GenNumber GN= new GenNumber(lm);
 
-	public void paintComponent(Graphics g) {
-		super.paintComponents(g);
-		g.setColor(Color.RED);
-		g.drawArc(20, 100, 80, 80, 90, 270);
-	}
+	int j;
 
-	public ImageFrame() {
+
+	public ImageFrame(LottoManager lottoManager) {
+		lm = lottoManager;
 		JPanel pnlGuide = new JPanel(); // 설명란
 		pnlGuide.setBounds(0, 0, 220, 760);
 		JPanel pnlLeft = new JPanel(); // 번호 선택란
-		pnlLeft.setBounds(220, 120, 250, 760);
+		pnlLeft.setBounds(220, 200, 250, 760);
 		JPanel pnlRight = new JPanel(); // 번호 선택하면 나오는 부분
 		pnlRight.setBounds(512, 0, 512, 760);
 
@@ -32,12 +36,18 @@ class ImageFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
 
-				if (condition == false) {
+				if (SelectCount<7&&condition == false) {
 					// System.out.println("클릭 시");
 
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					condition = true;
+					int num=Integer.valueOf(oooo.getName());
+					GN.SelectNumber(num);
+					
+					SelectCount++;
+					
+					
 				}
 
 //					System.out.println(oooo.getText()); (출력 확인용)
@@ -48,6 +58,8 @@ class ImageFrame extends JFrame {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 
 					condition = false;
+					
+					SelectCount--;
 				}
 
 			}
@@ -65,13 +77,35 @@ class ImageFrame extends JFrame {
 
 		}
 
-		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png");
+		
+		JButton Select = new JButton("확정");
+		pnlLeft.add(Select);
+		Select.setBounds(300, 600, 120, 45);
+
+		MouseAdapter send = new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				GN.Confirmed(KeyCount, new Lotto());
+				
+//				System.out.println(GN.getList());
+				KeyCount++;
+				System.out.println(lm.getValue(1).toString());
+
+			}
+		};
+		
+		
+		Select.addMouseListener(send);
+		
+		
+		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 0, 200, 768);
 		// 가로가 200 세로가 768
 
-		ImageIcon Line = new ImageIcon("Line.png");
+		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);
 		pnlRight.add(line);
 		pnlRight.setBounds(540, 0, 30, 768);
@@ -86,20 +120,18 @@ class ImageFrame extends JFrame {
 		setVisible(true);
 
 	}
+
 }
 
 public class LottoBall {
 	public static void main(String[] args) {
-		ImageFrame imageFrame = new ImageFrame();
+		LottoManager m = new LottoManager();
+		ImageFrame imageFrame = new ImageFrame(m);
 		imageFrame.getContentPane().setLayout(null);
-
-		JButton Select = new JButton("확정");
-		Select.setBounds(300, 600, 90, 25);
-		imageFrame.getContentPane().add(Select);
-
+		
+		
 	}
 }
-
 //	SpringLayout springLayout = new SpringLayout();
 //imageFrame.getContentPane().setLayout(springLayout); 
 
