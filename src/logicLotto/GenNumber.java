@@ -57,16 +57,12 @@ public class GenNumber {
 			}
 			count++;
 		}
-//		System.out.println(lotto.toString());
 		m.setValue(key,lotto);
-		System.out.println(m.getValue(1).toString());
 		list.removeAll(list);
-		System.out.println(count);
 		return count;
 	}
-	// 수정필요
 	
 	public void panbyeolForm() {
-	}
 
+	}
 }

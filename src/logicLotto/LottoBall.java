@@ -76,38 +76,15 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-<<<<<<< HEAD
-			public void mouseClicked(MouseEvent e) {
-				
-				gn.Confirmed(Key, new Lotto());
-				
-
-				gn.Confirmed(Key, new Lotto());
-
-				System.out.println(gn.getList());
-				Key =lm.getLottoMap().size()+1;
-//				System.out.println(lm.getValue(1).toString());
-
-				if (condition == true) {
-					lbl[gn.getList()].setIcon(((new ImageIcon("미선택번호(" + gn.getList() + ").png"))));
-					condition = false;
-
-				}
-=======
 			public void mouseClicked(MouseEvent e) {				
 				gn.Confirmed(key, new Lotto());
 //				key =lm.getLottoMap().size()+1;
 				System.out.println(key);
 //				System.out.println(key);
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 			}
 		};
 		// 수정 버튼에 그 . key =2
 		
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		Select.addMouseListener(send);
 
 		lm.setImage();
