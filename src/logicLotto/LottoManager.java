@@ -21,6 +21,7 @@ public class LottoManager {
 		setImage();
 		lottoMap = new HashMap<>();
 		winNumberGen();
+		lottoMap.put(1, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다

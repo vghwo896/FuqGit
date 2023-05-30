@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 class ImageFrame extends JFrame {
 
@@ -36,10 +35,9 @@ class ImageFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
 
-				if (SelectCount < 7 && condition == false) {
+				if (SelectCount < 7) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
-					condition = true;
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
 
@@ -51,7 +49,6 @@ class ImageFrame extends JFrame {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 
-					condition = false;
 
 					SelectCount--;
 				}
@@ -61,7 +58,6 @@ class ImageFrame extends JFrame {
 		};
 
 		for (int i = 1; i < 46; i++) {
-			
 			lbl[i] = new JLabel((new ImageIcon("미선택번호(" + i + ").png")));// 버튼 초기화
 			lbl[i].setName("" + i);
 			lbl[i].setVisible(true);// 보이게
@@ -76,97 +72,49 @@ class ImageFrame extends JFrame {
 		pnlLeft.add(Select);
 		Select.setBounds(300, 600, 120, 45);
 
-//		MouseAdapter send = new MouseAdapter() {
-//			@Override
-//			public void mouseClicked(MouseEvent e) {				
-//				gn.Confirmed(key, new Lotto());
-//				key =lm.getLottoMap().size()+1;
-//				
-//				for (int i = 0; i < 6; i++) {
-//					int[] j =lm.getLottoMap().get(key).getNum();
-//			         ImageIcon ConfirmedBalls = lm.getBallMap().get(j[i]);
-//			         JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
-//
-//			         ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-//			         ConfirmedBall.setBounds(512, 0, 480, 768);
-//
-//			         ConfirmedBall.setVisible(true);
-//			         pnlRight.add(ConfirmedBall);
-//				}
-//				
-//				}
-//		};
+		MouseAdapter send = new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent s) {
 
-		// 수정 버튼에 그 . key =2
-		
-		Select.addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-//				for (int i = 0; i < 6; i++) {
-////					int [] j = lm.getLotto(key);
-//					JLabel ConfirmedBall = new JLabel(lm.setIMage(1));
-//					
-//					ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-//					ConfirmedBall.setBounds(600, 0, 120, 40);
-//					
-//					ConfirmedBall.setVisible(true);
-//					pnlRight.add(ConfirmedBall);				
-//				 }		
-				ImageIcon icon = lm.setIMage(3);
-				JLabel ConfirmedBall = new JLabel(icon);
-//				ConfirmedBall.setBounds(700, 0, 120, 40);
-				ConfirmedBall.setLocation(700,0);
-				ConfirmedBall.setSize(120,48);
-				pnlRight.add(ConfirmedBall);
-				key =lm.getLottoMap().size()+1;
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
+				for (int i = 1; i < 46; i++) {
+					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
+
+					
+				}
+
 				gn.Confirmed(key, new Lotto());
-				System.out.println(lm.getValue(key));
-				
+				System.out.println(key);
+				System.out.println(lm.getLottoMap().get(key));
+				key = lm.getLottoMap().size() + 1;
+				System.out.println(key);
+
 			}
-		});
-		
+
+		};
+		// 수정 버튼에 그 . key =2
+
+		Select.addMouseListener(send);
+
+		lm.setImage();
+
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 0, 200, 768);
+
 		// 가로가 200 세로가 768
-		
-//		for (int i = 0; i < 6; i++) {
-//			int[] j =lm.getLottoMap().get(key).getNum();
-//	         ImageIcon ConfirmedBalls = lm.getBallMap().get(j[i]);
-//	         JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
-//
-//	         ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-//	         ConfirmedBall.setBounds(512, 0, 480, 768);
-//
-//	         ConfirmedBall.setVisible(true);
-//	         pnlRight.add(ConfirmedBall);
-//	      }
-//		
-		
+
+		for (int i = 0; i < 6; i++) {
+			ImageIcon ConfirmedBalls = lm.getBallMap().get(i);
+			JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
+
+			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
+			ConfirmedBall.setBounds(512, 0, 480, 768);
+
+			ConfirmedBall.setVisible(true);
+			pnlRight.add(ConfirmedBall);
+		}
+
 		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);
 		pnlRight.add(line);
