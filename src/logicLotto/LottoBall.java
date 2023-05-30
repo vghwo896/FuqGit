@@ -99,6 +99,13 @@ class ImageFrame extends JFrame {
 		Select.addMouseListener(send);
 		
 		
+		lm.setImage();
+		pnlRight.add(lm.setImage());
+		
+		
+		
+		
+		
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
@@ -108,7 +115,7 @@ class ImageFrame extends JFrame {
 		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);
 		pnlRight.add(line);
-		pnlRight.setBounds(540, 0, 30, 768);
+		line.setBounds(540, 0, 30, 768);
 
 		add(pnlGuide);
 		add(pnlLeft);
