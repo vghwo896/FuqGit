@@ -10,11 +10,11 @@ import java.awt.event.MouseEvent;
 class ImageFrame extends JFrame {
 
 	private int SelectCount;
-	private int Key = 1;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
 	LottoManager lm;
 	GenNumber gn;
+	int key = 1;
 
 	int j;
 
@@ -36,8 +36,6 @@ class ImageFrame extends JFrame {
 				JLabel oooo = (JLabel) e.getSource();
 
 				if (SelectCount < 7 && condition == false) {
-					// System.out.println("클릭 시");
-
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					condition = true;
@@ -48,9 +46,6 @@ class ImageFrame extends JFrame {
 
 				}
 
-//					System.out.println(oooo.getText()); (출력 확인용)
-
-//							System.out.println("선택된거 클릭 시");
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
@@ -81,33 +76,15 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
-<<<<<<< HEAD
-				
-				gn.Confirmed(Key, new Lotto());
-				
-=======
-
-				gn.Confirmed(KeyCount, new Lotto());
-
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
-				System.out.println(gn.getList());
-				Key =lm.getLottoMap().size()+1;
-//				System.out.println(lm.getValue(1).toString());
-
-				if (condition == true) {
-					lbl[gn.getList()].setIcon(((new ImageIcon("미선택번호(" + gn.getList() + ").png"))));
-					condition = false;
-
-				}
+			public void mouseClicked(MouseEvent e) {				
+				gn.Confirmed(key, new Lotto());
+//				key =lm.getLottoMap().size()+1;
+				System.out.println(key);
+//				System.out.println(key);
 			}
 		};
-<<<<<<< HEAD
 		// 수정 버튼에 그 . key =2
 		
-=======
-
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		Select.addMouseListener(send);
 
 		lm.setImage();

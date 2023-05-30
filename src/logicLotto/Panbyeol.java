@@ -30,8 +30,8 @@ public class Panbyeol {
 
 	}
 
-	public static void main(String[] args) {
-		Panbyeol pan = new Panbyeol();
-		pan.panbyeolWinLose();
-	}
+//	public static void main(String[] args) {
+//		Panbyeol pan = new Panbyeol();
+//		pan.panbyeolWinLose();
+//	}
 }
