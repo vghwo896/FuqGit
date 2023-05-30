@@ -89,44 +89,5 @@ public class GenNumber {
 	
 	public void panbyeolForm() {
 	}
-//
-//	public static void main(String[] args) {
-//		LottoManager m = new LottoManager();
-//		
-//		
-//		GenNumber gen = new GenNumber();
-//		Scanner scan = new Scanner(System.in);
-//		for (int i = 0; gen.list.size() < 7; i++) {
-//			
-//			if (gen.list.size() == 6) {
-//				gen.Confirmed(2, new Lotto());
-//			}
-//			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
-//			int choice = scan.nextInt();
-//
-//			switch (choice) {
-//			case 1:
-//				System.out.println("수동 선택\n번호 입력");
-//				int num = scan.nextInt();
-//				if (!(num >= 1 && num <= 45)) {
-//					System.out.println("1 에서 45 사이의 숫자만 선택");
-//					continue;
-//				}
-//				gen.SelectNumber(num);
-//				break;
-//			case 2:
-//				gen.Confirmed(1, new Lotto());
-//				break;
-//			case 3:
-//				System.out.println("수정할 key값");
-//				int select = scan.nextInt();
-//				gen.Retouch(select);
-//
-//			default:
-//				break;
-//			}
-//
-//		}
-//	}
 
 }
