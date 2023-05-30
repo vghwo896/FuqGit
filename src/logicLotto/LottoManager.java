@@ -11,9 +11,25 @@ import javax.swing.JLabel;
 
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
-	Map<Integer, JLabel> ballMap;
+	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
 	GenNumber gen;
+
+	public Map<Integer, Lotto> getLottoMap() {
+		return lottoMap;
+	}
+
+	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
+		this.lottoMap = lottoMap;
+	}
+
+	public Map<Integer, ImageIcon> getBallMap() {
+		return ballMap;
+	}
+
+	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
+		this.ballMap = ballMap;
+	}
 
 	public LottoManager() {
 		ballMap = new HashMap<>();
@@ -45,7 +61,7 @@ public class LottoManager {
 	
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
-			ballMap.put(i, new JLabel(new ImageIcon("공/번호("+i+").png")));
+			ballMap.put(i, new ImageIcon("공/번호("+i+").png"));
 			}
 	}
 
@@ -56,12 +72,12 @@ public class LottoManager {
 	public void ViewLotto() {
 
 	}
-	public JLabel setIMage(int i) {
+	public ImageIcon setIMage(int i) {
 		return ballMap.get(i);
 	}
 	
-	public int setValue(int key) {
-		lottoMap.put(key,new Lotto());
+	public int setValue(int key, Lotto lotto) {
+		lottoMap.put(key,lotto);
 		return lottoMap.keySet().size();
 	}
 }

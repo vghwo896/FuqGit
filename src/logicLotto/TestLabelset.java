@@ -22,7 +22,8 @@ public class TestLabelset extends JFrame {
 		
 		for (int j = 0; j < i.length; j++) {
 			int image = i[j];
-			JLabel lbl = lm.setIMage(image);
+			JLabel lbl = new JLabel(lm.setIMage(image));
+			
 			lbl.setBounds(50+(50*j), 50, 50, 50);
 			pnl.add(lbl);
 		}

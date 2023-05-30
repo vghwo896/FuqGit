@@ -59,7 +59,7 @@ class Lotto extends JFrame {
 		JButton Mbtn2 = new JButton("구매하기");
 		JButton Mbtn3 = new JButton("당첨확인");
 
-		// 버튼 액션
+		// 1번 버튼 액션
 		Mbtn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) { // 잔액 표기 라벨
@@ -74,6 +74,7 @@ class Lotto extends JFrame {
 				}
 			}
 		});
+		//2번 버튼 액션
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
