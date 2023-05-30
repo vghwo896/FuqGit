@@ -20,15 +20,15 @@ class ImageFrame extends JFrame {
 	}
 
 	public ImageFrame() {
-		JPanel pnlGuide = new JPanel();
-		pnlGuide.setBounds(0, 0, 212, 768);
-		JPanel pnlLeft = new JPanel();
-		pnlLeft.setBounds(212, 0, 300, 768);
-		JPanel pnlRight = new JPanel();
+		JPanel pnlGuide = new JPanel(); //설명란
+		pnlGuide.setBounds(0, 0, 200, 768);
+		JPanel pnlLeft = new JPanel(); //번호 선택란
+		pnlLeft.setBounds(200, 0, 312, 768);
+		JPanel pnlRight = new JPanel(); //번호 선택하면 나오는 부분
 		pnlRight.setBounds(512, 0, 512, 768);
 		JSplitPane jsp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 
-		JLabel[] lbl = new JLabel[47]; // 버튼
+		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
 		MouseAdapter click = new MouseAdapter() {
 			@Override
@@ -63,12 +63,25 @@ class ImageFrame extends JFrame {
 			lbl[i].addMouseListener(click);
 			
 		}
+		
+		
+		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png");
+		JLabel guide1 = new JLabel(pnlGuide1);
+		pnlGuide.add(guide1);
+		guide1.setBounds(0, 0, 200, 768);
+		// 가로가 200 세로가 768
+		
+		
+		
+		
+		
 		add(pnlGuide);
 		add(pnlLeft);
 		add(pnlRight);
 
 		setSize(1024, 768);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
 		setVisible(true);
 
 	}
