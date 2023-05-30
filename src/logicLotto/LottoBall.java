@@ -35,10 +35,9 @@ class ImageFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
 
-				if (SelectCount < 7 && condition == false) {
+				if (SelectCount < 7) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
-					condition = true;
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
 
@@ -50,7 +49,6 @@ class ImageFrame extends JFrame {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 
-					condition = false;
 
 					SelectCount--;
 				}
@@ -76,13 +74,22 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent s) {
+
+				for (int i = 1; i < 46; i++) {
+					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
+
+					
+				}
+
 				gn.Confirmed(key, new Lotto());
-//				System.out.println(key);
-//				System.out.println(lm.getLottoMap().get(key));
+				System.out.println(key);
+				System.out.println(lm.getLottoMap().get(key));
 				key = lm.getLottoMap().size() + 1;
-//				System.out.println(key);
+				System.out.println(key);
+
 			}
+
 		};
 		// 수정 버튼에 그 . key =2
 
@@ -96,7 +103,7 @@ class ImageFrame extends JFrame {
 		guide1.setBounds(0, 0, 200, 768);
 
 		// 가로가 200 세로가 768
-		
+
 		for (int i = 0; i < 6; i++) {
 			ImageIcon ConfirmedBalls = lm.getBallMap().get(i);
 			JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
