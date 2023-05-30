@@ -2,14 +2,13 @@ package logicLotto;
 
 import javax.swing.*;
 
-
 //import logicLotto.;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class ImageFrame extends JFrame {
-	
+
 	private int SelectCount;
 	private int KeyCount = 1;
 	boolean condition = false; // false가 클릭 해제 상태
@@ -18,7 +17,6 @@ class ImageFrame extends JFrame {
 	GenNumber gn;
 
 	int j;
-
 
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
@@ -37,18 +35,17 @@ class ImageFrame extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
 
-				if (SelectCount<7&&condition == false) {
+				if (SelectCount < 7 && condition == false) {
 					// System.out.println("클릭 시");
 
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					condition = true;
-					int num=Integer.valueOf(oooo.getName());
+					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
-					
+
 					SelectCount++;
-					
-					
+
 				}
 
 //					System.out.println(oooo.getText()); (출력 확인용)
@@ -59,7 +56,7 @@ class ImageFrame extends JFrame {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 
 					condition = false;
-					
+
 					SelectCount--;
 				}
 
@@ -78,7 +75,6 @@ class ImageFrame extends JFrame {
 
 		}
 
-		
 		JButton Select = new JButton("확정");
 		pnlLeft.add(Select);
 		Select.setBounds(300, 600, 120, 45);
@@ -86,20 +82,25 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
+
 				gn.Confirmed(KeyCount, new Lotto());
-				
+
 				System.out.println(gn.getList());
 				KeyCount++;
 //				System.out.println(lm.getValue(1).toString());
 
+				if (condition == true) {
+					lbl[gn.getList()].setIcon(((new ImageIcon("미선택번호(" + gn.getList() + ").png"))));
+					condition = false;
+
+				}
 			}
 		};
-		
-		
+
 		Select.addMouseListener(send);
-		
-		
+
+		lm.setImage();
+
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
@@ -109,7 +110,7 @@ class ImageFrame extends JFrame {
 		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);
 		pnlRight.add(line);
-		pnlRight.setBounds(540, 0, 30, 768);
+		line.setBounds(540, 0, 30, 768);
 
 		add(pnlGuide);
 		add(pnlLeft);
@@ -130,8 +131,7 @@ public class LottoBall {
 		GenNumber gen = new GenNumber(m);
 		ImageFrame imageFrame = new ImageFrame(gen);
 		imageFrame.getContentPane().setLayout(null);
-		
-		
+
 	}
 }
 //	SpringLayout springLayout = new SpringLayout();
