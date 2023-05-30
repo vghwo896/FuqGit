@@ -18,10 +18,12 @@ public class LottoManager {
 		lottoMap.put(2, new Lotto());
 		lottoMap.put(3, new Lotto());
 		lottoMap.put(4, new Lotto());
+		lottoMap.put(5, new Lotto());
+		lottoMap.put(6, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다
-	public void winNumberGen() {
+	public int[] winNumberGen() {
 		winNumber = new int[7];
 		Random random = new Random();
 		for (int i = 0; i < winNumber.length; i++) {
@@ -37,9 +39,11 @@ public class LottoManager {
 			
 		}
 
-		for (int i = 0; i < winNumber.length; i++) {
-			System.out.print(winNumber[i]+" ");
-		}
+		return winNumber;
+		
+//		for (int i = 0; i < winNumber.length; i++) {
+//			System.out.print(winNumber[i]+" ");
+//		}
 	}
 
 	public Lotto getValue(int i) {
@@ -51,7 +55,7 @@ public class LottoManager {
 	}
 	
 	public int setValue(int key) {
-		lottoMap.put(key, new Lotto());
+		lottoMap.replace(key, new Lotto());
 		return lottoMap.keySet().size();
 	}
 
