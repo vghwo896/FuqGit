@@ -12,6 +12,7 @@ class ImageFrame extends JFrame {
 	boolean condition = false; // false가 클릭 해제 상태
 	ImageIcon ball = new ImageIcon("번호(미선택).png");
 	ImageIcon selectedball = new ImageIcon("번호(선택).png");
+	//이미지 최종 크기 38px
 
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
@@ -21,11 +22,11 @@ class ImageFrame extends JFrame {
 
 	public ImageFrame() {
 		JPanel pnlGuide = new JPanel(); //설명란
-		pnlGuide.setBounds(0, 0, 200, 768);
+		pnlGuide.setBounds(0, 0, 200, 760);
 		JPanel pnlLeft = new JPanel(); //번호 선택란
-		pnlLeft.setBounds(200, 0, 312, 768);
+		pnlLeft.setBounds(200, 120, 312, 760);
 		JPanel pnlRight = new JPanel(); //번호 선택하면 나오는 부분
-		pnlRight.setBounds(512, 0, 512, 768);
+		pnlRight.setBounds(512, 0, 512, 760);
 		JSplitPane jsp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
@@ -71,6 +72,10 @@ class ImageFrame extends JFrame {
 		guide1.setBounds(0, 0, 200, 768);
 		// 가로가 200 세로가 768
 		
+		ImageIcon Line = new ImageIcon("Line.png");
+		JLabel line = new JLabel(Line);
+		pnlRight.add(line);
+		pnlRight.setBounds(540, 0, 30, 768);
 		
 		
 		
@@ -79,7 +84,7 @@ class ImageFrame extends JFrame {
 		add(pnlLeft);
 		add(pnlRight);
 
-		setSize(1024, 768);
+		setSize(1024, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
@@ -93,7 +98,7 @@ public class LottoBall {
 		imageFrame.getContentPane().setLayout(null);
 		
 		JButton Select = new JButton("확정");
-		Select.setBounds(319, 454, 97, 23);
+		Select.setBounds(319, 600, 97, 23);
 		imageFrame.getContentPane().add(Select);
 
 	}
