@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 class ImageFrame extends JFrame {
 	
 	private int SelectCount;
-	private int KeyCount = 1;
+	private int Key = 1;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
 	LottoManager lm;
@@ -87,15 +87,15 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				gn.Confirmed(KeyCount, new Lotto());
+				gn.Confirmed(Key, new Lotto());
 				
 				System.out.println(gn.getList());
-				KeyCount++;
+				Key =lm.getLottoMap().size()+1;
 //				System.out.println(lm.getValue(1).toString());
 
 			}
 		};
-		
+		// 수정 버튼에 그 . key =2
 		
 		Select.addMouseListener(send);
 		
