@@ -78,10 +78,10 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				gn.Confirmed(key, new Lotto());
-				System.out.println(key);
-				System.out.println(lm.getLottoMap().get(key));
+//				System.out.println(key);
+//				System.out.println(lm.getLottoMap().get(key));
 				key = lm.getLottoMap().size() + 1;
-				System.out.println(key);
+//				System.out.println(key);
 			}
 		};
 		// 수정 버튼에 그 . key =2

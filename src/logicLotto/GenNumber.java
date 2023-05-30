@@ -42,9 +42,33 @@ public class GenNumber {
 		list = getList();
 		Random random = new Random();
 		int count = 0;
+		int count2 = 0;
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
 		}
+		
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i) != 0) {
+				count2++;
+			}
+		}
+		
+		if(count2 == 0) {
+			//자동
+			System.out.println("자동");
+			m.getValue(key).setForm("자동");
+		}else if(count2 > 5){
+			//수동
+			System.out.println("수동");
+			m.getValue(key).setForm("수동");
+		}else {
+			//반자동
+			System.out.println("반자동");
+			m.getValue(key).setForm("반자동");
+		}
+		
+		System.out.println(count2);
+		
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
 				lotto.getNum()[i] = (int) random.nextInt(45) + 1;
@@ -59,6 +83,7 @@ public class GenNumber {
 		}
 		m.setValue(key,lotto);
 		list.removeAll(list);
+//		System.out.println(count);
 		return count;
 	}
 	
