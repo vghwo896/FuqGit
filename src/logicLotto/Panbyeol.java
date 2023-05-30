@@ -23,8 +23,19 @@ public class Panbyeol {
 		}
 	}
 
+<<<<<<< HEAD
 	public static void main(String[] args) {
 		Panbyeol pan = new Panbyeol();
 		pan.panbyeolWinLose();
 	}
+=======
+	public void panbyeolForm() {
+
+	}
+
+//	public static void main(String[] args) {
+//		Panbyeol pan = new Panbyeol();
+//		pan.panbyeolWinLose();
+//	}
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 }

@@ -24,26 +24,6 @@ public class GenNumber {
 	public void setList(List<Integer> list) {
 		this.list = list;
 	}
-
-	// 맵의 getKey 메서드를 통해서 해당 value 의 로또를 랜덤으로 초기화 하는 메서드.
-	public int RandomGen(Lotto lotto) {
-		Random random = new Random();
-		int count = 0;
-		for (int i = 0; i < lotto.getNum().length; i++) {
-			lotto.getNum()[i] = random.nextInt(45) + 1;
-			for (int j = 0; j < i; j++) {
-				if (!(lotto.getNum()[j] == lotto.getNum()[i])) {
-					lotto.getNum()[i] = random.nextInt(45) + 1;
-				}
-			}
-			count++;
-		}
-		Arrays.sort(lotto.getNum());
-		System.out.println(lotto.toString());
-		System.out.println(count);
-		return count;
-	}
-
 	// 클릭 액션
 	public void SelectNumber(int i) {
 		if (!(list.contains(i))) {
@@ -64,7 +44,6 @@ public class GenNumber {
 		int count = 0;
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
-//			System.out.println(1);
 		}
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
