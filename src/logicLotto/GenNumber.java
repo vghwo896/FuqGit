@@ -82,17 +82,24 @@ public class GenNumber {
 		return count;
 	}
 
-	public void Retouch() {
+	public void Retouch(int i) {
+		LottoManager m = new LottoManager();
+		int key = m.setValue(i);
+		System.out.println(key);
 	}
-
+	
 	public static void main(String[] args) {
+		LottoManager m = new LottoManager();
+		
+		
 		GenNumber gen = new GenNumber();
 		Scanner scan = new Scanner(System.in);
 		for (int i = 0; gen.list.size() < 7; i++) {
+			
 			if (gen.list.size() == 6) {
 				gen.Confirmed(gen.list, new Lotto());
 			}
-			System.out.println("1. 번호 선택(수동)    2. 자동");
+			System.out.println("1. 번호 선택(수동)    2. 자동      3. 수정");
 			int choice = scan.nextInt();
 
 			switch (choice) {
@@ -109,6 +116,9 @@ public class GenNumber {
 				gen.Confirmed(gen.list, new Lotto());
 				break;
 			case 3:
+				System.out.println("수정할 key값");
+				int select = scan.nextInt();
+				gen.Retouch(select);
 
 			default:
 				break;

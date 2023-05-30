@@ -36,7 +36,7 @@ public class LottoManager {
 		}
 
 		for (int i = 0; i < winNumber.length; i++) {
-			System.out.println(winNumber[i]);
+			System.out.print(winNumber[i]+" ");
 		}
 	}
 
@@ -46,6 +46,12 @@ public class LottoManager {
 
 	public void ViewLotto() {
 
+	}
+	
+	public int setValue(int key) {
+		lottoMap.put(key, new Lotto());
+		System.out.println(lottoMap.keySet().size());
+		return lottoMap.keySet().size();
 	}
 
 	public static void main(String[] args) {
