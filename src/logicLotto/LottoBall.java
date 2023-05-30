@@ -76,16 +76,16 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {				
+			public void mouseClicked(MouseEvent e) {
 				gn.Confirmed(key, new Lotto());
-				key++;
-//				key =lm.getLottoMap().size()+1;
-//				System.out.println(key);
-//				System.out.println(key);
+				System.out.println(key);
+				System.out.println(lm.getLottoMap().get(key));
+				key = lm.getLottoMap().size() + 1;
+				System.out.println(key);
 			}
 		};
 		// 수정 버튼에 그 . key =2
-		
+
 		Select.addMouseListener(send);
 
 		lm.setImage();
@@ -94,7 +94,19 @@ class ImageFrame extends JFrame {
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 0, 200, 768);
+
 		// 가로가 200 세로가 768
+		
+		for (int i = 0; i < 6; i++) {
+			ImageIcon ConfirmedBalls = lm.getBallMap().get(i);
+			JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
+
+			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
+			ConfirmedBall.setBounds(512, 0, 480, 768);
+
+			ConfirmedBall.setVisible(true);
+			pnlRight.add(ConfirmedBall);
+		}
 
 		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);

@@ -62,9 +62,9 @@ public class Lotto  {
 				&& Objects.equals(winOrLose, other.winOrLose);
 	}
 
-//	@Override
-//	public String toString() {
-//		return "Lotto [num=" + Arrays.toString(num) + ", form=" + form + ", winOrLose=" + winOrLose + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Lotto [num=" + Arrays.toString(num) + ", form=" + form + ", winOrLose=" + winOrLose + "]";
+	}
 
 }
