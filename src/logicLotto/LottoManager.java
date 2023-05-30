@@ -53,6 +53,9 @@ public class LottoManager {
 	public void ViewLotto() {
 
 	}
+	public JLabel setIMage(int i) {
+		return ballMap.get(i);
+	}
 
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
