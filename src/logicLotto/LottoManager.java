@@ -5,13 +5,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
+	Map<Integer, JLabel> ballMap;
+	BallMachine m;
 	private int[] winNumber;
 	GenNumber gen;
 
 	public LottoManager() {
+		m = new BallMachine();
+		ballMap = m.getBall();
 		gen = new GenNumber();
 		lottoMap = new HashMap<>();
 		lottoMap.put(1, new Lotto());
