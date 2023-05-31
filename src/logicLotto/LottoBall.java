@@ -18,7 +18,7 @@ class ImageFrame extends JFrame {
 
 	int j;
 
-	public ImageFrame(GenNumber gen) {
+	public ImageFrame(GenNumber gen,int coin) {
 		lm = gen.m;
 		gn = gen;
 

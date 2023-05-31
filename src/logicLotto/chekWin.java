@@ -1,6 +1,6 @@
 package logicLotto;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,23 +17,14 @@ public class chekWin extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					chekWin frame = new chekWin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
+
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public chekWin() {
+	public chekWin(GenNumber gen) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 800);
 		contentPane = new JPanel();
@@ -48,7 +39,7 @@ public class chekWin extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_1, 123, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_1, -93, SpringLayout.NORTH, panel);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_1, -533, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel, 0, SpringLayout.EAST, panel_1);
 		sl_contentPane.putConstraint(SpringLayout.WEST, panel_1, 336, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_1, -98, SpringLayout.EAST, contentPane);
@@ -145,5 +136,11 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 80, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel_4, -149, SpringLayout.NORTH, panel_2);
 		contentPane.add(lblNewLabel_4);
+		setVisible(true);
+
+	
+
+		}
 	}
-}
+
+
