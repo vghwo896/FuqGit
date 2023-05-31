@@ -2,7 +2,9 @@ package logicLotto;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Frame;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,7 +15,7 @@ import javax.swing.JScrollBar;
 public class chekWin extends JFrame {
 
 	private JPanel contentPane;
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -141,7 +143,12 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel("홈버튼\r\n");
+		JLabel lblNewLabel_4 = new JLabel();
+		Frame f = new Frame();
+		f.setLayout(null);
+		f.setBounds(500,200,300,300);
+		ImageIcon img = new ImageIcon("홈버튼.png");
+		
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 80, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel_4, -149, SpringLayout.NORTH, panel_2);
 		contentPane.add(lblNewLabel_4);
