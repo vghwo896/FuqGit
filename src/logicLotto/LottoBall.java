@@ -83,16 +83,12 @@ class ImageFrame extends JFrame {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 				}
-
 				gn.Confirmed(key, new Lotto());
 				System.out.println(key);
 				System.out.println(lm.getLottoMap().get(key));
-
 				System.out.println(key);
-
-				key = lm.getLottoMap().size() + 1;
-			}
-
+				key = lm.getLottoMap().size() + 1;	
+			}			
 		};
 
 		// 수정 버튼에 그 . key =2
