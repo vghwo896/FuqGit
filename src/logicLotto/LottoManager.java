@@ -1,9 +1,12 @@
 package logicLotto;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 public class LottoManager {
@@ -12,7 +15,7 @@ public class LottoManager {
 	private int[] winNumber;
 	GenNumber gen;
 
-	// 모든 원소의 초기화
+
 	public LottoManager() {
 		ballMap = new HashMap<>();
 		setImage();
@@ -41,7 +44,6 @@ public class LottoManager {
 		return winNumber;
 		
 		}
-	
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {

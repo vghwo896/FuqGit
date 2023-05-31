@@ -62,19 +62,23 @@ class MainLotto extends JFrame {
 				}
 			}
 		});
+<<<<<<< HEAD
 		
 		
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
+=======
+		//2번 버튼 액션
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		Mbtn2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
-				dispose();
 				setVisible(false);
 				}
 		});
+<<<<<<< HEAD
 		
 //		3번 버튼 액션
 		Mbtn3.addActionListener(new ActionListener() {
@@ -92,6 +96,8 @@ class MainLotto extends JFrame {
 		Mbtn2.setBounds(420, 500, 200, 150);
 		Mbtn3.setBounds(730, 500, 200, 150);
 		
+=======
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
@@ -102,8 +108,12 @@ class MainLotto extends JFrame {
 		Mbtn2.setBackground(new Color(255, 255, 255));
 		Mbtn3.setBackground(new Color(255, 255, 255));
 
+		// 버튼 위치 
+		Mbtn1.setBounds(110, 500, 200, 150);
+		Mbtn2.setBounds(410, 500, 200, 150);
+		Mbtn3.setBounds(710, 500, 200, 150);
 	}
-	public void start() {
+	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
 		new MainLotto(gen);
