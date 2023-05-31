@@ -47,7 +47,7 @@ public class LottoManager {
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
-			ballMap.put(i, new ImageIcon("공/번호("+i+").png"));
+			ballMap.put(i, new ImageIcon(i+".png"));
 			}
 	}
 	// 키의 로또를 가져옴

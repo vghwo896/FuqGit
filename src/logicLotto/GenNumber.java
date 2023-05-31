@@ -82,38 +82,40 @@ public class GenNumber {
 		return count;
 	}
 
-//	public void panbyeolWinLose() {
+	public void panbyeolWinLose(int key, Lotto lotto) {
 //		int[] winNumber = m.winNumberGen();
-//		int[] myNumber = m.getLotto(1);
-//		System.out.println("맵의 키 사이즈" + m.getLottoMap().keySet().size());
-//
-////		for (int i = 0; i < winNumber.length; i++) {
-////			System.out.print(winNumber[i] + ",");
-////		}
-//
-//		for (int i = 0; i < winNumber.length;) {
-//			for (int j = 0; j < myNumber.length; j++) {
-//				myNumber = m.getLotto(j+1);
-//				if (winNumber[i] == myNumber[j]) {
-//					
-//				}
-//			}
-//		}
-//	}
+		int[] winNumber = new int[] { 2, 7, 15, 23, 35, 40, 42 };
+		int count = 0;
+
+		for (int z = 1; z <= m.getLottoMap().keySet().size(); z++) {
+			count = 0;
+			int[] myNumber = m.getLotto(z);
+			for (int i = 0; i < winNumber.length; i++) {
+				for (int j = 0; j < myNumber.length; j++) {
+					if (winNumber[i] == myNumber[j]) {
+						count++;
+					}
+				}
+				if (count == 6 && i <= 5) {
+					lotto.setWinOrLose("1등");
+					break;
+				} else if (count == 6 && i > 5) {
+					lotto.setWinOrLose("2등");
+				} else if (count == 5) {
+					lotto.setWinOrLose("3등");
+				} else if (count == 4) {
+					lotto.setWinOrLose("4등");
+				} else if (count == 3) {
+					lotto.setWinOrLose("5등");
+				} else {
+					lotto.setWinOrLose("낙첨");
+				}
+			}
+			System.out.println();
+			System.out.println("맞힌 개수 " + count);
+		}
+
+		m.setValue(key, lotto);
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

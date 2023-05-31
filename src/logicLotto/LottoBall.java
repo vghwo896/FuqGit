@@ -21,12 +21,16 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		JPanel pnlGuide = new JPanel(); // 설명란
+
+		JPanel pnlGuide = new JPanel();
+		pnlGuide.setLayout(null);// 설명란
 		pnlGuide.setBounds(0, 0, 220, 760);
-		JPanel pnlLeft = new JPanel(); // 번호 선택란
+		JPanel pnlLeft = new JPanel();// 번호 선택란
 		pnlLeft.setBounds(220, 200, 250, 760);
-		JPanel pnlRight = new JPanel(); // 번호 선택하면 나오는 부분
-		pnlRight.setBounds(512, 0, 512, 760);
+		JPanel pnlRight = new JPanel();
+		pnlRight.setLayout(null);
+		// 번호 선택하면 나오는 부분
+		pnlRight.setBounds(799, 0, 512, 760);
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
@@ -48,7 +52,6 @@ class ImageFrame extends JFrame {
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-
 
 					SelectCount--;
 				}
@@ -79,7 +82,6 @@ class ImageFrame extends JFrame {
 				for (int i = 1; i < 46; i++) {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
-					
 				}
 
 				gn.Confirmed(key, new Lotto());
@@ -104,19 +106,20 @@ class ImageFrame extends JFrame {
 		// 가로가 200 세로가 768
 
 //		for (int i = 0; i < 6; i++) {
-			JLabel ConfirmedBall = new JLabel("응애");
+		ImageIcon icon2 = lm.setIMage(29);
+		JLabel ConfirmedBall = new JLabel(icon2);
 
 //			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-			ConfirmedBall.setBounds(220, 200, 480, 768);
+		ConfirmedBall.setBounds(700, 200, 50, 50);
 
-			ConfirmedBall.setVisible(true);
-			pnlRight.add(ConfirmedBall);
+		ConfirmedBall.setVisible(true);
+		pnlRight.add(ConfirmedBall);
 //		}
 
-		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
-		JLabel line = new JLabel(Line);
-		pnlRight.add(line);
-		line.setBounds(540, 0, 30, 768);
+//		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
+//		JLabel line = new JLabel(Line);
+//		pnlRight.add(line);
+//		line.setBounds(540, 0, 30, 768);
 
 		add(pnlGuide);
 		add(pnlLeft);
@@ -139,6 +142,7 @@ public class LottoBall {
 		imageFrame.getContentPane().setLayout(null);
 	}
 }
+
 //	SpringLayout springLayout = new SpringLayout();
 //imageFrame.getContentPane().setLayout(springLayout); 
 
