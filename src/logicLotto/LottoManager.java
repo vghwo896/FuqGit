@@ -2,9 +2,7 @@ package logicLotto;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -13,14 +11,12 @@ import javax.swing.JLabel;
 
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
-	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
 	GenNumber gen;
 
 
 	public LottoManager() {
-		payedlottoMap = new HashMap<>();
 		ballMap = new HashMap<>();
 		setImage();
 		lottoMap = new HashMap<>();
@@ -55,24 +51,6 @@ public class LottoManager {
 			ballMap.put(i, new ImageIcon(i+".png"));
 			}
 	}
-	//결제를 누르면 선택한 로또를 결제된 로또로 옮기기
-	// 결제 버튼에 추가.
-	public void payedLotto(Map<Integer, Lotto> lottoMap) {
-		if(payedlottoMap.size()<=6) {
-			for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
-				int key = entry.getKey();
-				Lotto lotto = entry.getValue();
-				payedlottoMap.put(key, lotto);
-			}}
-			else {
-				for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
-					int key = payedlottoMap.size()+1;
-					Lotto lotto = entry.getValue();
-					payedlottoMap.put(key, lotto);
-				}
-			}
-		}
-	
 	// 키의 로또를 가져옴
 	public Lotto getValue(int i) {
 		return lottoMap.get(i);
@@ -105,14 +83,5 @@ public class LottoManager {
 	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
 		this.ballMap = ballMap;
 	}
-
-	public Map<Integer, Lotto> getPayedlottoMap() {
-		return payedlottoMap;
-	}
-
-	public void setPayedlottoMap(Map<Integer, Lotto> payedlottoMap) {
-		this.payedlottoMap = payedlottoMap;
-	}
-	
 
 }
