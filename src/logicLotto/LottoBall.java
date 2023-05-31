@@ -86,7 +86,6 @@ class ImageFrame extends JFrame {
 				gn.Confirmed(key, new Lotto());
 				System.out.println(lm.getValue(key));
 				
-				
 				for (int i = 0; i < 6; i++) {
 //					int k = lm.getLotto(key)[i];
 //					System.out.println(k);

@@ -77,12 +77,13 @@ public class GenNumber {
 			}
 			count++;
 		}
+		Arrays.sort(lotto.getNum());
 		m.setValue(key, lotto);
 		list.removeAll(list);
 		return count;
 	}
 
-	public void panbyeolWinLose(int key, Lotto lotto) {
+	public void panbyeolWinLose(Lotto lotto) {
 		int[] winNumber = m.winNumberGen();
 //		int[] winNumber = new int[] { 2, 7, 15, 23, 35, 40, 42 };
 		int count = 0;
@@ -115,11 +116,6 @@ public class GenNumber {
 			System.out.println("맞힌 개수 " + count);
 		}
 		
-//		for (int i = 0; i < winNumber.length; i++) {
-//			System.out.println(winNumber[i]);
-//		}
-		
-		m.setValue(key, lotto);
 	}
 
 }
