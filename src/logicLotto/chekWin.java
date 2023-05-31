@@ -24,7 +24,7 @@ public class chekWin extends JFrame {
 	JPanel homebt = new JPanel();
 	JButton bt_img;
 	ImageIcon img = new ImageIcon("홈버튼.png");
-
+	
 	private JPanel contentPane;
 
 	/**
@@ -43,7 +43,7 @@ public class chekWin extends JFrame {
 		setVisible(true);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-
+		
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -148,10 +148,15 @@ public class chekWin extends JFrame {
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		home.setPreferredSize(new Dimension(44, 44));
 		home.setBackground(new Color(255, 255, 255));
+		home.setBorderPainted(false); // 외곽선 없애줌
+//		home.setContentAreaFilled(false); // 버튼 영역 채우기x
+		home.setFocusPainted(false); // 선택시 테두리 사용 x
+		home.setOpaque(false); // 투명하게 만들어줌
 		home.setIcon(icon);
+		
 		// 홈버튼 위치설정
-		sl_contentPane.putConstraint(SpringLayout.WEST, home, 80, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -140, SpringLayout.NORTH, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.WEST, home, 10, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -260, SpringLayout.NORTH, panel_2);
 		contentPane.add(home);
 
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기

@@ -11,6 +11,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 class ImageFrame extends JFrame {
+
+	JPanel homebt = new JPanel();
+	JButton bt_img;
+	ImageIcon img = new ImageIcon("홈버튼.png");
+
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
