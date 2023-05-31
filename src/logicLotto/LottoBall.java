@@ -64,9 +64,6 @@ class ImageFrame extends JFrame {
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-
-					
-				
 					
 					SelectCount--;
 				}
