@@ -62,27 +62,41 @@ class MainLotto extends JFrame {
 				}
 			}
 		});
-		//2번 버튼 액션
+		
+		
+		//2번 버튼 액션 // 구매창으로 넘어가짐
 		Mbtn2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ImageFrame imageFrame = new ImageFrame(gen);
+				ImageFrame imageFrame = new ImageFrame(gen,coin);
 				imageFrame.getContentPane().setLayout(null);
+				dispose();
 				setVisible(false);
 				}
 		});
+		
+//		3번 버튼 액션
+		Mbtn3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new chekWin(gen);
+				dispose();
+				pnl.setVisible(false);
+			}
+		});
+		// 버튼 위치 
+		Mbtn1.setBounds(100, 500, 200, 150);
+		Mbtn2.setBounds(420, 500, 200, 150);
+		Mbtn3.setBounds(730, 500, 200, 150);
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
 		add(Mbtn3);
 
-		// 버튼 위치 
-		Mbtn1.setBounds(110, 500, 200, 150);
-		Mbtn2.setBounds(410, 500, 200, 150);
-		Mbtn3.setBounds(710, 500, 200, 150);
 	}
-	public static void main(String[] args) {
+	public void start() {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
 		new MainLotto(gen);
