@@ -104,16 +104,15 @@ class ImageFrame extends JFrame {
 
 		// 가로가 200 세로가 768
 
-		for (int i = 0; i < 6; i++) {
-			ImageIcon ConfirmedBalls = lm.getBallMap().get(i);
-			JLabel ConfirmedBall = new JLabel(ConfirmedBalls);
+//		for (int i = 0; i < 6; i++) {
+			JLabel ConfirmedBall = new JLabel("응애");
 
-			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-			ConfirmedBall.setBounds(512, 0, 480, 768);
+//			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
+			ConfirmedBall.setBounds(220, 200, 480, 768);
 
 			ConfirmedBall.setVisible(true);
 			pnlRight.add(ConfirmedBall);
-		}
+//		}
 
 		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 		JLabel line = new JLabel(Line);
@@ -126,7 +125,7 @@ class ImageFrame extends JFrame {
 
 		setSize(1024, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 		setVisible(true);
 
 	}
