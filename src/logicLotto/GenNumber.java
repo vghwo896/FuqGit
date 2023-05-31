@@ -83,12 +83,15 @@ public class GenNumber {
 	}
 	
 	public void panbyeolWinLose() {
-//		m.get
+		int i = 1;
+		int[] winNumber = m.winNumberGen();
 		
-//		LottoManager lottoManager = new LottoManager();
-//		int[] winNumber = lottoManager.winNumberGen();
-//		
-//		
+		for (; i < m.getLotto(); i++) {
+			int[] myNumber = m.getLotto(i);
+			for (int j = 0; j < myNumber.length; j++) {
+				
+			}
+		}
 //		for (int i = 0; i < winNumber.length; i++) {
 //			System.out.print(winNumber[i]+",");
 //		}
