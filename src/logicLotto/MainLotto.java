@@ -3,6 +3,8 @@ package logicLotto;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -86,7 +88,9 @@ class MainLotto extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new chekWin(gen);
+
+				
+				new chekWin(gen,gen.m.winNumberGen());
 				dispose();
 				pnl.setVisible(false);
 
