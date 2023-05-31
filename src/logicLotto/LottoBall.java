@@ -87,7 +87,6 @@ class ImageFrame extends JFrame {
 				System.out.println(lm.getLottoMap().get(key));
 				key = lm.getLottoMap().size() + 1;
 				System.out.println(key);
-
 			}
 
 		};
@@ -138,7 +137,6 @@ public class LottoBall {
 		GenNumber gen = new GenNumber(m);
 		ImageFrame imageFrame = new ImageFrame(gen);
 		imageFrame.getContentPane().setLayout(null);
-
 	}
 }
 //	SpringLayout springLayout = new SpringLayout();

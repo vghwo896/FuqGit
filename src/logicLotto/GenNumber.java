@@ -24,6 +24,7 @@ public class GenNumber {
 	public void setList(List<Integer> list) {
 		this.list = list;
 	}
+
 	// 클릭 액션
 	public void SelectNumber(int i) {
 		if (!(list.contains(i))) {
@@ -46,25 +47,24 @@ public class GenNumber {
 		for (int i = 0; i < list.size(); i++) {
 			lotto.getNum()[i] = list.get(i);
 		}
-		
+
 		for (int i = 0; i < list.size(); i++) {
-			if(list.get(i) != 0) {
+			if (list.get(i) != 0) {
 				count2++;
 			}
 		}
-		
-		if(count2 == 0) {
-			//자동
+
+		if (count2 == 0) {
+			// 자동
 			lotto.setForm("자동");
-		}else if(count2 > 5){
-			//수동
+		} else if (count2 > 5) {
+			// 수동
 			lotto.setForm("수동");
-		}else {
-			//반자동
+		} else {
+			// 반자동
 			lotto.setForm("반자동");
 		}
-		
-		
+
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
 				lotto.getNum()[i] = (int) random.nextInt(45) + 1;
@@ -77,35 +77,43 @@ public class GenNumber {
 			}
 			count++;
 		}
-		m.setValue(key,lotto);
+		m.setValue(key, lotto);
 		list.removeAll(list);
 		return count;
 	}
-	
-	public void panbyeolWinLose() {
-		int i = 1;
-		int[] winNumber = m.winNumberGen();
-		
-		for (; i < m.getLotto(); i++) {
-			int[] myNumber = m.getLotto(i);
-			for (int j = 0; j < myNumber.length; j++) {
-				
-			}
-		}
-//		for (int i = 0; i < winNumber.length; i++) {
-//			System.out.print(winNumber[i]+",");
-//		}
-//		
-//		for (int i = 1; i <= winNumber.length-1; i++) {
-//			Lotto myNumber = lottoManager.getValue(i);
-//			int[] myNumber2 = myNumber.getNum();
-//			System.out.println("map "+i+"키의 값과  winnumber가 똑같은값");
-//			for (int j = 0; j < winNumber.length; j++) {
-//				System.out.println(myNumber);
-//				if (myNumber2[i-1] == winNumber[j]) {
-//					System.out.println(winNumber[j]);
+
+//	public void panbyeolWinLose() {
+//		int[] winNumber = m.winNumberGen();
+//		int[] myNumber = m.getLotto(1);
+//		System.out.println("맵의 키 사이즈" + m.getLottoMap().keySet().size());
+//
+////		for (int i = 0; i < winNumber.length; i++) {
+////			System.out.print(winNumber[i] + ",");
+////		}
+//
+//		for (int i = 0; i < winNumber.length;) {
+//			for (int j = 0; j < myNumber.length; j++) {
+//				myNumber = m.getLotto(j+1);
+//				if (winNumber[i] == myNumber[j]) {
+//					
 //				}
 //			}
 //		}
-	}
+//	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
