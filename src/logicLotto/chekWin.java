@@ -2,8 +2,11 @@ package logicLotto;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -13,9 +16,14 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.SpringLayout;
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import javax.swing.JToggleButton;
 
 public class chekWin extends JFrame {
-	
+
+	JPanel homebt = new JPanel();
+	JButton bt_img;
+	ImageIcon img = new ImageIcon("홈버튼.png");
+
 	private JPanel contentPane;
 
 	/**
@@ -38,12 +46,11 @@ public class chekWin extends JFrame {
 	 * Create the frame.
 	 */
 	public chekWin() {
-		
+
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
-		pnl.setBackground(new Color(255, 255, 255));
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 800);
 		contentPane = new JPanel();
@@ -152,14 +159,24 @@ public class chekWin extends JFrame {
 		contentPane.add(lblNewLabel);
 
 		JButton home = new JButton();
-		ImageIcon img = new ImageIcon("홈버튼.png"); 
-		JButton lbl = new JButton(img);
-		lbl.setBounds(40, 40, 40, 40);
-		pnl.add(lbl);
-		add(pnl);
+		ImageIcon icon = new ImageIcon("홈버튼.png");
+		home.setPreferredSize(new Dimension(44, 44));
+		home.setBackground(new Color(255, 255, 255));
+		home.setIcon(icon);
 
 		sl_contentPane.putConstraint(SpringLayout.WEST, home, 80, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -149, SpringLayout.NORTH, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -140, SpringLayout.NORTH, panel_2);
 		contentPane.add(home);
+		
+//		home.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				ImageFrame imageFrame = new ImageFrame();
+//				imageFrame.getContentPane().setLayout(null);
+//				setVisible(false);
+//			}
+//		});
+
 	}
 }
