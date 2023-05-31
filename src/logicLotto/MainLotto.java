@@ -71,8 +71,8 @@ class MainLotto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen,coin);
 				imageFrame.getContentPane().setLayout(null);
-//				setVisible(false);
-				dispose();
+				setVisible(false);
+				repaint();
 				}
 		});
 		
@@ -82,8 +82,8 @@ class MainLotto extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new chekWin(gen);
-				dispose();
 				setVisible(false);
+				
 			}
 		});
 		// 버튼 위치 
