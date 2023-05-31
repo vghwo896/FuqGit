@@ -54,22 +54,23 @@ public class LottoManager {
 	public Lotto getValue(int i) {
 		return lottoMap.get(i);
 	}
-
+	//키값을 입력하면 해당 로또의 인트 배열을 가져온다.
 	public int[] getLotto(int key) {
 		return lottoMap.get(key).getNum();
-	}
+	}// 키값을 입력하면 그 해당 이미지 아이콘을 반환한다.
 	public ImageIcon setIMage(int key) {
 		return ballMap.get(key);
 	}
-	
+	// 키와 로또를 입력하면 맵이 저장된다.
 	public int setValue(int key, Lotto lotto) {
 		lottoMap.put(key,lotto);
 		return lottoMap.keySet().size();
 	}
+	// 로또맵 자체의 게터
 	public Map<Integer, Lotto> getLottoMap() {
 		return lottoMap;
 	}
-	
+	// 로또으
 	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
 		this.lottoMap = lottoMap;
 	}

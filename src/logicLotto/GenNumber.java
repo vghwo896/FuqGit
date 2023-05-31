@@ -55,19 +55,15 @@ public class GenNumber {
 		
 		if(count2 == 0) {
 			//자동
-			System.out.println("자동");
-			m.getValue(key).setForm("자동");
+			lotto.setForm("자동");
 		}else if(count2 > 5){
 			//수동
-			System.out.println("수동");
-			m.getValue(key).setForm("수동");
+			lotto.setForm("수동");
 		}else {
 			//반자동
-			System.out.println("반자동");
-			m.getValue(key).setForm("반자동");
+			lotto.setForm("반자동");
 		}
 		
-		System.out.println(count2);
 		
 		for (int i = 0; i < lotto.getNum().length; i++) {
 			if (lotto.getNum()[i] == 0) {
@@ -83,7 +79,6 @@ public class GenNumber {
 		}
 		m.setValue(key,lotto);
 		list.removeAll(list);
-//		System.out.println(count);
 		return count;
 	}
 	
