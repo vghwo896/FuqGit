@@ -53,14 +53,8 @@ class ImageFrame extends JFrame {
 					int num = Integer.valueOf(oooo.getName());
 					
 					gn.SelectNumber(num);
-					
-					
-
 					SelectCount++;
-
-
 						}
-
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
@@ -129,7 +123,6 @@ class ImageFrame extends JFrame {
 					key = 1;
 					gen.list.clear();
 				}
-			}
 		});
 		edit1.setBounds(320, 157, 60, 25);
 
@@ -260,7 +253,7 @@ class ImageFrame extends JFrame {
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
-		guide1.setBounds(0, 0, 200, 768);
+		guide1.setBounds(0, 20, 200, 768);
 
 		// 가로가 200 세로가 768
 
@@ -279,6 +272,33 @@ class ImageFrame extends JFrame {
 		add(pnlGuide);
 		add(pnlLeft);
 		add(pnlRight);
+
+		// 홈버튼 이미지 삽입
+		JPanel pnlhome = new JPanel();
+		pnlhome.setLayout(null); // 위치설정
+		pnlhome.setBounds(0, 0, 50, 50);
+		JButton home = new JButton();
+		ImageIcon icon = new ImageIcon("홈버튼.png");
+		home.setPreferredSize(new Dimension(44, 44));
+		home.setBackground(new Color(255, 255, 255));
+		home.setBorderPainted(false); // 외곽선 없애줌
+		home.setFocusPainted(false); // 선택시 테두리 사용 x
+		home.setOpaque(false); // 투명하게 만들어줌
+		home.setIcon(icon);
+		home.setBounds(10, 10, 40, 40);
+		pnlhome.add(home);
+		add(pnlhome);
+		
+		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
+		home.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MainLotto(gen);
+				dispose();
+				setVisible(false);
+			}
+		});
 
 	}
 
