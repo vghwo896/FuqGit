@@ -140,34 +140,33 @@ public class chekWin extends JFrame {
 		
 		
 		
-		JPanel scrpnl = new JPanel();
-		scrpnl.setLayout(new BoxLayout(scrpnl, BoxLayout.Y_AXIS));
-		JPanel pnl2 = new JPanel();
-//		
-//		
+//		JPanel scrpnl = new JPanel();
+//		scrpnl.setLayout(new BoxLayout(scrpnl, BoxLayout.Y_AXIS));
+//		JPanel pnl2 = new JPanel();
+////		
+////		
 		JScrollBar scrollBar = new JScrollBar();
-
-		JLabel lbl;
+//		scrollBar.setBackground(new Color(255,255,255));
+//		JLabel lbl;
+//		
+//		for (int i = 1; i <= gen.m.getLottoMap().size(); i++) {
+//			int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
+//			for (int j = 0; j < 6; j++) {
+//				lbl = new JLabel(gen.m.setIMage(arr[j]));
+//				pnl2.add(lbl);
+//			}
+//			scrpnl.add(pnl2);
+//		}
 		
-		for (int i = 1; i <= gen.m.getLottoMap().size(); i++) {
-			int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
-			for (int j = 0; j < 6; j++) {
-				lbl = new JLabel(gen.m.setIMage(arr[j]));
-				pnl2.add(lbl);
-			}
-			scrpnl.add(pnl2);
-		}
-
-		scrollBar.add(scrollBar);
-		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
+//		scrollBar.add(scrollBar);
+//		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
+//		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
+//		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
 		panel.add(scrollBar);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 31, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel);
 
-		
 		
 		
 		
