@@ -140,10 +140,8 @@ class ImageFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 		setVisible(true);
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
+		
+		
 		
 	}
 	
