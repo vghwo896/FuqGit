@@ -107,7 +107,7 @@ class ImageFrame extends JFrame {
 		// 가로가 200 세로가 768
 
 //		for (int i = 0; i < 6; i++) {
-		ImageIcon icon2 = new ImageIcon("39.png");
+		ImageIcon icon2 = lm.setIMage(29);
 		JLabel ConfirmedBall = new JLabel(icon2);
 
 //			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
@@ -135,15 +135,7 @@ class ImageFrame extends JFrame {
 
 }
 
-public class LottoBall {
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		GenNumber gen = new GenNumber(m);
-		ImageFrame imageFrame = new ImageFrame(gen);
-		imageFrame.getContentPane().setLayout(null);
 
-	}
-}
 //	SpringLayout springLayout = new SpringLayout();
 //imageFrame.getContentPane().setLayout(springLayout); 
 
