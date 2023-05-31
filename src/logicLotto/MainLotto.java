@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+
 
 class MainLotto extends JFrame {
 	int coin;
@@ -59,7 +59,6 @@ class MainLotto extends JFrame {
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
-					
 					walet.setText("잔액 : " + coin);
 				} else {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
@@ -76,8 +75,15 @@ class MainLotto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
+<<<<<<< HEAD
 				setVisible(false);
 			}
+=======
+
+				setVisible(false);
+				repaint();
+				}
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		});
 
 //		3번 버튼 액션
@@ -85,10 +91,12 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				
 				new chekWin(gen,gen.m.winNumberGen());
 				dispose();
 				pnl.setVisible(false);
+
 			}
 		});
 

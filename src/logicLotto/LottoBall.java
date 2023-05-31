@@ -79,6 +79,143 @@ class ImageFrame extends JFrame {
 
 		}
 
+<<<<<<< HEAD
+=======
+		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl1[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl1[i].setName("" + i);
+			chooselbl1[i].setVisible(true);// 보이게
+			chooselbl1[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl1[i].setLayout(null);
+
+			chooselbl1[i].setBounds((i * 40), 150, 45, 45);
+			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
+		}
+
+		JButton edit1 = new JButton("수정");
+		edit1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			if(key%6==1) {
+			key=1;
+			gen.list.clear();
+			}
+			}
+		});
+		edit1.setBounds(300, 157, 60, 25);
+		JButton delete1 = new JButton("삭제");
+		delete1.setBounds(360, 157, 60, 25);
+//		delete1.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				gen.list.clear();
+//				gen.m.getLottoMap().put(, value)
+//				
+//			}
+//		});
+		pnlRight.add(edit1);
+		pnlRight.add(delete1);
+
+		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl2[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl2[i].setName("" + i);
+			chooselbl2[i].setVisible(true);// 보이게
+			chooselbl2[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl2[i].setLayout(null);
+
+			chooselbl2[i].setBounds((i * 40), 210, 45, 45);
+			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
+		}
+		JButton edit2 = new JButton("수정");
+		edit2.setBounds(300, 217, 60, 25);
+		JButton delete2 = new JButton("삭제");
+		delete2.setBounds(360, 217, 60, 25);
+		pnlRight.add(edit2);
+		pnlRight.add(delete2);
+
+		JLabel[] chooselbl3 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl3[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl3[i].setName("" + i);
+			chooselbl3[i].setVisible(true);// 보이게
+			chooselbl3[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl3[i].setLayout(null);
+
+			chooselbl3[i].setBounds((i * 40), 270, 45, 45);
+			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
+		}
+		JButton edit3 = new JButton("수정");
+		edit3.setBounds(300, 277, 60, 25);
+		JButton delete3 = new JButton("삭제");
+		delete3.setBounds(360, 277, 60, 25);
+		pnlRight.add(edit3);
+		pnlRight.add(delete3);
+
+		JLabel[] chooselbl4 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl4[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl4[i].setName("" + i);
+			chooselbl4[i].setVisible(true);// 보이게
+			chooselbl4[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl4[i].setLayout(null);
+
+			chooselbl4[i].setBounds((i * 40), 330, 45, 45);
+			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
+		}
+		JButton edit4 = new JButton("수정");
+		edit4.setBounds(300, 337, 60, 25);
+		JButton delete4 = new JButton("삭제");
+		delete4.setBounds(360, 337, 60, 25);
+		pnlRight.add(edit4);
+		pnlRight.add(delete4);
+
+		JLabel[] chooselbl5 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl5[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl5[i].setName("" + i);
+			chooselbl5[i].setVisible(true);// 보이게
+			chooselbl5[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl5[i].setLayout(null);
+
+			chooselbl5[i].setBounds((i * 40), 390, 45, 45);
+			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
+		}
+		JButton edit5 = new JButton("수정");
+		edit5.setBounds(300, 397, 60, 25);
+		JButton delete5 = new JButton("삭제");
+		delete5.setBounds(360, 397, 60, 25);
+		pnlRight.add(edit5);
+		pnlRight.add(delete5);
+
+		JLabel[] chooselbl6 = new JLabel[7]; // 번호 선택 버튼
+
+		for (int i = 1; i < 7; i++) {
+			chooselbl6[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
+			chooselbl6[i].setName("" + i);
+			chooselbl6[i].setVisible(true);// 보이게
+			chooselbl6[i].setBorder(BorderFactory.createEmptyBorder());
+			chooselbl6[i].setLayout(null);
+
+			chooselbl6[i].setBounds((i * 40), 450, 45, 45);
+			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
+		}
+		JButton edit6 = new JButton("수정");
+		edit6.setBounds(300, 457, 60, 25);
+		JButton delete6 = new JButton("삭제");
+		delete6.setBounds(360, 457, 60, 25);
+		pnlRight.add(edit6);
+		pnlRight.add(delete6);
+
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		JButton Select = new JButton("확정");
 		pnlLeft.add(Select);
 		Select.setBounds(300, 600, 120, 45);
