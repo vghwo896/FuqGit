@@ -58,6 +58,12 @@ class ImageFrame extends JFrame {
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
+					int num = Integer.valueOf(oooo.getName());
+					if ((gn.list.contains(num))) {System.out.println("같은 숫자는 선택이 불가능 합니다.");
+
+					gn.removeInList(new Integer(num));
+
+			}
 					
 					SelectCount--;
 				}
