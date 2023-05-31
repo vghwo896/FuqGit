@@ -123,7 +123,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (key % 6 == 1) {
+				
 					key = 1;
 					gen.list.clear();
 				}
