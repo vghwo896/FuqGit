@@ -1,6 +1,7 @@
 package logicLotto;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
@@ -66,26 +67,21 @@ class MainLotto extends JFrame {
 			}
 		});
 
-		
-		
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
 
 		Mbtn2.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
-
 				setVisible(false);
-				repaint();
-				}
+			}
 		});
 
-		
 //		3번 버튼 액션
 		Mbtn3.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
@@ -96,27 +92,34 @@ class MainLotto extends JFrame {
 
 			}
 		});
-		
-		// 버튼 위치 
+
+		// 버튼 위치
 		Mbtn1.setBounds(100, 500, 200, 150);
 		Mbtn2.setBounds(420, 500, 200, 150);
 		Mbtn3.setBounds(730, 500, 200, 150);
-		
+
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
 		add(Mbtn3);
-		
-		//버튼색 변경
+
+		// 버튼색 변경
 		Mbtn1.setBackground(new Color(255, 255, 255));
 		Mbtn2.setBackground(new Color(255, 255, 255));
 		Mbtn3.setBackground(new Color(255, 255, 255));
 
-		// 버튼 위치 
+//		// 버튼을 투명하게
+//		Mbtn1.setOpaque(false);
+//		Mbtn2.setOpaque(false);
+//		Mbtn3.setOpaque(false);
+
+		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
+
 	}
+
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
@@ -124,4 +127,3 @@ class MainLotto extends JFrame {
 
 	}
 }
-
