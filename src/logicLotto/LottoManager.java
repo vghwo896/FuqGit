@@ -40,6 +40,7 @@ public class LottoManager {
 			}
 			
 		}
+		Arrays.sort(winNumber);
 
 		return winNumber;
 		
