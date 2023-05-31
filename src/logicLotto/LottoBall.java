@@ -46,9 +46,24 @@ class ImageFrame extends JFrame {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					int num = Integer.valueOf(oooo.getName());
+					
 					gn.SelectNumber(num);
 
 					SelectCount++;
+
+
+//					if (!(list.contains(i))) {
+//						if (list.size() < 6) {
+//							getList().add(i);
+//						} else {
+//							System.out.println("6개 이상 선택은 불가능합니다.");
+//						}
+//					} else {
+//						System.out.println("같은 숫자는 선택이 불가능 합니다.");
+//					}
+//				}
+					
+					
 
 				}
 
@@ -62,9 +77,7 @@ class ImageFrame extends JFrame {
 			}
 
 		};
-		
-		
-		
+
 		for (int i = 1; i < 46; i++) {
 			lbl[i] = new JLabel((new ImageIcon("미선택번호(" + i + ").png")));// 버튼 초기화
 			lbl[i].setName("" + i);
@@ -96,10 +109,13 @@ class ImageFrame extends JFrame {
 			lbl[i].addMouseListener(click);
 
 		}
-
+		
+		
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
 
 		for (int i = 1; i < 7; i++) {
+			
+			// 번호 선택 버튼}
 			chooselbl1[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl1[i].setName("" + i);
 			chooselbl1[i].setVisible(true);// 보이게
@@ -111,28 +127,28 @@ class ImageFrame extends JFrame {
 		}
 
 		JButton edit1 = new JButton("수정");
-//		edit1.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//			key=1;
-//			gen.list.clear();
-//			}
-//		});
-		edit1.setBounds(300, 157, 60, 25);
-		JButton delete1 = new JButton("삭제");
-		delete1.setBounds(360, 157, 60, 25);
-//		delete1.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				gen.list.clear();
-//				gen.m.getLottoMap().put(, value)
-//				
-//			}
-//		});
+		edit1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (key % 6 == 1) {
+					key = 1;
+					gen.list.clear();
+				}
+			}
+		});
+		edit1.setBounds(320, 157, 60, 25);
+
+//      delete1.addActionListener(new ActionListener() {
+//         
+//         @Override
+//         public void actionPerformed(ActionEvent e) {
+//            gen.list.clear();
+//            gen.m.getLottoMap().put(, value)
+//            
+//         }
+//      });
 		pnlRight.add(edit1);
-		pnlRight.add(delete1);
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
 
@@ -147,11 +163,9 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
 		JButton edit2 = new JButton("수정");
-		edit2.setBounds(300, 217, 60, 25);
-		JButton delete2 = new JButton("삭제");
-		delete2.setBounds(360, 217, 60, 25);
+		edit2.setBounds(320, 217, 60, 25);
+
 		pnlRight.add(edit2);
-		pnlRight.add(delete2);
 
 		JLabel[] chooselbl3 = new JLabel[7]; // 번호 선택 버튼
 
@@ -166,11 +180,9 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
 		JButton edit3 = new JButton("수정");
-		edit3.setBounds(300, 277, 60, 25);
-		JButton delete3 = new JButton("삭제");
-		delete3.setBounds(360, 277, 60, 25);
+		edit3.setBounds(320, 277, 60, 25);
+
 		pnlRight.add(edit3);
-		pnlRight.add(delete3);
 
 		JLabel[] chooselbl4 = new JLabel[7]; // 번호 선택 버튼
 
@@ -185,11 +197,8 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
 		JButton edit4 = new JButton("수정");
-		edit4.setBounds(300, 337, 60, 25);
-		JButton delete4 = new JButton("삭제");
-		delete4.setBounds(360, 337, 60, 25);
+		edit4.setBounds(320, 337, 60, 25);
 		pnlRight.add(edit4);
-		pnlRight.add(delete4);
 
 		JLabel[] chooselbl5 = new JLabel[7]; // 번호 선택 버튼
 
@@ -204,11 +213,8 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
 		JButton edit5 = new JButton("수정");
-		edit5.setBounds(300, 397, 60, 25);
-		JButton delete5 = new JButton("삭제");
-		delete5.setBounds(360, 397, 60, 25);
+		edit5.setBounds(320, 397, 60, 25);
 		pnlRight.add(edit5);
-		pnlRight.add(delete5);
 
 		JLabel[] chooselbl6 = new JLabel[7]; // 번호 선택 버튼
 
@@ -223,11 +229,8 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
 		JButton edit6 = new JButton("수정");
-		edit6.setBounds(300, 457, 60, 25);
-		JButton delete6 = new JButton("삭제");
-		delete6.setBounds(360, 457, 60, 25);
+		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
-		pnlRight.add(delete6);
 
 		JButton Select = new JButton("확정");
 		pnlLeft.add(Select);
@@ -256,6 +259,10 @@ class ImageFrame extends JFrame {
 
 		Select.addMouseListener(send);
 
+		JButton pay = new JButton("결제");
+		pnlRight.add(pay);
+		pay.setBounds(150, 650, 120, 45);
+
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
@@ -283,7 +290,7 @@ class ImageFrame extends JFrame {
 
 }
 
-//	SpringLayout springLayout = new SpringLayout();
+//   SpringLayout springLayout = new SpringLayout();
 //imageFrame.getContentPane().setLayout(springLayout); 
 
 // 화면 2분할
@@ -292,4 +299,3 @@ class ImageFrame extends JFrame {
 // 오른쪽에 저장(이건 기능쪽에서 가져갈 것), 최대 6장
 // 스크롤 ㄱㄱ
 // html 당겨오는법 되면..생각해볼게 
-//뿅
