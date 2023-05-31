@@ -1,24 +1,12 @@
-package lottoUi;
+package logicLotto;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
-import java.io.File;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayer;
-import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -87,8 +75,8 @@ class Lotto extends JFrame {
 	}
 }
 
-//public class MainLotto {
-//	public static void main(String[] args) {
-//		new Lotto();
-//	}
-//}
+public class MainLotto {
+	public static void main(String[] args) {
+		new Lotto();
+	}
+}
