@@ -72,37 +72,37 @@ public class chekWin extends JFrame {
 		SpringLayout sl_panel_1 = new SpringLayout();
 		panel_1.setLayout(sl_panel_1);
 
-		JLabel lblNewLabel_5 = new JLabel(new ImageIcon(win[0]+".png"));
+		JLabel lblNewLabel_5 = new JLabel(new ImageIcon(win[0] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_5, 32, SpringLayout.WEST, panel_1);
 		sl_panel_1.putConstraint(SpringLayout.SOUTH, lblNewLabel_5, -43, SpringLayout.SOUTH, panel_1);
 		panel_1.add(lblNewLabel_5);
 
-		JLabel lblNewLabel_6 = new JLabel(new ImageIcon(win[1]+".png"));
+		JLabel lblNewLabel_6 = new JLabel(new ImageIcon(win[1] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.NORTH, lblNewLabel_6, 0, SpringLayout.NORTH, lblNewLabel_5);
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_6, 6, SpringLayout.EAST, lblNewLabel_5);
 		panel_1.add(lblNewLabel_6);
 
-		JLabel lblNewLabel_7 = new JLabel(new ImageIcon(win[2]+".png"));
+		JLabel lblNewLabel_7 = new JLabel(new ImageIcon(win[2] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.NORTH, lblNewLabel_7, 0, SpringLayout.NORTH, lblNewLabel_5);
 		panel_1.add(lblNewLabel_7);
 
-		JLabel lblNewLabel_8 = new JLabel(new ImageIcon(win[3]+".png"));
+		JLabel lblNewLabel_8 = new JLabel(new ImageIcon(win[3] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_7, 6, SpringLayout.EAST, lblNewLabel_8);
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_8, 6, SpringLayout.EAST, lblNewLabel_6);
 		sl_panel_1.putConstraint(SpringLayout.SOUTH, lblNewLabel_8, 0, SpringLayout.SOUTH, lblNewLabel_5);
 		panel_1.add(lblNewLabel_8);
 
-		JLabel lblNewLabel_9 = new JLabel(new ImageIcon(win[4]+".png"));
+		JLabel lblNewLabel_9 = new JLabel(new ImageIcon(win[4] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_9, 6, SpringLayout.EAST, lblNewLabel_7);
 		sl_panel_1.putConstraint(SpringLayout.SOUTH, lblNewLabel_9, 0, SpringLayout.SOUTH, lblNewLabel_5);
 		panel_1.add(lblNewLabel_9);
 
-		JLabel lblNewLabel_10 = new JLabel(new ImageIcon(win[5]+".png"));
+		JLabel lblNewLabel_10 = new JLabel(new ImageIcon(win[5] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.NORTH, lblNewLabel_10, 0, SpringLayout.NORTH, lblNewLabel_5);
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_10, 5, SpringLayout.EAST, lblNewLabel_9);
 		panel_1.add(lblNewLabel_10);
 
-		JLabel lblNewLabel_11 = new JLabel(new ImageIcon(win[6]+".png"));
+		JLabel lblNewLabel_11 = new JLabel(new ImageIcon(win[6] + ".png"));
 		sl_panel_1.putConstraint(SpringLayout.NORTH, lblNewLabel_11, 0, SpringLayout.NORTH, lblNewLabel_5);
 		sl_panel_1.putConstraint(SpringLayout.EAST, lblNewLabel_11, -35, SpringLayout.EAST, panel_1);
 		panel_1.add(lblNewLabel_11);
@@ -135,20 +135,20 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -5, SpringLayout.SOUTH, contentPane);
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
-		
+
 		JPanel scrpnl = new JPanel();
-		JPanel pnl2 = new JPanel();
 		scrpnl.setLayout(new BoxLayout(scrpnl, BoxLayout.Y_AXIS));
-		
+
 		for (int i = 1; i <= gen.m.getLottoMap().keySet().size(); i++) {
+			JPanel pnl2 = new JPanel();
 			for (int j = 0; j < gen.m.getLottoMap().get(i).getNum().length; j++) {
 				int[] arr = gen.m.getLotto(i);
-				JLabel lbl = new JLabel(new ImageIcon(arr[j]+".png"));
+				JLabel lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
 				pnl2.add(lbl);
 			}
 			scrpnl.add(pnl2);
 		}
-		
+
 		JScrollPane scrollBar = new JScrollPane();
 		scrollBar.add(scrpnl);
 		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
