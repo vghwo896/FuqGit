@@ -55,7 +55,8 @@ public class LottoManager {
 	//키값을 입력하면 해당 로또의 인트 배열을 가져온다.
 	public int[] getLotto(int key) {
 		return lottoMap.get(key).getNum();
-	}// 키값을 입력하면 그 해당 이미지 아이콘을 반환한다.
+	}
+	// 키값을 입력하면 그 해당 이미지 아이콘을 반환한다.
 	public ImageIcon setIMage(int key) {
 		return ballMap.get(key);
 	}
@@ -68,7 +69,7 @@ public class LottoManager {
 	public Map<Integer, Lotto> getLottoMap() {
 		return lottoMap;
 	}
-	// 로또으
+	// 
 	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
 		this.lottoMap = lottoMap;
 	}
