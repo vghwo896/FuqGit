@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
 class MainLotto extends JFrame {
 	int coin;
 
@@ -18,7 +19,7 @@ class MainLotto extends JFrame {
 		coin = 0;
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
-		pnl.setBounds(0, 0, 1024, 768);
+		pnl.setBounds(0, 0, 1024, 800);
 		pnl.setBackground(new Color(255, 255, 255));
 
 		// 잔액 위치
@@ -29,12 +30,12 @@ class MainLotto extends JFrame {
 
 		ImageIcon back = new ImageIcon("메인배경.png");
 		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 768);
+		lbl.setBounds(0, 0, 1024, 800);
 		pnl.add(lbl);
 		add(pnl);
 
 		// 프레임
-		setSize(1024, 768);
+		setSize(1024, 800);
 		setTitle("lotto");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
@@ -62,19 +63,23 @@ class MainLotto extends JFrame {
 				}
 			}
 		});
+
 		
 		
-		//2번 버튼 액션 // 구매창으로 넘어가짐
+		// 2번 버튼 액션 // 구매창으로 넘어가짐
+
 		Mbtn2.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ImageFrame imageFrame = new ImageFrame(gen,coin);
+				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
+
 				setVisible(false);
 				repaint();
 				}
 		});
+
 		
 //		3번 버튼 액션
 		Mbtn3.addActionListener(new ActionListener() {
@@ -82,25 +87,37 @@ class MainLotto extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new chekWin(gen);
-				setVisible(false);
-				
+				dispose();
+				pnl.setVisible(false);
+
 			}
 		});
+		
 		// 버튼 위치 
 		Mbtn1.setBounds(100, 500, 200, 150);
 		Mbtn2.setBounds(420, 500, 200, 150);
 		Mbtn3.setBounds(730, 500, 200, 150);
+		
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
 		add(Mbtn3);
+		
+		//버튼색 변경
+		Mbtn1.setBackground(new Color(255, 255, 255));
+		Mbtn2.setBackground(new Color(255, 255, 255));
+		Mbtn3.setBackground(new Color(255, 255, 255));
 
+		// 버튼 위치 
+		Mbtn1.setBounds(110, 500, 200, 150);
+		Mbtn2.setBounds(410, 500, 200, 150);
+		Mbtn3.setBounds(710, 500, 200, 150);
 	}
-	public void start() {
+	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
 		new MainLotto(gen);
+
 	}
 }
-
 
