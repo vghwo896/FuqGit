@@ -83,27 +83,17 @@ class ImageFrame extends JFrame {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 				}
+
 				gn.Confirmed(key, new Lotto());
-				System.out.println(lm.getValue(key));
-				
-				
-				for (int i = 0; i < 6; i++) {
-//					int k = lm.getLotto(key)[i];
-//					System.out.println(k);
-					JLabel ConfirmedBall = new JLabel("1");
-					
-					ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-					ConfirmedBall.setBounds(500 + ((i + 1) * 50), 150, 350, 80);
-					
-					ConfirmedBall.setVisible(true);
-					pnlRight.add(ConfirmedBall);
-				}
-				pnlRight.revalidate();
-				pnlRight.repaint();
-				key = lm.getLottoMap().size() + 1;	
-			}			
+				System.out.println(key);
+				System.out.println(lm.getLottoMap().get(key));
+
+				System.out.println(key);
+
+				key = lm.getLottoMap().size() + 1;
+			}
+
 		};
-		
 
 		// 수정 버튼에 그 . key =2
 
@@ -120,18 +110,8 @@ class ImageFrame extends JFrame {
 //		JLabel line = new JLabel(Line);
 //		pnlRight.add(line);
 //		line.setBounds(540, 0, 30, 768);
+		
 
-//		for (int i = 0; i < 6; i++) {
-//			int k = lm.getLotto(key)[i];
-//			System.out.println(k);
-//			JLabel ConfirmedBall = new JLabel("1");
-//			
-//			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-//			ConfirmedBall.setBounds(500 + ((i + 1) * 50), 150, 350, 80);
-//			
-//			ConfirmedBall.setVisible(true);
-//			pnlRight.add(ConfirmedBall);
-//		}
 		add(pnlGuide);
 		add(pnlLeft);
 		add(pnlRight);
@@ -140,9 +120,8 @@ class ImageFrame extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(true);
 		setVisible(true);
-		
+
 	}
-	
 
 }
 
