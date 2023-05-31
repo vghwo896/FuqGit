@@ -62,6 +62,8 @@ class MainLotto extends JFrame {
 				}
 			}
 		});
+		
+		
 		//2번 버튼 액션 // 구매창으로 넘어가짐
 		Mbtn2.addActionListener(new ActionListener() {
 			
@@ -69,17 +71,19 @@ class MainLotto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen,coin);
 				imageFrame.getContentPane().setLayout(null);
+				dispose();
 				setVisible(false);
-				System.out.println(1);
 				}
 		});
+		
 //		3번 버튼 액션
 		Mbtn3.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new chekWin(gen);
-				setVisible(false);
+				dispose();
+				pnl.setVisible(false);
 			}
 		});
 		// 버튼 위치 

@@ -85,11 +85,7 @@ class ImageFrame extends JFrame {
 				}
 
 				gn.Confirmed(key, new Lotto());
-				System.out.println(key);
-				System.out.println(lm.getLottoMap().get(key));
-
-				System.out.println(key);
-
+				System.out.println(lm.getValue(key));
 				key = lm.getLottoMap().size() + 1;
 			}
 
