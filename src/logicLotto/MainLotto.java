@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 class MainLotto extends JFrame {
 	int coin;
@@ -120,6 +121,7 @@ class MainLotto extends JFrame {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
 		new MainLotto(gen);
+
 	}
 }
 
