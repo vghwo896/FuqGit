@@ -79,8 +79,7 @@ class ImageFrame extends JFrame {
 
 		}
 
-<<<<<<< HEAD
-=======
+
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
 
 		for (int i = 1; i < 7; i++) {
@@ -215,7 +214,6 @@ class ImageFrame extends JFrame {
 		pnlRight.add(edit6);
 		pnlRight.add(delete6);
 
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		JButton Select = new JButton("확정");
 		pnlLeft.add(Select);
 		Select.setBounds(300, 600, 120, 45);

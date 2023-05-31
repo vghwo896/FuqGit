@@ -75,15 +75,8 @@ class MainLotto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
-<<<<<<< HEAD
 				setVisible(false);
 			}
-=======
-
-				setVisible(false);
-				repaint();
-				}
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		});
 
 //		3번 버튼 액션
