@@ -18,7 +18,7 @@ class MainLotto extends JFrame {
 		coin = 0;
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
-		pnl.setBounds(0, 0, 1024, 768);
+		pnl.setBounds(0, 0, 1024, 800);
 		pnl.setBackground(new Color(255, 255, 255));
 
 		// 잔액 위치
@@ -29,12 +29,12 @@ class MainLotto extends JFrame {
 
 		ImageIcon back = new ImageIcon("메인배경.png");
 		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 768);
+		lbl.setBounds(0, 0, 1024, 800);
 		pnl.add(lbl);
 		add(pnl);
 
 		// 프레임
-		setSize(1024, 768);
+		setSize(1024, 800);
 		setTitle("lotto");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
