@@ -48,7 +48,7 @@ public class chekWin extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_1, 123, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_1, -93, SpringLayout.NORTH, panel);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_1, -533, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel, 0, SpringLayout.EAST, panel_1);
 		sl_contentPane.putConstraint(SpringLayout.WEST, panel_1, 336, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_1, -98, SpringLayout.EAST, contentPane);

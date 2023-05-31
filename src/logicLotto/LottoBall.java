@@ -18,7 +18,7 @@ class ImageFrame extends JFrame {
 
 	int j;
 
-	public ImageFrame(GenNumber gen) {
+	public ImageFrame(GenNumber gen,int coin) {
 		lm = gen.m;
 		gn = gen;
 
@@ -30,7 +30,7 @@ class ImageFrame extends JFrame {
 		JPanel pnlRight = new JPanel();
 		pnlRight.setLayout(null);
 		// 번호 선택하면 나오는 부분
-		pnlRight.setBounds(799, 0, 512, 760);
+		pnlRight.setBounds(500, 0, 512, 760);
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
@@ -83,20 +83,31 @@ class ImageFrame extends JFrame {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 				}
-
 				gn.Confirmed(key, new Lotto());
-				System.out.println(key);
-				System.out.println(lm.getLottoMap().get(key));
-				key = lm.getLottoMap().size() + 1;
-				System.out.println(key);
-			}
-
+				System.out.println(lm.getValue(key));
+				
+				
+				for (int i = 0; i < 6; i++) {
+//					int k = lm.getLotto(key)[i];
+//					System.out.println(k);
+					JLabel ConfirmedBall = new JLabel("1");
+					
+					ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
+					ConfirmedBall.setBounds(500 + ((i + 1) * 50), 150, 350, 80);
+					
+					ConfirmedBall.setVisible(true);
+					pnlRight.add(ConfirmedBall);
+				}
+				pnlRight.revalidate();
+				pnlRight.repaint();
+				key = lm.getLottoMap().size() + 1;	
+			}			
 		};
+		
+
 		// 수정 버튼에 그 . key =2
 
 		Select.addMouseListener(send);
-
-		lm.setImage();
 
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
@@ -105,42 +116,33 @@ class ImageFrame extends JFrame {
 
 		// 가로가 200 세로가 768
 
-//		for (int i = 0; i < 6; i++) {
-		ImageIcon icon2 = lm.setIMage(29);
-		JLabel ConfirmedBall = new JLabel(icon2);
-
-//			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
-		ConfirmedBall.setBounds(700, 200, 50, 50);
-
-		ConfirmedBall.setVisible(true);
-		pnlRight.add(ConfirmedBall);
-//		}
-
 //		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
 //		JLabel line = new JLabel(Line);
 //		pnlRight.add(line);
 //		line.setBounds(540, 0, 30, 768);
 
+//		for (int i = 0; i < 6; i++) {
+//			int k = lm.getLotto(key)[i];
+//			System.out.println(k);
+//			JLabel ConfirmedBall = new JLabel("1");
+//			
+//			ConfirmedBall.setBorder(BorderFactory.createEmptyBorder());
+//			ConfirmedBall.setBounds(500 + ((i + 1) * 50), 150, 350, 80);
+//			
+//			ConfirmedBall.setVisible(true);
+//			pnlRight.add(ConfirmedBall);
+//		}
 		add(pnlGuide);
 		add(pnlLeft);
 		add(pnlRight);
 
 		setSize(1024, 800);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(false);
+		setResizable(true);
 		setVisible(true);
-
+		
 	}
 
-}
-
-public class LottoBall {
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		GenNumber gen = new GenNumber(m);
-		ImageFrame imageFrame = new ImageFrame(gen);
-		imageFrame.getContentPane().setLayout(null);
-	}
 }
 
 //	SpringLayout springLayout = new SpringLayout();
