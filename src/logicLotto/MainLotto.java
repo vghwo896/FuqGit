@@ -58,11 +58,8 @@ class MainLotto extends JFrame {
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
-
-					DecimalFormat df = new DecimalFormat("###,###");
-					String formatMoney = df.format(coin);
 					
-					walet.setText("잔액 : " + formatMoney);
+					walet.setText("잔액 : " + coin);
 				} else {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
 							JOptionPane.ERROR_MESSAGE);
