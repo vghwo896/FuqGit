@@ -113,7 +113,7 @@ public class GenNumber {
 				}
 			}
 			System.out.println();
-			System.out.println("맞힌 개수 " + count);
+			System.out.println("맞힌 개수 " + count); 
 		}
 		
 	}
