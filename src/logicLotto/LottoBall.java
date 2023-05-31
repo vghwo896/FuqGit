@@ -48,29 +48,21 @@ class ImageFrame extends JFrame {
 					int num = Integer.valueOf(oooo.getName());
 					
 					gn.SelectNumber(num);
+					
+					
 
 					SelectCount++;
 
 
-//					if (!(list.contains(i))) {
-//						if (list.size() < 6) {
-//							getList().add(i);
-//						} else {
-//							System.out.println("6개 이상 선택은 불가능합니다.");
-//						}
-//					} else {
-//						System.out.println("같은 숫자는 선택이 불가능 합니다.");
-//					}
-//				}
-					
-					
-
-				}
+						}
 
 				else {
 
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 
+					
+				
+					
 					SelectCount--;
 				}
 
