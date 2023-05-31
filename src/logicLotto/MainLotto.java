@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -57,6 +59,7 @@ class MainLotto extends JFrame {
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
+					
 					walet.setText("잔액 : " + coin);
 				} else {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
@@ -82,7 +85,8 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new chekWin(gen);
+				
+				new chekWin(gen,gen.m.winNumberGen());
 				dispose();
 				pnl.setVisible(false);
 			}
