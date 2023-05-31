@@ -10,10 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-class Lotto extends JFrame {
+class MainLotto extends JFrame {
 	int coin;
 
-	public Lotto() {
+	public MainLotto(GenNumber gen) {
 		// 배경
 		coin = 0;
 		JPanel pnl = new JPanel();
@@ -63,6 +63,15 @@ class Lotto extends JFrame {
 			}
 		});
 		//2번 버튼 액션
+		Mbtn2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ImageFrame imageFrame = new ImageFrame(gen);
+				imageFrame.getContentPane().setLayout(null);
+				setVisible(false);
+				}
+		});
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
@@ -73,10 +82,11 @@ class Lotto extends JFrame {
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
 	}
-}
-
-public class MainLotto {
 	public static void main(String[] args) {
-		new Lotto();
+		LottoManager m = new LottoManager();
+		GenNumber gen = new GenNumber(m);
+		new MainLotto(gen);
 	}
 }
+
+
