@@ -33,7 +33,7 @@ public class chekWin extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					chekWin frame = new chekWin();
+					chekWin frame = new chekWin(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,12 +45,19 @@ public class chekWin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public chekWin() {
+	public chekWin(GenNumber gen) {
+
+		// 프레임
+		setSize(1024, 800);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(null);
+		setVisible(true);
+		setResizable(false); // 창 사이즈 변경 불가
+		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
-
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 800);
@@ -114,35 +121,23 @@ public class chekWin extends JFrame {
 		sl_panel_1.putConstraint(SpringLayout.WEST, lblNewLabel_12, 75, SpringLayout.EAST, lblNewLabel_9);
 		panel_1.add(lblNewLabel_12);
 
+		// 금액 안내문 이미지 위치 설정
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel, 0, SpringLayout.NORTH, panel_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, panel, 120, SpringLayout.EAST, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel, 100, SpringLayout.EAST, panel_2);
 		panel_2.setToolTipText("1등 : 1억\r\n2등 : 5천\r\n3등 : 1천");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 316, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 47, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 30, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_2, -141, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, 216, SpringLayout.WEST, contentPane);
 		contentPane.add(panel_2);
 		SpringLayout sl_panel_2 = new SpringLayout();
 		panel_2.setLayout(sl_panel_2);
-
-		JLabel lblNewLabel_1 = new JLabel("1등 : 1억");
-		lblNewLabel_1.setToolTipText("1등 : 1억");
-		sl_panel_2.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 53, SpringLayout.NORTH, panel_2);
-		sl_panel_2.putConstraint(SpringLayout.WEST, lblNewLabel_1, 34, SpringLayout.WEST, panel_2);
-		sl_panel_2.putConstraint(SpringLayout.SOUTH, lblNewLabel_1, 84, SpringLayout.NORTH, panel_2);
-		sl_panel_2.putConstraint(SpringLayout.EAST, lblNewLabel_1, 132, SpringLayout.WEST, panel_2);
-		panel_2.add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("2등 : 5천");
-		sl_panel_2.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 56, SpringLayout.SOUTH, lblNewLabel_1);
-		sl_panel_2.putConstraint(SpringLayout.WEST, lblNewLabel_2, 0, SpringLayout.WEST, lblNewLabel_1);
-		panel_2.add(lblNewLabel_2);
-
-		JLabel lblNewLabel_3 = new JLabel("3등 : 1천");
-		sl_panel_2.putConstraint(SpringLayout.WEST, lblNewLabel_3, 0, SpringLayout.WEST, lblNewLabel_1);
-		sl_panel_2.putConstraint(SpringLayout.SOUTH, lblNewLabel_3, -49, SpringLayout.SOUTH, panel_2);
-		panel_2.add(lblNewLabel_3);
+		// 금액 안내문 이미지 삽입
+		JLabel imgLabel = new JLabel();
+		ImageIcon moneyView = new ImageIcon("로또당첨금액.png");
+		imgLabel.setIcon(moneyView);
+		panel_2.add(imgLabel);
 
 		JLabel lblNewLabel = new JLabel("당첨금액\r\n");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 57, SpringLayout.SOUTH, panel_2);
@@ -159,25 +154,26 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel);
 
+		// 홈버튼 이미지 삽입
 		JButton home = new JButton();
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		home.setPreferredSize(new Dimension(44, 44));
 		home.setBackground(new Color(255, 255, 255));
 		home.setIcon(icon);
-
+		// 홈버튼 위치설정
 		sl_contentPane.putConstraint(SpringLayout.WEST, home, 80, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -140, SpringLayout.NORTH, panel_2);
 		contentPane.add(home);
-		
-//		home.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				ImageFrame imageFrame = new ImageFrame();
-//				imageFrame.getContentPane().setLayout(null);
-//				setVisible(false);
-//			}
-//		});
 
+		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
+		home.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new MainLotto(gen);
+				dispose();
+				setVisible(false);
+			}
+		});
 	}
 }

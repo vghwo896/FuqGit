@@ -132,7 +132,9 @@ class ImageFrame extends JFrame {
 		setResizable(true);
 		setVisible(true);
 
+		
 	}
+	
 
 }
 
