@@ -136,21 +136,29 @@ public class chekWin extends JFrame {
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 
+		
+		
+		
+		
 		JPanel scrpnl = new JPanel();
 		scrpnl.setLayout(new BoxLayout(scrpnl, BoxLayout.Y_AXIS));
+		JPanel pnl2 = new JPanel();
+//		
+//		
+		JScrollBar scrollBar = new JScrollBar();
 
-		for (int i = 1; i <= gen.m.getLottoMap().keySet().size(); i++) {
-			JPanel pnl2 = new JPanel();
-			for (int j = 0; j < gen.m.getLottoMap().get(i).getNum().length; j++) {
-				int[] arr = gen.m.getLotto(i);
-				JLabel lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
+		JLabel lbl;
+		
+		for (int i = 1; i <= gen.m.getLottoMap().size(); i++) {
+			int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
+			for (int j = 0; j < 6; j++) {
+				lbl = new JLabel(gen.m.setIMage(arr[j]));
 				pnl2.add(lbl);
 			}
 			scrpnl.add(pnl2);
 		}
 
-		JScrollPane scrollBar = new JScrollPane();
-		scrollBar.add(scrpnl);
+		scrollBar.add(scrollBar);
 		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
@@ -159,6 +167,10 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel);
 
+		
+		
+		
+		
 		// 홈버튼 이미지 삽입
 		JButton home = new JButton();
 		ImageIcon icon = new ImageIcon("홈버튼.png");
