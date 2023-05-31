@@ -1,4 +1,4 @@
-package lottoUi;
+package logicLotto;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
