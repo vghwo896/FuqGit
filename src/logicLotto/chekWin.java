@@ -131,13 +131,16 @@ public class chekWin extends JFrame {
 		panel_2.add(imgLabel);
 
 		JLabel lblNewLabel = new JLabel("당첨금액\r\n");
+//		lblNewLabel.setBackground(Color.white);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 57, SpringLayout.SOUTH, panel_2);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel, -5, SpringLayout.SOUTH, contentPane);
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 
+//		JPanel pnl2 = new JPanel();
+//		pnl2.setBackground(Color.white);
+		
 		JScrollBar scrollBar = new JScrollBar();
-
 		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
