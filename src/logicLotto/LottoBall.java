@@ -36,12 +36,13 @@ class ImageFrame extends JFrame {
 		gn = gen;
 		this.coin = coin;
 
-		pnlGuide.setBounds(0, 0, 211, 761); // 설명란
+		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
+		
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
@@ -322,7 +323,6 @@ class ImageFrame extends JFrame {
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
-
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);

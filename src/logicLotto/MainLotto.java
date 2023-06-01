@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 class MainLotto extends JFrame {
 	int coin;
 
@@ -31,9 +30,10 @@ class MainLotto extends JFrame {
 		walet.setLocation(850, 72);
 		pnl.add(walet);
 
-		ImageIcon back = new ImageIcon("메인배경.png");
+		// 배경이미지삽입
+		ImageIcon back = new ImageIcon("메인배경1.png");
 		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 800);
+		lbl.setBounds(320, 200, 395, 273);
 		pnl.add(lbl);
 		add(pnl);
 
@@ -68,15 +68,16 @@ class MainLotto extends JFrame {
 		});
 
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
-
 		Mbtn2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
+				imageFrame.getContentPane().setLayout(null);
 				setVisible(false);
 			}
+
 		});
 
 //		3번 버튼 액션
@@ -84,39 +85,38 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				if(gen.m.getLottoMap().size()>=1) {
-				new chekWin(gen,gen.m.winNumberGen());
-				dispose();
-				pnl.setVisible(false);
-				}else {
-					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.",
-							JOptionPane.ERROR_MESSAGE);
+				new chekWin(gen, gen.m.winNumberGen());
+				if (gen.m.getLottoMap().size() >= 1) {
+					new chekWin(gen, gen.m.winNumberGen());
+					dispose();
+					pnl.setVisible(false);
+				} else {
+					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				}
-
 			}
 		});
-
-		// 버튼 위치
-		Mbtn1.setBounds(100, 500, 200, 150);
-		Mbtn2.setBounds(420, 500, 200, 150);
-		Mbtn3.setBounds(730, 500, 200, 150);
 
 		// 버튼 넣음
 		add(Mbtn1);
 		add(Mbtn2);
 		add(Mbtn3);
+		
+		// 버튼 위치
+		Mbtn1.setBounds(130, 550, 200, 100);
+		Mbtn2.setBounds(420, 550, 200, 100);
+		Mbtn3.setBounds(700, 550, 200, 100);
 
-		// 버튼색 변경
-		Mbtn1.setBackground(new Color(255, 255, 255));
-		Mbtn2.setBackground(new Color(255, 255, 255));
-		Mbtn3.setBackground(new Color(255, 255, 255));
+//		// 버튼색 변경
+//		Mbtn1.setBackground(new Color(255, 255, 255));
+//		Mbtn2.setBackground(new Color(255, 255, 255));
+//		Mbtn3.setBackground(new Color(255, 255, 255));
 
 //		// 버튼을 투명하게
 //		Mbtn1.setOpaque(false);
 //		Mbtn2.setOpaque(false);
 //		Mbtn3.setOpaque(false);
 
+<<<<<<< HEAD
 		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
@@ -131,6 +131,8 @@ class MainLotto extends JFrame {
 
 	public void setCoin(int coin) {
 		this.coin = coin;
+=======
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 	}
 
 	public static void main(String[] args) {
