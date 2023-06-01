@@ -30,7 +30,7 @@ class MainLotto extends JFrame {
 		walet.setLocation(850, 72);
 		pnl.add(walet);
 
-		// 배경이미지삽입
+		// 배경 이미지삽입
 		ImageIcon back = new ImageIcon("메인배경1.png");
 		JLabel lbl = new JLabel(back);
 		lbl.setBounds(320, 200, 395, 273);
@@ -45,11 +45,21 @@ class MainLotto extends JFrame {
 		setVisible(true);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-
+		
 		// 버튼
-		JButton Mbtn1 = new JButton("충전");
+		JButton Mbtn1 = new JButton("충전하기");
 		JButton Mbtn2 = new JButton("구매하기");
 		JButton Mbtn3 = new JButton("당첨확인");
+
+		// 버튼 넣음
+		add(Mbtn1);
+		add(Mbtn2);
+		add(Mbtn3);
+
+		// 버튼 위치
+		Mbtn1.setBounds(120, 550, 200, 100);
+		Mbtn2.setBounds(420, 550, 200, 100);
+		Mbtn3.setBounds(700, 550, 200, 100);
 
 		// 1번 버튼 액션
 		Mbtn1.addActionListener(new ActionListener() {
@@ -95,27 +105,6 @@ class MainLotto extends JFrame {
 				}
 			}
 		});
-
-		// 버튼 넣음
-		add(Mbtn1);
-		add(Mbtn2);
-		add(Mbtn3);
-		
-		// 버튼 위치
-		Mbtn1.setBounds(130, 550, 200, 100);
-		Mbtn2.setBounds(420, 550, 200, 100);
-		Mbtn3.setBounds(700, 550, 200, 100);
-
-//		// 버튼색 변경
-//		Mbtn1.setBackground(new Color(255, 255, 255));
-//		Mbtn2.setBackground(new Color(255, 255, 255));
-//		Mbtn3.setBackground(new Color(255, 255, 255));
-
-//		// 버튼을 투명하게
-//		Mbtn1.setOpaque(false);
-//		Mbtn2.setOpaque(false);
-//		Mbtn3.setOpaque(false);
-
 	}
 
 	public static void main(String[] args) {
