@@ -13,7 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 class MainLotto extends JFrame {
 	int coin;
 
@@ -68,22 +67,14 @@ class MainLotto extends JFrame {
 		});
 
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
-
 		Mbtn2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
-<<<<<<< HEAD
 				setVisible(false);
 			}
-=======
-
-				setVisible(false);
-				repaint();
-				}
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		});
 
 //		3번 버튼 액션
@@ -92,8 +83,7 @@ class MainLotto extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				
-				new chekWin(gen,gen.m.winNumberGen());
+				new chekWin(gen, gen.m.winNumberGen());
 				dispose();
 				pnl.setVisible(false);
 
