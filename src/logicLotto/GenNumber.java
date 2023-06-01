@@ -2,6 +2,7 @@ package logicLotto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -33,10 +34,18 @@ public class GenNumber {
 			} else {
 				System.out.println("6개 이상 선택은 불가능합니다.");
 			}
+			
 		} else {
-			System.out.println("같은 숫자는 선택이 불가능 합니다.");
-		}
+			System.out.println("같은 숫자는 선택이 불가능 합니다2.");
+				}
+			}
+	
+	// 선택한번호가 같으면 제거하는 메서드
+	public void removeInList(int i) {
+		list.remove(new Integer(i));
+		
 	}
+	
 	// 선택 확정 버튼에 들어갈 액션.
 
 	public int Confirmed(int key, Lotto lotto) {

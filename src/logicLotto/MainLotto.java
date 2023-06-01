@@ -73,7 +73,9 @@ class MainLotto extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ImageFrame imageFrame = new ImageFrame(gen, coin);
 				imageFrame.getContentPane().setLayout(null);
+				imageFrame.getContentPane().setLayout(null);
 				setVisible(false);
+				}
 			}
 		});
 
