@@ -16,8 +16,12 @@ import java.util.Map;
 class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
-	JButton bt_img;
 	ImageIcon img = new ImageIcon("홈버튼.png");
+	ImageIcon select = new ImageIcon("");
+	ImageIcon pay = new ImageIcon("pay.png");
+	ImageIcon deleteALl = new ImageIcon("");
+	ImageIcon overWrite = new ImageIcon("overWrite.png");
+
 
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
@@ -153,6 +157,7 @@ class ImageFrame extends JFrame {
 					chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(1));
 			}
 		});
 		edit1.setBounds(320, 157, 60, 25);
@@ -191,6 +196,7 @@ class ImageFrame extends JFrame {
 					chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(2));
 			}
 		});
 		edit2.setBounds(320, 217, 60, 25);
@@ -220,6 +226,7 @@ class ImageFrame extends JFrame {
 					chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(3));
 			}
 		});
 		edit3.setBounds(320, 277, 60, 25);
@@ -250,6 +257,7 @@ class ImageFrame extends JFrame {
 					chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(4));
 			}
 		});
 		pnlRight.add(edit4);
@@ -277,6 +285,7 @@ class ImageFrame extends JFrame {
 					chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(5));
 			}
 		});
 		edit5.setBounds(320, 397, 60, 25);
@@ -305,6 +314,7 @@ class ImageFrame extends JFrame {
 					chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 				}
 				gen.list.clear();
+				lm.getLottoMap().keySet().remove(new Integer(6));
 			}
 		});
 		edit6.setBounds(320, 457, 60, 25);
@@ -317,8 +327,8 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent s) {
-
 				if (key < 7) {
+
 					Warning6Lines.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
