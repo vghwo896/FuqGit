@@ -48,7 +48,6 @@ class ImageFrame extends JFrame {
 				JLabel oooo = (JLabel) e.getSource();
 				if (SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
-
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
 					if(gn.list.contains(new Integer(num))) {
@@ -236,6 +235,7 @@ class ImageFrame extends JFrame {
 				System.out.println(key);
 
 				key = lm.getLottoMap().size() + 1;
+				SelectCount=0;
 
 			}
 
