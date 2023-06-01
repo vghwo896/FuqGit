@@ -99,7 +99,7 @@ class MainLotto extends JFrame {
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
 					System.out.println(m.getLottoMap().size());
-					new chekWin(gen, gen.m.winNumberGen());
+					new ReCheckWin(gen, gen.m.winNumberGen());
 					dispose();
 					pnl.setVisible(false);
 				}

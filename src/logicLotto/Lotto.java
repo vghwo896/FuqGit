@@ -41,6 +41,7 @@ public class Lotto  {
 	public int setIndex(int index,int elem) {
 		return num[index]= elem;
 	}
+	
 
 	@Override
 	public int hashCode() {
