@@ -159,6 +159,16 @@ class MainLotto extends JFrame {
 		};
 
 		Mbtn3.addMouseListener(click3);
+
+		// 버튼 넣음
+	
+		add(Mbtn2);
+		add(Mbtn3);
+
+		// 버튼 위치
+		Mbtn2.setBounds(420, 600, 200, 100);
+		Mbtn3.setBounds(700, 600, 200, 100);
+
 	}
 
 	public static void main(String[] args) {
