@@ -30,9 +30,15 @@ class MainLotto extends JFrame {
 		walet.setLocation(850, 72);
 		pnl.add(walet);
 
-		ImageIcon back = new ImageIcon("메인배경.png");
+//		ImageIcon back = new ImageIcon("메인배경.png");
+//		JLabel lbl = new JLabel(back);
+//		lbl.setBounds(0, 0, 1024, 800);
+//		pnl.add(lbl);
+//		add(pnl);
+		
+		ImageIcon back = new ImageIcon("메인배경1.png");
 		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 800);
+		lbl.setBounds(320, 100, 395, 273);
 		pnl.add(lbl);
 		add(pnl);
 
@@ -76,7 +82,7 @@ class MainLotto extends JFrame {
 				imageFrame.getContentPane().setLayout(null);
 				setVisible(false);
 				}
-			}
+			
 		});
 
 //		3번 버튼 액션
