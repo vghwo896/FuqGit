@@ -421,6 +421,49 @@ class ImageFrame extends JFrame {
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
+		JButton deleteAll = new JButton("모두 지우기");
+		deleteAll.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+			int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+
+				if (delete == JOptionPane.CLOSED_OPTION) {
+				} else if (delete == JOptionPane.OK_OPTION) {
+					
+					JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+					lm.getLottoMap().clear();
+					key=1;
+					
+						for (int i = 0; i < 6; i++) {
+							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+					}
+				
+					
+
+				}
+		});
+
+		pnlRight.add(deleteAll);
+		deleteAll.setBounds(300, 550, 120, 45);
+
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
