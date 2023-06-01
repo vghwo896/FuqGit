@@ -17,11 +17,11 @@ class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
 	ImageIcon img = new ImageIcon("홈버튼.png");
-	ImageIcon select = new ImageIcon("");
-	ImageIcon pay = new ImageIcon("pay.png");
-	ImageIcon deleteALl = new ImageIcon("");
+	ImageIcon payy = new ImageIcon("pay.png");
+	ImageIcon buy = new ImageIcon("buy.png");
+	ImageIcon selectt = new ImageIcon("select.png");
+	ImageIcon deleteALL = new ImageIcon("deleteAll.png");
 	ImageIcon overWrite = new ImageIcon("overWrite.png");
-
 
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
@@ -146,7 +146,7 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
 		}
 
-		JButton edit1 = new JButton("수정");
+		JButton edit1 = new JButton(overWrite);
 		edit1.addActionListener(new ActionListener() {
 
 			@Override
@@ -184,7 +184,7 @@ class ImageFrame extends JFrame {
 			chooselbl2[i].setBounds(((i + 1) * 40), 210, 45, 45);
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
-		JButton edit2 = new JButton("수정");
+		JButton edit2 = new JButton(overWrite);
 		edit2.addActionListener(new ActionListener() {
 
 			@Override
@@ -213,7 +213,7 @@ class ImageFrame extends JFrame {
 			chooselbl3[i].setBounds(((i + 1) * 40), 270, 45, 45);
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
-		JButton edit3 = new JButton("수정");
+		JButton edit3 = new JButton(overWrite);
 		edit3.addActionListener(new ActionListener() {
 
 			@Override
@@ -242,7 +242,7 @@ class ImageFrame extends JFrame {
 			chooselbl4[i].setBounds(((i + 1) * 40), 330, 45, 45);
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
-		JButton edit4 = new JButton("수정");
+		JButton edit4 = new JButton(overWrite);
 		edit4.setBounds(320, 337, 60, 25);
 		edit4.addActionListener(new ActionListener() {
 
@@ -270,7 +270,7 @@ class ImageFrame extends JFrame {
 			chooselbl5[i].setBounds(((i + 1) * 40), 390, 45, 45);
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
-		JButton edit5 = new JButton("수정");
+		JButton edit5 = new JButton(overWrite);
 		edit5.addActionListener(new ActionListener() {
 
 			@Override
@@ -298,7 +298,7 @@ class ImageFrame extends JFrame {
 			chooselbl6[i].setBounds(((i + 1) * 40), 450, 45, 45);
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
-		JButton edit6 = new JButton("수정");
+		JButton edit6 = new JButton(overWrite);
 		edit6.addActionListener(new ActionListener() {
 
 			@Override
@@ -314,7 +314,7 @@ class ImageFrame extends JFrame {
 		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
 
-		JButton Select = new JButton("확정");
+		JButton Select = new JButton(selectt);
 		pnlLeft.add(Select);
 		Select.setBounds(130, 650, 120, 45);
 
@@ -397,7 +397,7 @@ class ImageFrame extends JFrame {
 
 		Select.addMouseListener(send);
 
-		JButton pay = new JButton("결제");
+		JButton pay = new JButton(payy);
 		pay.addActionListener(new ActionListener() {
 
 			@Override
@@ -426,7 +426,7 @@ class ImageFrame extends JFrame {
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
-		JButton deleteAll = new JButton("모두 지우기");
+		JButton deleteAll = new JButton(deleteALL);
 		deleteAll.addActionListener(new ActionListener() {
 
 			@Override
