@@ -482,6 +482,8 @@ class ImageFrame extends JFrame {
 				if (option == JOptionPane.YES_OPTION) {
 					System.out.println(lm.getCoin());
 					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+			
+					key = 1;
 					// 결제 확정에 대한 추가적인 로직을 작성하세요.
 					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
@@ -512,7 +514,7 @@ class ImageFrame extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
 				}
-
+				Warning6.setVisible(false);
 			}
 		});
 		pnlRight.add(pay);
