@@ -70,7 +70,7 @@ class MainLotto extends JFrame {
 							JOptionPane.ERROR_MESSAGE);
 				}
 				}catch(NumberFormatException n) {
-					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소",JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "취소하셨니다", "취소",JOptionPane.ERROR_MESSAGE);
 				}
 			}
 				

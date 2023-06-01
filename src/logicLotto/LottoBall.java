@@ -3,7 +3,7 @@ package logicLotto;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import jdk.nashorn.internal.scripts.JO;
+
 
 //import logicLotto.;
 import java.awt.*;
@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Map;
 
 class ImageFrame extends JFrame {
 
@@ -25,18 +24,16 @@ class ImageFrame extends JFrame {
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
-	int coin;
+	int coin = 0;
 
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
-	private final JLabel walet = new JLabel("잔액 : " + coin);
 
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		this.coin = coin;
 
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
@@ -54,6 +51,7 @@ class ImageFrame extends JFrame {
 		Warning6.setVisible(false);
 
 		
+		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
 		
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
@@ -122,7 +120,7 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 
 			// 번호 선택 버튼}
 			chooselbl1[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
@@ -131,7 +129,7 @@ class ImageFrame extends JFrame {
 			chooselbl1[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl1[i].setLayout(null);
 
-			chooselbl1[i].setBounds((i * 40), 150, 45, 45);
+			chooselbl1[i].setBounds(((i+1) * 40), 150, 45, 45);
 			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
 		}
 
@@ -160,14 +158,14 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl2[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl2[i].setName("" + i);
 			chooselbl2[i].setVisible(true);// 보이게
 			chooselbl2[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl2[i].setLayout(null);
 
-			chooselbl2[i].setBounds((i * 40), 210, 45, 45);
+			chooselbl2[i].setBounds(((i+1) * 40), 210, 45, 45);
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
 		JButton edit2 = new JButton("수정");
@@ -177,14 +175,14 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl3 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl3[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl3[i].setName("" + i);
 			chooselbl3[i].setVisible(true);// 보이게
 			chooselbl3[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl3[i].setLayout(null);
 
-			chooselbl3[i].setBounds((i * 40), 270, 45, 45);
+			chooselbl3[i].setBounds(((i+1) * 40), 270, 45, 45);
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
 		JButton edit3 = new JButton("수정");
@@ -194,14 +192,14 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl4 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl4[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl4[i].setName("" + i);
 			chooselbl4[i].setVisible(true);// 보이게
 			chooselbl4[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl4[i].setLayout(null);
 
-			chooselbl4[i].setBounds((i * 40), 330, 45, 45);
+			chooselbl4[i].setBounds(((i+1) * 40), 330, 45, 45);
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
 		JButton edit4 = new JButton("수정");
@@ -210,14 +208,14 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl5 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl5[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl5[i].setName("" + i);
 			chooselbl5[i].setVisible(true);// 보이게
 			chooselbl5[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl5[i].setLayout(null);
 
-			chooselbl5[i].setBounds((i * 40), 390, 45, 45);
+			chooselbl5[i].setBounds(((i+1) * 40), 390, 45, 45);
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
 		JButton edit5 = new JButton("수정");
@@ -226,14 +224,14 @@ class ImageFrame extends JFrame {
 
 		JLabel[] chooselbl6 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl6[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl6[i].setName("" + i);
 			chooselbl6[i].setVisible(true);// 보이게
 			chooselbl6[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl6[i].setLayout(null);
 
-			chooselbl6[i].setBounds((i * 40), 450, 45, 45);
+			chooselbl6[i].setBounds(((i+1) * 40), 450, 45, 45);
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
 		JButton edit6 = new JButton("수정");
@@ -253,10 +251,58 @@ class ImageFrame extends JFrame {
 
 				}
 				gn.Confirmed(key, new Lotto());
-				System.out.println(key);
-				System.out.println(lm.getLottoMap().get(key));
 
-				System.out.println(key);
+				System.out.println(lm.getLottoMap().get(key));
+				if(key==1) {
+					for (int i = 0; i < 6; i++) {
+						// 번호 선택 버튼}
+		
+						chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+		
+						}
+					}
+					if(key==2) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+			
+							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+			
+						}
+					}
+					if(key==3) {
+						for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+				
+								chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+				
+						}
+					}
+					if(key==4) {
+						for (int i = 0; i < 6; i++) {
+									// 번호 선택 버튼}
+					
+									chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+					
+						}
+					}
+						if(key==5) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+				
+								chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+				
+						}
+					}
+						if(key==6) {
+								for (int i = 0; i < 6; i++) {
+									// 번호 선택 버튼}
+					
+									chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+					
+						}
+								
+
+				}
 
 				key = lm.getLottoMap().size() + 1;
 				SelectCount = 0;
