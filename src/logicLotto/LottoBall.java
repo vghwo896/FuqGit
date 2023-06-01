@@ -51,14 +51,11 @@ class ImageFrame extends JFrame {
 
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
-					if(gn.list.contains(new Integer(num))) {
-//					gn.removeInList(new Integer(num)); 
-					}
 					++SelectCount;
+
 						}
 				else {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-//						--SelectCount;
 				}
 
 			}
@@ -124,16 +121,6 @@ class ImageFrame extends JFrame {
 				}
 		});
 		edit1.setBounds(320, 157, 60, 25);
-
-//      delete1.addActionListener(new ActionListener() {
-//         
-//         @Override
-//         public void actionPerformed(ActionEvent e) {
-//            gen.list.clear();
-//            gen.m.getLottoMap().put(, value)
-//            
-//         }
-//      });
 		pnlRight.add(edit1);
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
@@ -224,7 +211,7 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent s) {
+			public void mousePressed(MouseEvent s) {
 
 				for (int i = 1; i < 46; i++) {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
