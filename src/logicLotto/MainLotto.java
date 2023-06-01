@@ -38,7 +38,11 @@ class MainLotto extends JFrame {
 		walet.setSize(80, 20);
 		walet.setLocation(850, 72);
 		add(walet);
-
+		
+		JLabel hasLotto = new JLabel("구매한 로또의 개수 : "+ m.getPayedlottoMap().size());
+		hasLotto.setSize(200, 20);
+		hasLotto.setLocation(850, 100);
+		add(hasLotto);
 		// 배경이미지삽입
 		ImageIcon back = new ImageIcon("메인배경1.png");
 		JLabel lbl = new JLabel(back);
@@ -89,9 +93,15 @@ class MainLotto extends JFrame {
 		MouseAdapter click2 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				ImageFrame imageFrame = new ImageFrame(gen);
-				imageFrame.getContentPane().setLayout(null);
-				setVisible(false);
+				if(m.getPayedlottoMap().size()<30) {
+					System.out.println(m.getPayedlottoMap().size());
+					ImageFrame imageFrame = new ImageFrame(gen);
+					imageFrame.getContentPane().setLayout(null);
+					imageFrame.getContentPane().setLayout(null);
+					setVisible(false);
+					}else {
+						JOptionPane.showMessageDialog(null, "30개 이상은 불가능 합니다", "구매불가", JOptionPane.ERROR_MESSAGE);
+					}
 			}
 
 		};
