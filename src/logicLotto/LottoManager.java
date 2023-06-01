@@ -14,7 +14,7 @@ public class LottoManager {
 	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
-	int coin;
+	private int coin;
 	GenNumber gen;
 
 
@@ -102,6 +102,14 @@ public class LottoManager {
 	
 	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
 		this.ballMap = ballMap;
+	}
+
+	public int getCoin() {
+		return coin;
+	}
+
+	public void setCoin(int coin) {
+		this.coin = coin;
 	}
 	
 

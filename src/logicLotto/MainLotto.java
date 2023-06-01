@@ -14,11 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 class MainLotto extends JFrame {
-	int coin;
+
 
 	public MainLotto(GenNumber gen) {
 		// 배경
-		coin = 0;
+		LottoManager m = gen.m;
+		int coin = m.getCoin();
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -55,11 +56,14 @@ class MainLotto extends JFrame {
 		Mbtn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) { // 잔액 표기 라벨
+				int coin = m.getCoin();
 				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
 					walet.setText("잔액 : " + coin);
+					m.setCoin(coin);
+					System.out.println(m.getCoin());
 				} else {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
 							JOptionPane.ERROR_MESSAGE);
@@ -72,7 +76,7 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ImageFrame imageFrame = new ImageFrame(gen, coin);
+				ImageFrame imageFrame = new ImageFrame(gen);
 				imageFrame.getContentPane().setLayout(null);
 				imageFrame.getContentPane().setLayout(null);
 				setVisible(false);
@@ -115,25 +119,13 @@ class MainLotto extends JFrame {
 //		Mbtn1.setOpaque(false);
 //		Mbtn2.setOpaque(false);
 //		Mbtn3.setOpaque(false);
-
-<<<<<<< HEAD
 		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
-		
-		
+			
 	}
 
-	public int getCoin() {
-		return coin;
-	}
-
-	public void setCoin(int coin) {
-		this.coin = coin;
-=======
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
-	}
 
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();

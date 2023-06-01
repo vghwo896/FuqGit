@@ -31,10 +31,9 @@ class ImageFrame extends JFrame {
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
 
-	public ImageFrame(GenNumber gen, int coin) {
+	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		this.coin = coin;
 
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
@@ -283,14 +282,13 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
-			       	int walet = 0;
+			       	
 			        if (option == JOptionPane.YES_OPTION) {
-			        	System.out.println(coin);
+			        	System.out.println(lm.getCoin());
 			            JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
-			            if(coin >= 1000*lm.getLottoMap().size()) {
-			            	
-			            	walet =coin-1000*lm.getLottoMap().size();
+			            if(lm.getCoin()>= 1000*lm.getLottoMap().size()) {
+			            	lm.setCoin(lm.getCoin()-1000*lm.getLottoMap().size());
 			            	lm.payedLotto(lm.getLottoMap());
 			            	
 			            	
