@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -135,9 +136,9 @@ public class ReCheckWin extends JFrame {
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
-		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 220, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 6, SpringLayout.EAST, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_2, -538, SpringLayout.SOUTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -116, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
 		contentPane.add(panel_2);
 
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
@@ -165,27 +166,28 @@ public class ReCheckWin extends JFrame {
 		panel_2.setLayout(gl_panel_2);
 		
 		
+		
 		JPanel print = new JPanel();
-//		print.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-		JScrollPane scrollPane = new JScrollPane(print);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, print, 31, SpringLayout.SOUTH, panel_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, print, 195, SpringLayout.EAST, label);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, print, 477, SpringLayout.SOUTH, panel_2);
-		sl_contentPane.putConstraint(SpringLayout.EAST, print, 481, SpringLayout.EAST, label);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, print, 6, SpringLayout.SOUTH, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.WEST, print, 6, SpringLayout.EAST, label);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, print, 0, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.EAST, print, -5, SpringLayout.EAST, panel);
 		contentPane.add(print);
-
-		JLabel lbltest;
+		
+		
+		JLabel lbltest = new JLabel();
 		
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
 			for (int j = 0; j < 6; j++) {
 				int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
 				lbltest = new JLabel(new ImageIcon(arr[j]+".png"));
+				lbltest.setLayout(new GridLayout(1, 6));
 				print.add(lbltest);
 			}
-			lbltest = new JLabel("-----------------------------------------------------------------------------------------");
-			print.add(lbltest);
+			print.add(print);
 		}
-
+		
+		
 		
 		btnNewButton.addActionListener(new ActionListener() {
 

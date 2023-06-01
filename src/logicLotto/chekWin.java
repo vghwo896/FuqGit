@@ -154,7 +154,7 @@ public class chekWin extends JFrame {
 //		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -98, SpringLayout.EAST, contentPane);
 //		contentPane.add(scrollPane);
 		
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 0, SpringLayout.NORTH, panel_2);
 		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 0, SpringLayout.WEST, panel_1);
