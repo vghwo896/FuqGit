@@ -419,6 +419,24 @@ class ImageFrame extends JFrame {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
 						walet.setText("잔액 : " + lm.getCoin());
 						lm.payedLotto(lm.getLottoMap());
+						for (int i = 0; i < 6; i++) {
+							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
 					} else {
 						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 					}
