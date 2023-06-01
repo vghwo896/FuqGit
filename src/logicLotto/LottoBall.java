@@ -53,8 +53,6 @@ class ImageFrame extends JFrame {
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
 
-		
-		
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
 		walet.setBounds(250, 60, 236, 34);
@@ -275,22 +273,22 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				 int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
-			       	
-			        if (option == JOptionPane.YES_OPTION) {
-			        	System.out.println(lm.getCoin());
-			            JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
-			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
-			            if(lm.getCoin()>= 1000*lm.getLottoMap().size()) {
-			            	lm.setCoin(lm.getCoin()-1000*lm.getLottoMap().size());
-			            	lm.payedLotto(lm.getLottoMap());		            				            	
-			            }else {
-			            	JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
-			            }
-			            
-			        } else {
-			            JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
-			        }
+				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
+
+				if (option == JOptionPane.YES_OPTION) {
+					System.out.println(lm.getCoin());
+					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
+						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
+						lm.payedLotto(lm.getLottoMap());
+					} else {
+						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+				}
 
 			}
 		});
@@ -340,10 +338,28 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-//				if()
-				new MainLotto(gen);
-				dispose();
-				setVisible(false);
+//				
+
+				if (lm.getLottoMap().size() > 0) {
+					int result = JOptionPane.showConfirmDialog(null,
+							"결제 되지 않은 로또가" + lm.getLottoMap().size() + " 개 있습니다." + "정말 나가시겠습니까?", "결제 안내",
+							JOptionPane.YES_NO_OPTION);
+
+					if (result == JOptionPane.CLOSED_OPTION) {
+					} else if (result == JOptionPane.OK_OPTION) {
+						JOptionPane.showMessageDialog(null, "구매가 취소되었습니다.");
+						lm.getLottoMap().clear();
+						new MainLotto(gen);
+						dispose();
+						setVisible(false);
+					} else if (result == JOptionPane.CANCEL_OPTION) {
+					}
+
+				} else {
+					new MainLotto(gen);
+					dispose();
+					setVisible(false);
+				}
 			}
 		});
 
