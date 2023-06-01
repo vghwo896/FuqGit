@@ -46,19 +46,19 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
-				if (SelectCount < 6) {
-					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
+				int num = Integer.valueOf(oooo.getName());
 
-					int num = Integer.valueOf(oooo.getName());
+				if (!gn.list.contains(new Integer(num))&&SelectCount<6) {
+					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
+					System.out.println("♥");
 					gn.SelectNumber(num);
-					if(gn.list.contains(new Integer(num))) {
-//					gn.removeInList(new Integer(num)); 
-					}
-					++SelectCount;
-						}
-				else {
+					SelectCount++;
+
+				} else if (gn.list.contains(new Integer(num))) {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-//						--SelectCount;
+					gn.removeInList(new Integer(num));
+					SelectCount--;
+					System.out.println("♡");
 				}
 
 			}
@@ -96,12 +96,11 @@ class ImageFrame extends JFrame {
 			lbl[i].addMouseListener(click);
 
 		}
-		
-		
+
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
 
 		for (int i = 1; i < 7; i++) {
-			
+
 			// 번호 선택 버튼}
 			chooselbl1[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl1[i].setName("" + i);
@@ -118,10 +117,10 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-					key = 1;
-					gen.list.clear();
-				}
+
+				key = 1;
+				gen.list.clear();
+			}
 		});
 		edit1.setBounds(320, 157, 60, 25);
 
@@ -236,7 +235,7 @@ class ImageFrame extends JFrame {
 				System.out.println(key);
 
 				key = lm.getLottoMap().size() + 1;
-				SelectCount=0;
+				SelectCount = 0;
 
 			}
 
@@ -288,7 +287,7 @@ class ImageFrame extends JFrame {
 		home.setBounds(10, 10, 40, 40);
 		pnlhome.add(home);
 		add(pnlhome);
-		
+
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
 		home.addActionListener(new ActionListener() {
 
