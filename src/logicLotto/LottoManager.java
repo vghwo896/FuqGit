@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
+	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
 	GenNumber gen;
@@ -45,6 +46,23 @@ public class LottoManager {
 		return winNumber;
 		
 		}
+	//결제를 누르면 선택한 로또를 결제된 로또로 옮기기
+		// 결제 버튼에 추가.
+		public void payedLotto(Map<Integer, Lotto> lottoMap) {
+			if(payedlottoMap.size()<=6) {
+				for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
+					int key = entry.getKey();
+					Lotto lotto = entry.getValue();
+					payedlottoMap.put(key, lotto);
+				}}
+				else {
+					for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
+						int key = payedlottoMap.size()+1;
+						Lotto lotto = entry.getValue();
+						payedlottoMap.put(key, lotto);
+					}
+				}
+			}
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
