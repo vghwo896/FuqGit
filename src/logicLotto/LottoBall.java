@@ -317,7 +317,7 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent s) {
-
+				System.out.println(key);
 				if (lm.getLottoMap().size() < 6) {
 					Warning6Lines.setVisible(false);
 
