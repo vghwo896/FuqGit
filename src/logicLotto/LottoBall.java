@@ -3,12 +3,15 @@ package logicLotto;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+import jdk.nashorn.internal.scripts.JO;
+
 //import logicLotto.;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Map;
 
 class ImageFrame extends JFrame {
 
@@ -22,8 +25,7 @@ class ImageFrame extends JFrame {
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
-
-	int j;
+	int coin;
 
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
@@ -32,8 +34,9 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen, int coin) {
 		lm = gen.m;
 		gn = gen;
+		this.coin = coin;
 
-		pnlGuide.setBounds(0, 0, 211, 761); // 설명란
+		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
 		pnlLeft.setLayout(null);
@@ -48,7 +51,7 @@ class ImageFrame extends JFrame {
 				JLabel oooo = (JLabel) e.getSource();
 				int num = Integer.valueOf(oooo.getName());
 
-				if (!gn.list.contains(new Integer(num))&&SelectCount<6) {
+				if (!gn.list.contains(new Integer(num)) && SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 					System.out.println("♥");
 					gn.SelectNumber(num);
@@ -232,6 +235,7 @@ class ImageFrame extends JFrame {
 				gn.Confirmed(key, new Lotto());
 				System.out.println(key);
 				System.out.println(lm.getLottoMap().get(key));
+
 				System.out.println(key);
 
 				key = lm.getLottoMap().size() + 1;
@@ -246,6 +250,31 @@ class ImageFrame extends JFrame {
 		Select.addMouseListener(send);
 
 		JButton pay = new JButton("결제");
+		pay.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
+				int walet = 0;
+				if (option == JOptionPane.YES_OPTION) {
+					System.out.println(coin);
+					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+					if (coin >= 1000 * lm.getLottoMap().size()) {
+
+						walet = coin - 1000 * lm.getLottoMap().size();
+						lm.payedLotto(lm.getLottoMap());
+
+					} else {
+						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+				}
+
+			}
+		});
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
@@ -263,7 +292,6 @@ class ImageFrame extends JFrame {
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
-
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
