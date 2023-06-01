@@ -51,13 +51,11 @@ class ImageFrame extends JFrame {
 
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
-					if(gn.list.contains(new Integer(num))) {
-//					gn.removeInList(new Integer(num)); 
-					}
+	
+//						oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 					++SelectCount;
 						}
 				else {
-					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 						--SelectCount;
 				}
 
