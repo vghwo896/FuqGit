@@ -62,31 +62,8 @@ class MainLotto extends JFrame {
 
 		// 1번 버튼 액션
 
-		MouseAdapter click1 = new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				int coin = m.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
-				try {
-					int i = Integer.valueOf(s);
-					if (i >= 1000&&i<=30000&&coin<=30000) {
-						coin = coin + i;
-						walet.setText("잔액 : " + coin);
-						m.setCoin(coin);
-						System.out.println(m.getCoin());
-					} else {
-						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
-								JOptionPane.ERROR_MESSAGE);
-					}
-				} catch (NumberFormatException n) {
-					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
-				}
+	
 
-			}
-
-		};
-
-		Mbtn1.addMouseListener(click1);
 
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
 
@@ -129,12 +106,11 @@ class MainLotto extends JFrame {
 		Mbtn3.addMouseListener(click3);
 
 		// 버튼 넣음
-		add(Mbtn1);
+	
 		add(Mbtn2);
 		add(Mbtn3);
 
 		// 버튼 위치
-		Mbtn1.setBounds(130, 600, 200, 100);
 		Mbtn2.setBounds(420, 600, 200, 100);
 		Mbtn3.setBounds(700, 600, 200, 100);
 

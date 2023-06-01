@@ -52,25 +52,52 @@ class ImageFrame extends JFrame {
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
-		Warning6.setHorizontalAlignment(SwingConstants.CENTER);
-		Warning6.setFont(new Font("굴림체", Font.BOLD, 12));
 		Warning6.setBounds(92, 60, 236, 34);
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
 
 		Warning6Lines.setBounds(80, 605, 308, 15);
-		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
-		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
 		pnlRight.add(Warning6Lines);
 		Warning6Lines.setVisible(false);
 
+		JButton ChargeMoney = new JButton("충전하기");
+		ChargeMoney.setBounds(320, 20, 100, 50);
+		pnlRight.add(ChargeMoney);
+		ChargeMoney.setVisible(true);
+	
 		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
-		walet.setBounds(250, 60, 236, 34);
+		walet.setBounds(250, 80, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
+
+		MouseAdapter charge = new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				int coin = lm.getCoin();
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				try {
+					int i = Integer.valueOf(s);
+					if (i >= 1000 && i <= 30000 && coin <= 30000) {
+						coin = coin + i;
+						walet.setText("잔액 : " + coin);
+						lm.setCoin(coin);
+						System.out.println(lm.getCoin());
+					} else {
+						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				} catch (NumberFormatException n) {
+					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+		};
+		
+		ChargeMoney.addMouseListener(charge);
 
 		MouseAdapter click = new MouseAdapter() {
 			@Override

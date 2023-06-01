@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class Test extends JFrame {
 
@@ -16,6 +17,7 @@ public class Test extends JFrame {
 	private final JPanel panel = new JPanel();
 	private final JPanel panel_1 = new JPanel();
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JButton ChargeMoney = new JButton("충전하기");
 
 	/**
 	 * Launch the application.
@@ -64,5 +66,8 @@ public class Test extends JFrame {
 		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
 		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
 		panel_2.add(Warning6Lines);
+		ChargeMoney.setBounds(535, 10, 97, 23);
+		
+		panel_2.add(ChargeMoney);
 	}
 }
