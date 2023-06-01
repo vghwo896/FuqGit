@@ -85,10 +85,14 @@ class MainLotto extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				
+				if(gen.m.getLottoMap().size()>=1) {
 				new chekWin(gen,gen.m.winNumberGen());
 				dispose();
 				pnl.setVisible(false);
+				}else {
+					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.",
+							JOptionPane.ERROR_MESSAGE);
+				}
 
 			}
 		});
