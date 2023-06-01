@@ -119,6 +119,14 @@ public class LottoManager {
 	public void setPayedlottoMap(Map<Integer, Lotto> payedlottoMap) {
 		this.payedlottoMap = payedlottoMap;
 	}
+
+	public int[] getWinNumber() {
+		return winNumber;
+	}
+
+	public void setWinNumber(int[] winNumber) {
+		this.winNumber = winNumber;
+	}
 	
 
 }
