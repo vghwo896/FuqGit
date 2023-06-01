@@ -53,7 +53,6 @@ class ImageFrame extends JFrame {
 
 				if (!gn.list.contains(new Integer(num)) && SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
-					System.out.println("♥");
 					gn.SelectNumber(num);
 					SelectCount++;
 
@@ -61,7 +60,7 @@ class ImageFrame extends JFrame {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 					gn.removeInList(new Integer(num));
 					SelectCount--;
-					System.out.println("♡");
+	
 				}
 
 			}

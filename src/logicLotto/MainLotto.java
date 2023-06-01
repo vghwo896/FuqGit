@@ -116,23 +116,13 @@ class MainLotto extends JFrame {
 //		Mbtn2.setOpaque(false);
 //		Mbtn3.setOpaque(false);
 
-<<<<<<< HEAD
+
 		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
 		
 		
-	}
-
-	public int getCoin() {
-		return coin;
-	}
-
-	public void setCoin(int coin) {
-		this.coin = coin;
-=======
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 	}
 
 	public static void main(String[] args) {
