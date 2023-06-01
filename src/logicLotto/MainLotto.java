@@ -119,13 +119,16 @@ class MainLotto extends JFrame {
 //		Mbtn1.setOpaque(false);
 //		Mbtn2.setOpaque(false);
 //		Mbtn3.setOpaque(false);
+//		Mbtn3.setOpaque(false);
+
+
+
 		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
 			
 	}
-
 
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
