@@ -261,10 +261,7 @@ class ImageFrame extends JFrame {
 			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
 			            if(lm.getCoin()>= 1000*lm.getLottoMap().size()) {
 			            	lm.setCoin(lm.getCoin()-1000*lm.getLottoMap().size());
-			            	lm.payedLotto(lm.getLottoMap());
-			            	
-			            	
-			            	
+			            	lm.payedLotto(lm.getLottoMap());		            				            	
 			            }else {
 			            	JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 			            }
@@ -321,6 +318,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+//				if()
 				new MainLotto(gen);
 				dispose();
 				setVisible(false);

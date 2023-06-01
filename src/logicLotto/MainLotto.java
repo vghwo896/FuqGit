@@ -57,7 +57,8 @@ class MainLotto extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) { // 잔액 표기 라벨
 				int coin = m.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");				
+				try {
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
@@ -68,7 +69,11 @@ class MainLotto extends JFrame {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
 							JOptionPane.ERROR_MESSAGE);
 				}
+				}catch(NumberFormatException n) {
+					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소",JOptionPane.ERROR_MESSAGE);
+				}
 			}
+				
 		});
 
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
@@ -89,13 +94,14 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new chekWin(gen, gen.m.winNumberGen());
-				if (gen.m.getLottoMap().size() >= 1) {
+				if (gen.m.getLottoMap().size() == 0) {
+					System.out.println(m.getLottoMap().size());
+					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
+				} else {
+					System.out.println(m.getLottoMap().size());
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					pnl.setVisible(false);
-				} else {
-					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
