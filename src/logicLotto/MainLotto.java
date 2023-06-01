@@ -69,13 +69,13 @@ class MainLotto extends JFrame {
 				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
 				try {
 					int i = Integer.valueOf(s);
-					if (i >= 1000) {
+					if (i >= 1000&&i<=30000&&coin<=30000) {
 						coin = coin + i;
 						walet.setText("잔액 : " + coin);
 						m.setCoin(coin);
 						System.out.println(m.getCoin());
 					} else {
-						JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException n) {
