@@ -51,14 +51,11 @@ class ImageFrame extends JFrame {
 
 					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
-					if(gn.list.contains(new Integer(num))) {
-//					gn.removeInList(new Integer(num)); 
-					}
 					++SelectCount;
+
 						}
 				else {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-//						--SelectCount;
 				}
 
 			}
@@ -114,26 +111,16 @@ class ImageFrame extends JFrame {
 		}
 
 		JButton edit1 = new JButton("수정");
-		edit1.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-					key = 1;
-					gen.list.clear();
-				}
-		});
+			edit1.addActionListener(new ActionListener() {
+	
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+						key = 1;
+						gen.list.clear();
+					}
+			});
 		edit1.setBounds(320, 157, 60, 25);
-
-//      delete1.addActionListener(new ActionListener() {
-//         
-//         @Override
-//         public void actionPerformed(ActionEvent e) {
-//            gen.list.clear();
-//            gen.m.getLottoMap().put(, value)
-//            
-//         }
-//      });
 		pnlRight.add(edit1);
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
@@ -149,6 +136,15 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
 		JButton edit2 = new JButton("수정");
+			edit2.addActionListener(new ActionListener() {
+	
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+						key = 2;
+						gen.list.clear();
+					}
+			});
 		edit2.setBounds(320, 217, 60, 25);
 
 		pnlRight.add(edit2);
@@ -166,8 +162,17 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
 		JButton edit3 = new JButton("수정");
-		edit3.setBounds(320, 277, 60, 25);
 
+			edit3.addActionListener(new ActionListener() {
+	
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+						key = 3;
+						gen.list.clear();
+					}
+			});
+			edit3.setBounds(320, 277, 60, 25);
 		pnlRight.add(edit3);
 
 		JLabel[] chooselbl4 = new JLabel[7]; // 번호 선택 버튼
@@ -183,6 +188,15 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
 		JButton edit4 = new JButton("수정");
+			edit4.addActionListener(new ActionListener() {
+	
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+						key = 4;
+						gen.list.clear();
+					}
+			});
 		edit4.setBounds(320, 337, 60, 25);
 		pnlRight.add(edit4);
 
@@ -199,6 +213,15 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
 		JButton edit5 = new JButton("수정");
+			edit5.addActionListener(new ActionListener() {
+	
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+						key = 5;
+						gen.list.clear();
+					}
+			});
 		edit5.setBounds(320, 397, 60, 25);
 		pnlRight.add(edit5);
 
@@ -215,6 +238,15 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
 		JButton edit6 = new JButton("수정");
+				edit6.addActionListener(new ActionListener() {
+		
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+							key = 6;
+							gen.list.clear();
+						}
+				});
 		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
 
@@ -224,18 +256,17 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent s) {
+			public void mousePressed(MouseEvent s) {
 
 				for (int i = 1; i < 46; i++) {
 					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 				}
 				gn.Confirmed(key, new Lotto());
-				System.out.println(key);
 				System.out.println(lm.getLottoMap().get(key));
 				System.out.println(key);
-
 				key = lm.getLottoMap().size() + 1;
+				System.out.println(key);
 
 			}
 
