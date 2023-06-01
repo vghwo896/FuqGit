@@ -11,17 +11,19 @@ import javax.swing.JLabel;
 
 public class LottoManager {
 	private Map<Integer, Lotto> lottoMap;
+	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
+	private int coin;
 	GenNumber gen;
 
 
 	public LottoManager() {
+		payedlottoMap = new HashMap<>();
 		ballMap = new HashMap<>();
 		setImage();
 		lottoMap = new HashMap<>();
 		winNumberGen();
-		lottoMap.put(1, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다
@@ -45,6 +47,27 @@ public class LottoManager {
 		return winNumber;
 		
 		}
+	// map 지우는 메서드
+	
+	public void removeMap() {
+		lottoMap.clear();
+	}
+	public void removeValue(int i) {
+		lottoMap.remove(new Integer(i));
+	}
+	//결제를 누르면 선택한 로또를 결제된 로또로 옮기기
+		// 결제 버튼에 추가.
+		public void payedLotto(Map<Integer, Lotto> lottoMap) {
+
+					for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
+						int key = payedlottoMap.size()+1;
+						Lotto lotto = entry.getValue();
+						payedlottoMap.put(key, lotto);
+						System.out.println(payedlottoMap.keySet());
+					
+				}
+				lottoMap.clear();
+			}
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
@@ -83,5 +106,30 @@ public class LottoManager {
 	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
 		this.ballMap = ballMap;
 	}
+
+	public int getCoin() {
+		return coin;
+	}
+
+	public void setCoin(int coin) {
+		this.coin = coin;
+	}
+
+	public Map<Integer, Lotto> getPayedlottoMap() {
+		return payedlottoMap;
+	}
+
+	public void setPayedlottoMap(Map<Integer, Lotto> payedlottoMap) {
+		this.payedlottoMap = payedlottoMap;
+	}
+
+	public int[] getWinNumber() {
+		return winNumber;
+	}
+
+	public void setWinNumber(int[] winNumber) {
+		this.winNumber = winNumber;
+	}
+	
 
 }
