@@ -2,9 +2,6 @@ package logicLotto;
 
 import javax.swing.*;
 
-
-
-
 //import logicLotto.;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -17,12 +14,12 @@ class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
 	ImageIcon img = new ImageIcon("홈버튼.png");
-	ImageIcon select = new ImageIcon("");
-	ImageIcon pay = new ImageIcon("pay.png");
-	ImageIcon deleteALl = new ImageIcon("");
+	ImageIcon payy = new ImageIcon("pay.png");
+	ImageIcon buy = new ImageIcon("buy.png");
+	ImageIcon selectt = new ImageIcon("select.png");
+	ImageIcon deleteALL = new ImageIcon("deleteAll.png");
 	ImageIcon overWrite = new ImageIcon("overWrite.png");
-
-
+	ImageIcon chargee = new ImageIcon("charge.png");
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
@@ -42,9 +39,8 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
+		this.coin = coin;
 
-		// 충전버튼
-		JButton Mbtn1 = new JButton("충전");
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
@@ -54,25 +50,52 @@ class ImageFrame extends JFrame {
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
-		Warning6.setHorizontalAlignment(SwingConstants.CENTER);
-		Warning6.setFont(new Font("굴림체", Font.BOLD, 12));
 		Warning6.setBounds(92, 60, 236, 34);
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
 
 		Warning6Lines.setBounds(80, 605, 308, 15);
-		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
-		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
 		pnlRight.add(Warning6Lines);
 		Warning6Lines.setVisible(false);
 
+		JButton ChargeMoney = new JButton(chargee);
+		ChargeMoney.setBounds(320, 20, 100, 50);
+		pnlRight.add(ChargeMoney);
+		ChargeMoney.setVisible(true);
+	
 		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
-		walet.setBounds(250, 60, 236, 34);
+		walet.setBounds(250, 80, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
+
+		MouseAdapter charge = new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				int coin = lm.getCoin();
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				try {
+					int i = Integer.valueOf(s);
+					if (i >= 1000 && i <= 30000 && coin <= 30000) {
+						coin = coin + i;
+						walet.setText("잔액 : " + coin);
+						lm.setCoin(coin);
+						System.out.println(lm.getCoin());
+					} else {
+						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				} catch (NumberFormatException n) {
+					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
+				}
+
+			}
+
+		};
+		
+		ChargeMoney.addMouseListener(charge);
 
 		MouseAdapter click1 = new MouseAdapter() {
 			@Override
@@ -98,8 +121,7 @@ class ImageFrame extends JFrame {
 
 		};
 
-		Mbtn1.addMouseListener(click1);
-
+	
 		MouseAdapter click = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -174,7 +196,7 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
 		}
 
-		JButton edit1 = new JButton("수정");
+		JButton edit1 = new JButton(overWrite);
 		edit1.addActionListener(new ActionListener() {
 
 			@Override
@@ -207,7 +229,7 @@ class ImageFrame extends JFrame {
 			chooselbl2[i].setBounds(((i + 1) * 40), 210, 45, 45);
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
-		JButton edit2 = new JButton("수정");
+		JButton edit2 = new JButton(overWrite);
 		edit2.addActionListener(new ActionListener() {
 
 			@Override
@@ -241,7 +263,7 @@ class ImageFrame extends JFrame {
 			chooselbl3[i].setBounds(((i + 1) * 40), 270, 45, 45);
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
-		JButton edit3 = new JButton("수정");
+		JButton edit3 = new JButton(overWrite);
 		edit3.addActionListener(new ActionListener() {
 
 			@Override
@@ -275,7 +297,7 @@ class ImageFrame extends JFrame {
 			chooselbl4[i].setBounds(((i + 1) * 40), 330, 45, 45);
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
-		JButton edit4 = new JButton("수정");
+		JButton edit4 = new JButton(overWrite);
 		edit4.setBounds(320, 337, 60, 25);
 		edit4.addActionListener(new ActionListener() {
 
@@ -308,7 +330,7 @@ class ImageFrame extends JFrame {
 			chooselbl5[i].setBounds(((i + 1) * 40), 390, 45, 45);
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
-		JButton edit5 = new JButton("수정");
+		JButton edit5 = new JButton(overWrite);
 		edit5.addActionListener(new ActionListener() {
 
 			@Override
@@ -341,7 +363,7 @@ class ImageFrame extends JFrame {
 			chooselbl6[i].setBounds(((i + 1) * 40), 450, 45, 45);
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
-		JButton edit6 = new JButton("수정");
+		JButton edit6 = new JButton(overWrite);
 		edit6.addActionListener(new ActionListener() {
 
 			@Override
@@ -363,7 +385,7 @@ class ImageFrame extends JFrame {
 		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
 
-		JButton Select = new JButton("확정");
+		JButton Select = new JButton(selectt);
 		pnlLeft.add(Select);
 		Select.setBounds(130, 650, 120, 45);
 
@@ -449,7 +471,7 @@ class ImageFrame extends JFrame {
 
 		Select.addMouseListener(send);
 
-		JButton pay = new JButton("결제");
+		JButton pay = new JButton(payy);
 		pay.addActionListener(new ActionListener() {
 
 			@Override
@@ -465,6 +487,24 @@ class ImageFrame extends JFrame {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
 						walet.setText("잔액 : " + lm.getCoin());
 						lm.payedLotto(lm.getLottoMap());
+						for (int i = 0; i < 6; i++) {
+							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
 					} else {
 						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 					}
@@ -478,7 +518,7 @@ class ImageFrame extends JFrame {
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
-		JButton deleteAll = new JButton("모두 지우기");
+		JButton deleteAll = new JButton(deleteALL);
 		deleteAll.addActionListener(new ActionListener() {
 
 			@Override
