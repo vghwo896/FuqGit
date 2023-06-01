@@ -35,9 +35,7 @@ public class GenNumber {
 				System.out.println("6개 이상 선택은 불가능합니다.");
 			}
 			
-		} else {
-			System.out.println("같은 숫자는 선택이 불가능 합니다2.");
-				}
+		} 
 			}
 	
 	// 선택한번호가 같으면 제거하는 메서드

@@ -30,6 +30,8 @@ class ImageFrame extends JFrame {
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
+	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JLabel walet = new JLabel("잔액 : " + coin);
 
 	public ImageFrame(GenNumber gen, int coin) {
 		lm = gen.m;
@@ -45,6 +47,20 @@ class ImageFrame extends JFrame {
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
+		Warning6.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6.setFont(new Font("굴림체", Font.BOLD, 12));
+		Warning6.setBounds(92, 60, 236, 34);
+		pnlLeft.add(Warning6);
+		Warning6.setVisible(false);
+
+		
+		
+		walet.setHorizontalAlignment(SwingConstants.CENTER);
+		walet.setFont(new Font("굴림체", Font.BOLD, 12));
+		walet.setBounds(250, 60, 236, 34);
+		pnlRight.add(walet);
+		walet.setVisible(true);
+
 		MouseAdapter click = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -55,12 +71,17 @@ class ImageFrame extends JFrame {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 					gn.SelectNumber(num);
 					SelectCount++;
+				}
+
+				else if (!gn.list.contains(new Integer(num)) && SelectCount == 6) {
+					Warning6.setVisible(true);
 
 				} else if (gn.list.contains(new Integer(num))) {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
 					gn.removeInList(new Integer(num));
+					Warning6.setVisible(false);
 					SelectCount--;
-	
+
 				}
 
 			}

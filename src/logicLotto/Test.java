@@ -6,12 +6,16 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Test extends JFrame {
 
 	private JPanel contentPane;
 	private final JPanel panel = new JPanel();
 	private final JPanel panel_1 = new JPanel();
+	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
 
 	/**
 	 * Launch the application.
@@ -43,6 +47,12 @@ public class Test extends JFrame {
 		contentPane.add(panel);
 		panel_1.setBounds(209, 0, 412, 761);
 		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		Warning6.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6.setFont(new Font("굴림체", Font.BOLD, 12));
+		Warning6.setBounds(92, 60, 236, 34);
+		
+		panel_1.add(Warning6);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(620, 0, 644, 761);
