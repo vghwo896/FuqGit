@@ -9,10 +9,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
@@ -164,6 +166,8 @@ public class ReCheckWin extends JFrame {
 		
 		
 		JPanel print = new JPanel();
+//		print.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		JScrollPane scrollPane = new JScrollPane(print);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, print, 31, SpringLayout.SOUTH, panel_2);
 		sl_contentPane.putConstraint(SpringLayout.WEST, print, 195, SpringLayout.EAST, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, print, 477, SpringLayout.SOUTH, panel_2);
@@ -172,18 +176,16 @@ public class ReCheckWin extends JFrame {
 
 		JLabel lbltest;
 		
-		
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
 			for (int j = 0; j < 6; j++) {
 				int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
 				lbltest = new JLabel(new ImageIcon(arr[j]+".png"));
 				print.add(lbltest);
 			}
-			lbltest = new JLabel("                                                                                    ");
+			lbltest = new JLabel("-----------------------------------------------------------------------------------------");
 			print.add(lbltest);
 		}
-		
-		
+
 		
 		btnNewButton.addActionListener(new ActionListener() {
 
