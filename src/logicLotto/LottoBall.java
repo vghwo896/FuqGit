@@ -155,7 +155,12 @@ class ImageFrame extends JFrame {
 				key = 1;
 				for (int i = 0; i < 6; i++) {
 					chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+
+					System.out.println(lm.getLotto(key)[i]);
+					lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+
 				}
+
 				gen.list.clear();
 				lm.getLottoMap().keySet().remove(new Integer(1));
 			}
