@@ -44,9 +44,9 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter click = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
-				if (SelectCount < 7) {
+				if (SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					int num = Integer.valueOf(oooo.getName());
@@ -58,7 +58,7 @@ class ImageFrame extends JFrame {
 						}
 				else {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-						--SelectCount;
+//						--SelectCount;
 				}
 
 			}
