@@ -22,7 +22,7 @@ class ImageFrame extends JFrame {
 	ImageIcon selectt = new ImageIcon("select.png");
 	ImageIcon deleteALL = new ImageIcon("deleteAll.png");
 	ImageIcon overWrite = new ImageIcon("overWrite.png");
-
+	ImageIcon chargee = new ImageIcon("charge.png");
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
@@ -60,7 +60,7 @@ class ImageFrame extends JFrame {
 		pnlRight.add(Warning6Lines);
 		Warning6Lines.setVisible(false);
 
-		JButton ChargeMoney = new JButton("충전하기");
+		JButton ChargeMoney = new JButton(chargee);
 		ChargeMoney.setBounds(320, 20, 100, 50);
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
@@ -123,8 +123,7 @@ class ImageFrame extends JFrame {
 
 		};
 
-		Mbtn1.addMouseListener(click1);
-
+	
 		MouseAdapter click = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
