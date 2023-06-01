@@ -33,7 +33,7 @@ class ImageFrame extends JFrame {
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
 	private final JLabel walet = new JLabel("잔액 : " + coin);
 
-	public ImageFrame(GenNumber gen, int coin) {
+	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
 		this.coin = coin;
@@ -274,24 +274,23 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
-				int walet = 0;
-				if (option == JOptionPane.YES_OPTION) {
-					System.out.println(coin);
-					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
-					// 결제 확정에 대한 추가적인 로직을 작성하세요.
-					if (coin >= 1000 * lm.getLottoMap().size()) {
 
-						walet = coin - 1000 * lm.getLottoMap().size();
-						lm.payedLotto(lm.getLottoMap());
-
-					} else {
-						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
-					}
-
-				} else {
-					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
-				}
+				 int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
+			       	
+			        if (option == JOptionPane.YES_OPTION) {
+			        	System.out.println(lm.getCoin());
+			            JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
+			            if(lm.getCoin()>= 1000*lm.getLottoMap().size()) {
+			            	lm.setCoin(lm.getCoin()-1000*lm.getLottoMap().size());
+			            	lm.payedLotto(lm.getLottoMap());		            				            	
+			            }else {
+			            	JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+			            }
+			            
+			        } else {
+			            JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+			        }
 
 			}
 		});
@@ -341,6 +340,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+//				if()
 				new MainLotto(gen);
 				dispose();
 				setVisible(false);
