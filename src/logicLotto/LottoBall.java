@@ -317,8 +317,8 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent s) {
-				System.out.println(key);
-				if (lm.getLottoMap().size() < 6) {
+				if (key < 7) {
+
 					Warning6Lines.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
@@ -428,39 +428,39 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-			int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
 
 				if (delete == JOptionPane.CLOSED_OPTION) {
 				} else if (delete == JOptionPane.OK_OPTION) {
-					
+
 					JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
 					lm.removeMap();
-					Warning6Lines.setVisible(false);
-					
-					
-						for (int i = 0; i < 6; i++) {
-							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-						for (int i = 0; i < 6; i++) {
-							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-						for (int i = 0; i < 6; i++) {
-							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-						for (int i = 0; i < 6; i++) {
-							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-						for (int i = 0; i < 6; i++) {
-							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-						for (int i = 0; i < 6; i++) {
-							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
-						}
-					}
-				
-					key=1;
 
+					Warning6Lines.setVisible(false);
+
+					for (int i = 0; i < 6; i++) {
+						chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
+					for (int i = 0; i < 6; i++) {
+						chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
+					for (int i = 0; i < 6; i++) {
+						chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
+					for (int i = 0; i < 6; i++) {
+						chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
+					for (int i = 0; i < 6; i++) {
+						chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
+					for (int i = 0; i < 6; i++) {
+						chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+					}
 				}
+
+				key = 1;
+
+			}
 		});
 
 		pnlRight.add(deleteAll);
