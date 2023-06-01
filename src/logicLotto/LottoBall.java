@@ -319,6 +319,7 @@ class ImageFrame extends JFrame {
 			public void mouseClicked(MouseEvent s) {
 
 				if (lm.getLottoMap().size() < 6) {
+					Warning6Lines.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
 						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
@@ -433,8 +434,9 @@ class ImageFrame extends JFrame {
 				} else if (delete == JOptionPane.OK_OPTION) {
 					
 					JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
-					lm.getLottoMap().clear();
-					key=1;
+					lm.removeMap();
+					Warning6Lines.setVisible(false);
+					
 					
 						for (int i = 0; i < 6; i++) {
 							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
@@ -456,7 +458,7 @@ class ImageFrame extends JFrame {
 						}
 					}
 				
-					
+					key=1;
 
 				}
 		});

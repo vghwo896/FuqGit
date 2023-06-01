@@ -47,6 +47,11 @@ public class LottoManager {
 		return winNumber;
 		
 		}
+	// map 지우는 메서드
+	
+	public void removeMap() {
+		lottoMap.clear();
+	}
 	//결제를 누르면 선택한 로또를 결제된 로또로 옮기기
 		// 결제 버튼에 추가.
 		public void payedLotto(Map<Integer, Lotto> lottoMap) {
