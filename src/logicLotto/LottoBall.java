@@ -44,28 +44,21 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter click = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
-
-				if (SelectCount < 7) {
+				if (SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
 
 					int num = Integer.valueOf(oooo.getName());
-					
 					gn.SelectNumber(num);
-					SelectCount++;
+					if(gn.list.contains(new Integer(num))) {
+//					gn.removeInList(new Integer(num)); 
+					}
+					++SelectCount;
 						}
 				else {
-
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
-					int num = Integer.valueOf(oooo.getName());
-					if ((gn.list.contains(num))) {System.out.println("같은 숫자는 선택이 불가능 합니다.");
-
-					gn.removeInList(new Integer(num));
-
-			}
-					
-					SelectCount--;
+//						--SelectCount;
 				}
 
 			}
