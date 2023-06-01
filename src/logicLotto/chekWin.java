@@ -27,7 +27,6 @@ public class chekWin extends JFrame {
 	JButton bt_img;
 	ImageIcon img = new ImageIcon("홈버튼.png");
 
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -52,7 +51,7 @@ public class chekWin extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 800);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
@@ -138,15 +137,30 @@ public class chekWin extends JFrame {
 
 //		JPanel pnl2 = new JPanel();
 //		pnl2.setBackground(Color.white);
+//		JScrollBar scrollBar = new JScrollBar();
+//		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
+//		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
+//		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
+//		panel.add(scrollBar);
+//		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 31, SpringLayout.WEST, contentPane);
+//		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
+//		contentPane.add(pnl2);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		sl_panel.putConstraint(SpringLayout.NORTH, scrollBar, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, scrollBar, 366, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, scrollBar, -10, SpringLayout.EAST, panel);
-		panel.add(scrollBar);
-		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 31, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 191, SpringLayout.WEST, contentPane);
-		contentPane.add(lblNewLabel);
+//		JScrollPane scrollPane = new JScrollPane();
+//		scrollPane.setBackground(Color.white);
+//		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 93, SpringLayout.SOUTH, panel_1);
+//		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, -100, SpringLayout.EAST, contentPane);
+//		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 397, SpringLayout.SOUTH, panel_1);
+//		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -98, SpringLayout.EAST, contentPane);
+//		contentPane.add(scrollPane);
+		
+		
+		JScrollPane scrollPane = new JScrollPane();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 0, SpringLayout.NORTH, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 0, SpringLayout.WEST, panel_1);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, -49, SpringLayout.SOUTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -93, SpringLayout.EAST, contentPane);
+		contentPane.add(scrollPane);
 
 		// 홈버튼 이미지 삽입
 		JButton home = new JButton();
@@ -159,6 +173,10 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, home, -140, SpringLayout.NORTH, panel_2);
 		contentPane.add(home);
 
+		
+		add(contentPane);
+		
+		
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
 		home.addActionListener(new ActionListener() {
 
