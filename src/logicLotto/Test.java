@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 public class Test extends JFrame {
 
@@ -16,6 +17,7 @@ public class Test extends JFrame {
 	private final JPanel panel = new JPanel();
 	private final JPanel panel_1 = new JPanel();
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JButton ChargeMoney = new JButton("충전하기");
 
 	/**
 	 * Launch the application.
@@ -57,6 +59,19 @@ public class Test extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(620, 0, 644, 761);
 		contentPane.add(panel_2);
+<<<<<<< HEAD
+=======
+		panel_2.setLayout(null);
+		
+		JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다.!");
+		Warning6Lines.setBounds(171, 605, 308, 15);
+		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
+		panel_2.add(Warning6Lines);
+		ChargeMoney.setBounds(535, 10, 97, 23);
+		
+		panel_2.add(ChargeMoney);
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 	}
 
 }
