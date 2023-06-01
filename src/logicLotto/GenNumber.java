@@ -91,7 +91,6 @@ public class GenNumber {
 
 	public void panbyeolWinLose(Lotto lotto) {
 		int[] winNumber = m.winNumberGen();
-//		int[] winNumber = new int[] { 2, 7, 15, 23, 35, 40, 42 };
 		int count = 0;
 
 		for (int z = 1; z <= m.getLottoMap().keySet().size(); z++) {

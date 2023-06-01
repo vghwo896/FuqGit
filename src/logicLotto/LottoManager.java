@@ -63,6 +63,7 @@ public class LottoManager {
 						payedlottoMap.put(key, lotto);
 					}
 				}
+				lottoMap.clear();
 			}
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
@@ -109,6 +110,14 @@ public class LottoManager {
 
 	public void setCoin(int coin) {
 		this.coin = coin;
+	}
+
+	public Map<Integer, Lotto> getPayedlottoMap() {
+		return payedlottoMap;
+	}
+
+	public void setPayedlottoMap(Map<Integer, Lotto> payedlottoMap) {
+		this.payedlottoMap = payedlottoMap;
 	}
 	
 
