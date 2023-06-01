@@ -29,6 +29,7 @@ class ImageFrame extends JFrame {
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
+	int editCount = 0;
 	int coin;
 
 	private final JPanel pnlGuide = new JPanel();
@@ -178,26 +179,20 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 1;
+				   if(editCount ==0) {
+					   key = 1;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
-		         }
-		      });
+		            editCount=1;
+		         }else if(editCount == 1){
+		        	 JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
+		            }
+				}
+		    });
 		edit1.setBounds(320, 157, 60, 25);
-
-//      delete1.addActionListener(new ActionListener() {
-//         
-//         @Override
-//         public void actionPerformed(ActionEvent e) {
-//            gen.list.clear();
-//            gen.m.getLottoMap().put(, value)
-//            
-//         }
-//      });
 		pnlRight.add(edit1);
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
@@ -217,12 +212,16 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 2;
+				   if(editCount ==0) {
+					   key = 2;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+		            }
+		            editCount=1;
+				   }else if(editCount == 1){
+					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
 		         }
 		      });
@@ -247,15 +246,19 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 3;
-		            for (int i = 0; i < 6; i++) {
+				   if(editCount ==0) {
+					   key = 3;
+				   for (int i = 0; i < 6; i++) {
 		               chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
-		         }
-		      });
+		            editCount=1;
+		         }else if(editCount == 1){
+		        	 JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
+		            }
+				}
+		    });
 		edit3.setBounds(320, 277, 60, 25);
 
 		pnlRight.add(edit3);
@@ -278,15 +281,19 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 4;
-		            for (int i = 0; i < 6; i++) {
+				   if(editCount ==0) {
+				   for (int i = 0; i < 6; i++) {
+					   key = 4;
 		               chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
-		         }
-		      });
+		            editCount=1;
+				   }else if(editCount == 1){
+					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
+		            }
+				}
+		    });
 		pnlRight.add(edit4);
 
 		JLabel[] chooselbl5 = new JLabel[7]; // 번호 선택 버튼
@@ -306,12 +313,16 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 5;
+				   if(editCount ==0) {
+					   key = 5;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+		               editCount=1;
+		            }
+				   }else if(editCount == 1){
+					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
 		         }
 		      });
@@ -335,14 +346,19 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				   key = 6;
+				
+				   if(editCount ==0) {
+					   key = 6;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+		               editCount=1;
+		            	}
+				   	}else if(editCount == 1){
+		            	JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
-		         }
+				}
 		      });
 		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
@@ -354,6 +370,9 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent s) {
+				if(editCount == 1){
+	            	editCount = 0;
+	            }
 				if (key < 7) {
 
 					Warning6Lines.setVisible(false);
