@@ -61,7 +61,6 @@ class MainLotto extends JFrame {
 		add(walet);
 
 		// 배경 이미지삽입
-		
 		JLabel hasLotto = new JLabel("구매한 로또의 개수 : "+ m.getPayedlottoMap().size());
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
