@@ -14,11 +14,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 class MainLotto extends JFrame {
-	int coin;
+
 
 	public MainLotto(GenNumber gen) {
 		// 배경
-		coin = 0;
+		LottoManager m = gen.m;
+		int coin = m.getCoin();
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -65,16 +66,24 @@ class MainLotto extends JFrame {
 		Mbtn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) { // 잔액 표기 라벨
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				int coin = m.getCoin();
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");				
+				try {
 				int i = Integer.valueOf(s);
 				if (i >= 1000) {
 					coin = coin + i;
 					walet.setText("잔액 : " + coin);
+					m.setCoin(coin);
+					System.out.println(m.getCoin());
 				} else {
 					JOptionPane.showMessageDialog(null, "1000원 이하는 입력할 수 없습니다.", "돈을 제대로 입력해주세요.",
 							JOptionPane.ERROR_MESSAGE);
 				}
+				}catch(NumberFormatException n) {
+					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소",JOptionPane.ERROR_MESSAGE);
+				}
 			}
+				
 		});
 
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
@@ -82,7 +91,7 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ImageFrame imageFrame = new ImageFrame(gen, coin);
+				ImageFrame imageFrame = new ImageFrame(gen);
 				imageFrame.getContentPane().setLayout(null);
 				imageFrame.getContentPane().setLayout(null);
 				setVisible(false);
@@ -95,16 +104,46 @@ class MainLotto extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new chekWin(gen, gen.m.winNumberGen());
-				if (gen.m.getLottoMap().size() >= 1) {
+				if (gen.m.getPayedlottoMap().size() == 0) {
+					System.out.println(m.getLottoMap().size());
+					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
+				} else {
+					System.out.println(m.getLottoMap().size());
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					pnl.setVisible(false);
-				} else {
-					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 		});
+
+		// 버튼 넣음
+		add(Mbtn1);
+		add(Mbtn2);
+		add(Mbtn3);
+		
+		// 버튼 위치
+		Mbtn1.setBounds(130, 550, 200, 100);
+		Mbtn2.setBounds(420, 550, 200, 100);
+		Mbtn3.setBounds(700, 550, 200, 100);
+
+//		// 버튼색 변경
+//		Mbtn1.setBackground(new Color(255, 255, 255));
+//		Mbtn2.setBackground(new Color(255, 255, 255));
+//		Mbtn3.setBackground(new Color(255, 255, 255));
+
+//		// 버튼을 투명하게
+//		Mbtn1.setOpaque(false);
+//		Mbtn2.setOpaque(false);
+//		Mbtn3.setOpaque(false);
+//		Mbtn3.setOpaque(false);
+
+
+
+		// 버튼 위치
+		Mbtn1.setBounds(110, 500, 200, 150);
+		Mbtn2.setBounds(410, 500, 200, 150);
+		Mbtn3.setBounds(710, 500, 200, 150);
+			
 	}
 
 	public static void main(String[] args) {

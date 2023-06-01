@@ -2,10 +2,9 @@ package logicLotto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
+
 
 public class GenNumber {
 
@@ -35,9 +34,7 @@ public class GenNumber {
 				System.out.println("6개 이상 선택은 불가능합니다.");
 			}
 			
-		} else {
-			System.out.println("같은 숫자는 선택이 불가능 합니다2.");
-				}
+		} 
 			}
 	
 	// 선택한번호가 같으면 제거하는 메서드
@@ -94,7 +91,6 @@ public class GenNumber {
 
 	public void panbyeolWinLose(Lotto lotto) {
 		int[] winNumber = m.winNumberGen();
-//		int[] winNumber = new int[] { 2, 7, 15, 23, 35, 40, 42 };
 		int count = 0;
 
 		for (int z = 1; z <= m.getLottoMap().keySet().size(); z++) {

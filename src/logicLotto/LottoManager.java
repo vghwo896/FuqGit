@@ -14,15 +14,16 @@ public class LottoManager {
 	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
+	private int coin;
 	GenNumber gen;
 
 
 	public LottoManager() {
+		payedlottoMap = new HashMap<>();
 		ballMap = new HashMap<>();
 		setImage();
 		lottoMap = new HashMap<>();
 		winNumberGen();
-		lottoMap.put(1, new Lotto());
 	}
 
 	// 당첨 번호 7자리를 랜덤 값으로 입력을 받아 winNumber에 넣어준다
@@ -62,6 +63,7 @@ public class LottoManager {
 						payedlottoMap.put(key, lotto);
 					}
 				}
+				lottoMap.clear();
 			}
 	// 이미지 아이콘 전체 세팅
 	public void setImage() {
@@ -100,6 +102,22 @@ public class LottoManager {
 	
 	public void setBallMap(Map<Integer, ImageIcon> ballMap) {
 		this.ballMap = ballMap;
+	}
+
+	public int getCoin() {
+		return coin;
+	}
+
+	public void setCoin(int coin) {
+		this.coin = coin;
+	}
+
+	public Map<Integer, Lotto> getPayedlottoMap() {
+		return payedlottoMap;
+	}
+
+	public void setPayedlottoMap(Map<Integer, Lotto> payedlottoMap) {
+		this.payedlottoMap = payedlottoMap;
 	}
 	
 

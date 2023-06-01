@@ -25,13 +25,16 @@ class ImageFrame extends JFrame {
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
-	int coin ;
+	int coin;
 
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
+	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다!");
+	private final JLabel walet = new JLabel("잔액 : " + coin);
 
-	public ImageFrame(GenNumber gen, int coin) {
+	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
 		this.coin = coin;
@@ -42,24 +45,50 @@ class ImageFrame extends JFrame {
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
-		
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
+
+		Warning6.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6.setFont(new Font("굴림체", Font.BOLD, 12));
+		Warning6.setBounds(92, 60, 236, 34);
+		pnlLeft.add(Warning6);
+		Warning6.setVisible(false);
+
+		Warning6Lines.setBounds(80, 605, 308, 15);
+		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
+		pnlRight.add(Warning6Lines);
+		Warning6Lines.setVisible(false);
+
+		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
+
+		walet.setHorizontalAlignment(SwingConstants.CENTER);
+		walet.setFont(new Font("굴림체", Font.BOLD, 12));
+		walet.setBounds(250, 60, 236, 34);
+		pnlRight.add(walet);
+		walet.setVisible(true);
 
 		MouseAdapter click = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				JLabel oooo = (JLabel) e.getSource();
-				if (SelectCount < 6) {
+				int num = Integer.valueOf(oooo.getName());
+
+				if (!gn.list.contains(new Integer(num)) && SelectCount < 6) {
 					oooo.setIcon(new ImageIcon("선택번호(" + oooo.getName() + ").png"));
-
-					int num = Integer.valueOf(oooo.getName());
 					gn.SelectNumber(num);
-					++SelectCount;
+					SelectCount++;
+				}
 
-						}
-				else {
+				else if (!gn.list.contains(new Integer(num)) && SelectCount == 6) {
+					Warning6.setVisible(true);
+
+				} else if (gn.list.contains(new Integer(num))) {
 					oooo.setIcon((new ImageIcon("미선택번호(" + oooo.getName() + ").png")));
+					gn.removeInList(new Integer(num));
+					Warning6.setVisible(false);
+					SelectCount--;
+
 				}
 
 			}
@@ -97,12 +126,11 @@ class ImageFrame extends JFrame {
 			lbl[i].addMouseListener(click);
 
 		}
-		
-		
+
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
-			
+		for (int i = 0; i < 6; i++) {
+
 			// 번호 선택 버튼}
 			chooselbl1[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl1[i].setName("" + i);
@@ -110,147 +138,175 @@ class ImageFrame extends JFrame {
 			chooselbl1[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl1[i].setLayout(null);
 
-			chooselbl1[i].setBounds((i * 40), 150, 45, 45);
+			chooselbl1[i].setBounds(((i + 1) * 40), 150, 45, 45);
 			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
 		}
 
 		JButton edit1 = new JButton("수정");
-			edit1.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-						key = 1;
-						gen.list.clear();
-					}
-			});
+		edit1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 1;
+				for (int i = 0; i < 6; i++) {
+					chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
 		edit1.setBounds(320, 157, 60, 25);
+
+//      delete1.addActionListener(new ActionListener() {
+//         
+//         @Override
+//         public void actionPerformed(ActionEvent e) {
+//            gen.list.clear();
+//            gen.m.getLottoMap().put(, value)
+//            
+//         }
+//      });
 		pnlRight.add(edit1);
 
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl2[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl2[i].setName("" + i);
 			chooselbl2[i].setVisible(true);// 보이게
 			chooselbl2[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl2[i].setLayout(null);
 
-			chooselbl2[i].setBounds((i * 40), 210, 45, 45);
+			chooselbl2[i].setBounds(((i + 1) * 40), 210, 45, 45);
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
 		JButton edit2 = new JButton("수정");
-			edit2.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-						key = 2;
-						gen.list.clear();
-					}
-			});
+		edit2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 2;
+				for (int i = 0; i < 6; i++) {
+					chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
 		edit2.setBounds(320, 217, 60, 25);
 
 		pnlRight.add(edit2);
 
 		JLabel[] chooselbl3 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl3[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl3[i].setName("" + i);
 			chooselbl3[i].setVisible(true);// 보이게
 			chooselbl3[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl3[i].setLayout(null);
 
-			chooselbl3[i].setBounds((i * 40), 270, 45, 45);
+			chooselbl3[i].setBounds(((i + 1) * 40), 270, 45, 45);
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
 		JButton edit3 = new JButton("수정");
+		edit3.addActionListener(new ActionListener() {
 
-			edit3.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-						key = 3;
-						gen.list.clear();
-					}
-			});
-			edit3.setBounds(320, 277, 60, 25);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 3;
+				for (int i = 0; i < 6; i++) {
+					chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
+		edit3.setBounds(320, 277, 60, 25);
+
 		pnlRight.add(edit3);
 
 		JLabel[] chooselbl4 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl4[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl4[i].setName("" + i);
 			chooselbl4[i].setVisible(true);// 보이게
 			chooselbl4[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl4[i].setLayout(null);
 
-			chooselbl4[i].setBounds((i * 40), 330, 45, 45);
+			chooselbl4[i].setBounds(((i + 1) * 40), 330, 45, 45);
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
 		JButton edit4 = new JButton("수정");
-			edit4.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-						key = 4;
-						gen.list.clear();
-					}
-			});
 		edit4.setBounds(320, 337, 60, 25);
+		edit4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 4;
+				for (int i = 0; i < 6; i++) {
+					chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
 		pnlRight.add(edit4);
 
 		JLabel[] chooselbl5 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl5[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl5[i].setName("" + i);
 			chooselbl5[i].setVisible(true);// 보이게
 			chooselbl5[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl5[i].setLayout(null);
 
-			chooselbl5[i].setBounds((i * 40), 390, 45, 45);
+			chooselbl5[i].setBounds(((i + 1) * 40), 390, 45, 45);
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
 		JButton edit5 = new JButton("수정");
-			edit5.addActionListener(new ActionListener() {
-	
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					
-						key = 5;
-						gen.list.clear();
-					}
-			});
+		edit5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 5;
+				for (int i = 0; i < 6; i++) {
+					chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
 		edit5.setBounds(320, 397, 60, 25);
 		pnlRight.add(edit5);
 
 		JLabel[] chooselbl6 = new JLabel[7]; // 번호 선택 버튼
 
-		for (int i = 1; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			chooselbl6[i] = new JLabel(new ImageIcon("번호(미선택).png"));// 버튼 초기화
 			chooselbl6[i].setName("" + i);
 			chooselbl6[i].setVisible(true);// 보이게
 			chooselbl6[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl6[i].setLayout(null);
 
-			chooselbl6[i].setBounds((i * 40), 450, 45, 45);
+			chooselbl6[i].setBounds(((i + 1) * 40), 450, 45, 45);
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
 		JButton edit6 = new JButton("수정");
-				edit6.addActionListener(new ActionListener() {
-		
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						
-							key = 6;
-							gen.list.clear();
-						}
-				});
+		edit6.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				key = 6;
+				for (int i = 0; i < 6; i++) {
+					chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
+				gen.list.clear();
+			}
+		});
 		edit6.setBounds(320, 457, 60, 25);
 		pnlRight.add(edit6);
 
@@ -260,20 +316,76 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mousePressed(MouseEvent s) {
+			public void mouseClicked(MouseEvent s) {
 
-				for (int i = 1; i < 46; i++) {
-					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
+				if (lm.getLottoMap().size() < 6) {
+
+					for (int i = 1; i < 46; i++) {
+						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
+
+					}
+					gn.Confirmed(key, new Lotto());
+
+					System.out.println(lm.getLottoMap().get(key));
+					if (key == 1) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 2) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 3) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 4) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 5) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 6) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+
+					}
+
+					key = lm.getLottoMap().size() + 1;
+					SelectCount = 0;
 
 				}
-				gn.Confirmed(key, new Lotto());
-				System.out.println(lm.getLottoMap().get(key));
-				System.out.println(key);
-				key = lm.getLottoMap().size() + 1;
-				System.out.println(key);
 
+				else {
+					Warning6Lines.setVisible(true);
+				}
 			}
-
 		};
 
 		// 수정 버튼에 그 . key =2
@@ -282,29 +394,28 @@ class ImageFrame extends JFrame {
 
 		JButton pay = new JButton("결제");
 		pay.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
-			       	int walet = 0;
-			        if (option == JOptionPane.YES_OPTION) {
-			            JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
-			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
-			            if(coin >= 1000*lm.getLottoMap().size()) {
-			            	walet =coin-1000*lm.getLottoMap().size();
-			            	lm.payedLotto(lm.getLottoMap());
-			            	System.out.println(walet);
-			            	
-			            }else {
-			            	JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
-			            }
-			            
-			        } else {
-			            JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
-			            // 결제 취소에 대한 추가적인 로직을 작성하세요.
-			        }
-				
-				
+
+				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
+
+				if (option == JOptionPane.YES_OPTION) {
+					System.out.println(lm.getCoin());
+					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
+						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
+						walet.setText("잔액 : " + lm.getCoin());
+						lm.payedLotto(lm.getLottoMap());
+					} else {
+						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+					}
+
+				} else {
+					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+				}
+
 			}
 		});
 		pnlRight.add(pay);
@@ -347,15 +458,34 @@ class ImageFrame extends JFrame {
 		home.setBounds(10, 10, 40, 40);
 		pnlhome.add(home);
 		add(pnlhome);
-		
+
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
 		home.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new MainLotto(gen);
-				dispose();
-				setVisible(false);
+//				
+
+				if (lm.getLottoMap().size() > 0) {
+					int result = JOptionPane.showConfirmDialog(null,
+							"결제 되지 않은 로또가" + lm.getLottoMap().size() + " 개 있습니다." + "정말 나가시겠습니까?", "결제 안내",
+							JOptionPane.YES_NO_OPTION);
+
+					if (result == JOptionPane.CLOSED_OPTION) {
+					} else if (result == JOptionPane.OK_OPTION) {
+						JOptionPane.showMessageDialog(null, "구매가 취소되었습니다.");
+						lm.getLottoMap().clear();
+						new MainLotto(gen);
+						dispose();
+						setVisible(false);
+					} else if (result == JOptionPane.CANCEL_OPTION) {
+					}
+
+				} else {
+					new MainLotto(gen);
+					dispose();
+					setVisible(false);
+				}
 			}
 		});
 
