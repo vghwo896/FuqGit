@@ -31,6 +31,7 @@ class ImageFrame extends JFrame {
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다!");
 	private final JLabel walet = new JLabel("잔액 : " + coin);
 
 	public ImageFrame(GenNumber gen) {
@@ -52,6 +53,12 @@ class ImageFrame extends JFrame {
 		Warning6.setBounds(92, 60, 236, 34);
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
+
+		Warning6Lines.setBounds(80, 605, 308, 15);
+		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
+		pnlRight.add(Warning6Lines);
+		Warning6Lines.setVisible(false);
 
 		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
 
@@ -142,8 +149,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 1;
-				for(int i=0; i<6; i++) {
-				chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -179,8 +187,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 2;
-				for(int i=0; i<6; i++) {
-				chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -207,8 +216,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 3;
-				for(int i=0; i<6; i++) {
-				chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -236,8 +246,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 4;
-				for(int i=0; i<6; i++) {
-				chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -262,8 +273,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 5;
-				for(int i=0; i<6; i++) {
-				chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -289,8 +301,9 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				key = 6;
-				for(int i=0; i<6; i++) {
-				chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));}
+				for (int i = 0; i < 6; i++) {
+					chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+				}
 				gen.list.clear();
 			}
 		});
@@ -305,68 +318,74 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent s) {
 
-				for (int i = 1; i < 46; i++) {
-					lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
+				if (lm.getLottoMap().size() < 6) {
 
-				}
-				gn.Confirmed(key, new Lotto());
-
-				System.out.println(lm.getLottoMap().get(key));
-				if (key == 1) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
-
-						chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+					for (int i = 1; i < 46; i++) {
+						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 					}
-				}
-				if (key == 2) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
+					gn.Confirmed(key, new Lotto());
 
-						chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+					System.out.println(lm.getLottoMap().get(key));
+					if (key == 1) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 2) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 3) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 4) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 5) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
+					}
+					if (key == 6) {
+						for (int i = 0; i < 6; i++) {
+							// 번호 선택 버튼}
+
+							chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+						}
 
 					}
-				}
-				if (key == 3) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
 
-						chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-					}
-				}
-				if (key == 4) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
-
-						chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-					}
-				}
-				if (key == 5) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
-
-						chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-					}
-				}
-				if (key == 6) {
-					for (int i = 0; i < 6; i++) {
-						// 번호 선택 버튼}
-
-						chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-					}
+					key = lm.getLottoMap().size() + 1;
+					SelectCount = 0;
 
 				}
 
-				key = lm.getLottoMap().size() + 1;
-				SelectCount = 0;
-
+				else {
+					Warning6Lines.setVisible(true);
+				}
 			}
-
 		};
 
 		// 수정 버튼에 그 . key =2

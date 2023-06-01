@@ -43,7 +43,7 @@ public class Test extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		panel.setBounds(0, 0, 211, 751);
+		panel.setBounds(0, 0, 211, 761);
 		contentPane.add(panel);
 		panel_1.setBounds(209, 0, 412, 761);
 		contentPane.add(panel_1);
@@ -57,6 +57,12 @@ public class Test extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(620, 0, 644, 761);
 		contentPane.add(panel_2);
+		panel_2.setLayout(null);
+		
+		JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다.!");
+		Warning6Lines.setBounds(171, 605, 308, 15);
+		Warning6Lines.setHorizontalAlignment(SwingConstants.CENTER);
+		Warning6Lines.setFont(new Font("굴림체", Font.BOLD, 12));
+		panel_2.add(Warning6Lines);
 	}
-
 }
