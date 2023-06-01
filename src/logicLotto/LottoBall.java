@@ -16,8 +16,12 @@ import java.util.Map;
 class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
-	JButton bt_img;
 	ImageIcon img = new ImageIcon("홈버튼.png");
+	ImageIcon select = new ImageIcon("");
+	ImageIcon pay = new ImageIcon("pay.png");
+	ImageIcon deleteALl = new ImageIcon("");
+	ImageIcon overWrite = new ImageIcon("overWrite.png");
+
 
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
