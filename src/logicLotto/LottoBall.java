@@ -483,6 +483,7 @@ class ImageFrame extends JFrame {
 					System.out.println(lm.getCoin());
 					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+					Warning6Lines.setVisible(false);
 					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
 						walet.setText("잔액 : " + lm.getCoin());
