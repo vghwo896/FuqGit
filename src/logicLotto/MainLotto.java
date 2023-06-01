@@ -4,7 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.text.DecimalFormat;
+import java.awt.event.MouseAdapter;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -17,6 +19,13 @@ class MainLotto extends JFrame {
 
 
 	public MainLotto(GenNumber gen) {
+		
+		// 버튼
+		JButton Mbtn1 = new JButton("충전");
+		JButton Mbtn2 = new JButton("구매하기");
+		JButton Mbtn3 = new JButton("당첨확인");
+		
+
 		// 배경
 		LottoManager m = gen.m;
 		int coin = m.getCoin();
@@ -46,11 +55,6 @@ class MainLotto extends JFrame {
 		setVisible(true);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-
-		// 버튼
-		JButton Mbtn1 = new JButton("충전");
-		JButton Mbtn2 = new JButton("구매하기");
-		JButton Mbtn3 = new JButton("당첨확인");
 
 		// 1번 버튼 액션
 		Mbtn1.addActionListener(new ActionListener() {
@@ -114,24 +118,6 @@ class MainLotto extends JFrame {
 		add(Mbtn1);
 		add(Mbtn2);
 		add(Mbtn3);
-		
-		// 버튼 위치
-		Mbtn1.setBounds(130, 550, 200, 100);
-		Mbtn2.setBounds(420, 550, 200, 100);
-		Mbtn3.setBounds(700, 550, 200, 100);
-
-//		// 버튼색 변경
-//		Mbtn1.setBackground(new Color(255, 255, 255));
-//		Mbtn2.setBackground(new Color(255, 255, 255));
-//		Mbtn3.setBackground(new Color(255, 255, 255));
-
-//		// 버튼을 투명하게
-//		Mbtn1.setOpaque(false);
-//		Mbtn2.setOpaque(false);
-//		Mbtn3.setOpaque(false);
-//		Mbtn3.setOpaque(false);
-
-
 
 		// 버튼 위치
 		Mbtn1.setBounds(110, 500, 200, 150);
