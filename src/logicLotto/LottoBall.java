@@ -267,10 +267,7 @@ class ImageFrame extends JFrame {
 				}
 				gn.Confirmed(key, new Lotto());
 				System.out.println(lm.getLottoMap().get(key));
-				System.out.println(key);
 				key = lm.getLottoMap().size() + 1;
-				System.out.println(key);
-
 			}
 
 		};
@@ -287,12 +284,15 @@ class ImageFrame extends JFrame {
 				 int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
 			       	int walet = 0;
 			        if (option == JOptionPane.YES_OPTION) {
+			        	System.out.println(coin);
 			            JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 			            // 결제 확정에 대한 추가적인 로직을 작성하세요.
 			            if(coin >= 1000*lm.getLottoMap().size()) {
+			            	
 			            	walet =coin-1000*lm.getLottoMap().size();
 			            	lm.payedLotto(lm.getLottoMap());
-			            	System.out.println(walet);
+			            	
+			            	
 			            	
 			            }else {
 			            	JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
@@ -300,7 +300,6 @@ class ImageFrame extends JFrame {
 			            
 			        } else {
 			            JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
-			            // 결제 취소에 대한 추가적인 로직을 작성하세요.
 			        }
 				
 				

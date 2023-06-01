@@ -14,10 +14,12 @@ public class LottoManager {
 	private Map<Integer, Lotto> payedlottoMap;
 	private Map<Integer, ImageIcon> ballMap;
 	private int[] winNumber;
+	int coin;
 	GenNumber gen;
 
 
 	public LottoManager() {
+		payedlottoMap = new HashMap<>();
 		ballMap = new HashMap<>();
 		setImage();
 		lottoMap = new HashMap<>();

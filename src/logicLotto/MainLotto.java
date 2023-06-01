@@ -121,7 +121,16 @@ class MainLotto extends JFrame {
 		Mbtn1.setBounds(110, 500, 200, 150);
 		Mbtn2.setBounds(410, 500, 200, 150);
 		Mbtn3.setBounds(710, 500, 200, 150);
+		
+		
+	}
 
+	public int getCoin() {
+		return coin;
+	}
+
+	public void setCoin(int coin) {
+		this.coin = coin;
 	}
 
 	public static void main(String[] args) {
