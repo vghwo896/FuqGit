@@ -59,7 +59,7 @@ class ImageFrame extends JFrame {
 		Warning6Lines.setVisible(false);
 
 		JButton ChargeMoney = new JButton(chargee);
-		ChargeMoney.setBounds(320, 20, 100, 50);
+		ChargeMoney.setBounds(320, 40, 100, 50);
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
 
@@ -68,11 +68,14 @@ class ImageFrame extends JFrame {
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
-		walet.setBounds(250, 80, 236, 34);
+		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
 		JLabel noticeCharge = new JLabel("1,000원 이하  30,000원 이상은 충전할수 없습니다.");
 		noticeCharge.setBounds(160, -6, 300, 35);
+		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
+		noticeCharge.setBounds(150, 0, 300, 35);
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		pnlRight.add(noticeCharge);
 
 		MouseAdapter charge = new MouseAdapter() {
@@ -640,16 +643,21 @@ class ImageFrame extends JFrame {
 		// 홈버튼 이미지 삽입
 		JPanel pnlhome = new JPanel();
 		pnlhome.setLayout(null); // 위치설정
-		pnlhome.setBounds(0, 0, 50, 50);
+		pnlhome.setBounds(0, 0, 100, 80);
 		JButton home = new JButton();
+<<<<<<< HEAD
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		home.setPreferredSize(new Dimension(44, 44));
 		home.setBackground(new Color(255, 255, 255));
+=======
+		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
+		home.setBackground(new Color(255, 255, 255)); 
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
 		home.setOpaque(false); // 투명하게 만들어줌
-		home.setIcon(icon);
-		home.setBounds(10, 10, 40, 40);
+		home.setIcon(img);
+		home.setBounds(10, 10, 100, 80);
 		pnlhome.add(home);
 		add(pnlhome);
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
