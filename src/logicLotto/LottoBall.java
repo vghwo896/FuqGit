@@ -440,6 +440,8 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent s) {
+				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
+					
 				if (editCount == 1) {
 					editCount = 0;
 				}
@@ -510,6 +512,9 @@ class ImageFrame extends JFrame {
 
 				else {
 					Warning6Lines.setVisible(true);
+				}
+				}else{
+					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 합니다.");
 				}
 			}
 		};
