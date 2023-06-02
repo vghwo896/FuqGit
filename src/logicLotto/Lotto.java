@@ -8,7 +8,8 @@ public class Lotto  {
 	private int[] num;
 	private String form;
 	private String winOrLose;
-
+	private int amount;
+	
 	public Lotto() {
 		num=new int[]{0,0,0,0,0,0};
 		form = "자동";
@@ -41,7 +42,14 @@ public class Lotto  {
 	public int setIndex(int index,int elem) {
 		return num[index]= elem;
 	}
-	
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
 	@Override
 	public int hashCode() {
