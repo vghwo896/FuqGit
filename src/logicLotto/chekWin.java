@@ -159,8 +159,17 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
 		contentPane.add(panel_2);
 
+		int winCount = 0;
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
-
+		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
+			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
+				winCount++;
+			}
+		}
+		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
+		
+		
+		
 		JLabel lblNewLabel_6 = new JLabel("구매방식");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
