@@ -25,7 +25,6 @@ public class chekWin extends JFrame {
 	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
-
 		LottoManager m = gen.m;
 		win = gen.panbyeolWinLose();
 		setVisible(true);
@@ -47,8 +46,6 @@ public class chekWin extends JFrame {
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 
-		
-
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, contentPane);
@@ -56,9 +53,15 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 47, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
+		// 홈버튼
+		
 		ImageIcon icon = new ImageIcon("홈버튼.png");
+		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
 		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setBorderPainted(false); // 외곽선 없애줌
+		btnNewButton.setFocusPainted(false); // 선택시 테두리 사용 x
+		btnNewButton.setOpaque(false); // 투명하게 만들어줌
 		btnNewButton.setIcon(icon);
 
 		JPanel panel = new JPanel();
@@ -157,9 +160,10 @@ public class chekWin extends JFrame {
 			}
 		}
 
+		
 		DecimalFormat df = new DecimalFormat("#,###,###,###");
 		String money = df.format(sumMoney);
-		lblNewLabel_4.setText("당첨금액 : " + money + "원");
+		lblNewLabel_4.setText("당첨금액 : " + money+"원");
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
@@ -168,8 +172,17 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
 		contentPane.add(panel_2);
 
+		int winCount = 0;
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
-
+		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
+			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
+				winCount++;
+			}
+		}
+		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
+		
+		
+		
 		JLabel lblNewLabel_6 = new JLabel("구매방식");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -190,18 +203,22 @@ public class chekWin extends JFrame {
 		JPanel print = new JPanel();
 
 		JLabel lbl;
-		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); // Set grid layout to display
-																						// labels with one empty line in
-																						// between
+		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); 
+																						
 
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
-			JPanel linePanel = new JPanel(); // Create a separate panel for each line
+			JPanel linePanel = new JPanel(); 
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			for (int j = 0; j < 6; j++) {
-				int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
-
-				lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
+			int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
+			for (int j = 0; j < 7; j++) {
+				for (int k = 0; k < arr.length; k++) {
+					if (win[j] == arr[k]) {
+						lbl = new JLabel(new ImageIcon(arr[k] + ".png"));
+					}else {
+						lbl = new JLabel(new ImageIcon("미선택번호("+arr[k] + ").png"));
+					}
+				}
 				linePanel.add(lbl);
 			}
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
@@ -209,6 +226,8 @@ public class chekWin extends JFrame {
 			print.add(linePanel); // Add the line panel to the main panel
 
 			// Add empty panels as separators
+			print.add(linePanel); 
+
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
 			}
@@ -223,7 +242,7 @@ public class chekWin extends JFrame {
 																							// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
-
+		
 		JButton btnNewButton_1 = new JButton("당첨금 수령");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);

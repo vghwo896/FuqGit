@@ -3,22 +3,16 @@ package logicLotto;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.text.DecimalFormat;
 import java.awt.event.MouseAdapter;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import jdk.nashorn.internal.scripts.JO;
+
 
 class MainLotto extends JFrame {
 
@@ -94,7 +88,6 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if(m.getPayedlottoMap().size() < 30) {
-					System.out.println(m.getPayedlottoMap().size());
 					if (m.getPayedlottoMap().size() < 30) {
 						ImageFrame imageFrame = new ImageFrame(gen);
 						imageFrame.getContentPane().setLayout(null);
