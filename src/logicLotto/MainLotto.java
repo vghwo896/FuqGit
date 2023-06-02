@@ -15,16 +15,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import jdk.nashorn.internal.scripts.JO;
+
 class MainLotto extends JFrame {
 
-
+	int turn;
 	public MainLotto(GenNumber gen) {
 		
 		// 버튼
-		JButton Mbtn1 = new JButton("충전");
 		JButton Mbtn2 = new JButton("구매하기");
 		JButton Mbtn3 = new JButton("당첨확인");
-		
 
 		// 배경
 		LottoManager m = gen.m;
@@ -59,27 +59,20 @@ class MainLotto extends JFrame {
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
-
-		// 1번 버튼 액션
-
-	
-
-
 		// 2번 버튼 액션 // 구매창으로 넘어가짐
 
 		MouseAdapter click2 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+	
 				if(m.getPayedlottoMap().size()<30) {
 					ImageFrame imageFrame = new ImageFrame(gen);
 					imageFrame.getContentPane().setLayout(null);
 					imageFrame.getContentPane().setLayout(null);
 					setVisible(false);
-					}else {
-						JOptionPane.showMessageDialog(null, "30개 이상은 불가능 합니다", "구매불가", JOptionPane.ERROR_MESSAGE);
-					}
+			
+				}
 			}
-
 		};
 
 		Mbtn2.addMouseListener(click2);
