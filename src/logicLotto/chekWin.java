@@ -19,9 +19,10 @@ import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 
 public class chekWin extends JFrame {
-
+	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
+	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
 		LottoManager m = gen.m;
@@ -120,7 +121,7 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
 
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("플러스");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 47, SpringLayout.EAST, lblNewLabel_2_1);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -10, SpringLayout.SOUTH, panel);
@@ -170,8 +171,17 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
 		contentPane.add(panel_2);
 
+		int winCount = 0;
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
-
+		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
+			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
+				winCount++;
+			}
+		}
+		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
+		
+		
+		
 		JLabel lblNewLabel_6 = new JLabel("구매방식");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
@@ -221,7 +231,14 @@ public class chekWin extends JFrame {
 
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
+<<<<<<< HEAD
 			print.add(linePanel);
+=======
+			print.add(linePanel); // Add the line panel to the main panel
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
+
+			// Add empty panels as separators
+			print.add(linePanel); 
 
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
