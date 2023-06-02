@@ -46,9 +46,15 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 47, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
+		// 홈버튼
+		
 		ImageIcon icon = new ImageIcon("홈버튼.png");
+		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
 		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setBorderPainted(false); // 외곽선 없애줌
+		btnNewButton.setFocusPainted(false); // 선택시 테두리 사용 x
+		btnNewButton.setOpaque(false); // 투명하게 만들어줌
 		btnNewButton.setIcon(icon);
 
 		JPanel panel = new JPanel();
