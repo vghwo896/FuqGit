@@ -22,8 +22,10 @@ public class chekWin extends JFrame {
 
 	private JPanel contentPane;
 	int sumMoney = 0;
+	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
+
 		LottoManager m = gen.m;
 		win = gen.panbyeolWinLose();
 		setVisible(true);
@@ -31,7 +33,7 @@ public class chekWin extends JFrame {
 		getContentPane().setLayout(null);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-		
+
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -44,6 +46,10 @@ public class chekWin extends JFrame {
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
+
+		RainbowCircle.setBounds(300, 120, 236, 34);
+		contentPane.add(RainbowCircle);
+		RainbowCircle.setVisible(true);
 
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
@@ -153,10 +159,9 @@ public class chekWin extends JFrame {
 			}
 		}
 
-		
 		DecimalFormat df = new DecimalFormat("#,###,###,###");
 		String money = df.format(sumMoney);
-		lblNewLabel_4.setText("당첨금액 : " + money+"원");
+		lblNewLabel_4.setText("당첨금액 : " + money + "원");
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
@@ -220,18 +225,18 @@ public class chekWin extends JFrame {
 																							// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
-		
+
 		JButton btnNewButton_1 = new JButton("당첨금 수령");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(sumMoney);
-				m.setCoin(m.getCoin()+sumMoney);
+				m.setCoin(m.getCoin() + sumMoney);
 				sumMoney = 0;
-				lblNewLabel_4.setText("당첨금액 : " + sumMoney+"원");
+				lblNewLabel_4.setText("당첨금액 : " + sumMoney + "원");
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -240,13 +245,13 @@ public class chekWin extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(sumMoney==0) {
-				m.removeMap();
-				m.removepayedMap();
-				new MainLotto(gen);
-				dispose();
-				setVisible(false);
-				}else {
+				if (sumMoney == 0) {
+					m.removeMap();
+					m.removepayedMap();
+					new MainLotto(gen);
+					dispose();
+					setVisible(false);
+				} else {
 					JOptionPane.showMessageDialog(null, "미수령 당첨금이 있습니다.");
 				}
 			}
