@@ -110,18 +110,23 @@ public class GenNumber {
 				}
 				if (count == 6 && i <= 5) {
 					m.getPayedlottoMap().get(z).setWinOrLose("1등");
-					
+					m.getPayedlottoMap().get(z).setAmount(1);
 					break;
 				} else if (count == 6 && i > 5) {
 					m.getPayedlottoMap().get(z).setWinOrLose("2등");
+					m.getPayedlottoMap().get(z).setAmount(2);
 				} else if (count == 5) {
 					m.getPayedlottoMap().get(z).setWinOrLose("3등");
+					m.getPayedlottoMap().get(z).setAmount(3);
 				} else if (count == 4) {
 					m.getPayedlottoMap().get(z).setWinOrLose("4등");
+					m.getPayedlottoMap().get(z).setAmount(4);
 				} else if (count == 3) {
 					m.getPayedlottoMap().get(z).setWinOrLose("5등");
+					m.getPayedlottoMap().get(z).setAmount(5);
 				} else {
 					m.getPayedlottoMap().get(z).setWinOrLose("낙첨");
+					m.getPayedlottoMap().get(z).setAmount(0);
 				}
 			}
 		}

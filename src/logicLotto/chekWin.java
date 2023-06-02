@@ -129,6 +129,15 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
+		
+//		for (int j = 1; j < m.getPayedlottoMap().size(); j++) {
+//			m.getPayedlottoMap().get(i).
+//			
+//		}
+		
+		
+		
+		
 
 		
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");

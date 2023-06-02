@@ -42,7 +42,14 @@ public class Lotto  {
 	public int setIndex(int index,int elem) {
 		return num[index]= elem;
 	}
-	
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
 	@Override
 	public int hashCode() {
