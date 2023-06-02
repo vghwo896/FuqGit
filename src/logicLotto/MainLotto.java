@@ -92,7 +92,10 @@ class MainLotto extends JFrame {
 				if (gen.m.getPayedlottoMap().size() == 0) {
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
+<<<<<<< HEAD
 					gen.panbyeolWinLose();
+=======
+>>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					setVisible(false);
