@@ -31,7 +31,7 @@ public class chekWin extends JFrame {
 		getContentPane().setLayout(null);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-		
+
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -44,7 +44,11 @@ public class chekWin extends JFrame {
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
-
+		
+//		RainbowCircle.setBounds(300, 120, 236, 34);
+//		contentPane.add(RainbowCircle);
+//		rainboRainbowCirclewRing.setVisible(true);
+		
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, contentPane);
@@ -53,7 +57,6 @@ public class chekWin extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// 홈버튼
-		
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
@@ -119,6 +122,15 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1, -10, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
+		
+		// 무지개링 이미지 삽입
+		JLabel lblNewLabel_2_1_2 = new JLabel(new ImageIcon("무지개링.png"));
+		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 625, SpringLayout.WEST, panel);
+//		lblNewLabel_2_1_2.setSize(80,70);
+		panel.add(lblNewLabel_2_1_2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("플러스");
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
@@ -159,10 +171,9 @@ public class chekWin extends JFrame {
 			}
 		}
 
-		
 		DecimalFormat df = new DecimalFormat("#,###,###,###");
 		String money = df.format(sumMoney);
-		lblNewLabel_4.setText("당첨금액 : " + money+"원");
+		lblNewLabel_4.setText("당첨금액 : " + money + "원");
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
@@ -226,18 +237,18 @@ public class chekWin extends JFrame {
 																							// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
-		
+
 		JButton btnNewButton_1 = new JButton("당첨금 수령");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(sumMoney);
-				m.setCoin(m.getCoin()+sumMoney);
+				m.setCoin(m.getCoin() + sumMoney);
 				sumMoney = 0;
-				lblNewLabel_4.setText("당첨금액 : " + sumMoney+"원");
+				lblNewLabel_4.setText("당첨금액 : " + sumMoney + "원");
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -246,13 +257,13 @@ public class chekWin extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(sumMoney==0) {
-				m.removeMap();
-				m.removepayedMap();
-				new MainLotto(gen);
-				dispose();
-				setVisible(false);
-				}else {
+				if (sumMoney == 0) {
+					m.removeMap();
+					m.removepayedMap();
+					new MainLotto(gen);
+					dispose();
+					setVisible(false);
+				} else {
 					JOptionPane.showMessageDialog(null, "미수령 당첨금이 있습니다.");
 				}
 			}
