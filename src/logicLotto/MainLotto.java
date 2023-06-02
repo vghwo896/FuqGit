@@ -92,6 +92,7 @@ class MainLotto extends JFrame {
 				if (gen.m.getPayedlottoMap().size() == 0) {
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
+					gen.panbyeolWinLose();
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					setVisible(false);
@@ -113,10 +114,4 @@ class MainLotto extends JFrame {
 
 	}
 
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		GenNumber gen = new GenNumber(m);
-		new MainLotto(gen);
-
-	}
 }

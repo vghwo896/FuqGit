@@ -2,6 +2,8 @@ package logicLotto;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println(1);
+		LottoManager m = new LottoManager();
+		GenNumber gen = new GenNumber(m);
+		new MainLotto(gen);
 	}
 }
