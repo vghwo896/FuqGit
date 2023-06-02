@@ -86,7 +86,7 @@ class ImageFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30,000원 입니다.", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 
-					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000) {
+					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000&&i%1000==0) {
 						if(i%1000==0) {
 						coin = coin + i;
 						DecimalFormat df = new DecimalFormat("#,###,###,###");
@@ -359,10 +359,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 						editCount = 1;
 					} else if (editCount == 1) {
-						gen.Confirmed(key, new Lotto());
-						for (int i = 0; i < 6; i++) {
-							System.out.println(lm.getLotto(key)[i]);
-						}
+						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
