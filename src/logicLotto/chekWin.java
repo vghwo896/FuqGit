@@ -204,8 +204,8 @@ public class chekWin extends JFrame {
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
 			print.add(linePanel); // Add the line panel to the main panel
-
-			// Add empty panels as separators
+//
+//			 Add empty panels as separators
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
 			}
