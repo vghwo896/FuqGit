@@ -73,9 +73,6 @@ class ImageFrame extends JFrame {
 		walet.setVisible(true);
 		JLabel noticeCharge = new JLabel("1,000원 이하  30,000원 이상은 충전할수 없습니다.");
 		noticeCharge.setBounds(160, -6, 300, 35);
-		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
-		noticeCharge.setBounds(150, 0, 300, 35);
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		pnlRight.add(noticeCharge);
 
 		MouseAdapter charge = new MouseAdapter() {
@@ -346,8 +343,11 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 						editCount = 1;
 					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+						 gen.Confirmed(key,new Lotto());
+						 for(int i = 0; i<6;i++) {
+						 System.out.println(lm.getLotto(key)[i]);
+						 }
+						 }
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -579,7 +579,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				if(lm.getLottoMap().size()!=0) {
 				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
 
 				if (delete == JOptionPane.CLOSED_OPTION) {
@@ -612,6 +612,9 @@ class ImageFrame extends JFrame {
 
 				key = 1;
 
+			}else {
+				JOptionPane.showMessageDialog(null, "선택된 로또가 없습니다.");
+			}
 			}
 		});
 
@@ -645,14 +648,11 @@ class ImageFrame extends JFrame {
 		pnlhome.setLayout(null); // 위치설정
 		pnlhome.setBounds(0, 0, 100, 80);
 		JButton home = new JButton();
-<<<<<<< HEAD
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		home.setPreferredSize(new Dimension(44, 44));
 		home.setBackground(new Color(255, 255, 255));
-=======
 		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
 		home.setBackground(new Color(255, 255, 255)); 
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
 		home.setOpaque(false); // 투명하게 만들어줌
