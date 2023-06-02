@@ -8,7 +8,8 @@ public class Lotto  {
 	private int[] num;
 	private String form;
 	private String winOrLose;
-
+	private int amount;
+	
 	public Lotto() {
 		num=new int[]{0,0,0,0,0,0};
 		form = "자동";

@@ -110,6 +110,7 @@ public class GenNumber {
 				}
 				if (count == 6 && i <= 5) {
 					m.getPayedlottoMap().get(z).setWinOrLose("1등");
+					
 					break;
 				} else if (count == 6 && i > 5) {
 					m.getPayedlottoMap().get(z).setWinOrLose("2등");
