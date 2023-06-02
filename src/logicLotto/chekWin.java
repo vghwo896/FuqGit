@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 
 public class chekWin extends JFrame {
-
+	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
 	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
@@ -47,9 +47,7 @@ public class chekWin extends JFrame {
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
 
-		RainbowCircle.setBounds(300, 120, 236, 34);
-		contentPane.add(RainbowCircle);
-		RainbowCircle.setVisible(true);
+		
 
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
@@ -120,7 +118,7 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
 
-		JLabel lblNewLabel_2_1_1_1 = new JLabel(new Icon);
+		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 47, SpringLayout.EAST, lblNewLabel_2_1);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -10, SpringLayout.SOUTH, panel);

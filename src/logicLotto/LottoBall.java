@@ -435,80 +435,80 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent s) {
-				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
-					
-				if (editCount == 1) {
-					editCount = 0;
-				}
-				if (key < 7) {
+				if (lm.getPayedlottoMap().size() + lm.getLottoMap().size() < 30) {
 
-					Warning6Lines.setVisible(false);
-
-					for (int i = 1; i < 46; i++) {
-						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
-
+					if (editCount == 1) {
+						editCount = 0;
 					}
-					gn.Confirmed(key, new Lotto());
+					if (key < 7) {
 
-					if (key == 1) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
+						Warning6Lines.setVisible(false);
 
-							chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+						for (int i = 1; i < 46; i++) {
+							lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 						}
-					}
-					if (key == 2) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
+						gn.Confirmed(key, new Lotto());
 
-							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+						if (key == 1) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 2) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 3) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 4) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 5) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 6) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
 
 						}
-					}
-					if (key == 3) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
 
-							chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 4) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 5) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 6) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
+						key = lm.getLottoMap().size() + 1;
+						SelectCount = 0;
 
 					}
 
-					key = lm.getLottoMap().size() + 1;
-					SelectCount = 0;
-
-				}
-
-				else {
-					Warning6Lines.setVisible(true);
-				}
-				}else{
+					else {
+						Warning6Lines.setVisible(true);
+					}
+				} else {
 					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 합니다.");
 				}
 			}
@@ -579,8 +579,7 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고",JOptionPane.YES_NO_OPTION);
-
+				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
 
 				if (delete == JOptionPane.CLOSED_OPTION) {
 				} else if (delete == JOptionPane.OK_OPTION) {
@@ -624,11 +623,11 @@ class ImageFrame extends JFrame {
 		guide1.setBounds(0, 20, 200, 768);
 
 //		// 가로가 200 세로가 768
-//
-//		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
-//		JLabel line = new JLabel(Line);
-//		pnlRight.add(line);
-//		line.setBounds(0, 0, 5, 768);
+
+		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
+		JLabel line = new JLabel(Line);
+		pnlRight.add(line);
+		line.setBounds(0, 0, 4, 768);
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
@@ -646,7 +645,7 @@ class ImageFrame extends JFrame {
 		pnlhome.setBounds(0, 0, 100, 80);
 		JButton home = new JButton();
 		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
-		home.setBackground(new Color(255, 255, 255)); 
+		home.setBackground(new Color(255, 255, 255));
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
 		home.setOpaque(false); // 투명하게 만들어줌
