@@ -19,9 +19,10 @@ import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 
 public class chekWin extends JFrame {
-
+	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
+	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
 		LottoManager m = gen.m;
@@ -57,6 +58,7 @@ public class chekWin extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// 홈버튼
+
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
@@ -132,7 +134,7 @@ public class chekWin extends JFrame {
 //		lblNewLabel_2_1_2.setSize(80,70);
 		panel.add(lblNewLabel_2_1_2);
 
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("플러스");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 47, SpringLayout.EAST, lblNewLabel_2_1);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -10, SpringLayout.SOUTH, panel);
@@ -213,28 +215,38 @@ public class chekWin extends JFrame {
 		JPanel print = new JPanel();
 
 		JLabel lbl;
-		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); 
-																						
+		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1));
 
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
-			JPanel linePanel = new JPanel(); 
+			JPanel linePanel = new JPanel();
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
 			for (int j = 0; j < 7; j++) {
-				for (int k = 0; k < arr.length; k++) {
-					if (win[j] == arr[k]) {
-						lbl = new JLabel(new ImageIcon(arr[k] + ".png"));
-					}else {
-						lbl = new JLabel(new ImageIcon("미선택번호("+arr[k] + ").png"));
+				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
+
+				for (int z = 0; z < 6; z++) {
+					if (win[j] == arr[z]) {
+						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
+						linePanel.add(lbl);
+						continue;
 					}
 				}
+				for (int z = 0; z < 6; z++) {
+					if (win[j] == arr[z]) {
+						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
+						linePanel.add(lbl);
+						continue;
+					}
+				}
+//				lbl = new JLabel(new ImageIcon("미선택번호("+arr[z] + ").png"));
 				linePanel.add(lbl);
 			}
+
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
 
-			print.add(linePanel); // Add the line panel to the main panel
+
+			// Add empty panels as separators
 			print.add(linePanel); 
 
 			if (i != gen.m.getPayedlottoMap().size()) {
@@ -283,5 +295,4 @@ public class chekWin extends JFrame {
 			}
 		});
 	}
-
 }
