@@ -20,6 +20,7 @@ class ImageFrame extends JFrame {
 	ImageIcon deleteALL = new ImageIcon("deleteAll.png");
 	ImageIcon overWrite = new ImageIcon("overWrite.png");
 	ImageIcon chargee = new ImageIcon("charge.png");
+	
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
 	// 이미지 최종 크기 38px
@@ -39,7 +40,7 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		this.coin = coin;
+
 
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
@@ -70,7 +71,10 @@ class ImageFrame extends JFrame {
 		walet.setBounds(250, 80, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-
+		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
+		noticeCharge.setBounds(160, -6, 300, 35);
+		pnlRight.add(noticeCharge);
+		
 		MouseAdapter charge = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -82,7 +86,6 @@ class ImageFrame extends JFrame {
 						coin = coin + i;
 						walet.setText("잔액 : " + coin);
 						lm.setCoin(coin);
-						System.out.println(lm.getCoin());
 					} else {
 						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
@@ -108,7 +111,6 @@ class ImageFrame extends JFrame {
 						coin = coin + i;
 						walet.setText("잔액 : " + coin);
 						lm.setCoin(coin);
-						System.out.println(lm.getCoin());
 					} else {
 						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
@@ -201,19 +203,27 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(lm.getLottoMap().containsKey(1)) {
 				   if(editCount ==0) {
 					   key = 1;
 		            for (int i = 0; i < 6; i++) {
+		            	
 		               chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
+		            SelectCount = 6;
 		            editCount=1;
 		            lm.removeValue(key);
 		         }else if(editCount == 1){
 		        	 JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
+				}else {
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
+			}
+				
+				
 		    });
 		edit1.setBounds(320, 157, 60, 25);
 		pnlRight.add(edit1);
@@ -235,6 +245,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(lm.getLottoMap().containsKey(2)) {
 				   if(editCount ==0) {
 					   key = 2;
 		            for (int i = 0; i < 6; i++) {
@@ -242,12 +253,16 @@ class ImageFrame extends JFrame {
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
+		              SelectCount = 6;
 		            lm.removeValue(key);
 		            editCount=1;
 				   }else if(editCount == 1){
 					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
-		         }
+		         }else {
+						JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					}
+				}	
 		      });
 		edit2.setBounds(320, 217, 60, 25);
 
@@ -270,6 +285,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(lm.getLottoMap().containsKey(3)) {
 				   if(editCount ==0) {
 					   key = 3;
 				   for (int i = 0; i < 6; i++) {
@@ -277,11 +293,16 @@ class ImageFrame extends JFrame {
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
+		            SelectCount = 6;
+			        lm.removeValue(key);
 		            editCount=1;
 		         }else if(editCount == 1){
 		        	 JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
+				}else {
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
+			}
 		    });
 		edit3.setBounds(320, 277, 60, 25);
 
@@ -305,6 +326,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(lm.getLottoMap().containsKey(4)) {
 				   if(editCount ==0) {
 				   for (int i = 0; i < 6; i++) {
 					   key = 4;
@@ -312,10 +334,15 @@ class ImageFrame extends JFrame {
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
+		            SelectCount = 6;
+			        lm.removeValue(key);
 		            editCount=1;
 				   }else if(editCount == 1){
 					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
+				}else {
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+				}
 				}
 		    });
 		pnlRight.add(edit4);
@@ -337,17 +364,23 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(lm.getLottoMap().containsKey(5)) {
 				   if(editCount ==0) {
 					   key = 5;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
-		               editCount=1;
 		            }
+		            SelectCount = 6;
+			        lm.removeValue(key);
+		            editCount=1;
 				   }else if(editCount == 1){
 					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
+					}else {
+						JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					}
 		         }
 		      });
 		edit5.setBounds(320, 397, 60, 25);
@@ -370,18 +403,23 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				if(lm.getLottoMap().containsKey(6)) {
 				   if(editCount ==0) {
 					   key = 6;
 		            for (int i = 0; i < 6; i++) {
 		               chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
-		               editCount=1;
 		            	}
+		            SelectCount = 6;
+			        lm.removeValue(key);
+		            editCount=1;
 				   	}else if(editCount == 1){
 		            	JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
+				}else {
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+				}
 				}
 		      });
 		edit6.setBounds(320, 457, 60, 25);
@@ -478,13 +516,12 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				if(!(lm.getLottoMap().size()==0)) {
 				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
 				key= 1;
-				if (option == JOptionPane.YES_OPTION) {
-					System.out.println(lm.getCoin());
-					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
-					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+				if (option == JOptionPane.YES_OPTION) {		
+					key = 1;
+
 					Warning6Lines.setVisible(false);
 					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
@@ -508,6 +545,7 @@ class ImageFrame extends JFrame {
 						for (int i = 0; i < 6; i++) {
 							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 						}
+					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 					} else {
 						JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 					}
@@ -515,6 +553,13 @@ class ImageFrame extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
 				}
+
+				Warning6.setVisible(false);
+
+				}else {
+					JOptionPane.showMessageDialog(null, "확정한 로또가 없습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+				}
+
 
 			}
 		});
@@ -646,4 +691,4 @@ class ImageFrame extends JFrame {
 // 확정시 배열로 정보값 전송, 초기화
 // 오른쪽에 저장(이건 기능쪽에서 가져갈 것), 최대 6장
 // 스크롤 ㄱㄱ
-// html 당겨오는법 되면..생각해볼게 
+// html 당겨오는법 되면..생각해볼게  

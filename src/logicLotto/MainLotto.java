@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -65,12 +66,12 @@ class MainLotto extends JFrame {
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
 		add(hasLotto);
-		
-		// 배경이미지삽입
-		ImageIcon back = new ImageIcon("메인로또도박장.png");
-		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 800);
-		add(lbl);
+
+//		// 배경이미지삽입
+//		ImageIcon back = new ImageIcon("메인로또도박장.png");
+//		JLabel lbl = new JLabel(back);
+//		lbl.setBounds(0, 0, 1024, 800);
+//		add(lbl);
 
 		// 프레임
 		setSize(1024, 800);
@@ -91,7 +92,9 @@ class MainLotto extends JFrame {
 //		Mbtn1.setBounds(120, 550, 200, 100);
 		Mbtn2.setBounds(280, 550, 200, 100);
 		Mbtn3.setBounds(540, 550, 200, 100);
-
+		
+	
+		
 //		// 1번 버튼 액션
 //
 //		MouseAdapter click1 = new MouseAdapter() {
@@ -127,15 +130,16 @@ class MainLotto extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				if (m.getPayedlottoMap().size() < 30) {
 					System.out.println(m.getPayedlottoMap().size());
-					ImageFrame imageFrame = new ImageFrame(gen);
-					imageFrame.getContentPane().setLayout(null);
-					imageFrame.getContentPane().setLayout(null);
-					setVisible(false);
-				} else {
-					JOptionPane.showMessageDialog(null, "30개 이상은 불가능 합니다", "구매불가", JOptionPane.ERROR_MESSAGE);
+					if (m.getPayedlottoMap().size() < 30) {
+						ImageFrame imageFrame = new ImageFrame(gen);
+						imageFrame.getContentPane().setLayout(null);
+						imageFrame.getContentPane().setLayout(null);
+						setVisible(false);
+					} else {
+						JOptionPane.showMessageDialog(null, "30개 이상은 불가능 합니다", "구매불가", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
-
 		};
 
 		Mbtn2.addMouseListener(click2);
@@ -149,7 +153,6 @@ class MainLotto extends JFrame {
 					System.out.println(m.getLottoMap().size());
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
-					System.out.println(m.getLottoMap().size());
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					setVisible(false);
@@ -160,16 +163,8 @@ class MainLotto extends JFrame {
 
 		Mbtn3.addMouseListener(click3);
 
-		// 버튼 넣음
-	
-		add(Mbtn2);
-		add(Mbtn3);
-
-		// 버튼 위치
-		Mbtn2.setBounds(420, 600, 200, 100);
-		Mbtn3.setBounds(700, 600, 200, 100);
-
 	}
+	
 
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
