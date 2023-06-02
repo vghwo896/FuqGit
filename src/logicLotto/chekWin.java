@@ -198,7 +198,7 @@ public class chekWin extends JFrame {
 	      sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 0, SpringLayout.NORTH, lblNewLabel_4);
 	      sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -5, SpringLayout.EAST, panel);
 	      scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar policy
-
+	      scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 	      getContentPane().add(scrollPane);
 	      
 		
