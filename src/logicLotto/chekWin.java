@@ -28,7 +28,12 @@ public class chekWin extends JFrame {
 	private JPanel contentPane;
 
 	public chekWin(GenNumber gen, int[] win) {
-
+		win = gen.panbyeolWinLose();
+		
+		for (int i = 0; i < win.length; i++) {
+			System.out.println("체크윈"+win[i]);
+		}
+		
 		setVisible(true);
 		setSize(1024, 800);
 		getContentPane().setLayout(null);
@@ -217,6 +222,6 @@ public class chekWin extends JFrame {
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
-		ReCheckWin frame = new ReCheckWin(gen, gen.m.winNumberGen());
+		ReCheckWin frame = new ReCheckWin(gen, gen.m.getWinNumber());
 	}
 }
