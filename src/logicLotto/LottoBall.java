@@ -39,7 +39,7 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		this.coin = coin;
+
 
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
@@ -101,7 +101,7 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				int coin = lm.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1000원 이하  300000원 이상은 충전할수 없습니다..");
 				try {
 					int i = Integer.valueOf(s);
 					if (i >= 1000&&i<=30000&&coin<=30000) {
@@ -209,6 +209,7 @@ class ImageFrame extends JFrame {
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
 		            editCount=1;
+		            lm.removeValue(key);
 		         }else if(editCount == 1){
 		        	 JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
 		            }
@@ -241,6 +242,7 @@ class ImageFrame extends JFrame {
 		               gen.list.add(lm.getLotto(key)[i]);
 		               lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 		            }
+		            lm.removeValue(key);
 		            editCount=1;
 				   }else if(editCount == 1){
 					   JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
@@ -391,7 +393,7 @@ class ImageFrame extends JFrame {
 
 		MouseAdapter send = new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent s) {
+			public void mousePressed(MouseEvent s) {
 				if(editCount == 1){
 	            	editCount = 0;
 	            }
@@ -478,13 +480,14 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인", JOptionPane.YES_NO_OPTION);
-
+				key= 1;
 				if (option == JOptionPane.YES_OPTION) {
 					System.out.println(lm.getCoin());
 					JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 			
 					key = 1;
 					// 결제 확정에 대한 추가적인 로직을 작성하세요.
+					Warning6Lines.setVisible(false);
 					if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 						lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
 						walet.setText("잔액 : " + lm.getCoin());
@@ -601,6 +604,7 @@ class ImageFrame extends JFrame {
 		home.setBounds(10, 10, 40, 40);
 		pnlhome.add(home);
 		add(pnlhome);
+		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
 		home.addActionListener(new ActionListener() {
