@@ -63,7 +63,6 @@ public class LottoManager {
 						int key = payedlottoMap.size()+1;
 						Lotto lotto = entry.getValue();
 						payedlottoMap.put(key, lotto);
-						System.out.println(payedlottoMap.keySet());
 					
 				}
 				lottoMap.clear();
