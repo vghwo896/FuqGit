@@ -132,7 +132,6 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (m.getPayedlottoMap().size() < 30) {
-					System.out.println(m.getPayedlottoMap().size());
 					if (m.getPayedlottoMap().size() < 30) {
 						ImageFrame imageFrame = new ImageFrame(gen);
 						imageFrame.getContentPane().setLayout(null);

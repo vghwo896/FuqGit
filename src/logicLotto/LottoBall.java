@@ -573,7 +573,8 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고",JOptionPane.YES_NO_OPTION);
+
 
 				if (delete == JOptionPane.CLOSED_OPTION) {
 				} else if (delete == JOptionPane.OK_OPTION) {
