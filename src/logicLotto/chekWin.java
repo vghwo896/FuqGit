@@ -196,25 +196,30 @@ public class chekWin extends JFrame {
 		JPanel print = new JPanel();
 
 		JLabel lbl;
-		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); // Set grid layout to display
-																						// labels with one empty line in
-																						// between
+		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); 
+																						
 
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
-			JPanel linePanel = new JPanel(); // Create a separate panel for each line
+			JPanel linePanel = new JPanel(); 
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			for (int j = 0; j < 6; j++) {
-				int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
-
-				lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
+			int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
+			for (int j = 0; j < 7; j++) {
+				for (int k = 0; k < arr.length; k++) {
+					if (win[j] == arr[k]) {
+						lbl = new JLabel(new ImageIcon(arr[k] + ".png"));
+					}else {
+						lbl = new JLabel(new ImageIcon("미선택번호("+arr[k] + ").png"));
+					}
+				}
 				linePanel.add(lbl);
 			}
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
-			print.add(linePanel); // Add the line panel to the main panel
 
-			// Add empty panels as separators
+			print.add(linePanel); // Add the line panel to the main panel
+			print.add(linePanel); 
+
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
 			}
