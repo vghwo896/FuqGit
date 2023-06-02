@@ -58,7 +58,7 @@ class ImageFrame extends JFrame {
 		Warning6Lines.setVisible(false);
 
 		JButton ChargeMoney = new JButton(chargee);
-		ChargeMoney.setBounds(320, 20, 100, 50);
+		ChargeMoney.setBounds(320, 40, 100, 50);
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
 
@@ -66,11 +66,11 @@ class ImageFrame extends JFrame {
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
-		walet.setBounds(250, 80, 236, 34);
+		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
 		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
-		noticeCharge.setBounds(160, -6, 300, 35);
+		noticeCharge.setBounds(150, 0, 300, 35);
 		pnlRight.add(noticeCharge);
 
 		MouseAdapter charge = new MouseAdapter() {
