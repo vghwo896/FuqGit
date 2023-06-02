@@ -447,7 +447,6 @@ class ImageFrame extends JFrame {
 					}
 					gn.Confirmed(key, new Lotto());
 
-					System.out.println(lm.getLottoMap().get(key));
 					if (key == 1) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}

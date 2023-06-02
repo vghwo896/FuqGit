@@ -90,7 +90,6 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (gen.m.getPayedlottoMap().size() == 0) {
-					System.out.println(m.getLottoMap().size());
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
 					new chekWin(gen, gen.m.winNumberGen());

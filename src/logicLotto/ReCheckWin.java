@@ -23,11 +23,11 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.GridLayout;
 
-public class chekWin extends JFrame {
+public class ReCheckWin extends JFrame {
 
 	private JPanel contentPane;
 
-	public chekWin(GenNumber gen, int[] win) {
+	public ReCheckWin(GenNumber gen, int[] win) {
 
 		setVisible(true);
 		setSize(1024, 800);
@@ -142,15 +142,15 @@ public class chekWin extends JFrame {
 		contentPane.add(panel_2);
 
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
-		
-		JLabel lblNewLabel_6 = new JLabel("구매방식");
+
+		JLabel lblNewLabel_6 = new JLabel("New label");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addGap(74)
-					.addComponent(lblNewLabel_6)
-					.addGap(383)
+					.addGap(125)
+					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
 					.addContainerGap())
 		);
@@ -158,9 +158,9 @@ public class chekWin extends JFrame {
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel_6))
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblNewLabel_6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
 					.addGap(609))
 		);
 		panel_2.setLayout(gl_panel_2);
@@ -168,13 +168,18 @@ public class chekWin extends JFrame {
 		
 		
 		JPanel print = new JPanel();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, print, 6, SpringLayout.SOUTH, panel_2);
+		sl_contentPane.putConstraint(SpringLayout.WEST, print, 6, SpringLayout.EAST, label);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, print, 0, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.EAST, print, -5, SpringLayout.EAST, panel);
+		contentPane.add(print);
 		
 	      JLabel lbl;
 	      print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); // Set grid layout to display labels with one empty line in between
 
 	      for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
 	          JPanel linePanel = new JPanel(); // Create a separate panel for each line
-	          lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm()+"                               ");
+	          lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm());
 	          linePanel.add(lbl);
 	          for (int j = 0; j < 6; j++) {
 	              int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
@@ -182,7 +187,7 @@ public class chekWin extends JFrame {
 	              lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
 	              linePanel.add(lbl);
 	          }
-	          lbl = new JLabel("          "+gen.m.getPayedlottoMap().get(i).getWinOrLose());
+	          lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getWinOrLose());
 	          linePanel.add(lbl);
 	          print.add(linePanel); // Add the line panel to the main panel
 	          
@@ -193,13 +198,9 @@ public class chekWin extends JFrame {
 	      }
 
 	      JScrollPane scrollPane = new JScrollPane(print); // Create a scroll pane and add pnl2 to it
-	      sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 6, SpringLayout.SOUTH, panel_2);
-	      sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 6, SpringLayout.EAST, label);
-	      sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 0, SpringLayout.NORTH, lblNewLabel_4);
-	      sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -5, SpringLayout.EAST, panel);
 	      scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar policy
 
-	      getContentPane().add(scrollPane);
+	      add(scrollPane);
 	      
 		
 		btnNewButton.addActionListener(new ActionListener() {
@@ -216,6 +217,6 @@ public class chekWin extends JFrame {
 	public static void main(String[] args) {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
-		chekWin frame = new chekWin(gen, gen.m.winNumberGen());
+		ReCheckWin frame = new ReCheckWin(gen, gen.m.winNumberGen());
 	}
 }

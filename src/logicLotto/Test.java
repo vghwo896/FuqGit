@@ -45,7 +45,7 @@ public class Test extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		panel.setBounds(0, 0, 211, 761);
+		panel.setBounds(0, 0, 211, 751);
 		contentPane.add(panel);
 		panel_1.setBounds(209, 0, 412, 761);
 		contentPane.add(panel_1);
@@ -70,4 +70,5 @@ public class Test extends JFrame {
 		
 		panel_2.add(ChargeMoney);
 	}
+
 }
