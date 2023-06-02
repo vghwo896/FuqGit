@@ -5,5 +5,6 @@ public class Main {
 		LottoManager m = new LottoManager();
 		GenNumber gen = new GenNumber(m);
 		new MainLotto(gen);
+		System.out.println(1);
 	}
 }

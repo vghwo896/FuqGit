@@ -8,17 +8,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 
 class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
 	ImageIcon img = new ImageIcon("홈버튼.png");
-	ImageIcon payy = new ImageIcon("pay.png");
-	ImageIcon buy = new ImageIcon("buy.png");
-	ImageIcon selectt = new ImageIcon("select.png");
-	ImageIcon deleteALL = new ImageIcon("deleteAll.png");
-	ImageIcon overWrite = new ImageIcon("overWrite.png");
-	ImageIcon chargee = new ImageIcon("charge.png");
+	ImageIcon payy = new ImageIcon("pay.png"); // 결제 버튼
+	ImageIcon buy = new ImageIcon("buy.png"); // 구매하기 버튼
+	ImageIcon selectt = new ImageIcon("select.png"); // 확정 버튼
+	ImageIcon deleteALL = new ImageIcon("deleteAll.png"); // 모두지우기 버튼
+	ImageIcon overWrite = new ImageIcon("overWrite.png"); // 수정 버튼
+	ImageIcon chargee = new ImageIcon("charge.png"); // 충전하기 버튼
 
 	private int SelectCount;
 	boolean condition = false; // false가 클릭 해제 상태
@@ -57,21 +58,22 @@ class ImageFrame extends JFrame {
 		pnlRight.add(Warning6Lines);
 		Warning6Lines.setVisible(false);
 
+		// 충전 버튼
 		JButton ChargeMoney = new JButton(chargee);
 		ChargeMoney.setBounds(320, 40, 100, 50);
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
 
-		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
+		DecimalFormat df = new DecimalFormat("#,###,###,###");
+		JLabel walet = new JLabel("잔액 : " + df.format(lm.getCoin()));
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
 		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-		JLabel noticeCharge = new JLabel("1000원 이하  30000원 이상은 충전할수 없습니다.");
-		noticeCharge.setBounds(160, -6, 300, 35);
-
+		JLabel noticeCharge = new JLabel("1,000단위로 입력이 가능하며 1,000원 이하  30,000원 이상은 불가능");
+		noticeCharge.setBounds(30, -6, 420, 35);
 		pnlRight.add(noticeCharge);
 
 		MouseAdapter charge = new MouseAdapter() {
@@ -82,17 +84,23 @@ class ImageFrame extends JFrame {
 				try {
 					int i = Integer.valueOf(s);
 					if (30000 < coin + i) {
-						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30000원 입니다.", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30,000원 입니다.", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 
 					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000) {
+						if(i%1000==0) {
 						coin = coin + i;
-						walet.setText("잔액 : " + coin);
+						DecimalFormat df = new DecimalFormat("#,###,###,###");
+						walet.setText("잔액 : " + df.format(coin));
 						lm.setCoin(coin);
+						}else {
+							JOptionPane.showMessageDialog(null, "1,000원 단위로 입력해주세요", "돈을 제대로 입력해주세요.",
+									JOptionPane.ERROR_MESSAGE);
+						}
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "1000원 이하  30000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1,000원 이하  30,000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException n) {
@@ -108,16 +116,27 @@ class ImageFrame extends JFrame {
 		MouseAdapter click1 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+
 				int coin = lm.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1000원 이하  300000원 이상은 충전할수 없습니다..");
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1,000원 이하  30,000원 이상은 충전할수 없습니다..");
+
 				try {
+
 					int i = Integer.valueOf(s);
 					if (i >= 1000 && i <= 30000 && coin <= 30000) {
-						coin = coin + i;
-						walet.setText("잔액 : " + coin);
-						lm.setCoin(coin);
+						if (i % 1000 == 0) {
+							System.out.println(1);
+							coin = coin + i;
+							walet.setText("잔액 : " + coin);
+							lm.setCoin(coin);
+						} else {
+							JOptionPane.showMessageDialog(null, "1,000원 단위로 입력해주세요.", "돈을 제대로 입력해주세요.",
+									JOptionPane.ERROR_MESSAGE);
+						}
+
 					} else {
-						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+						System.out.println(1);
+						JOptionPane.showMessageDialog(null, "1,000원 이하  30,000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException n) {
@@ -341,7 +360,10 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 						editCount = 1;
 					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
+						gen.Confirmed(key, new Lotto());
+						for (int i = 0; i < 6; i++) {
+							System.out.println(lm.getLotto(key)[i]);
+						}
 					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
@@ -435,80 +457,80 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent s) {
-				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
-					
-				if (editCount == 1) {
-					editCount = 0;
-				}
-				if (key < 7) {
+				if (lm.getPayedlottoMap().size() + lm.getLottoMap().size() < 30) {
 
-					Warning6Lines.setVisible(false);
-
-					for (int i = 1; i < 46; i++) {
-						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
-
+					if (editCount == 1) {
+						editCount = 0;
 					}
-					gn.Confirmed(key, new Lotto());
+					if (key < 7) {
 
-					if (key == 1) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
+						Warning6Lines.setVisible(false);
 
-							chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+						for (int i = 1; i < 46; i++) {
+							lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 						}
-					}
-					if (key == 2) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
+						gn.Confirmed(key, new Lotto());
 
-							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+						if (key == 1) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 2) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 3) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 4) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 5) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
+						}
+						if (key == 6) {
+							for (int i = 0; i < 6; i++) {
+								// 번호 선택 버튼}
+
+								chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+
+							}
 
 						}
-					}
-					if (key == 3) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
 
-							chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 4) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 5) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
-					}
-					if (key == 6) {
-						for (int i = 0; i < 6; i++) {
-							// 번호 선택 버튼}
-
-							chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
-
-						}
+						key = lm.getLottoMap().size() + 1;
+						SelectCount = 0;
 
 					}
 
-					key = lm.getLottoMap().size() + 1;
-					SelectCount = 0;
-
-				}
-
-				else {
-					Warning6Lines.setVisible(true);
-				}
-				}else{
+					else {
+						Warning6Lines.setVisible(true);
+					}
+				} else {
 					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 합니다.");
 				}
 			}
@@ -518,99 +540,110 @@ class ImageFrame extends JFrame {
 
 		Select.addMouseListener(send);
 
+		// 결제버튼
 		JButton pay = new JButton(payy);
 		pay.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (!(lm.getLottoMap().size() == 0)) {
-					int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인",
-							JOptionPane.YES_NO_OPTION);
-					key = 1;
-					if (option == JOptionPane.YES_OPTION) {
-						key = 1;
 
-						Warning6Lines.setVisible(false);
-						if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
-							lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
-							walet.setText("잔액 : " + lm.getCoin());
-							lm.payedLotto(lm.getLottoMap());
-							for (int i = 0; i < 6; i++) {
-								chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+				if (editCount != 1) {
+					if (!(lm.getLottoMap().size() == 0)) {
+						int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인",
+								JOptionPane.YES_NO_OPTION);
+						key = 1;
+						if (option == JOptionPane.YES_OPTION) {
+							key = 1;
+
+							Warning6Lines.setVisible(false);
+							if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
+								lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
+								DecimalFormat df = new DecimalFormat("#,###,###,###");
+								walet.setText("잔액 : " + df.format(lm.getCoin()));
+								lm.payedLotto(lm.getLottoMap());
+								for (int i = 0; i < 6; i++) {
+									chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								for (int i = 0; i < 6; i++) {
+									chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								for (int i = 0; i < 6; i++) {
+									chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								for (int i = 0; i < 6; i++) {
+									chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								for (int i = 0; i < 6; i++) {
+									chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								for (int i = 0; i < 6; i++) {
+									chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+								}
+								JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인",
+										JOptionPane.INFORMATION_MESSAGE);
+							} else {
+								JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 							}
-							for (int i = 0; i < 6; i++) {
-								chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
-							}
-							for (int i = 0; i < 6; i++) {
-								chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
-							}
-							for (int i = 0; i < 6; i++) {
-								chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
-							}
-							for (int i = 0; i < 6; i++) {
-								chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
-							}
-							for (int i = 0; i < 6; i++) {
-								chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
-							}
-							JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+
 						} else {
-							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+							JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
 						}
 
+						Warning6.setVisible(false);
+
 					} else {
-						JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "확정한 로또가 없습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 					}
-
-					Warning6.setVisible(false);
-
 				} else {
-					JOptionPane.showMessageDialog(null, "확정한 로또가 없습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "수정중인 로또가 있습니다", "확인", JOptionPane.INFORMATION_MESSAGE);
 				}
-
 			}
 		});
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
+		// 모두지우기 버튼
 		JButton deleteAll = new JButton(deleteALL);
 		deleteAll.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if (lm.getLottoMap().size() != 0) {
+					int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
 
-				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+					if (delete == JOptionPane.CLOSED_OPTION) {
+					} else if (delete == JOptionPane.OK_OPTION) {
 
-				if (delete == JOptionPane.CLOSED_OPTION) {
-				} else if (delete == JOptionPane.OK_OPTION) {
+						JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+						lm.removeMap();
 
-					JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
-					lm.removeMap();
+						Warning6Lines.setVisible(false);
 
-					Warning6Lines.setVisible(false);
+						for (int i = 0; i < 6; i++) {
+							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+						for (int i = 0; i < 6; i++) {
+							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+						}
+					}
 
-					for (int i = 0; i < 6; i++) {
-						chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
+					key = 1;
+
+				} else {
+					JOptionPane.showMessageDialog(null, "선택된 로또가 없습니다.");
 				}
-
-				key = 1;
-
 			}
 		});
 
@@ -622,12 +655,12 @@ class ImageFrame extends JFrame {
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 20, 200, 768);
 
-//		// 가로가 200 세로가 768
-//
-//		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
-//		JLabel line = new JLabel(Line);
-//		pnlRight.add(line);
-//		line.setBounds(0, 0, 5, 768);
+		// 가로가 200 세로가 768
+
+		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
+		JLabel line = new JLabel(Line);
+		pnlRight.add(line);
+		line.setBounds(0, 0, 5, 768);
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
@@ -644,8 +677,11 @@ class ImageFrame extends JFrame {
 		pnlhome.setLayout(null); // 위치설정
 		pnlhome.setBounds(0, 0, 100, 80);
 		JButton home = new JButton();
+		ImageIcon icon = new ImageIcon("홈버튼.png");
+		home.setPreferredSize(new Dimension(44, 44));
+		home.setBackground(new Color(255, 255, 255));
 		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
-		home.setBackground(new Color(255, 255, 255)); 
+		home.setBackground(new Color(255, 255, 255));
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
 		home.setOpaque(false); // 투명하게 만들어줌
