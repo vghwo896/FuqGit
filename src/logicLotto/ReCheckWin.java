@@ -174,20 +174,34 @@ public class ReCheckWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, print, -5, SpringLayout.EAST, panel);
 		contentPane.add(print);
 		
-		
-		JLabel lbltest = new JLabel();
-		
-		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
-			for (int j = 0; j < 6; j++) {
-				int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
-				lbltest = new JLabel(new ImageIcon(arr[j]+".png"));
-				lbltest.setLayout(new GridLayout(1, 6));
-				print.add(lbltest);
-			}
-			print.add(print);
-		}
-		
-		
+	      JLabel lbl;
+	      print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); // Set grid layout to display labels with one empty line in between
+
+	      for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
+	          JPanel linePanel = new JPanel(); // Create a separate panel for each line
+	          lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm());
+	          linePanel.add(lbl);
+	          for (int j = 0; j < 6; j++) {
+	              int[] arr = gen.m.getPayedlottoMap().get(i).getNum();
+	              
+	              lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
+	              linePanel.add(lbl);
+	          }
+	          lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getWinOrLose());
+	          linePanel.add(lbl);
+	          print.add(linePanel); // Add the line panel to the main panel
+	          
+	          // Add empty panels as separators
+	          if (i != gen.m.getPayedlottoMap().size()) {
+	        	  print.add(new JPanel());
+	          }
+	      }
+
+	      JScrollPane scrollPane = new JScrollPane(print); // Create a scroll pane and add pnl2 to it
+	      scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar policy
+
+	      add(scrollPane);
+	      
 		
 		btnNewButton.addActionListener(new ActionListener() {
 

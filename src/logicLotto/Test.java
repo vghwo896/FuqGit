@@ -59,8 +59,6 @@ public class Test extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(620, 0, 644, 761);
 		contentPane.add(panel_2);
-<<<<<<< HEAD
-=======
 		panel_2.setLayout(null);
 		
 		JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다.!");
@@ -71,7 +69,6 @@ public class Test extends JFrame {
 		ChargeMoney.setBounds(535, 10, 97, 23);
 		
 		panel_2.add(ChargeMoney);
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 	}
 
 }
