@@ -90,15 +90,10 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (gen.m.getPayedlottoMap().size() == 0) {
-					System.out.println(m.getLottoMap().size());
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
-<<<<<<< HEAD
-					System.out.println(m.getLottoMap().size());
 					new ReCheckWin(gen, gen.m.winNumberGen());
-=======
 					new chekWin(gen, gen.m.winNumberGen());
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 					dispose();
 					setVisible(false);
 				}
