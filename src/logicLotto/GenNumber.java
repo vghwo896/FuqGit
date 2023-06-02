@@ -94,7 +94,7 @@ public class GenNumber {
 		
 		int count = 0;
 
-		for (int z = 1; z <= m.getPayedlottoMap().keySet().size(); z++) {
+		for (int z = 1; z <= m.getPayedlottoMap().size(); z++) {
 			count = 0;
 			int[] myNumber = m.getPayedlottoMap().get(z).getNum();
 			for (int i = 0; i < winNumber.length; i++) {

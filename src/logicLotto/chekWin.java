@@ -31,7 +31,7 @@ public class chekWin extends JFrame {
 		getContentPane().setLayout(null);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-		
+
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
@@ -53,7 +53,7 @@ public class chekWin extends JFrame {
 		contentPane.add(btnNewButton);
 
 		// 홈버튼
-		
+
 		ImageIcon icon = new ImageIcon("홈버튼.png");
 		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
@@ -159,10 +159,9 @@ public class chekWin extends JFrame {
 			}
 		}
 
-		
 		DecimalFormat df = new DecimalFormat("#,###,###,###");
 		String money = df.format(sumMoney);
-		lblNewLabel_4.setText("당첨금액 : " + money+"원");
+		lblNewLabel_4.setText("당첨금액 : " + money + "원");
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
@@ -193,27 +192,36 @@ public class chekWin extends JFrame {
 		JPanel print = new JPanel();
 
 		JLabel lbl;
-		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1)); 
-																						
+		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1));
 
 		for (int i = 1; i <= gen.m.getPayedlottoMap().size(); i++) {
-			JPanel linePanel = new JPanel(); 
+			JPanel linePanel = new JPanel();
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
 			for (int j = 0; j < 7; j++) {
-				for (int k = 0; k < arr.length; k++) {
-					if (win[j] == arr[k]) {
-						lbl = new JLabel(new ImageIcon(arr[k] + ".png"));
-					}else {
-						lbl = new JLabel(new ImageIcon("미선택번호("+arr[k] + ").png"));
+				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
+
+				for (int z = 0; z < 6; z++) {
+					if (win[j] == arr[z]) {
+						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
+						linePanel.add(lbl);
+						continue;
 					}
 				}
+				for (int z = 0; z < 6; z++) {
+					if (win[j] == arr[z]) {
+						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
+						linePanel.add(lbl);
+						continue;
+					}
+				}
+				lbl = new JLabel(new ImageIcon("미선택번호("+arr[z] + ").png"));
 				linePanel.add(lbl);
 			}
+
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
-			print.add(linePanel); 
+			print.add(linePanel);
 
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
@@ -229,18 +237,18 @@ public class chekWin extends JFrame {
 																							// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
-		
+
 		JButton btnNewButton_1 = new JButton("당첨금 수령");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(sumMoney);
-				m.setCoin(m.getCoin()+sumMoney);
+				m.setCoin(m.getCoin() + sumMoney);
 				sumMoney = 0;
-				lblNewLabel_4.setText("당첨금액 : " + sumMoney+"원");
+				lblNewLabel_4.setText("당첨금액 : " + sumMoney + "원");
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -249,17 +257,16 @@ public class chekWin extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(sumMoney==0) {
-				m.removeMap();
-				m.removepayedMap();
-				new MainLotto(gen);
-				dispose();
-				setVisible(false);
-				}else {
+				if (sumMoney == 0) {
+					m.removeMap();
+					m.removepayedMap();
+					new MainLotto(gen);
+					dispose();
+					setVisible(false);
+				} else {
 					JOptionPane.showMessageDialog(null, "미수령 당첨금이 있습니다.");
 				}
 			}
 		});
 	}
-
 }
