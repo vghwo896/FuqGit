@@ -58,15 +58,9 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 47, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
-		// 홈버튼
-		
 		ImageIcon icon = new ImageIcon("홈버튼.png");
-		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
 		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setBorderPainted(false); // 외곽선 없애줌
-		btnNewButton.setFocusPainted(false); // 선택시 테두리 사용 x
-		btnNewButton.setOpaque(false); // 투명하게 만들어줌
 		btnNewButton.setIcon(icon);
 
 		JPanel panel = new JPanel();
@@ -126,7 +120,7 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
 
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("플러스");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel(new Icon);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 47, SpringLayout.EAST, lblNewLabel_2_1);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -10, SpringLayout.SOUTH, panel);
@@ -215,8 +209,8 @@ public class chekWin extends JFrame {
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
 			print.add(linePanel); // Add the line panel to the main panel
-//
-//			 Add empty panels as separators
+
+			// Add empty panels as separators
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
 			}

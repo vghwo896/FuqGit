@@ -93,12 +93,8 @@ class MainLotto extends JFrame {
 		MouseAdapter click2 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-<<<<<<< HEAD
-				if (m.getPayedlottoMap().size() < 30) {
-=======
 				if(m.getPayedlottoMap().size() < 30) {
 					System.out.println(m.getPayedlottoMap().size());
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 					if (m.getPayedlottoMap().size() < 30) {
 						ImageFrame imageFrame = new ImageFrame(gen);
 						imageFrame.getContentPane().setLayout(null);
