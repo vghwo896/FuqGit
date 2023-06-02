@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 
 class ImageFrame extends JFrame {
 
@@ -62,14 +63,15 @@ class ImageFrame extends JFrame {
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
 
-		JLabel walet = new JLabel("잔액 : " + lm.getCoin());
+		DecimalFormat df = new DecimalFormat("#,###,###,###");
+		JLabel walet = new JLabel("잔액 : " + df.format(lm.getCoin()));
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림체", Font.BOLD, 12));
 		walet.setBounds(250, 80, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
+		JLabel noticeCharge = new JLabel("1,000원 이하  30,000원 이상은 충전할수 없습니다.");
 		noticeCharge.setBounds(160, -6, 300, 35);
 		pnlRight.add(noticeCharge);
 
@@ -81,17 +83,18 @@ class ImageFrame extends JFrame {
 				try {
 					int i = Integer.valueOf(s);
 					if (30000 < coin + i) {
-						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30000원 입니다.", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30,000원 입니다.", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 
 					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000) {
 						coin = coin + i;
-						walet.setText("잔액 : " + coin);
+						DecimalFormat df = new DecimalFormat("#,###,###,###");
+						walet.setText("잔액 : " + df.format(coin));
 						lm.setCoin(coin);
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "1000원 이하  30000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1,000원 이하  30,000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException n) {
@@ -108,7 +111,7 @@ class ImageFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				int coin = lm.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1000원 이하  300000원 이상은 충전할수 없습니다..");
+				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1,000원 이하  30,000원 이상은 충전할수 없습니다..");
 				try {
 					int i = Integer.valueOf(s);
 					if (i >= 1000 && i <= 30000 && coin <= 30000) {
@@ -116,7 +119,7 @@ class ImageFrame extends JFrame {
 						walet.setText("잔액 : " + coin);
 						lm.setCoin(coin);
 					} else {
-						JOptionPane.showMessageDialog(null, "1000원 이하  300000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1,000원 이하  30,000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				} catch (NumberFormatException n) {
@@ -527,7 +530,8 @@ class ImageFrame extends JFrame {
 						Warning6Lines.setVisible(false);
 						if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 							lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
-							walet.setText("잔액 : " + lm.getCoin());
+							DecimalFormat df = new DecimalFormat("#,###,###,###");
+							walet.setText("잔액 : " + df.format(lm.getCoin()));
 							lm.payedLotto(lm.getLottoMap());
 							for (int i = 0; i < 6; i++) {
 								chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));

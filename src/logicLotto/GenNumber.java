@@ -91,11 +91,6 @@ public class GenNumber {
 
 	public int[] panbyeolWinLose() {
 		int[] winNumber = m.getWinNumber();
-
-		for (int i = 0; i < winNumber.length; i++) {
-			System.out.println("판별"+winNumber[i]);
-		}
-		
 		
 		int count = 0;
 

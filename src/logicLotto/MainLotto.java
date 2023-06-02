@@ -1,7 +1,11 @@
 package logicLotto;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.awt.event.MouseAdapter;
 
 import javax.swing.ImageIcon;
@@ -30,7 +34,8 @@ class MainLotto extends JFrame {
 		setBackground(new Color(255, 255, 255));
 
 		// 잔액 위치
-		JLabel walet = new JLabel("잔액 : " + coin);
+		DecimalFormat df = new DecimalFormat("#,###,###,###");
+		JLabel walet = new JLabel("잔액 : " + df.format(coin));
 		walet.setSize(80, 20);
 		walet.setLocation(850, 72);
 		add(walet);
@@ -110,10 +115,4 @@ class MainLotto extends JFrame {
 
 	}
 
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		GenNumber gen = new GenNumber(m);
-		new MainLotto(gen);
-
-	}
 }
