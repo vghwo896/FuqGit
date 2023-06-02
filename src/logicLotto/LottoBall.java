@@ -69,8 +69,9 @@ class ImageFrame extends JFrame {
 		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-		JLabel noticeCharge = new JLabel("1000원 이하  300000원 이상은 충전할수 없습니다.");
-		noticeCharge.setBounds(150, 0, 300, 35);
+		JLabel noticeCharge = new JLabel("1000원 이하  30000원 이상은 충전할수 없습니다.");
+		noticeCharge.setBounds(160, -6, 300, 35);
+
 		pnlRight.add(noticeCharge);
 
 		MouseAdapter charge = new MouseAdapter() {
@@ -434,6 +435,8 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent s) {
+				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
+					
 				if (editCount == 1) {
 					editCount = 0;
 				}
@@ -504,6 +507,9 @@ class ImageFrame extends JFrame {
 
 				else {
 					Warning6Lines.setVisible(true);
+				}
+				}else{
+					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 합니다.");
 				}
 			}
 		};
