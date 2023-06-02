@@ -110,10 +110,13 @@ class ImageFrame extends JFrame {
 		MouseAdapter click1 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				
 				int coin = lm.getCoin();
 				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?1,000원 이하  30,000원 이상은 충전할수 없습니다..");
+				
 				try {
 					int i = Integer.valueOf(s);
+					if(lm.getCoin()<1000) {
 					if (i >= 1000 && i <= 30000 && coin <= 30000) {
 						coin = coin + i;
 						walet.setText("잔액 : " + coin);
@@ -121,6 +124,11 @@ class ImageFrame extends JFrame {
 					} else {
 						JOptionPane.showMessageDialog(null, "1,000원 이하  30,000원 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
+					}
+					}else{
+						coin = coin + i;
+						walet.setText("잔액 : " + coin);
+						lm.setCoin(coin);
 					}
 				} catch (NumberFormatException n) {
 					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
@@ -528,6 +536,8 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				if(editCount!=1) {
 				if (!(lm.getLottoMap().size() == 0)) {
 					int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인",
 							JOptionPane.YES_NO_OPTION);
@@ -573,7 +583,9 @@ class ImageFrame extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "확정한 로또가 없습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
 				}
-
+			  }else {
+				  JOptionPane.showMessageDialog(null, "수정중인 로또가 있습니다", "확인", JOptionPane.INFORMATION_MESSAGE);
+			  }
 			}
 		});
 		pnlRight.add(pay);
