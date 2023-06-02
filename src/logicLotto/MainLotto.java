@@ -71,7 +71,6 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if(m.getPayedlottoMap().size()<30) {
-					System.out.println(m.getPayedlottoMap().size());
 					ImageFrame imageFrame = new ImageFrame(gen);
 					imageFrame.getContentPane().setLayout(null);
 					imageFrame.getContentPane().setLayout(null);
@@ -94,7 +93,6 @@ class MainLotto extends JFrame {
 					System.out.println(m.getLottoMap().size());
 					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
-					System.out.println(m.getLottoMap().size());
 					new chekWin(gen, gen.m.winNumberGen());
 					dispose();
 					setVisible(false);
@@ -111,8 +109,8 @@ class MainLotto extends JFrame {
 		add(Mbtn3);
 
 		// 버튼 위치
-		Mbtn2.setBounds(420, 600, 200, 100);
-		Mbtn3.setBounds(700, 600, 200, 100);
+		Mbtn2.setBounds(260, 600, 200, 100);
+		Mbtn3.setBounds(560, 600, 200, 100);
 
 	}
 
