@@ -616,12 +616,12 @@ class ImageFrame extends JFrame {
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 20, 200, 768);
 
-		// 가로가 200 세로가 768
-
-		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
-		JLabel line = new JLabel(Line);
-		pnlRight.add(line);
-		line.setBounds(0, 0, 5, 768);
+//		// 가로가 200 세로가 768
+//
+//		ImageIcon Line = new ImageIcon("Line.png"); // 구분선 추가
+//		JLabel line = new JLabel(Line);
+//		pnlRight.add(line);
+//		line.setBounds(0, 0, 5, 768);
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
@@ -636,16 +636,15 @@ class ImageFrame extends JFrame {
 		// 홈버튼 이미지 삽입
 		JPanel pnlhome = new JPanel();
 		pnlhome.setLayout(null); // 위치설정
-		pnlhome.setBounds(0, 0, 50, 50);
+		pnlhome.setBounds(0, 0, 100, 80);
 		JButton home = new JButton();
-		ImageIcon icon = new ImageIcon("홈버튼.png");
-		home.setPreferredSize(new Dimension(44, 44));
-		home.setBackground(new Color(255, 255, 255));
+		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
+		home.setBackground(new Color(255, 255, 255)); 
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
 		home.setOpaque(false); // 투명하게 만들어줌
-		home.setIcon(icon);
-		home.setBounds(10, 10, 40, 40);
+		home.setIcon(img);
+		home.setBounds(10, 10, 100, 80);
 		pnlhome.add(home);
 		add(pnlhome);
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
