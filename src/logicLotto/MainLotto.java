@@ -2,6 +2,7 @@ package logicLotto;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 import jdk.nashorn.internal.scripts.JO;
 
@@ -52,13 +54,16 @@ class MainLotto extends JFrame {
 		setBackground(Color.WHITE);
 
 		// 잔액 위치
-		JLabel walet = new JLabel("잔액 : " + coin);
+		JLabel walet = new JLabel(""+coin);
+		walet.setHorizontalAlignment(SwingConstants.CENTER);
+		walet.setFont(new Font("굴림", Font.PLAIN, 40));
 		walet.setSize(120, 120);
-		walet.setLocation(600, 600);
+		walet.setLocation(560, 645);
 		add(walet);
 
 		// 로또개수
 		JLabel hasLotto = new JLabel("구매한 로또의 개수 : " + m.getPayedlottoMap().size());
+		
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
 		add(hasLotto);
