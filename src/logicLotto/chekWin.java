@@ -31,15 +31,12 @@ public class chekWin extends JFrame {
 		getContentPane().setLayout(null);
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
-<<<<<<< HEAD
 		
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
 		pnl.setBounds(0, 0, 1024, 800);
 		setBackground(new Color(255, 255, 255));
 
-=======
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		contentPane = new JPanel();

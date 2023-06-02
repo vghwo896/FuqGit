@@ -30,8 +30,8 @@ class MainLotto extends JFrame {
 //		Mbtn1.setOpaque(false); // 투명하게 만들어줌
 //		Mbtn1.setIcon(icon1);
 
-		JButton Mbtn2 = new JButton(); // 구매하기
-		ImageIcon icon2 = new ImageIcon("구매하기.png");
+		JButton Mbtn2 = new JButton(); // 게임하기
+		ImageIcon icon2 = new ImageIcon("게임하기버튼.png");
 		Mbtn2.setPreferredSize(new Dimension(200, 100));
 		Mbtn2.setBackground(new Color(255, 255, 255));
 		Mbtn2.setBorderPainted(false); // 외곽선 없애줌
@@ -40,7 +40,7 @@ class MainLotto extends JFrame {
 		Mbtn2.setIcon(icon2);
 
 		JButton Mbtn3 = new JButton(); // 당첨확인
-		ImageIcon icon3 = new ImageIcon("당첨확인.png");
+		ImageIcon icon3 = new ImageIcon("당첨확인버튼.png");
 		Mbtn3.setPreferredSize(new Dimension(200, 100));
 		Mbtn3.setBackground(new Color(255, 255, 255));
 		Mbtn3.setBorderPainted(false); // 외곽선 없애줌
@@ -57,25 +57,19 @@ class MainLotto extends JFrame {
 
 		// 잔액 위치
 		JLabel walet = new JLabel("잔액 : " + coin);
-		walet.setSize(80, 20);
-		walet.setLocation(850, 72);
+		walet.setSize(120, 120);
+		walet.setLocation(600, 600);
 		add(walet);
 
-		// 배경 이미지삽입
+		// 로또개수
 		JLabel hasLotto = new JLabel("구매한 로또의 개수 : " + m.getPayedlottoMap().size());
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
 		add(hasLotto);
 
-//		// 배경이미지삽입
-//		ImageIcon back = new ImageIcon("메인로또도박장.png");
-//		JLabel lbl = new JLabel(back);
-//		lbl.setBounds(0, 0, 1024, 800);
-//		add(lbl);
-
 		// 프레임
-		setSize(1024, 800);
-		setTitle("lotto");
+		setSize(1024, 839);
+		setTitle("Botto");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBackground(Color.WHITE);
 		setLayout(null);
@@ -90,11 +84,15 @@ class MainLotto extends JFrame {
 
 		// 버튼 위치
 //		Mbtn1.setBounds(120, 550, 200, 100);
-		Mbtn2.setBounds(280, 550, 200, 100);
-		Mbtn3.setBounds(540, 550, 200, 100);
-		
-	
-		
+		Mbtn2.setBounds(700, 200, 200, 100);
+		Mbtn3.setBounds(700, 400, 200, 100);
+
+		// 배경이미지삽입
+		ImageIcon back = new ImageIcon("main보노보노1.png");
+		JLabel lbl = new JLabel(back);
+		lbl.setBounds(0, 0, 1024, 800);
+		add(lbl);
+
 //		// 1번 버튼 액션
 //
 //		MouseAdapter click1 = new MouseAdapter() {
@@ -164,6 +162,5 @@ class MainLotto extends JFrame {
 		Mbtn3.addMouseListener(click3);
 
 	}
-	
 
 }
