@@ -40,12 +40,10 @@ public class LottoManager {
 					}
 				}
 			}
-			
 		}
 		Arrays.sort(winNumber);
 
 		return winNumber;
-		
 		}
 	// map 지우는 메서드
 	

@@ -28,7 +28,13 @@ public class chekWin extends JFrame {
 	private JPanel contentPane;
 
 	public chekWin(GenNumber gen, int[] win) {
-
+		LottoManager m = gen.m;
+		win = gen.panbyeolWinLose();
+		
+		for (int i = 0; i < win.length; i++) {
+			System.out.println("체크윈"+win[i]);
+		}
+		
 		setVisible(true);
 		setSize(1024, 800);
 		getContentPane().setLayout(null);
@@ -123,6 +129,15 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
+		
+//		for (int j = 1; j < m.getPayedlottoMap().size(); j++) {
+//			m.getPayedlottoMap().get(i).
+//			
+//		}
+		
+		
+		
+		
 
 		
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");
@@ -213,9 +228,4 @@ public class chekWin extends JFrame {
 		});
 	}
 
-	public static void main(String[] args) {
-		LottoManager m = new LottoManager();
-		GenNumber gen = new GenNumber(m);
-		chekWin frame = new chekWin(gen, gen.m.winNumberGen());
-	}
 }
