@@ -32,9 +32,9 @@ class ImageFrame extends JFrame {
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
-	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
+	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능해...");
 	private final JLabel Crying = new JLabel(CryingBono);
-	private final JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다!");
+	private final JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능해...");
 
 	
 	public ImageFrame(GenNumber gen) {
@@ -88,7 +88,7 @@ class ImageFrame extends JFrame {
 		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-		JLabel noticeCharge = new JLabel("1000가리비 이하  30000가리비 이상은 충전할수 없습니다.");
+		JLabel noticeCharge = new JLabel("1000개 이하  30000개 이상은 충전할수 없어...");
 		noticeCharge.setBounds(100, -6, 350, 35);
 
 		pnlRight.add(noticeCharge);
@@ -98,12 +98,12 @@ class ImageFrame extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Crying.setVisible(false);
 				int coin = lm.getCoin();
-				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
+				String s = JOptionPane.showInputDialog(null, "몇개 충전할래?");
 			 	 try {
 					int i = Integer.valueOf(s);
 					if(i%1000==0) {
 					if (30000 < coin + i) {
-						JOptionPane.showMessageDialog(null, "최대 충전 금액은 30000가리비 입니다.", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "최대 충전 갯수은 30000가리비 야", "돈을 제대로 입력해줘.",
 								JOptionPane.ERROR_MESSAGE);
 
 					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000) {
@@ -114,15 +114,15 @@ class ImageFrame extends JFrame {
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "1000 가리비 이하  30000가리비 이상은 충전할수 없습니다..", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1000 가리비 이하  30000가리비 이상은 충전할수 없어", "돈을 제대로 입력해줘",
 								JOptionPane.ERROR_MESSAGE);
 					}
 					}else {
-						JOptionPane.showMessageDialog(null, "1000 가리비 단위로 입력해주세요", "돈을 제대로 입력해주세요.",
+						JOptionPane.showMessageDialog(null, "1000 가리비 단위로 입력해줘", "돈을 제대로 입력해줘.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				  }catch (NumberFormatException n) {
-					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "취소했어", "취소", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
@@ -228,7 +228,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 
@@ -269,7 +269,7 @@ class ImageFrame extends JFrame {
 						SelectCount = 6;
 						lm.removeValue(key);
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 		});
@@ -311,7 +311,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 						
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 		});
@@ -354,7 +354,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 					
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 		});
@@ -394,7 +394,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 			
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 		});
@@ -435,7 +435,7 @@ class ImageFrame extends JFrame {
 
 
 				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
+					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
 				}
 			}
 		});
@@ -548,7 +548,7 @@ class ImageFrame extends JFrame {
 					Warning6Lines.setVisible(true);
 				}
 				}else{
-					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 합니다.");
+					JOptionPane.showMessageDialog(null, "30개 이상은 구매가 불가능 해..");
 				}
 			}
 		};
@@ -564,7 +564,7 @@ class ImageFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!(lm.getLottoMap().size() == 0)) {
-					int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인",
+					int option = JOptionPane.showConfirmDialog(null, "결제를 할래..?", "결제 확인..",
 							JOptionPane.YES_NO_OPTION);
 					if (option == JOptionPane.YES_OPTION) {
 						key = 1;
@@ -592,21 +592,21 @@ class ImageFrame extends JFrame {
 							for (int i = 0; i < 6; i++) {
 								chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 							}
-							JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "결제가 됐어...", "확인", JOptionPane.INFORMATION_MESSAGE);
 							deleteAll.setVisible(false);
 						} else {
-							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
+							JOptionPane.showMessageDialog(null, "가리비 갯수가 부족해...");
 							Crying.setVisible(true);
 						}
 
 					} else {
-						JOptionPane.showMessageDialog(null, "결제가 취소되었습니다.", "알림", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "결제가 취소됐어...", "알림", JOptionPane.WARNING_MESSAGE);
 					}
 
 					Warning6.setVisible(false);
 
 				} else {
-					JOptionPane.showMessageDialog(null, "확정한 로또가 없습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "확정한 조개가 없어..", "확인", JOptionPane.INFORMATION_MESSAGE);
 				}
 
 			}
@@ -622,12 +622,12 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 			 	 if (lm.getLottoMap().size() != 0) {
-		               int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+		               int delete = JOptionPane.showConfirmDialog(null, "모두 지울꺼야..?", "경고", JOptionPane.YES_NO_OPTION);
 
 		               if (delete == JOptionPane.CLOSED_OPTION) {
 		               } else if (delete == JOptionPane.OK_OPTION) {
 
-		                  JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+		                  JOptionPane.showMessageDialog(null, "삭제됐어....");
 		                  lm.removeMap();
 
 		                  Warning6Lines.setVisible(false);
@@ -655,7 +655,7 @@ class ImageFrame extends JFrame {
 		               key = 1;
 
 		            } else {
-		               JOptionPane.showMessageDialog(null, "선택된 로또가 없습니다.");
+		               JOptionPane.showMessageDialog(null, "선택된 조개가 없어..");
 		            }
 		         }
 		      });
@@ -713,12 +713,12 @@ class ImageFrame extends JFrame {
 
 				if (lm.getLottoMap().size() > 0) {
 					int result = JOptionPane.showConfirmDialog(null,
-							"결제 되지 않은 로또가" + lm.getLottoMap().size() + " 개 있습니다." + "정말 나가시겠습니까?", "결제 안내",
+							"결제 되지 않은 조개가" + lm.getLottoMap().size() + " 개 있어..." + "정말 나갈꺼야..??", "결제 안내",
 							JOptionPane.YES_NO_OPTION);
 
 					if (result == JOptionPane.CLOSED_OPTION) {
 					} else if (result == JOptionPane.OK_OPTION) {
-						JOptionPane.showMessageDialog(null, "구매가 취소되었습니다.");
+						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
 						lm.getLottoMap().clear();
 						new MainLotto(gen);
 						dispose();
