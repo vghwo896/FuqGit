@@ -27,31 +27,42 @@ class ImageFrame extends JFrame {
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
-	int editCount = 0;
 	int coin;
-
+	
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
 	private final JLabel Warning6 = new JLabel("6개 이상 선택은 불가능합니다!");
-	 private final JLabel Crying = new JLabel(CryingBono);
+	private final JLabel Crying = new JLabel(CryingBono);
 	private final JLabel Warning6Lines = new JLabel("한 번에 6개까지 저장이 가능합니다!");
-	private final JLabel walet = new JLabel("잔액 : " + coin);
+
 	
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
+		
 
+		JButton edit1 = new JButton(overWrite);
+		JButton edit2 = new JButton(overWrite);
+		JButton edit3 = new JButton(overWrite);
+		JButton edit4 = new JButton(overWrite);
+		JButton edit5 = new JButton(overWrite);
+		JButton edit6 = new JButton(overWrite);
+		JButton deleteAll = new JButton(deleteALL);
+		
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
+		pnlGuide.setBackground(new Color(222, 239, 255));
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
+		pnlLeft.setBackground(new Color(222, 239, 255));
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
+		pnlRight.setBackground(new Color(222, 239, 255));
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 
-		Warning6.setBounds(92, 60, 236, 34);
+		Warning6.setBounds(100, 610, 236, 34);
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
 		
@@ -78,7 +89,7 @@ class ImageFrame extends JFrame {
 		pnlRight.add(walet);
 		walet.setVisible(true);
 		JLabel noticeCharge = new JLabel("1000가리비 이하  30000가리비 이상은 충전할수 없습니다.");
-		noticeCharge.setBounds(160, -6, 300, 35);
+		noticeCharge.setBounds(100, -6, 350, 35);
 
 		pnlRight.add(noticeCharge);
 
@@ -88,7 +99,7 @@ class ImageFrame extends JFrame {
 				Crying.setVisible(false);
 				int coin = lm.getCoin();
 				String s = JOptionPane.showInputDialog(null, "얼마를 충전하시겠습니까?");
-				try {
+			 	 try {
 					int i = Integer.valueOf(s);
 					if(i%1000==0) {
 					if (30000 < coin + i) {
@@ -110,7 +121,7 @@ class ImageFrame extends JFrame {
 						JOptionPane.showMessageDialog(null, "1000 가리비 단위로 입력해주세요", "돈을 제대로 입력해주세요.",
 								JOptionPane.ERROR_MESSAGE);
 					}
-				} catch (NumberFormatException n) {
+				  }catch (NumberFormatException n) {
 					JOptionPane.showMessageDialog(null, "취소하셨습니다", "취소", JOptionPane.ERROR_MESSAGE);
 				}
 
@@ -194,26 +205,28 @@ class ImageFrame extends JFrame {
 			pnlRight.add(chooselbl1[i]);// 프레임에 버튼 추가
 		}
 
-		JButton edit1 = new JButton(overWrite);
+
 		edit1.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(1)) {
-					if (editCount == 0) {
+
 						key = 1;
 						for (int i = 0; i < 6; i++) {
 
 							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+							edit2.setVisible(false);
+							edit3.setVisible(false);
+							edit4.setVisible(false);
+							edit5.setVisible(false);
+							edit6.setVisible(false);
 						}
 						SelectCount = 6;
-						editCount = 1;
 						lm.removeValue(key);
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -222,35 +235,6 @@ class ImageFrame extends JFrame {
 		});
 		edit1.setBounds(320, 157, 60, 25);
 		pnlRight.add(edit1);
-		
-//		JButton delet1 = new JButton("delete");
-//		edit1.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				if (lm.getLottoMap().containsKey(1)) {
-//					if (editCount == 0) {
-//						key = 1;
-//						for (int i = 0; i < 6; i++) {
-//
-//							chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
-//							gen.list.add(lm.getLotto(key)[i]);
-//							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
-//						}
-//						SelectCount = 6;
-//						editCount = 1;
-//						lm.removeValue(key);
-//					} else if (editCount == 1) {
-//						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-//					}
-//				} else {
-//					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
-//				}
-//			}
-//
-//		});
-//		delet1.setBounds(340, 157, 60, 25);
-//		pnlRight.add(delet1);
 		
 		JLabel[] chooselbl2 = new JLabel[7]; // 번호 선택 버튼
 
@@ -264,25 +248,26 @@ class ImageFrame extends JFrame {
 			chooselbl2[i].setBounds(((i + 1) * 40), 210, 45, 45);
 			pnlRight.add(chooselbl2[i]);// 프레임에 버튼 추가
 		}
-		JButton edit2 = new JButton(overWrite);
+
 		edit2.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(2)) {
-					if (editCount == 0) {
+
 						key = 2;
 						for (int i = 0; i < 6; i++) {
 							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 						}
+						edit1.setVisible(false);
+						edit3.setVisible(false);
+						edit4.setVisible(false);
+						edit5.setVisible(false);
+						edit6.setVisible(false);
 						SelectCount = 6;
 						lm.removeValue(key);
-						editCount = 1;
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -304,25 +289,27 @@ class ImageFrame extends JFrame {
 			chooselbl3[i].setBounds(((i + 1) * 40), 270, 45, 45);
 			pnlRight.add(chooselbl3[i]);// 프레임에 버튼 추가
 		}
-		JButton edit3 = new JButton(overWrite);
+
 		edit3.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(3)) {
-					if (editCount == 0) {
+
 						key = 3;
 						for (int i = 0; i < 6; i++) {
 							chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 						}
+						edit1.setVisible(false);
+						edit2.setVisible(false);
+						edit4.setVisible(false);
+						edit5.setVisible(false);
+						edit6.setVisible(false);
 						SelectCount = 6;
 						lm.removeValue(key);
-						editCount = 1;
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+						
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -344,26 +331,28 @@ class ImageFrame extends JFrame {
 			chooselbl4[i].setBounds(((i + 1) * 40), 330, 45, 45);
 			pnlRight.add(chooselbl4[i]);// 프레임에 버튼 추가
 		}
-		JButton edit4 = new JButton(overWrite);
+
 		edit4.setBounds(320, 337, 60, 25);
 		edit4.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(4)) {
-					if (editCount == 0) {
+
 						for (int i = 0; i < 6; i++) {
 							key = 4;
 							chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 						}
+						edit1.setVisible(false);
+						edit2.setVisible(false);
+						edit3.setVisible(false);
+						edit5.setVisible(false);
+						edit6.setVisible(false);
 						SelectCount = 6;
 						lm.removeValue(key);
-						editCount = 1;
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -383,25 +372,27 @@ class ImageFrame extends JFrame {
 			chooselbl5[i].setBounds(((i + 1) * 40), 390, 45, 45);
 			pnlRight.add(chooselbl5[i]);// 프레임에 버튼 추가
 		}
-		JButton edit5 = new JButton(overWrite);
+
 		edit5.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(5)) {
-					if (editCount == 0) {
+
 						key = 5;
 						for (int i = 0; i < 6; i++) {
 							chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 						}
+						edit1.setVisible(false);
+						edit2.setVisible(false);
+						edit3.setVisible(false);
+						edit4.setVisible(false);
+						edit6.setVisible(false);
 						SelectCount = 6;
 						lm.removeValue(key);
-						editCount = 1;
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+			
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -422,25 +413,27 @@ class ImageFrame extends JFrame {
 			chooselbl6[i].setBounds(((i + 1) * 40), 450, 45, 45);
 			pnlRight.add(chooselbl6[i]);// 프레임에 버튼 추가
 		}
-		JButton edit6 = new JButton(overWrite);
+
 		edit6.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (lm.getLottoMap().containsKey(6)) {
-					if (editCount == 0) {
 						key = 6;
 						for (int i = 0; i < 6; i++) {
 							chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 							gen.list.add(lm.getLotto(key)[i]);
 							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
 						}
+						edit1.setVisible(false);
+						edit2.setVisible(false);
+						edit3.setVisible(false);
+						edit4.setVisible(false);
+						edit5.setVisible(false);
 						SelectCount = 6;
 						lm.removeValue(key);
-						editCount = 1;
-					} else if (editCount == 1) {
-						JOptionPane.showMessageDialog(null, "다른 로또를 수정중일때는 수정이 불가능합니다.");
-					}
+
+
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 로또입니다.");
 				}
@@ -456,11 +449,9 @@ class ImageFrame extends JFrame {
 		MouseAdapter send = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent s) {
+				deleteAll.setVisible(true);
 				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
 					
-				if (editCount == 1) {
-					editCount = 0;
-				}
 				if (key < 7) {
 
 					Warning6Lines.setVisible(false);
@@ -474,6 +465,11 @@ class ImageFrame extends JFrame {
 					if (key == 1) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
+							edit2.setVisible(true);
+							edit3.setVisible(true);
+							edit4.setVisible(true);
+							edit5.setVisible(true);
+							edit6.setVisible(true);
 
 							chooselbl1[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 
@@ -484,13 +480,22 @@ class ImageFrame extends JFrame {
 							// 번호 선택 버튼}
 
 							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
+							edit1.setVisible(true);
+							edit3.setVisible(true);
+							edit4.setVisible(true);
+							edit5.setVisible(true);
+							edit6.setVisible(true);
 
 						}
 					}
 					if (key == 3) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
-
+							edit1.setVisible(true);
+							edit2.setVisible(true);
+							edit4.setVisible(true);
+							edit5.setVisible(true);
+							edit6.setVisible(true);
 							chooselbl3[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 
 						}
@@ -498,7 +503,11 @@ class ImageFrame extends JFrame {
 					if (key == 4) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
-
+							edit1.setVisible(true);
+							edit2.setVisible(true);
+							edit3.setVisible(true);
+							edit5.setVisible(true);
+							edit6.setVisible(true);
 							chooselbl4[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 
 						}
@@ -506,7 +515,11 @@ class ImageFrame extends JFrame {
 					if (key == 5) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
-
+							edit1.setVisible(true);
+							edit2.setVisible(true);
+							edit3.setVisible(true);
+							edit4.setVisible(true);
+							edit6.setVisible(true);
 							chooselbl5[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 
 						}
@@ -514,13 +527,18 @@ class ImageFrame extends JFrame {
 					if (key == 6) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
-
+							edit1.setVisible(true);
+							edit2.setVisible(true);
+							edit3.setVisible(true);
+							edit4.setVisible(true);
+							edit5.setVisible(true);
 							chooselbl6[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 
 						}
 
 					}
-
+					
+					
 					key = lm.getLottoMap().size() + 1;
 					SelectCount = 0;
 
@@ -548,7 +566,6 @@ class ImageFrame extends JFrame {
 				if (!(lm.getLottoMap().size() == 0)) {
 					int option = JOptionPane.showConfirmDialog(null, "결제를 확정하시겠습니까?", "결제 확인",
 							JOptionPane.YES_NO_OPTION);
-					key = 1;
 					if (option == JOptionPane.YES_OPTION) {
 						key = 1;
 
@@ -576,6 +593,7 @@ class ImageFrame extends JFrame {
 								chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 							}
 							JOptionPane.showMessageDialog(null, "결제가 확정되었습니다.", "확인", JOptionPane.INFORMATION_MESSAGE);
+							deleteAll.setVisible(false);
 						} else {
 							JOptionPane.showMessageDialog(null, "잔액이 부족합니다.");
 							Crying.setVisible(true);
@@ -597,48 +615,53 @@ class ImageFrame extends JFrame {
 		pay.setBounds(150, 650, 120, 45);
 
 		// 모두지우기 버튼
-		JButton deleteAll = new JButton(deleteALL);
+
 		deleteAll.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
+			 	 if (lm.getLottoMap().size() != 0) {
+		               int delete = JOptionPane.showConfirmDialog(null, "모두 지우시겠습니까?", "경고", JOptionPane.YES_NO_OPTION);
 
-				if (delete == JOptionPane.CLOSED_OPTION) {
-				} else if (delete == JOptionPane.OK_OPTION) {
+		               if (delete == JOptionPane.CLOSED_OPTION) {
+		               } else if (delete == JOptionPane.OK_OPTION) {
 
-					JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
-					lm.removeMap();
+		                  JOptionPane.showMessageDialog(null, "삭제가 완료되었습니다.");
+		                  lm.removeMap();
 
-					Warning6Lines.setVisible(false);
+		                  Warning6Lines.setVisible(false);
 
-					for (int i = 0; i < 6; i++) {
-						chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-					for (int i = 0; i < 6; i++) {
-						chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
-					}
-				}
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl1[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl3[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl4[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl5[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		                  for (int i = 0; i < 6; i++) {
+		                     chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
+		                  }
+		               }
 
-				key = 1;
+		               key = 1;
 
-			}
-		});
+		            } else {
+		               JOptionPane.showMessageDialog(null, "선택된 로또가 없습니다.");
+		            }
+		         }
+		      });
 
 		pnlRight.add(deleteAll);
+		deleteAll.setVisible(false);
 		deleteAll.setBounds(300, 550, 120, 45);
 
 		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // 설명문 이미지 추가
@@ -655,6 +678,7 @@ class ImageFrame extends JFrame {
 
 		setSize(1080, 800);
 		setBounds(0, 0, 1080, 800);
+				
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setVisible(true);
@@ -667,6 +691,7 @@ class ImageFrame extends JFrame {
 		JPanel pnlhome = new JPanel();
 		pnlhome.setLayout(null); // 위치설정
 		pnlhome.setBounds(0, 0, 100, 80);
+		pnlhome.setBackground(new Color(222, 239, 255));
 		JButton home = new JButton();
 		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
 		home.setBackground(new Color(255, 255, 255)); 

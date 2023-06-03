@@ -20,7 +20,7 @@ import java.awt.GridLayout;
 
 public class chekWin extends JFrame {
 	ImageIcon plus = new ImageIcon("plus.png");
-	private JPanel contentPane;
+	private JPanel contentPane; 
 	int sumMoney = 0;
 	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
