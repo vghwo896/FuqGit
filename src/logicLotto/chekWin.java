@@ -35,6 +35,7 @@ public class chekWin extends JFrame {
 
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
+		pnl.setBackground(new Color(222, 239, 255));
 		pnl.setBounds(0, 0, 1024, 800);
 		setBackground(new Color(255, 255, 255));
 
@@ -45,6 +46,7 @@ public class chekWin extends JFrame {
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
+		contentPane.setBackground(new Color(222, 239, 255));
 
 //		RainbowCircle.setBounds(300, 120, 236, 34);
 //		contentPane.add(RainbowCircle);
@@ -73,10 +75,11 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.WEST, panel, 94, SpringLayout.EAST, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel, 134, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel, -122, SpringLayout.EAST, contentPane);
+		panel.setBackground(new Color(222, 239, 255));
 		contentPane.add(panel);
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
-
+		panel.setBackground(new Color(222, 239, 255));
 		JLabel lblNewLabel = new JLabel(new ImageIcon(win[0] + ".png"));
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel, 10, SpringLayout.WEST, panel);
@@ -155,7 +158,7 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel_4, -5, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel_4, 215, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel_4);
-
+		
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			int count = m.getPayedlottoMap().get(i).getAmount();
 			if (count == 1) {
@@ -209,8 +212,9 @@ public class chekWin extends JFrame {
 												.addComponent(lblNewLabel_6))
 										.addGap(609)));
 		panel_2.setLayout(gl_panel_2);
-
+		panel_2.setBackground(new Color(222, 239, 255));
 		JPanel print = new JPanel();
+		print.setBackground(new Color(255, 255, 255));
 
 		JLabel lbl;
 		print.setLayout(new GridLayout((gen.m.getPayedlottoMap().size() * 2) - 1, 1));
@@ -219,7 +223,7 @@ public class chekWin extends JFrame {
 			JPanel linePanel = new JPanel();
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			
+
 			for (int j = 0; j < 6; j++) {
 				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
 
@@ -240,19 +244,23 @@ public class chekWin extends JFrame {
 			}
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
+
 			print.add(linePanel);
+			linePanel.setBackground(new Color(255,255,255));
+
 			if (i != gen.m.getPayedlottoMap().size()) {
-				print.add(new JPanel());
+				JPanel pnl2 = new JPanel();
+				pnl2.setBackground(Color.white);
+				print.add(pnl2);
 			}
 		}
-
 		JScrollPane scrollPane = new JScrollPane(print); // Create a scroll pane and add pnl2 to it
 		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 6, SpringLayout.SOUTH, panel_2);
 		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 6, SpringLayout.EAST, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 0, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -5, SpringLayout.EAST, panel);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar
-																							// policy
+																						// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
 

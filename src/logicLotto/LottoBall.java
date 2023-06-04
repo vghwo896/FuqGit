@@ -627,6 +627,12 @@ class ImageFrame extends JFrame {
 							}
 							JOptionPane.showMessageDialog(null, "결제가 됐어...", "확인", JOptionPane.INFORMATION_MESSAGE);
 							deleteAll.setVisible(false);
+							   edit1.setVisible(true);
+			            	   edit2.setVisible(true);
+			            	   edit3.setVisible(true);
+			            	   edit4.setVisible(true);
+			            	   edit5.setVisible(true);
+			            	   edit6.setVisible(true);
 						} else {
 							JOptionPane.showMessageDialog(null, "가리비 갯수가 부족해...");
 							Crying.setVisible(true);
@@ -659,6 +665,12 @@ class ImageFrame extends JFrame {
 
 		               if (delete == JOptionPane.CLOSED_OPTION) {
 		               } else if (delete == JOptionPane.OK_OPTION) {
+		            	   edit1.setVisible(true);
+		            	   edit2.setVisible(true);
+		            	   edit3.setVisible(true);
+		            	   edit4.setVisible(true);
+		            	   edit5.setVisible(true);
+		            	   edit6.setVisible(true);
 
 		                  JOptionPane.showMessageDialog(null, "삭제됐어....");
 		                  lm.removeMap();
