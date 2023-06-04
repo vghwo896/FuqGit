@@ -214,6 +214,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(SelectCount<1) {
 				if (lm.getLottoMap().containsKey(1)) {
 
 						key = 1;
@@ -233,6 +234,9 @@ class ImageFrame extends JFrame {
 
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				}
+				}else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 
@@ -257,23 +261,28 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (lm.getLottoMap().containsKey(2)) {
-
-						key = 2;
-						for (int i = 0; i < 6; i++) {
-							chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
-							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
-						}
-						edit1.setVisible(false);
-						edit3.setVisible(false);
-						edit4.setVisible(false);
-						edit5.setVisible(false);
-						edit6.setVisible(false);
-						SelectCount = 6;
-						lm.removeValue(key);
-				} else {
-					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				if(SelectCount<1) {
+					if (lm.getLottoMap().containsKey(2)) {
+	
+							key = 2;
+							for (int i = 0; i < 6; i++) {
+								chooselbl2[i].setIcon(new ImageIcon("번호(미선택).png"));
+								gen.list.add(lm.getLotto(key)[i]);
+								lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("선택번호(" + lm.getLotto(key)[i] + ").png"));
+							}
+							edit1.setVisible(false);
+							edit3.setVisible(false);
+							edit4.setVisible(false);
+							edit5.setVisible(false);
+							edit6.setVisible(false);
+							SelectCount = 6;
+							lm.removeValue(key);
+						} else {
+						JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+					}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 		});
@@ -298,6 +307,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(SelectCount<1) {
 				if (lm.getLottoMap().containsKey(3)) {
 
 						key = 3;
@@ -316,6 +326,10 @@ class ImageFrame extends JFrame {
 						
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 		});
@@ -341,6 +355,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(SelectCount<1) {
 				if (lm.getLottoMap().containsKey(4)) {
 
 						for (int i = 0; i < 6; i++) {
@@ -359,6 +374,10 @@ class ImageFrame extends JFrame {
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 		});
@@ -381,6 +400,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(SelectCount<1) {
 				if (lm.getLottoMap().containsKey(5)) {
 
 						key = 5;
@@ -399,6 +419,10 @@ class ImageFrame extends JFrame {
 			
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 		});
@@ -422,6 +446,7 @@ class ImageFrame extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(SelectCount<1) {
 				if (lm.getLottoMap().containsKey(6)) {
 						key = 6;
 						for (int i = 0; i < 6; i++) {
@@ -440,6 +465,10 @@ class ImageFrame extends JFrame {
 
 				} else {
 					JOptionPane.showMessageDialog(null, "아직 구매하지 않은 조개야...");
+				}
+				}
+				else{
+					JOptionPane.showMessageDialog(null, "선택중인 조개가 있어....");
 				}
 			}
 		});
