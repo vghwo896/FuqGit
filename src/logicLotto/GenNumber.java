@@ -75,7 +75,8 @@ public class GenNumber {
 
 				for (int j = 0; j < i; j++) {
 					if (lotto.getNum()[i] == lotto.getNum()[j]) {
-						i--;
+						lotto.getNum()[i] = (int) random.nextInt(45) + 1;
+						j = -1;
 					}
 				}
 			}
