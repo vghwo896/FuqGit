@@ -219,7 +219,7 @@ public class chekWin extends JFrame {
 			JPanel linePanel = new JPanel();
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-
+			
 			for (int j = 0; j < 6; j++) {
 				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // 내 번호
 
@@ -240,9 +240,7 @@ public class chekWin extends JFrame {
 			}
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
-
 			print.add(linePanel);
-
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
 			}
