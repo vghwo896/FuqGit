@@ -20,9 +20,9 @@ import java.awt.GridLayout;
 
 public class chekWin extends JFrame {
 	ImageIcon plus = new ImageIcon("plus.png");
-	private JPanel contentPane; 
+	private JPanel contentPane;
 	int sumMoney = 0;
-	private final JLabel RainbowCircle = new JLabel("ë¬´ì§€ê°œìƒ‰ ë™ê·¸ë¼ë¯¸");
+	private final JLabel RainbowCircle = new JLabel("¹«Áö°³»ö µ¿±×¶ó¹Ì");
 
 	public chekWin(GenNumber gen, int[] win) {
 		LottoManager m = gen.m;
@@ -30,8 +30,8 @@ public class chekWin extends JFrame {
 		setVisible(true);
 		setSize(1024, 800);
 		getContentPane().setLayout(null);
-		setResizable(false); // ì°½ ì‚¬ì´ì¦ˆ ë³€ê²½ ë¶ˆê°€
-		setLocationRelativeTo(null); // ì°½ì´ ê°€ìš´ë° ë‚˜ì˜¤ê²Œí•¨
+		setResizable(false); // Ã¢ »çÀÌÁî º¯°æ ºÒ°¡
+		setLocationRelativeTo(null); // Ã¢ÀÌ °¡¿îµ¥ ³ª¿À°ÔÇÔ
 
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
@@ -45,11 +45,11 @@ public class chekWin extends JFrame {
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
-		
+
 //		RainbowCircle.setBounds(300, 120, 236, 34);
 //		contentPane.add(RainbowCircle);
 //		rainboRainbowCirclewRing.setVisible(true);
-		
+
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, contentPane);
@@ -57,15 +57,15 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 47, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
-		// í™ˆë²„íŠ¼
+		// È¨¹öÆ°
 
-		ImageIcon icon = new ImageIcon("í™ˆë²„íŠ¼.png");
+		ImageIcon icon = new ImageIcon("È¨¹öÆ°.png");
 		btnNewButton.setBounds(0, 0, 100, 80);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
 		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setBorderPainted(false); // ì™¸ê³½ì„  ì—†ì• ì¤Œ
-		btnNewButton.setFocusPainted(false); // ì„ íƒì‹œ í…Œë‘ë¦¬ ì‚¬ìš© x
-		btnNewButton.setOpaque(false); // íˆ¬ëª…í•˜ê²Œ ë§Œë“¤ì–´ì¤Œ
+		btnNewButton.setBorderPainted(false); // ¿Ü°û¼± ¾ø¾ÖÁÜ
+		btnNewButton.setFocusPainted(false); // ¼±ÅÃ½Ã Å×µÎ¸® »ç¿ë x
+		btnNewButton.setOpaque(false); // Åõ¸íÇÏ°Ô ¸¸µé¾îÁÜ
 		btnNewButton.setIcon(icon);
 
 		JPanel panel = new JPanel();
@@ -124,9 +124,9 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1, -10, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
-		
-		// ë¬´ì§€ê°œë§ ì´ë¯¸ì§€ ì‚½ì…
-		JLabel lblNewLabel_2_1_2 = new JLabel(new ImageIcon("ë¬´ì§€ê°œë§.png"));
+
+		// ¹«Áö°³¸µ ÀÌ¹ÌÁö »ğÀÔ
+		JLabel lblNewLabel_2_1_2 = new JLabel(new ImageIcon("¹«Áö°³¸µ.png"));
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
@@ -142,12 +142,12 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1, 45, SpringLayout.EAST, lblNewLabel_2_1_1_1);
 		panel.add(lblNewLabel_2_1_1_1);
 
-		JLabel label = new JLabel(new ImageIcon("ë¡œë˜ë‹¹ì²¨ê¸ˆì•¡.png"));
+		JLabel label = new JLabel(new ImageIcon("·Î¶Ç´çÃ·±İ¾×.png"));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
 
-		JLabel lblNewLabel_4 = new JLabel("ë‹¹ì²¨ê¸ˆì•¡");
+		JLabel lblNewLabel_4 = new JLabel("´çÃ·±İ¾×");
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -72, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, label, -10, SpringLayout.EAST, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, -44, SpringLayout.SOUTH, contentPane);
@@ -175,7 +175,7 @@ public class chekWin extends JFrame {
 
 		DecimalFormat df = new DecimalFormat("#,###,###,###");
 		String money = df.format(sumMoney);
-		lblNewLabel_4.setText("ë‹¹ì²¨ê¸ˆì•¡ : " + money + "ì›");
+		lblNewLabel_4.setText("´çÃ·±İ¾× : " + money + "¿ø");
 
 		JPanel panel_2 = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
@@ -185,17 +185,15 @@ public class chekWin extends JFrame {
 		contentPane.add(panel_2);
 
 		int winCount = 0;
-		JLabel lblNewLabel_5 = new JLabel("ë‹¹ì²¨ê°œìˆ˜");
+		JLabel lblNewLabel_5 = new JLabel("´çÃ·°³¼ö");
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
 				winCount++;
 			}
 		}
-		lblNewLabel_5.setText("ë‹¹ì²¨ê°œìˆ˜ : " + winCount + "ê°œ");
-		
-		
-		
-		JLabel lblNewLabel_6 = new JLabel("êµ¬ë§¤ë°©ì‹");
+		lblNewLabel_5.setText("´çÃ·°³¼ö : " + winCount + "°³");
+
+		JLabel lblNewLabel_6 = new JLabel("±¸¸Å¹æ½Ä");
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup().addGap(74).addComponent(lblNewLabel_6).addGap(383)
@@ -221,33 +219,29 @@ public class chekWin extends JFrame {
 			JPanel linePanel = new JPanel();
 			lbl = new JLabel(gen.m.getPayedlottoMap().get(i).getForm() + "                               ");
 			linePanel.add(lbl);
-			for (int j = 0; j < 7; j++) {
-				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // ë‚´ ë²ˆí˜¸
 
-				for (int z = 0; z < 6; z++) {
-					if (win[j] == arr[z]) {
-						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
+			for (int j = 0; j < 6; j++) {
+				int[] arr = gen.m.getPayedlottoMap().get(i).getNum(); // ³» ¹øÈ£
+
+				boolean foundMatch = true;
+
+				for (int k = 0; k < 7; k++) {
+					if (arr[j] == win[k]) {
+						lbl = new JLabel(new ImageIcon(arr[j] + ".png"));
 						linePanel.add(lbl);
-						continue;
+						foundMatch = false;
+						break;
 					}
 				}
-				for (int z = 0; z < 6; z++) {
-					if (win[j] == arr[z]) {
-						lbl = new JLabel(new ImageIcon(arr[z] + ".png"));
-						linePanel.add(lbl);
-						continue;
-					}
+				if (foundMatch) {
+					lbl = new JLabel(new ImageIcon("¹Ì¼±ÅÃ¹øÈ£(" + arr[j] + ").png"));
+					linePanel.add(lbl);
 				}
-//				lbl = new JLabel(new ImageIcon("ë¯¸ì„ íƒë²ˆí˜¸("+arr[z] + ").png"));
-				linePanel.add(lbl);
 			}
-
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
 
-
-			// Add empty panels as separators
-			print.add(linePanel); 
+			print.add(linePanel);
 
 			if (i != gen.m.getPayedlottoMap().size()) {
 				print.add(new JPanel());
@@ -264,7 +258,7 @@ public class chekWin extends JFrame {
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
 
-		JButton btnNewButton_1 = new JButton("ë‹¹ì²¨ê¸ˆ ìˆ˜ë ¹");
+		JButton btnNewButton_1 = new JButton("´çÃ·±İ ¼ö·É");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -274,7 +268,7 @@ public class chekWin extends JFrame {
 				System.out.println(sumMoney);
 				m.setCoin(m.getCoin() + sumMoney);
 				sumMoney = 0;
-				lblNewLabel_4.setText("ë‹¹ì²¨ê¸ˆì•¡ : " + sumMoney + "ì›");
+				lblNewLabel_4.setText("´çÃ·±İ¾× : " + sumMoney + "¿ø");
 			}
 		});
 		contentPane.add(btnNewButton_1);
@@ -290,7 +284,7 @@ public class chekWin extends JFrame {
 					dispose();
 					setVisible(false);
 				} else {
-					JOptionPane.showMessageDialog(null, "ë¯¸ìˆ˜ë ¹ ë‹¹ì²¨ê¸ˆì´ ìˆìŠµë‹ˆë‹¤.");
+					JOptionPane.showMessageDialog(null, "¹Ì¼ö·É ´çÃ·±İÀÌ ÀÖ½À´Ï´Ù.");
 				}
 			}
 		});

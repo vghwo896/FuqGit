@@ -25,7 +25,7 @@ public class LottoManager {
 		winNumberGen();
 	}
 
-	// ë‹¹ì²¨ ë²ˆí˜¸ 7ìë¦¬ë¥¼ ëœë¤ ê°’ìœ¼ë¡œ ì…ë ¥ì„ ë°›ì•„ winNumberì— ë„£ì–´ì¤€ë‹¤
+	// ´çÃ· ¹øÈ£ 7ÀÚ¸®¸¦ ·£´ı °ªÀ¸·Î ÀÔ·ÂÀ» ¹Ş¾Æ winNumber¿¡ ³Ö¾îÁØ´Ù
 	public int[] winNumberGen() {
 		winNumber = new int[7];
 		Random random = new Random();
@@ -44,7 +44,7 @@ public class LottoManager {
 
 		return winNumber;
 		}
-	// map ì§€ìš°ëŠ” ë©”ì„œë“œ
+	// map Áö¿ì´Â ¸Ş¼­µå
 	
 	public void removeMap() {
 		lottoMap.clear();
@@ -58,8 +58,8 @@ public class LottoManager {
 	public void removepayedValue(int i) {
 		payedlottoMap.remove(new Integer(i));
 	}
-	//ê²°ì œë¥¼ ëˆ„ë¥´ë©´ ì„ íƒí•œ ë¡œë˜ë¥¼ ê²°ì œëœ ë¡œë˜ë¡œ ì˜®ê¸°ê¸°
-		// ê²°ì œ ë²„íŠ¼ì— ì¶”ê°€.
+	//°áÁ¦¸¦ ´©¸£¸é ¼±ÅÃÇÑ ·Î¶Ç¸¦ °áÁ¦µÈ ·Î¶Ç·Î ¿Å±â±â
+		// °áÁ¦ ¹öÆ°¿¡ Ãß°¡.
 		public void payedLotto(Map<Integer, Lotto> lottoMap) {
 
 					for(Map.Entry<Integer,Lotto> entry: lottoMap.entrySet()) {
@@ -70,33 +70,33 @@ public class LottoManager {
 				}
 				lottoMap.clear();
 			}
-	// ì´ë¯¸ì§€ ì•„ì´ì½˜ ì „ì²´ ì„¸íŒ…
+	// ÀÌ¹ÌÁö ¾ÆÀÌÄÜ ÀüÃ¼ ¼¼ÆÃ
 	public void setImage() {
 		for (int i = 1; i < 46; i++) {
 			ballMap.put(i, new ImageIcon(i+".png"));
 			}
 	}
-	// í‚¤ì˜ ë¡œë˜ë¥¼ ê°€ì ¸ì˜´
+	// Å°ÀÇ ·Î¶Ç¸¦ °¡Á®¿È
 	public Lotto getValue(int i) {
 		return lottoMap.get(i);
 	}
-	//í‚¤ê°’ì„ ì…ë ¥í•˜ë©´ í•´ë‹¹ ë¡œë˜ì˜ ì¸íŠ¸ ë°°ì—´ì„ ê°€ì ¸ì˜¨ë‹¤.
+	//Å°°ªÀ» ÀÔ·ÂÇÏ¸é ÇØ´ç ·Î¶ÇÀÇ ÀÎÆ® ¹è¿­À» °¡Á®¿Â´Ù.
 	public int[] getLotto(int key) {
 		return lottoMap.get(key).getNum();
-	}// í‚¤ê°’ì„ ì…ë ¥í•˜ë©´ ê·¸ í•´ë‹¹ ì´ë¯¸ì§€ ì•„ì´ì½˜ì„ ë°˜í™˜í•œë‹¤.
+	}// Å°°ªÀ» ÀÔ·ÂÇÏ¸é ±× ÇØ´ç ÀÌ¹ÌÁö ¾ÆÀÌÄÜÀ» ¹İÈ¯ÇÑ´Ù.
 	public ImageIcon setIMage(int key) {
 		return ballMap.get(key);
 	}
-	// í‚¤ì™€ ë¡œë˜ë¥¼ ì…ë ¥í•˜ë©´ ë§µì´ ì €ì¥ëœë‹¤.
+	// Å°¿Í ·Î¶Ç¸¦ ÀÔ·ÂÇÏ¸é ¸ÊÀÌ ÀúÀåµÈ´Ù.
 	public int setValue(int key, Lotto lotto) {
 		lottoMap.put(key,lotto);
 		return lottoMap.keySet().size();
 	}
-	// ë¡œë˜ë§µ ìì²´ì˜ ê²Œí„°
+	// ·Î¶Ç¸Ê ÀÚÃ¼ÀÇ °ÔÅÍ
 	public Map<Integer, Lotto> getLottoMap() {
 		return lottoMap;
 	}
-	// ë¡œë˜ìœ¼
+	// ·Î¶ÇÀ¸
 	public void setLottoMap(Map<Integer, Lotto> lottoMap) {
 		this.lottoMap = lottoMap;
 	}

@@ -10,7 +10,7 @@ public class GenNumber {
 
 	List<Integer> list;
 	LottoManager m;
-	// ë¡œë˜ ë§¤ë‹ˆì €ì— ì •ë³´ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•´ì„œ ë¡œë˜ ë§¤ë‹ˆì € ì´ˆê¸°í™”
+	// ·Î¶Ç ¸Å´ÏÀú¿¡ Á¤º¸¸¦ °¡Á®¿À±â À§ÇØ¼­ ·Î¶Ç ¸Å´ÏÀú ÃÊ±âÈ­
 
 	public GenNumber(LottoManager lottomanager) {
 		m = lottomanager;
@@ -25,25 +25,25 @@ public class GenNumber {
 		this.list = list;
 	}
 
-	// í´ë¦­ ì•¡ì…˜
+	// Å¬¸¯ ¾×¼Ç
 	public void SelectNumber(int i) {
 		if (!(list.contains(i))) {
 			if (list.size() < 6) {
 				getList().add(i);
 			} else {
-				System.out.println("6ê°œ ì´ìƒ ì„ íƒì€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.");
+				System.out.println("6°³ ÀÌ»ó ¼±ÅÃÀº ºÒ°¡´ÉÇÕ´Ï´Ù.");
 			}
 			
 		} 
 			}
 	
-	// ì„ íƒí•œë²ˆí˜¸ê°€ ê°™ìœ¼ë©´ ì œê±°í•˜ëŠ” ë©”ì„œë“œ
+	// ¼±ÅÃÇÑ¹øÈ£°¡ °°À¸¸é Á¦°ÅÇÏ´Â ¸Ş¼­µå
 	public void removeInList(int i) {
 		list.remove(new Integer(i));
 		
 	}
 	
-	// ì„ íƒ í™•ì • ë²„íŠ¼ì— ë“¤ì–´ê°ˆ ì•¡ì…˜.
+	// ¼±ÅÃ È®Á¤ ¹öÆ°¿¡ µé¾î°¥ ¾×¼Ç.
 
 	public int Confirmed(int key, Lotto lotto) {
 		list = getList();
@@ -61,14 +61,14 @@ public class GenNumber {
 		}
 
 		if (count2 == 0) {
-			// ìë™
-			lotto.setForm("ìë™");
+			// ÀÚµ¿
+			lotto.setForm("ÀÚµ¿");
 		} else if (count2 > 5) {
-			// ìˆ˜ë™
-			lotto.setForm("ìˆ˜ë™");
+			// ¼öµ¿
+			lotto.setForm("¼öµ¿");
 		} else {
-			// ë°˜ìë™
-			lotto.setForm("ë°˜ìë™");
+			// ¹İÀÚµ¿
+			lotto.setForm("¹İÀÚµ¿");
 		}
 
 		for (int i = 0; i < lotto.getNum().length; i++) {
@@ -104,23 +104,23 @@ public class GenNumber {
 					}
 				}
 				if (count == 6 && i <= 5) {
-					m.getPayedlottoMap().get(z).setWinOrLose("1ë“±");
+					m.getPayedlottoMap().get(z).setWinOrLose("1µî");
 					m.getPayedlottoMap().get(z).setAmount(1);
 					break;
 				} else if (count == 6 && i > 5) {
-					m.getPayedlottoMap().get(z).setWinOrLose("2ë“±");
+					m.getPayedlottoMap().get(z).setWinOrLose("2µî");
 					m.getPayedlottoMap().get(z).setAmount(2);
 				} else if (count == 5) {
-					m.getPayedlottoMap().get(z).setWinOrLose("3ë“±");
+					m.getPayedlottoMap().get(z).setWinOrLose("3µî");
 					m.getPayedlottoMap().get(z).setAmount(3);
 				} else if (count == 4) {
-					m.getPayedlottoMap().get(z).setWinOrLose("4ë“±");
+					m.getPayedlottoMap().get(z).setWinOrLose("4µî");
 					m.getPayedlottoMap().get(z).setAmount(4);
 				} else if (count == 3) {
-					m.getPayedlottoMap().get(z).setWinOrLose("5ë“±");
+					m.getPayedlottoMap().get(z).setWinOrLose("5µî");
 					m.getPayedlottoMap().get(z).setAmount(5);
 				} else {
-					m.getPayedlottoMap().get(z).setWinOrLose("ë‚™ì²¨");
+					m.getPayedlottoMap().get(z).setWinOrLose("³«Ã·");
 					m.getPayedlottoMap().get(z).setAmount(0);
 				}
 			}
