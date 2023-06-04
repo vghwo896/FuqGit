@@ -28,7 +28,7 @@ class ImageFrame extends JFrame {
 	GenNumber gn;
 	int key = 1;
 	int coin;
-	
+	 
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
@@ -40,7 +40,9 @@ class ImageFrame extends JFrame {
 	public ImageFrame(GenNumber gen) {
 		lm = gen.m;
 		gn = gen;
-		
+		JLabel backgraoud = new JLabel(new ImageIcon("뒷배경.png"));
+		backgraoud.setBounds(0, 0, 1080, 800);
+		add(backgraoud);
 
 		JButton edit1 = new JButton(overWrite);
 		JButton edit2 = new JButton(overWrite);
@@ -53,12 +55,12 @@ class ImageFrame extends JFrame {
 		
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
-		pnlGuide.setBackground(new Color(222, 239, 255));
+//		pnlGuide.setBackground(new Color(222, 239, 255));
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
-		pnlLeft.setBackground(new Color(222, 239, 255));
+//		pnlLeft.setBackground(new Color(222, 239, 255));
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
-		pnlRight.setBackground(new Color(222, 239, 255));
+//		pnlRight.setBackground(new Color(222, 239, 255));
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
 
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
@@ -728,9 +730,9 @@ class ImageFrame extends JFrame {
 		setResizable(false);
 		setVisible(true);
 
-		add(pnlGuide);
-		add(pnlLeft);
-		add(pnlRight);
+		backgraoud.add(pnlGuide);
+		backgraoud.add(pnlLeft);
+		backgraoud.add(pnlRight);
 
 		// 홈버튼 이미지 삽입
 		JPanel pnlhome = new JPanel();
@@ -746,7 +748,7 @@ class ImageFrame extends JFrame {
 		home.setIcon(img);
 		home.setBounds(10, 10, 100, 80);
 		pnlhome.add(home);
-		add(pnlhome);
+		backgraoud.add(pnlhome);
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
