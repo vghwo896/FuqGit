@@ -44,6 +44,13 @@ class MainLotto extends JFrame {
 
 
 		// 배경
+		// 배경이미지삽입
+		ImageIcon back = new ImageIcon("main보노보노1.png");
+		JLabel lbl = new JLabel(back);
+		lbl.setBounds(0, 0, 1024, 800);
+		add(lbl);
+		lbl.add(Mbtn2);
+		lbl.add(Mbtn3);
 		LottoManager m = gen.m;
 		int coin = m.getCoin();
 
@@ -55,15 +62,15 @@ class MainLotto extends JFrame {
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림", Font.PLAIN, 40));
 		walet.setSize(120, 120);
-		walet.setLocation(560, 645);
-		add(walet);
+		walet.setLocation(550, 645);
+		lbl.add(walet);
 
 		// 로또개수
 		JLabel hasLotto = new JLabel("구매한 조개의 개수 : " + m.getPayedlottoMap().size());
 		
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
-		add(hasLotto);
+		lbl.add(hasLotto);
 
 		// 프레임
 		setSize(1024, 839);
@@ -75,17 +82,10 @@ class MainLotto extends JFrame {
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
-		add(Mbtn2);
-		add(Mbtn3);
 
 		Mbtn2.setBounds(700, 200, 200, 100);
 		Mbtn3.setBounds(700, 400, 200, 100);
 
-		// 배경이미지삽입
-		ImageIcon back = new ImageIcon("main보노보노1.png");
-		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 800);
-		add(lbl);
 
 		MouseAdapter click2 = new MouseAdapter() {
 			@Override

@@ -126,7 +126,7 @@ class ImageFrame extends JFrame {
 								JOptionPane.ERROR_MESSAGE);
 					}
 				  }catch (NumberFormatException n) {
-					JOptionPane.showMessageDialog(null, "취소했어", "취소", JOptionPane.ERROR_MESSAGE);
+	
 				}
 
 			}
@@ -600,10 +600,10 @@ class ImageFrame extends JFrame {
 					int option = JOptionPane.showConfirmDialog(null, "결제를 할래..?", "결제 확인..",
 							JOptionPane.YES_NO_OPTION);
 					if (option == JOptionPane.YES_OPTION) {
-						key = 1;
 
 						Warning6Lines.setVisible(false);
 						if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
+							key = 1;
 							lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
 							walet.setText("잔액 : " + lm.getCoin());
 							lm.payedLotto(lm.getLottoMap());
@@ -639,7 +639,7 @@ class ImageFrame extends JFrame {
 						}
 
 					} else {
-						JOptionPane.showMessageDialog(null, "결제가 취소됐어...", "알림", JOptionPane.WARNING_MESSAGE);
+//						JOptionPane.showMessageDialog(null, "결제가 취소됐어...", "알림", JOptionPane.WARNING_MESSAGE);
 					}
 
 					Warning6.setVisible(false);
@@ -661,10 +661,8 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 			 	 if (lm.getLottoMap().size() != 0) {
-		               int delete = JOptionPane.showConfirmDialog(null, "모두 지울꺼야..?", "경고", JOptionPane.YES_NO_OPTION);
-
-		               if (delete == JOptionPane.CLOSED_OPTION) {
-		               } else if (delete == JOptionPane.OK_OPTION) {
+		               int delete = JOptionPane.showConfirmDialog(null, "모두 지울꺼야..?", "경고", JOptionPane.YES_NO_OPTION);		
+		               if (delete == JOptionPane.OK_OPTION) {
 		            	   edit1.setVisible(true);
 		            	   edit2.setVisible(true);
 		            	   edit3.setVisible(true);
@@ -672,7 +670,7 @@ class ImageFrame extends JFrame {
 		            	   edit5.setVisible(true);
 		            	   edit6.setVisible(true);
 
-		                  JOptionPane.showMessageDialog(null, "삭제됐어....");
+//		                  JOptionPane.showMessageDialog(null, "삭제됐어....");
 		                  lm.removeMap();
 
 		                  Warning6Lines.setVisible(false);
@@ -695,9 +693,9 @@ class ImageFrame extends JFrame {
 		                  for (int i = 0; i < 6; i++) {
 		                     chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 		                  }
+		                  key = 1;
 		               }
 
-		               key = 1;
 
 		            } else {
 		               JOptionPane.showMessageDialog(null, "선택된 조개가 없어..");
