@@ -13,17 +13,17 @@ import java.text.DecimalFormat;
 class ImageFrame extends JFrame {
 
 	JPanel homebt = new JPanel();
-	ImageIcon img = new ImageIcon("È¨¹öÆ°.png");
-	ImageIcon payy = new ImageIcon("pay.png"); // °áÁ¦ ¹öÆ°
-	ImageIcon buy = new ImageIcon("buy.png"); // ±¸¸ÅÇÏ±â ¹öÆ°
-	ImageIcon selectt = new ImageIcon("select.png"); // È®Á¤ ¹öÆ°
-	ImageIcon deleteALL = new ImageIcon("deleteAll.png"); // ¸ğµÎÁö¿ì±â ¹öÆ°
-	ImageIcon overWrite = new ImageIcon("overWrite.png"); // ¼öÁ¤ ¹öÆ°
-	ImageIcon chargee = new ImageIcon("charge.png"); // ÃæÀüÇÏ±â ¹öÆ°
+	ImageIcon img = new ImageIcon("í™ˆë²„íŠ¼.png");
+	ImageIcon payy = new ImageIcon("pay.png"); // ê²°ì œ ë²„íŠ¼
+	ImageIcon buy = new ImageIcon("buy.png"); // êµ¬ë§¤í•˜ê¸° ë²„íŠ¼
+	ImageIcon selectt = new ImageIcon("select.png"); // í™•ì • ë²„íŠ¼
+	ImageIcon deleteALL = new ImageIcon("deleteAll.png"); // ëª¨ë‘ì§€ìš°ê¸° ë²„íŠ¼
+	ImageIcon overWrite = new ImageIcon("overWrite.png"); // ìˆ˜ì • ë²„íŠ¼
+	ImageIcon chargee = new ImageIcon("charge.png"); // ì¶©ì „í•˜ê¸° ë²„íŠ¼
 	ImageIcon CryingBono = new ImageIcon("CryingBono.png");
 	private int SelectCount;
-	boolean condition = false; // false°¡ Å¬¸¯ ÇØÁ¦ »óÅÂ
-	// ÀÌ¹ÌÁö ÃÖÁ¾ Å©±â 38px
+	boolean condition = false; // falseê°€ í´ë¦­ í•´ì œ ìƒíƒœ
+	// ì´ë¯¸ì§€ ìµœì¢… í¬ê¸° 38px
 	LottoManager lm;
 	GenNumber gn;
 	int key = 1;
@@ -32,9 +32,9 @@ class ImageFrame extends JFrame {
 	private final JPanel pnlGuide = new JPanel();
 	private final JPanel pnlLeft = new JPanel();
 	private final JPanel pnlRight = new JPanel();
-	private final JLabel Warning6 = new JLabel("6°³ ÀÌ»ó ¼±ÅÃÀº ºÒ°¡´ÉÇØ...");
+	private final JLabel Warning6 = new JLabel("6ê°œ ì´ìƒ ì„ íƒì€ ë¶ˆê°€ëŠ¥í•´...");
 	private final JLabel Crying = new JLabel(CryingBono);
-	private final JLabel Warning6Lines = new JLabel("ÇÑ ¹ø¿¡ 6°³±îÁö ÀúÀåÀÌ °¡´ÉÇØ...");
+	private final JLabel Warning6Lines = new JLabel("í•œ ë²ˆì— 6ê°œê¹Œì§€ ì €ì¥ì´ ê°€ëŠ¥í•´...");
 
 	
 	public ImageFrame(GenNumber gen) {
@@ -49,18 +49,22 @@ class ImageFrame extends JFrame {
 		JButton edit5 = new JButton(overWrite);
 		JButton edit6 = new JButton(overWrite);
 		JButton deleteAll = new JButton(deleteALL);
+		JLabel logoJLabel = new JLabel(new ImageIcon("LOGO.png"));
 		
-		pnlGuide.setBounds(10, 0, 211, 761); // ¼³¸í¶õ
+		pnlGuide.setBounds(10, 0, 211, 761); // ì„¤ëª…ë€
 		pnlGuide.setLayout(null);
 		pnlGuide.setBackground(new Color(222, 239, 255));
-		pnlLeft.setBounds(211, 0, 412, 761);// ¹øÈ£ ¼±ÅÃ¶õ
+		pnlLeft.setBounds(211, 0, 412, 761);// ë²ˆí˜¸ ì„ íƒë€
 		pnlLeft.setBackground(new Color(222, 239, 255));
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
 		pnlRight.setBackground(new Color(222, 239, 255));
-		pnlRight.setLayout(null);// ¹øÈ£ ¼±ÅÃÇÏ¸é ³ª¿À´Â ºÎºĞ
+		pnlRight.setLayout(null);// ë²ˆí˜¸ ì„ íƒí•˜ë©´ ë‚˜ì˜¤ëŠ” ë¶€ë¶„
 
-		JLabel[] lbl = new JLabel[47]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] lbl = new JLabel[47]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
+		
+		logoJLabel.setBounds(50, 30, 257, 87);
+		pnlLeft.add(logoJLabel);
 
 		Warning6.setBounds(100, 610, 236, 34);
 		pnlLeft.add(Warning6);
@@ -74,21 +78,21 @@ class ImageFrame extends JFrame {
 		pnlRight.add(Warning6Lines);
 		Warning6Lines.setVisible(false);
 
-		// ÃæÀü ¹öÆ°
+		// ì¶©ì „ ë²„íŠ¼
 		JButton ChargeMoney = new JButton(chargee);
 		ChargeMoney.setBounds(320, 40, 100, 50);
 		pnlRight.add(ChargeMoney);
 		ChargeMoney.setVisible(true);
 
 	    DecimalFormat df = new DecimalFormat("#,###,###,###");
-	    JLabel walet = new JLabel("ÀÜ¾× : " + df.format(lm.getCoin()));
+	    JLabel walet = new JLabel("ì”ì•¡ : " + df.format(lm.getCoin()));
 
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
-		walet.setFont(new Font("±¼¸²Ã¼", Font.BOLD, 12));
+		walet.setFont(new Font("êµ´ë¦¼ì²´", Font.BOLD, 12));
 		walet.setBounds(250, 90, 236, 34);
 		pnlRight.add(walet);
 		walet.setVisible(true);
-		JLabel noticeCharge = new JLabel("1000°³ ÀÌÇÏ  30000°³ ÀÌ»óÀº ÃæÀüÇÒ¼ö ¾ø¾î...");
+		JLabel noticeCharge = new JLabel("1000ê°œ ì´í•˜  30000ê°œ ì´ìƒì€ ì¶©ì „í• ìˆ˜ ì—†ì–´...");
 		noticeCharge.setBounds(100, -6, 350, 35);
 
 		pnlRight.add(noticeCharge);
@@ -98,31 +102,31 @@ class ImageFrame extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Crying.setVisible(false);
 				int coin = lm.getCoin();
-				String s = JOptionPane.showInputDialog(null, "¸î°³ ÃæÀüÇÒ·¡?");
+				String s = JOptionPane.showInputDialog(null, "ëª‡ê°œ ì¶©ì „í• ë˜?");
 			 	 try {
 					int i = Integer.valueOf(s);
 					if(i%1000==0) {
 					if (30000 < coin + i) {
-						JOptionPane.showMessageDialog(null, "ÃÖ´ë ÃæÀü °¹¼öÀº 30000°¡¸®ºñ ¾ß", "µ·À» Á¦´ë·Î ÀÔ·ÂÇØÁà.",
+						JOptionPane.showMessageDialog(null, "ìµœëŒ€ ì¶©ì „ ê°¯ìˆ˜ì€ 30000ê°€ë¦¬ë¹„ ì•¼", "ëˆì„ ì œëŒ€ë¡œ ì…ë ¥í•´ì¤˜.",
 								JOptionPane.ERROR_MESSAGE);
 
 					} else if (i >= 1000 && i <= 30000 && coin <= 30000 && coin + i <= 30000) {
 						coin = coin + i;
 						DecimalFormat df = new DecimalFormat("#,###,###,###");
-		                walet.setText("ÀÜ¾× : " + df.format(coin));
+		                walet.setText("ì”ì•¡ : " + df.format(coin));
 						lm.setCoin(coin);
 					}
 
 					else {
-						JOptionPane.showMessageDialog(null, "1000 °¡¸®ºñ ÀÌÇÏ  30000°¡¸®ºñ ÀÌ»óÀº ÃæÀüÇÒ¼ö ¾ø¾î", "µ·À» Á¦´ë·Î ÀÔ·ÂÇØÁà",
+						JOptionPane.showMessageDialog(null, "1000 ê°€ë¦¬ë¹„ ì´í•˜  30000ê°€ë¦¬ë¹„ ì´ìƒì€ ì¶©ì „í• ìˆ˜ ì—†ì–´", "ëˆì„ ì œëŒ€ë¡œ ì…ë ¥í•´ì¤˜",
 								JOptionPane.ERROR_MESSAGE);
 					}
 					}else {
-						JOptionPane.showMessageDialog(null, "1000 °¡¸®ºñ ´ÜÀ§·Î ÀÔ·ÂÇØÁà", "µ·À» Á¦´ë·Î ÀÔ·ÂÇØÁà.",
+						JOptionPane.showMessageDialog(null, "1000 ê°€ë¦¬ë¹„ ë‹¨ìœ„ë¡œ ì…ë ¥í•´ì¤˜", "ëˆì„ ì œëŒ€ë¡œ ì…ë ¥í•´ì¤˜.",
 								JOptionPane.ERROR_MESSAGE);
 					}
 				  }catch (NumberFormatException n) {
-					JOptionPane.showMessageDialog(null, "Ãë¼ÒÇß¾î", "Ãë¼Ò", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ì·¨ì†Œí–ˆì–´", "ì·¨ì†Œ", JOptionPane.ERROR_MESSAGE);
 				}
 
 			}
@@ -138,7 +142,7 @@ class ImageFrame extends JFrame {
 				int num = Integer.valueOf(oooo.getName());
 
 				if (!gn.list.contains(new Integer(num)) && SelectCount < 6) {
-					oooo.setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + oooo.getName() + ").png"));
+					oooo.setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + oooo.getName() + ").png"));
 					gn.SelectNumber(num);
 					SelectCount++;
 				}
@@ -147,7 +151,7 @@ class ImageFrame extends JFrame {
 					Warning6.setVisible(true);
 
 				} else if (gn.list.contains(new Integer(num))) {
-					oooo.setIcon((new ImageIcon("¹Ì¼±ÅÃ¹øÈ£(" + oooo.getName() + ").png")));
+					oooo.setIcon((new ImageIcon("ë¯¸ì„ íƒë²ˆí˜¸(" + oooo.getName() + ").png")));
 					gn.removeInList(new Integer(num));
 					Warning6.setVisible(false);
 					SelectCount--;
@@ -159,9 +163,9 @@ class ImageFrame extends JFrame {
 		};
 
 		for (int i = 1; i < 46; i++) {
-			lbl[i] = new JLabel((new ImageIcon("¹Ì¼±ÅÃ¹øÈ£(" + i + ").png")));// ¹öÆ° ÃÊ±âÈ­
+			lbl[i] = new JLabel((new ImageIcon("ë¯¸ì„ íƒë²ˆí˜¸(" + i + ").png")));// ë²„íŠ¼ ì´ˆê¸°í™”
 			lbl[i].setName("" + i);
-			lbl[i].setVisible(true);// º¸ÀÌ°Ô
+			lbl[i].setVisible(true);// ë³´ì´ê²Œ
 			lbl[i].setBorder(BorderFactory.createEmptyBorder());
 			lbl[i].setLayout(null);
 
@@ -184,25 +188,25 @@ class ImageFrame extends JFrame {
 			} else if (40 < i && i < 46) {
 				lbl[i].setBounds(50 + ((i - 40) * 40), 550, 45, 45);
 			}
-			pnlLeft.add(lbl[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlLeft.add(lbl[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 
 			lbl[i].addMouseListener(click);
 
 		}
 
-		JLabel[] chooselbl1 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl1 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
 
-			// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
-			chooselbl1[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
+			chooselbl1[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl1[i].setName("" + i);
-			chooselbl1[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl1[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl1[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl1[i].setLayout(null);
 
 			chooselbl1[i].setBounds(((i + 1) * 40), 150, 45, 45);
-			pnlRight.add(chooselbl1[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl1[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 
@@ -215,9 +219,9 @@ class ImageFrame extends JFrame {
 						key = 1;
 						for (int i = 0; i < 6; i++) {
 
-							chooselbl1[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl1[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 							edit2.setVisible(false);
 							edit3.setVisible(false);
 							edit4.setVisible(false);
@@ -228,7 +232,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 
@@ -236,17 +240,17 @@ class ImageFrame extends JFrame {
 		edit1.setBounds(320, 157, 60, 25);
 		pnlRight.add(edit1);
 		
-		JLabel[] chooselbl2 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl2 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
-			chooselbl2[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			chooselbl2[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl2[i].setName("" + i);
-			chooselbl2[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl2[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl2[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl2[i].setLayout(null);
 
 			chooselbl2[i].setBounds(((i + 1) * 40), 210, 45, 45);
-			pnlRight.add(chooselbl2[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl2[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 		edit2.addActionListener(new ActionListener() {
@@ -257,9 +261,9 @@ class ImageFrame extends JFrame {
 
 						key = 2;
 						for (int i = 0; i < 6; i++) {
-							chooselbl2[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl2[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 						}
 						edit1.setVisible(false);
 						edit3.setVisible(false);
@@ -269,7 +273,7 @@ class ImageFrame extends JFrame {
 						SelectCount = 6;
 						lm.removeValue(key);
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 		});
@@ -277,17 +281,17 @@ class ImageFrame extends JFrame {
 
 		pnlRight.add(edit2);
 
-		JLabel[] chooselbl3 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl3 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
-			chooselbl3[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			chooselbl3[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl3[i].setName("" + i);
-			chooselbl3[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl3[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl3[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl3[i].setLayout(null);
 
 			chooselbl3[i].setBounds(((i + 1) * 40), 270, 45, 45);
-			pnlRight.add(chooselbl3[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl3[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 		edit3.addActionListener(new ActionListener() {
@@ -298,9 +302,9 @@ class ImageFrame extends JFrame {
 
 						key = 3;
 						for (int i = 0; i < 6; i++) {
-							chooselbl3[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl3[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 						}
 						edit1.setVisible(false);
 						edit2.setVisible(false);
@@ -311,7 +315,7 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 						
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 		});
@@ -319,17 +323,17 @@ class ImageFrame extends JFrame {
 
 		pnlRight.add(edit3);
 
-		JLabel[] chooselbl4 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl4 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
-			chooselbl4[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			chooselbl4[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl4[i].setName("" + i);
-			chooselbl4[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl4[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl4[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl4[i].setLayout(null);
 
 			chooselbl4[i].setBounds(((i + 1) * 40), 330, 45, 45);
-			pnlRight.add(chooselbl4[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl4[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 		edit4.setBounds(320, 337, 60, 25);
@@ -341,9 +345,9 @@ class ImageFrame extends JFrame {
 
 						for (int i = 0; i < 6; i++) {
 							key = 4;
-							chooselbl4[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl4[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 						}
 						edit1.setVisible(false);
 						edit2.setVisible(false);
@@ -354,23 +358,23 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 					
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 		});
 		pnlRight.add(edit4);
 
-		JLabel[] chooselbl5 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl5 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
-			chooselbl5[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			chooselbl5[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl5[i].setName("" + i);
-			chooselbl5[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl5[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl5[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl5[i].setLayout(null);
 
 			chooselbl5[i].setBounds(((i + 1) * 40), 390, 45, 45);
-			pnlRight.add(chooselbl5[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl5[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 		edit5.addActionListener(new ActionListener() {
@@ -381,9 +385,9 @@ class ImageFrame extends JFrame {
 
 						key = 5;
 						for (int i = 0; i < 6; i++) {
-							chooselbl5[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl5[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 						}
 						edit1.setVisible(false);
 						edit2.setVisible(false);
@@ -394,24 +398,24 @@ class ImageFrame extends JFrame {
 						lm.removeValue(key);
 			
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 		});
 		edit5.setBounds(320, 397, 60, 25);
 		pnlRight.add(edit5);
 
-		JLabel[] chooselbl6 = new JLabel[7]; // ¹øÈ£ ¼±ÅÃ ¹öÆ°
+		JLabel[] chooselbl6 = new JLabel[7]; // ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼
 
 		for (int i = 0; i < 6; i++) {
-			chooselbl6[i] = new JLabel(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));// ¹öÆ° ÃÊ±âÈ­
+			chooselbl6[i] = new JLabel(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));// ë²„íŠ¼ ì´ˆê¸°í™”
 			chooselbl6[i].setName("" + i);
-			chooselbl6[i].setVisible(true);// º¸ÀÌ°Ô
+			chooselbl6[i].setVisible(true);// ë³´ì´ê²Œ
 			chooselbl6[i].setBorder(BorderFactory.createEmptyBorder());
 			chooselbl6[i].setLayout(null);
 
 			chooselbl6[i].setBounds(((i + 1) * 40), 450, 45, 45);
-			pnlRight.add(chooselbl6[i]);// ÇÁ·¹ÀÓ¿¡ ¹öÆ° Ãß°¡
+			pnlRight.add(chooselbl6[i]);// í”„ë ˆì„ì— ë²„íŠ¼ ì¶”ê°€
 		}
 
 		edit6.addActionListener(new ActionListener() {
@@ -421,9 +425,9 @@ class ImageFrame extends JFrame {
 				if (lm.getLottoMap().containsKey(6)) {
 						key = 6;
 						for (int i = 0; i < 6; i++) {
-							chooselbl6[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+							chooselbl6[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							gen.list.add(lm.getLotto(key)[i]);
-							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("¼±ÅÃ¹øÈ£(" + lm.getLotto(key)[i] + ").png"));
+							lbl[lm.getLotto(key)[i]].setIcon(new ImageIcon("ì„ íƒë²ˆí˜¸(" + lm.getLotto(key)[i] + ").png"));
 						}
 						edit1.setVisible(false);
 						edit2.setVisible(false);
@@ -435,7 +439,7 @@ class ImageFrame extends JFrame {
 
 
 				} else {
-					JOptionPane.showMessageDialog(null, "¾ÆÁ÷ ±¸¸ÅÇÏÁö ¾ÊÀº Á¶°³¾ß...");
+					JOptionPane.showMessageDialog(null, "ì•„ì§ êµ¬ë§¤í•˜ì§€ ì•Šì€ ì¡°ê°œì•¼...");
 				}
 			}
 		});
@@ -457,14 +461,14 @@ class ImageFrame extends JFrame {
 					Warning6Lines.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
-						lbl[i].setIcon(new ImageIcon("¹Ì¼±ÅÃ¹øÈ£(" + i + ").png"));
+						lbl[i].setIcon(new ImageIcon("ë¯¸ì„ íƒë²ˆí˜¸(" + i + ").png"));
 
 					}
 					gn.Confirmed(key, new Lotto());
 
 					if (key == 1) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 							edit2.setVisible(true);
 							edit3.setVisible(true);
 							edit4.setVisible(true);
@@ -477,7 +481,7 @@ class ImageFrame extends JFrame {
 					}
 					if (key == 2) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 
 							chooselbl2[i].setIcon(lm.setIMage(lm.getLotto(key)[i]));
 							edit1.setVisible(true);
@@ -490,7 +494,7 @@ class ImageFrame extends JFrame {
 					}
 					if (key == 3) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 							edit1.setVisible(true);
 							edit2.setVisible(true);
 							edit4.setVisible(true);
@@ -502,7 +506,7 @@ class ImageFrame extends JFrame {
 					}
 					if (key == 4) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 							edit1.setVisible(true);
 							edit2.setVisible(true);
 							edit3.setVisible(true);
@@ -514,7 +518,7 @@ class ImageFrame extends JFrame {
 					}
 					if (key == 5) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 							edit1.setVisible(true);
 							edit2.setVisible(true);
 							edit3.setVisible(true);
@@ -526,7 +530,7 @@ class ImageFrame extends JFrame {
 					}
 					if (key == 6) {
 						for (int i = 0; i < 6; i++) {
-							// ¹øÈ£ ¼±ÅÃ ¹öÆ°}
+							// ë²ˆí˜¸ ì„ íƒ ë²„íŠ¼}
 							edit1.setVisible(true);
 							edit2.setVisible(true);
 							edit3.setVisible(true);
@@ -548,23 +552,23 @@ class ImageFrame extends JFrame {
 					Warning6Lines.setVisible(true);
 				}
 				}else{
-					JOptionPane.showMessageDialog(null, "30°³ ÀÌ»óÀº ±¸¸Å°¡ ºÒ°¡´É ÇØ..");
+					JOptionPane.showMessageDialog(null, "30ê°œ ì´ìƒì€ êµ¬ë§¤ê°€ ë¶ˆê°€ëŠ¥ í•´..");
 				}
 			}
 		};
 
-		// ¼öÁ¤ ¹öÆ°¿¡ ±× . key =2
+		// ìˆ˜ì • ë²„íŠ¼ì— ê·¸ . key =2
 
 		Select.addMouseListener(send);
 
-		// °áÁ¦¹öÆ°
+		// ê²°ì œë²„íŠ¼
 		JButton pay = new JButton(payy);
 		pay.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (!(lm.getLottoMap().size() == 0)) {
-					int option = JOptionPane.showConfirmDialog(null, "°áÁ¦¸¦ ÇÒ·¡..?", "°áÁ¦ È®ÀÎ..",
+					int option = JOptionPane.showConfirmDialog(null, "ê²°ì œë¥¼ í• ë˜..?", "ê²°ì œ í™•ì¸..",
 							JOptionPane.YES_NO_OPTION);
 					if (option == JOptionPane.YES_OPTION) {
 						key = 1;
@@ -572,41 +576,41 @@ class ImageFrame extends JFrame {
 						Warning6Lines.setVisible(false);
 						if (lm.getCoin() >= 1000 * lm.getLottoMap().size()) {
 							lm.setCoin(lm.getCoin() - 1000 * lm.getLottoMap().size());
-							walet.setText("ÀÜ¾× : " + lm.getCoin());
+							walet.setText("ì”ì•¡ : " + lm.getCoin());
 							lm.payedLotto(lm.getLottoMap());
 							for (int i = 0; i < 6; i++) {
-								chooselbl1[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl1[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
 							for (int i = 0; i < 6; i++) {
-								chooselbl2[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl2[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
 							for (int i = 0; i < 6; i++) {
-								chooselbl3[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl3[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
 							for (int i = 0; i < 6; i++) {
-								chooselbl4[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl4[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
 							for (int i = 0; i < 6; i++) {
-								chooselbl5[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl5[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
 							for (int i = 0; i < 6; i++) {
-								chooselbl6[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+								chooselbl6[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 							}
-							JOptionPane.showMessageDialog(null, "°áÁ¦°¡ µÆ¾î...", "È®ÀÎ", JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.showMessageDialog(null, "ê²°ì œê°€ ëì–´...", "í™•ì¸", JOptionPane.INFORMATION_MESSAGE);
 							deleteAll.setVisible(false);
 						} else {
-							JOptionPane.showMessageDialog(null, "°¡¸®ºñ °¹¼ö°¡ ºÎÁ·ÇØ...");
+							JOptionPane.showMessageDialog(null, "ê°€ë¦¬ë¹„ ê°¯ìˆ˜ê°€ ë¶€ì¡±í•´...");
 							Crying.setVisible(true);
 						}
 
 					} else {
-						JOptionPane.showMessageDialog(null, "°áÁ¦°¡ Ãë¼ÒµÆ¾î...", "¾Ë¸²", JOptionPane.WARNING_MESSAGE);
+						JOptionPane.showMessageDialog(null, "ê²°ì œê°€ ì·¨ì†Œëì–´...", "ì•Œë¦¼", JOptionPane.WARNING_MESSAGE);
 					}
 
 					Warning6.setVisible(false);
 
 				} else {
-					JOptionPane.showMessageDialog(null, "È®Á¤ÇÑ Á¶°³°¡ ¾ø¾î..", "È®ÀÎ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(null, "í™•ì •í•œ ì¡°ê°œê°€ ì—†ì–´..", "í™•ì¸", JOptionPane.INFORMATION_MESSAGE);
 				}
 
 			}
@@ -614,7 +618,7 @@ class ImageFrame extends JFrame {
 		pnlRight.add(pay);
 		pay.setBounds(150, 650, 120, 45);
 
-		// ¸ğµÎÁö¿ì±â ¹öÆ°
+		// ëª¨ë‘ì§€ìš°ê¸° ë²„íŠ¼
 
 		deleteAll.addActionListener(new ActionListener() {
 
@@ -622,40 +626,40 @@ class ImageFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 			 	 if (lm.getLottoMap().size() != 0) {
-		               int delete = JOptionPane.showConfirmDialog(null, "¸ğµÎ Áö¿ï²¨¾ß..?", "°æ°í", JOptionPane.YES_NO_OPTION);
+		               int delete = JOptionPane.showConfirmDialog(null, "ëª¨ë‘ ì§€ìš¸êº¼ì•¼..?", "ê²½ê³ ", JOptionPane.YES_NO_OPTION);
 
 		               if (delete == JOptionPane.CLOSED_OPTION) {
 		               } else if (delete == JOptionPane.OK_OPTION) {
 
-		                  JOptionPane.showMessageDialog(null, "»èÁ¦µÆ¾î....");
+		                  JOptionPane.showMessageDialog(null, "ì‚­ì œëì–´....");
 		                  lm.removeMap();
 
 		                  Warning6Lines.setVisible(false);
 
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl1[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl1[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl2[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl2[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl3[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl3[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl4[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl4[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl5[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl5[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		                  for (int i = 0; i < 6; i++) {
-		                     chooselbl6[i].setIcon(new ImageIcon("¹øÈ£(¹Ì¼±ÅÃ).png"));
+		                     chooselbl6[i].setIcon(new ImageIcon("ë²ˆí˜¸(ë¯¸ì„ íƒ).png"));
 		                  }
 		               }
 
 		               key = 1;
 
 		            } else {
-		               JOptionPane.showMessageDialog(null, "¼±ÅÃµÈ Á¶°³°¡ ¾ø¾î..");
+		               JOptionPane.showMessageDialog(null, "ì„ íƒëœ ì¡°ê°œê°€ ì—†ì–´..");
 		            }
 		         }
 		      });
@@ -664,14 +668,14 @@ class ImageFrame extends JFrame {
 		deleteAll.setVisible(false);
 		deleteAll.setBounds(300, 550, 120, 45);
 
-		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // ¼³¸í¹® ÀÌ¹ÌÁö Ãß°¡
+		ImageIcon pnlGuide1 = new ImageIcon("pnlGuide1.png"); // ì„¤ëª…ë¬¸ ì´ë¯¸ì§€ ì¶”ê°€
 		JLabel guide1 = new JLabel(pnlGuide1);
 		pnlGuide.add(guide1);
 		guide1.setBounds(0, 20, 200, 768);
 
-//		// °¡·Î°¡ 200 ¼¼·Î°¡ 768
+//		// ê°€ë¡œê°€ 200 ì„¸ë¡œê°€ 768
 //
-//		ImageIcon Line = new ImageIcon("Line.png"); // ±¸ºĞ¼± Ãß°¡
+//		ImageIcon Line = new ImageIcon("Line.png"); // êµ¬ë¶„ì„  ì¶”ê°€
 //		JLabel line = new JLabel(Line);
 //		pnlRight.add(line);
 //		line.setBounds(0, 0, 5, 768);
@@ -687,24 +691,24 @@ class ImageFrame extends JFrame {
 		add(pnlLeft);
 		add(pnlRight);
 
-		// È¨¹öÆ° ÀÌ¹ÌÁö »ğÀÔ
+		// í™ˆë²„íŠ¼ ì´ë¯¸ì§€ ì‚½ì…
 		JPanel pnlhome = new JPanel();
-		pnlhome.setLayout(null); // À§Ä¡¼³Á¤
+		pnlhome.setLayout(null); // ìœ„ì¹˜ì„¤ì •
 		pnlhome.setBounds(0, 0, 100, 80);
 		pnlhome.setBackground(new Color(222, 239, 255));
 		JButton home = new JButton();
-		home.setPreferredSize(new Dimension(44, 44)); // ¹öÆ°Å©±âÁöÁ¤
+		home.setPreferredSize(new Dimension(44, 44)); // ë²„íŠ¼í¬ê¸°ì§€ì •
 		home.setBackground(new Color(255, 255, 255)); 
-		home.setBorderPainted(false); // ¿Ü°û¼± ¾ø¾ÖÁÜ
-		home.setFocusPainted(false); // ¼±ÅÃ½Ã Å×µÎ¸® »ç¿ë x
-		home.setOpaque(false); // Åõ¸íÇÏ°Ô ¸¸µé¾îÁÜ
+		home.setBorderPainted(false); // ì™¸ê³½ì„  ì—†ì• ì¤Œ
+		home.setFocusPainted(false); // ì„ íƒì‹œ í…Œë‘ë¦¬ ì‚¬ìš© x
+		home.setOpaque(false); // íˆ¬ëª…í•˜ê²Œ ë§Œë“¤ì–´ì¤Œ
 		home.setIcon(img);
 		home.setBounds(10, 10, 100, 80);
 		pnlhome.add(home);
 		add(pnlhome);
-		setLocationRelativeTo(null); // Ã¢ÀÌ °¡¿îµ¥ ³ª¿À°ÔÇÔ
+		setLocationRelativeTo(null); // ì°½ì´ ê°€ìš´ë° ë‚˜ì˜¤ê²Œí•¨
 
-		// È¨¹öÆ°À» ´©¸£¸é ¸ŞÀÎ ·Îºñ·Î µ¹¾Æ°¡°Ô ¸¸µé±â
+		// í™ˆë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë©”ì¸ ë¡œë¹„ë¡œ ëŒì•„ê°€ê²Œ ë§Œë“¤ê¸°
 		home.addActionListener(new ActionListener() {
 
 			@Override
@@ -713,12 +717,12 @@ class ImageFrame extends JFrame {
 
 				if (lm.getLottoMap().size() > 0) {
 					int result = JOptionPane.showConfirmDialog(null,
-							"°áÁ¦ µÇÁö ¾ÊÀº Á¶°³°¡" + lm.getLottoMap().size() + " °³ ÀÖ¾î..." + "Á¤¸» ³ª°¥²¨¾ß..??", "°áÁ¦ ¾È³»",
+							"ê²°ì œ ë˜ì§€ ì•Šì€ ì¡°ê°œê°€" + lm.getLottoMap().size() + " ê°œ ìˆì–´..." + "ì •ë§ ë‚˜ê°ˆêº¼ì•¼..??", "ê²°ì œ ì•ˆë‚´",
 							JOptionPane.YES_NO_OPTION);
 
 					if (result == JOptionPane.CLOSED_OPTION) {
 					} else if (result == JOptionPane.OK_OPTION) {
-						JOptionPane.showMessageDialog(null, "±¸¸Å°¡ Ãë¼ÒµÆ¾î....");
+						JOptionPane.showMessageDialog(null, "êµ¬ë§¤ê°€ ì·¨ì†Œëì–´....");
 						lm.getLottoMap().clear();
 						new MainLotto(gen);
 						dispose();
@@ -741,9 +745,9 @@ class ImageFrame extends JFrame {
 //   SpringLayout springLayout = new SpringLayout();
 //imageFrame.getContentPane().setLayout(springLayout); 
 
-// È­¸é 2ºĞÇÒ
-// Jpanel + ¹öÆ° (46°³) => µ¿±×¶ó¹Ì, À§¿¡ ¼ıÀÚ Ãâ·Â, Å¬¸¯½Ã ¹é±×¶ó¿îµå »ö±ò º¯°æ
-// È®Á¤½Ã ¹è¿­·Î Á¤º¸°ª Àü¼Û, ÃÊ±âÈ­
-// ¿À¸¥ÂÊ¿¡ ÀúÀå(ÀÌ°Ç ±â´ÉÂÊ¿¡¼­ °¡Á®°¥ °Í), ÃÖ´ë 6Àå
-// ½ºÅ©·Ñ ¤¡¤¡
-// html ´ç°Ü¿À´Â¹ı µÇ¸é..»ı°¢ÇØº¼°Ô  
+// í™”ë©´ 2ë¶„í• 
+// Jpanel + ë²„íŠ¼ (46ê°œ) => ë™ê·¸ë¼ë¯¸, ìœ„ì— ìˆ«ì ì¶œë ¥, í´ë¦­ì‹œ ë°±ê·¸ë¼ìš´ë“œ ìƒ‰ê¹” ë³€ê²½
+// í™•ì •ì‹œ ë°°ì—´ë¡œ ì •ë³´ê°’ ì „ì†¡, ì´ˆê¸°í™”
+// ì˜¤ë¥¸ìª½ì— ì €ì¥(ì´ê±´ ê¸°ëŠ¥ìª½ì—ì„œ ê°€ì ¸ê°ˆ ê²ƒ), ìµœëŒ€ 6ì¥
+// ìŠ¤í¬ë¡¤ ã„±ã„±
+// html ë‹¹ê²¨ì˜¤ëŠ”ë²• ë˜ë©´..ìƒê°í•´ë³¼ê²Œ  

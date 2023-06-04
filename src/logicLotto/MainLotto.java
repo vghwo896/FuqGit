@@ -24,56 +24,56 @@ class MainLotto extends JFrame {
 
 	public MainLotto(GenNumber gen) {
 
-		JButton Mbtn2 = new JButton(); // °ÔÀÓÇÏ±â
-		ImageIcon icon2 = new ImageIcon("°ÔÀÓÇÏ±â¹öÆ°.png");
+		JButton Mbtn2 = new JButton(); // ê²Œì„í•˜ê¸°
+		ImageIcon icon2 = new ImageIcon("ê²Œì„í•˜ê¸°ë²„íŠ¼.png");
 		Mbtn2.setPreferredSize(new Dimension(200, 100));
 		Mbtn2.setBackground(new Color(255, 255, 255));
-		Mbtn2.setBorderPainted(false); // ¿Ü°û¼± ¾ø¾ÖÁÜ
-		Mbtn2.setFocusPainted(false); // ¼±ÅÃ½Ã Å×µÎ¸® »ç¿ë x
-		Mbtn2.setOpaque(false); // Åõ¸íÇÏ°Ô ¸¸µé¾îÁÜ
+		Mbtn2.setBorderPainted(false); // ì™¸ê³½ì„  ì—†ì• ì¤Œ
+		Mbtn2.setFocusPainted(false); // ì„ íƒì‹œ í…Œë‘ë¦¬ ì‚¬ìš© x
+		Mbtn2.setOpaque(false); // íˆ¬ëª…í•˜ê²Œ ë§Œë“¤ì–´ì¤Œ
 		Mbtn2.setIcon(icon2);
 
-		JButton Mbtn3 = new JButton(); // ´çÃ·È®ÀÎ
-		ImageIcon icon3 = new ImageIcon("´çÃ·È®ÀÎ¹öÆ°.png");
+		JButton Mbtn3 = new JButton(); // ë‹¹ì²¨í™•ì¸
+		ImageIcon icon3 = new ImageIcon("ë‹¹ì²¨í™•ì¸ë²„íŠ¼.png");
 		Mbtn3.setPreferredSize(new Dimension(200, 100));
 		Mbtn3.setBackground(new Color(255, 255, 255));
-		Mbtn3.setBorderPainted(false); // ¿Ü°û¼± ¾ø¾ÖÁÜ
-		Mbtn3.setFocusPainted(false); // ¼±ÅÃ½Ã Å×µÎ¸® »ç¿ë x
-		Mbtn3.setOpaque(false); // Åõ¸íÇÏ°Ô ¸¸µé¾îÁÜ
+		Mbtn3.setBorderPainted(false); // ì™¸ê³½ì„  ì—†ì• ì¤Œ
+		Mbtn3.setFocusPainted(false); // ì„ íƒì‹œ í…Œë‘ë¦¬ ì‚¬ìš© x
+		Mbtn3.setOpaque(false); // íˆ¬ëª…í•˜ê²Œ ë§Œë“¤ì–´ì¤Œ
 		Mbtn3.setIcon(icon3);
 
 
-		// ¹è°æ
+		// ë°°ê²½
 		LottoManager m = gen.m;
 		int coin = m.getCoin();
 
 		setBounds(0, 0, 1024, 800);
 		setBackground(Color.WHITE);
 
-		// ÀÜ¾× À§Ä¡
+		// ì”ì•¡ ìœ„ì¹˜
 		JLabel walet = new JLabel(""+coin);
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
-		walet.setFont(new Font("±¼¸²", Font.PLAIN, 40));
+		walet.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 40));
 		walet.setSize(120, 120);
 		walet.setLocation(560, 645);
 		add(walet);
 
-		// ·Î¶Ç°³¼ö
-		JLabel hasLotto = new JLabel("±¸¸ÅÇÑ ·Î¶ÇÀÇ °³¼ö : " + m.getPayedlottoMap().size());
+		// ë¡œë˜ê°œìˆ˜
+		JLabel hasLotto = new JLabel("êµ¬ë§¤í•œ ì¡°ê°œì˜ ê°œìˆ˜ : " + m.getPayedlottoMap().size());
 		
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
 		add(hasLotto);
 
-		// ÇÁ·¹ÀÓ
+		// í”„ë ˆì„
 		setSize(1024, 839);
 		setTitle("Botto");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setBackground(Color.WHITE);
 		setLayout(null);
 		setVisible(true);
-		setResizable(false); // Ã¢ »çÀÌÁî º¯°æ ºÒ°¡
-		setLocationRelativeTo(null); // Ã¢ÀÌ °¡¿îµ¥ ³ª¿À°ÔÇÔ
+		setResizable(false); // ì°½ ì‚¬ì´ì¦ˆ ë³€ê²½ ë¶ˆê°€
+		setLocationRelativeTo(null); // ì°½ì´ ê°€ìš´ë° ë‚˜ì˜¤ê²Œí•¨
 
 		add(Mbtn2);
 		add(Mbtn3);
@@ -81,8 +81,8 @@ class MainLotto extends JFrame {
 		Mbtn2.setBounds(700, 200, 200, 100);
 		Mbtn3.setBounds(700, 400, 200, 100);
 
-		// ¹è°æÀÌ¹ÌÁö»ğÀÔ
-		ImageIcon back = new ImageIcon("mainº¸³ëº¸³ë1.png");
+		// ë°°ê²½ì´ë¯¸ì§€ì‚½ì…
+		ImageIcon back = new ImageIcon("mainë³´ë…¸ë³´ë…¸1.png");
 		JLabel lbl = new JLabel(back);
 		lbl.setBounds(0, 0, 1024, 800);
 		add(lbl);
@@ -97,7 +97,7 @@ class MainLotto extends JFrame {
 						imageFrame.getContentPane().setLayout(null);
 						setVisible(false);
 					} else {
-						JOptionPane.showMessageDialog(null, "30°³ ÀÌ»óÀº ºÒ°¡´É ÇÕ´Ï´Ù", "±¸¸ÅºÒ°¡", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "30ê°œ ì´ìƒì€ ë¶ˆê°€ëŠ¥í•´..", "êµ¬ë§¤ë¶ˆê°€", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}
@@ -105,13 +105,13 @@ class MainLotto extends JFrame {
 
 		Mbtn2.addMouseListener(click2);
 
-//		3¹ø ¹öÆ° ¾×¼Ç
+//		3ë²ˆ ë²„íŠ¼ ì•¡ì…˜
 		MouseAdapter click3 = new MouseAdapter() {
 
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (gen.m.getPayedlottoMap().size() == 0) {
-					JOptionPane.showMessageDialog(null, "·Î¶Ç¸¦ ±¸¸ÅÇÑ ÀÌ·ÂÀÌ ¾ø½À´Ï´Ù.", "·Î¶Ç¸¦ ±¸¸ÅÇØÁÖ¼¼¿ä.", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "ë¡œë˜ë¥¼ êµ¬ë§¤í•œ ì´ë ¥ì´ ì—†ì–´...", "ë¡œë˜ë¥¼ êµ¬ë§¤í•´ì£¼ì„¸ìš”.", JOptionPane.ERROR_MESSAGE);
 				} else {
 					gen.panbyeolWinLose();
 					new chekWin(gen, gen.m.winNumberGen());
