@@ -54,8 +54,8 @@ public class chekWin extends JFrame {
 		JButton btnNewButton = new JButton();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 10, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 10, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 99, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 107, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 114, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 110, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
 		// 홈버튼
@@ -70,7 +70,7 @@ public class chekWin extends JFrame {
 
 		JPanel panel = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel, 38, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, panel, 24, SpringLayout.EAST, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel, 26, SpringLayout.EAST, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel, 134, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel, -122, SpringLayout.EAST, contentPane);
 		panel.setBackground(new Color(222, 239, 255));
@@ -122,30 +122,22 @@ public class chekWin extends JFrame {
 		panel.add(lblNewLabel_2_1);
 
 		JLabel lblNewLabel_2_1_1 = new JLabel(new ImageIcon(win[6] + ".png"));
-		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1, 625, SpringLayout.WEST, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1, -10, SpringLayout.SOUTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
+		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1, 9, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1, 154, SpringLayout.EAST, lblNewLabel_2_1);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1, -11, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -53, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
 
-		// 무지개링 이미지 삽입
-//		JLabel lblNewLabel_2_1_2 = new JLabel(new ImageIcon("무지개링.png"));
-//		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
-//		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
-//		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
-//		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 635, SpringLayout.WEST, panel);
-////		lblNewLabel_2_1_2.setSize(80,70);
-//		panel.add(lblNewLabel_2_1_2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
-		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 45, SpringLayout.EAST, lblNewLabel_2_1);
-		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, 0, SpringLayout.SOUTH, lblNewLabel);
-		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1_1, -8, SpringLayout.WEST, lblNewLabel_2_1_1);
+		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 9, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 41, SpringLayout.EAST, lblNewLabel_2_1);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -1, SpringLayout.SOUTH, lblNewLabel);
+		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1_1, -137, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1_1);
 
 		JLabel label = new JLabel(new ImageIcon("로또당첨금액.png"));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 29, SpringLayout.SOUTH, panel);
 		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
 
@@ -283,7 +275,8 @@ public class chekWin extends JFrame {
 
 		// 당첨금 수령 버튼
 		JButton btnNewButton_1 = new JButton(winMoney);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 31, SpringLayout.SOUTH, label);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 607, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -31, SpringLayout.NORTH, btnNewButton_1);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -6, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -808, SpringLayout.EAST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, contentPane);
