@@ -17,6 +17,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import java.awt.GridLayout;
+import java.awt.Font;
 
 public class chekWin extends JFrame { 
 	ImageIcon plus = new ImageIcon("plus.png");
@@ -25,6 +26,7 @@ public class chekWin extends JFrame {
 	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
+		ImageIcon winMoney = new ImageIcon("winMoney.png");
 		LottoManager m = gen.m;
 		win = gen.panbyeolWinLose();
 		setVisible(true);
@@ -65,7 +67,6 @@ public class chekWin extends JFrame {
 		btnNewButton.setFocusPainted(false); // 선택시 테두리 사용 x
 		btnNewButton.setOpaque(false); // 투명하게 만들어줌
 		btnNewButton.setIcon(icon);
-		btnNewButton.setSize(100, 80);
 
 		JPanel panel = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel, 38, SpringLayout.NORTH, contentPane);
@@ -149,14 +150,16 @@ public class chekWin extends JFrame {
 		contentPane.add(label);
 
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -72, SpringLayout.NORTH, lblNewLabel_4);
+		lblNewLabel_4.setForeground(Color.BLACK);
+		lblNewLabel_4.setFont(new Font("굴림", Font.BOLD, 18));
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -141, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, label, -10, SpringLayout.EAST, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, -44, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 10, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel_4, -5, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel_4, 215, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel_4);
-
+		
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			int count = m.getPayedlottoMap().get(i).getAmount();
 			if (count == 1) {
@@ -188,6 +191,7 @@ public class chekWin extends JFrame {
 
 		int winCount = 0;
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
+		lblNewLabel_5.setFont(new Font("굴림", Font.BOLD, 22));
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
 				winCount++;
@@ -195,26 +199,35 @@ public class chekWin extends JFrame {
 		}
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
 
-		JLabel lblNewLabel_6 = new JLabel();
+//		JLabel lblNewLabel_6 = new JLabel();
 		ImageIcon icon11 = new ImageIcon("구매방식투명.png");
-		JLabel imageLabel = new JLabel(icon11);
-		add(imageLabel);
+//		ImageIcon icon11 = new ImageIcon("구매방식.png");
+		JLabel lblNewLabel_6 = new JLabel(icon11);
+//		JLabel imageLabel = new JLabel(icon11);
+//		add(imageLabel);
 //		imageLabel.setBounds(400, 300, 100, 50);
 //		lblNewLabel_6.setOpaque(false);
+//		add(imageLabel);
+		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup().addGap(74).addComponent(lblNewLabel_6).addGap(383)
-						.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-						.addContainerGap()));
-		gl_panel_2
-				.setVerticalGroup(
-						gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
-										.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-												.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblNewLabel_6))
-										.addGap(609)));
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addGap(57)
+					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+					.addGap(218)
+					.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+					.addGap(13))
+		);
 		panel_2.setLayout(gl_panel_2);
 //		panel_2.setBackground(new Color(255, 255, 255));
 		panel.setOpaque(false);
@@ -251,7 +264,7 @@ public class chekWin extends JFrame {
 			linePanel.add(lbl);
 
 			print.add(linePanel);
-			linePanel.setBackground(new Color(255, 255, 255));
+			linePanel.setBackground(new Color(255,255,255));
 
 			if (i != gen.m.getPayedlottoMap().size()) {
 				JPanel pnl2 = new JPanel();
@@ -270,10 +283,13 @@ public class chekWin extends JFrame {
 		getContentPane().add(scrollPane);
 
 		// 당첨금 수령 버튼
-		JButton btnNewButton_1 = new JButton("당첨금 수령");
-		ImageIcon coinIcon = new ImageIcon("당첨금수령버튼.png");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
+		JButton btnNewButton_1 = new JButton(winMoney);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 31, SpringLayout.SOUTH, label);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -6, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -808, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, contentPane);
+		
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 
 			@Override
@@ -286,7 +302,7 @@ public class chekWin extends JFrame {
 		});
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_7 = new JLabel(new ImageIcon("checkBack.png"));
+		JLabel lblNewLabel_7 = new JLabel(new ImageIcon("checkBack2.png"));
 		lblNewLabel_7.setSize(1024,800);
 		contentPane.add(lblNewLabel_7);
 

@@ -58,14 +58,14 @@ class ImageFrame extends JFrame {
 		background.setBounds(0, 0, 1080, 800);
 		background.setOpaque(true);
 		
-		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
+		pnlGuide.setBounds(20, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
 //		pnlGuide.setBackground(new Color(255,0,0,0));
 		pnlGuide.setOpaque(false);
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
 //		pnlLeft.setBackground(new Color(255,0,0,0));
 		pnlLeft.setLayout(null);
-		pnlRight.setBounds(620, 0, 644, 761);
+		pnlRight.setBounds(600, 0, 644, 761);
 		pnlLeft.setOpaque(false);
 //		pnlRight.setBackground(new Color(255,0,0,0));
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
@@ -73,7 +73,7 @@ class ImageFrame extends JFrame {
 		
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 		
-		logoJLabel.setBounds(50, 30, 257, 87);
+		logoJLabel.setBounds(60, 30, 257, 87);
 		pnlLeft.add(logoJLabel);
 
 		Warning6.setBounds(100, 610, 236, 34);
@@ -597,7 +597,6 @@ class ImageFrame extends JFrame {
 		};
 
 		// 수정 버튼에 그 . key =2
-
 		Select.addMouseListener(send);
 
 		// 결제버튼

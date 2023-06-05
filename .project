@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>KakaoTalk_20230605_112954990.png</name>
+			<type>1</type>
+			<locationURI>PARENT-2-PROJECT_LOC/Desktop/KakaoTalk_20230605_112954990.png</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
