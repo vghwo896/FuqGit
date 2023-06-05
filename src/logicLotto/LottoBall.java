@@ -774,7 +774,7 @@ class ImageFrame extends JFrame {
 
 					if (result == JOptionPane.CLOSED_OPTION) {
 					} else if (result == JOptionPane.OK_OPTION) {
-						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
+//						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
 						lm.getLottoMap().clear();
 						new MainLotto(gen);
 						dispose();
