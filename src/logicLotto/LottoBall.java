@@ -496,7 +496,7 @@ class ImageFrame extends JFrame {
 				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
 					
 				if (key < 7) {
-					Warning6Lines.setVisible(false);
+					Warning6.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
 						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
