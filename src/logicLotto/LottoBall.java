@@ -80,7 +80,7 @@ class ImageFrame extends JFrame {
 		pnlLeft.add(Warning6);
 		Warning6.setVisible(false);
 		
-	    Crying.setBounds(220, 520, 308, 300);
+	    Crying.setBounds(240, 520, 308, 300);
 	    pnlRight.add(Crying);
 	    Crying.setVisible(false);
 

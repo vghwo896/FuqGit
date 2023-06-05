@@ -36,6 +36,7 @@ public class LottoManager {
 			for (int j = 0; j < i; j++) {
 					if ( winNumber[i] == winNumber[j]) {
 						winNumber[j] = (int)random.nextInt(45) + 1;
+						j = -1;
 					}
 				}
 			}
