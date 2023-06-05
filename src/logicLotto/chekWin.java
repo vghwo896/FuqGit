@@ -130,7 +130,7 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 625, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 635, SpringLayout.WEST, panel);
 //		lblNewLabel_2_1_2.setSize(80,70);
 		panel.add(lblNewLabel_2_1_2);
 
