@@ -45,7 +45,7 @@ class MainLotto extends JFrame {
 
 		// 배경
 		// 배경이미지삽입
-		ImageIcon back = new ImageIcon("main보노보노1.png");
+		ImageIcon back = new ImageIcon("main보노보노.png");
 		JLabel lbl = new JLabel(back);
 		lbl.setBounds(0, 0, 1024, 800);
 		add(lbl);

@@ -18,7 +18,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import java.awt.GridLayout;
 
-public class chekWin extends JFrame {
+public class chekWin extends JFrame { 
 	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
@@ -48,27 +48,23 @@ public class chekWin extends JFrame {
 		contentPane.setLayout(sl_contentPane);
 		contentPane.setBackground(new Color(222, 239, 255));
 
-//		RainbowCircle.setBounds(300, 120, 236, 34);
-//		contentPane.add(RainbowCircle);
-//		rainboRainbowCirclewRing.setVisible(true);
-
 		JButton btnNewButton = new JButton();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 0, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton, 10, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton, 10, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton, 44, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton, 47, SpringLayout.WEST, contentPane);
 		contentPane.add(btnNewButton);
 
 		// 홈버튼
-
 		ImageIcon icon = new ImageIcon("홈버튼.png");
-		btnNewButton.setBounds(0, 0, 100, 80);
+		btnNewButton.setBounds(10, 10, 120, 100);
 		btnNewButton.setPreferredSize(new Dimension(44, 44));
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBorderPainted(false); // 외곽선 없애줌
 		btnNewButton.setFocusPainted(false); // 선택시 테두리 사용 x
 		btnNewButton.setOpaque(false); // 투명하게 만들어줌
 		btnNewButton.setIcon(icon);
+		btnNewButton.setSize(100, 80);
 
 		JPanel panel = new JPanel();
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel, 38, SpringLayout.NORTH, contentPane);
@@ -80,6 +76,7 @@ public class chekWin extends JFrame {
 		SpringLayout sl_panel = new SpringLayout();
 		panel.setLayout(sl_panel);
 		panel.setBackground(new Color(222, 239, 255));
+		
 		JLabel lblNewLabel = new JLabel(new ImageIcon(win[0] + ".png"));
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel, 10, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel, 10, SpringLayout.WEST, panel);
@@ -158,7 +155,7 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, lblNewLabel_4, -5, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel_4, 215, SpringLayout.WEST, contentPane);
 		contentPane.add(lblNewLabel_4);
-		
+
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			int count = m.getPayedlottoMap().get(i).getAmount();
 			if (count == 1) {
@@ -246,7 +243,7 @@ public class chekWin extends JFrame {
 			linePanel.add(lbl);
 
 			print.add(linePanel);
-			linePanel.setBackground(new Color(255,255,255));
+			linePanel.setBackground(new Color(255, 255, 255));
 
 			if (i != gen.m.getPayedlottoMap().size()) {
 				JPanel pnl2 = new JPanel();
@@ -260,11 +257,13 @@ public class chekWin extends JFrame {
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 0, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -5, SpringLayout.EAST, panel);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar
-																						// policy
+																							// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
 
+		// 당첨금 수령 버튼
 		JButton btnNewButton_1 = new JButton("당첨금 수령");
+		ImageIcon coinIcon = new ImageIcon("당첨금수령버튼.png");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
 		btnNewButton_1.addActionListener(new ActionListener() {
