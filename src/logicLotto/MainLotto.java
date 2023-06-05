@@ -22,10 +22,7 @@ import jdk.nashorn.internal.scripts.JO;
 
 class MainLotto extends JFrame {
 
-
 	public MainLotto(GenNumber gen) {
-
-
 
 		JButton Mbtn2 = new JButton(); // 게임하기
 		ImageIcon icon2 = new ImageIcon("게임하기버튼.png");
@@ -47,6 +44,13 @@ class MainLotto extends JFrame {
 
 
 		// 배경
+		// 배경이미지삽입
+		ImageIcon back = new ImageIcon("main보노보노1.png");
+		JLabel lbl = new JLabel(back);
+		lbl.setBounds(0, 0, 1024, 800);
+		add(lbl);
+		lbl.add(Mbtn2);
+		lbl.add(Mbtn3);
 		LottoManager m = gen.m;
 		int coin = m.getCoin();
 
@@ -58,15 +62,15 @@ class MainLotto extends JFrame {
 		walet.setHorizontalAlignment(SwingConstants.CENTER);
 		walet.setFont(new Font("굴림", Font.PLAIN, 40));
 		walet.setSize(120, 120);
-		walet.setLocation(560, 645);
-		add(walet);
+		walet.setLocation(550, 645);
+		lbl.add(walet);
 
 		// 로또개수
-		JLabel hasLotto = new JLabel("구매한 로또의 개수 : " + m.getPayedlottoMap().size());
+		JLabel hasLotto = new JLabel("구매한 조개의 개수 : " + m.getPayedlottoMap().size());
 		
 		hasLotto.setSize(200, 20);
 		hasLotto.setLocation(850, 100);
-		add(hasLotto);
+		lbl.add(hasLotto);
 
 		// 프레임
 		setSize(1024, 839);
@@ -78,30 +82,22 @@ class MainLotto extends JFrame {
 		setResizable(false); // 창 사이즈 변경 불가
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
-		add(Mbtn2);
-		add(Mbtn3);
 
 		Mbtn2.setBounds(700, 200, 200, 100);
 		Mbtn3.setBounds(700, 400, 200, 100);
 
-		// 배경이미지삽입
-		ImageIcon back = new ImageIcon("main보노보노1.png");
-		JLabel lbl = new JLabel(back);
-		lbl.setBounds(0, 0, 1024, 800);
-		add(lbl);
 
 		MouseAdapter click2 = new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if(m.getPayedlottoMap().size() < 30) {
-					System.out.println(m.getPayedlottoMap().size());
 					if (m.getPayedlottoMap().size() < 30) {
 						ImageFrame imageFrame = new ImageFrame(gen);
 						imageFrame.getContentPane().setLayout(null);
 						imageFrame.getContentPane().setLayout(null);
 						setVisible(false);
 					} else {
-						JOptionPane.showMessageDialog(null, "30개 이상은 불가능 합니다", "구매불가", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "30개 이상은 불가능해..", "구매불가", JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}
@@ -115,7 +111,7 @@ class MainLotto extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				if (gen.m.getPayedlottoMap().size() == 0) {
-					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없습니다.", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "로또를 구매한 이력이 없어...", "로또를 구매해주세요.", JOptionPane.ERROR_MESSAGE);
 				} else {
 					gen.panbyeolWinLose();
 					new chekWin(gen, gen.m.winNumberGen());

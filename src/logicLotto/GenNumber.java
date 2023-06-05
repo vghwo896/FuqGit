@@ -30,12 +30,10 @@ public class GenNumber {
 		if (!(list.contains(i))) {
 			if (list.size() < 6) {
 				getList().add(i);
-			} else {
-				System.out.println("6개 이상 선택은 불가능합니다.");
-			}
+			} 
 			
 		} 
-			}
+	}
 	
 	// 선택한번호가 같으면 제거하는 메서드
 	public void removeInList(int i) {
@@ -78,6 +76,7 @@ public class GenNumber {
 				for (int j = 0; j < i; j++) {
 					if (lotto.getNum()[i] == lotto.getNum()[j]) {
 						lotto.getNum()[i] = (int) random.nextInt(45) + 1;
+						j = -1;
 					}
 				}
 			}
