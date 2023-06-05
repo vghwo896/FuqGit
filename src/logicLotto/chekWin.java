@@ -23,7 +23,7 @@ public class chekWin extends JFrame {
 	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
-	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
+
 
 	public chekWin(GenNumber gen, int[] win) {
 		ImageIcon winMoney = new ImageIcon("winMoney.png");
@@ -128,14 +128,6 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
 
-		// 무지개링 이미지 삽입
-		JLabel lblNewLabel_2_1_2 = new JLabel(new ImageIcon("무지개링.png"));
-		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 635, SpringLayout.WEST, panel);
-//		lblNewLabel_2_1_2.setSize(80,70);
-		panel.add(lblNewLabel_2_1_2);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
