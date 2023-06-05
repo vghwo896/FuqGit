@@ -201,7 +201,7 @@ class ImageFrame extends JFrame {
 			pnlLeft.add(lbl[i]);// 프레임에 버튼 추가
 
 			lbl[i].addMouseListener(click);
-
+			
 		}
 
 		JLabel[] chooselbl1 = new JLabel[7]; // 번호 선택 버튼
@@ -496,7 +496,6 @@ class ImageFrame extends JFrame {
 				if(lm.getPayedlottoMap().size()+lm.getLottoMap().size()<30) {
 					
 				if (key < 7) {
-
 					Warning6Lines.setVisible(false);
 
 					for (int i = 1; i < 46; i++) {
