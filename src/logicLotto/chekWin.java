@@ -17,6 +17,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.ImageIcon;
 import java.awt.GridLayout;
+import java.awt.Font;
 
 public class chekWin extends JFrame { 
 	ImageIcon plus = new ImageIcon("plus.png");
@@ -131,7 +132,7 @@ public class chekWin extends JFrame {
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_2, 15, SpringLayout.NORTH, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_2, -15, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_2, -60, SpringLayout.EAST, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 625, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_2, 635, SpringLayout.WEST, panel);
 //		lblNewLabel_2_1_2.setSize(80,70);
 		panel.add(lblNewLabel_2_1_2);
 
@@ -149,6 +150,8 @@ public class chekWin extends JFrame {
 		contentPane.add(label);
 
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");
+		lblNewLabel_4.setForeground(Color.BLACK);
+		lblNewLabel_4.setFont(new Font("굴림", Font.BOLD, 18));
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -141, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, label, -10, SpringLayout.EAST, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, -44, SpringLayout.SOUTH, contentPane);
@@ -188,16 +191,16 @@ public class chekWin extends JFrame {
 
 		int winCount = 0;
 		JLabel lblNewLabel_5 = new JLabel("당첨개수");
+		lblNewLabel_5.setFont(new Font("굴림", Font.BOLD, 22));
 		for (int i = 1; i <= m.getPayedlottoMap().size(); i++) {
 			if (m.getPayedlottoMap().get(i).getAmount() != 0) {
 				winCount++;
 			}
 		}
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
-//		ImageIcon icon11 = new ImageIcon("구매방식.png");
-		
-		JLabel lblNewLabel_6 = new JLabel(new ImageIcon("구매방식.png"));
-//		JLabel imageLabel = new JLabel(icon11);
+		ImageIcon icon11 = new ImageIcon("구매방식.png");
+		JLabel lblNewLabel_6 = new JLabel(icon11);
+		JLabel imageLabel = new JLabel(icon11);
 //		add(imageLabel);
 		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
@@ -293,7 +296,7 @@ public class chekWin extends JFrame {
 		});
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_7 = new JLabel(new ImageIcon("checkBack.png"));
+		JLabel lblNewLabel_7 = new JLabel(new ImageIcon("checkBack2.png"));
 		lblNewLabel_7.setSize(1024,800);
 		contentPane.add(lblNewLabel_7);
 
