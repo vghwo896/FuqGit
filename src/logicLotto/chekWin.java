@@ -194,26 +194,31 @@ public class chekWin extends JFrame {
 			}
 		}
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
-
-		JLabel lblNewLabel_6 = new JLabel();
-		ImageIcon icon11 = new ImageIcon("구매방식.png");
-		JLabel imageLabel = new JLabel(icon11);
-		add(imageLabel);
-//		lblNewLabel_6.setOpaque(false);
+//		ImageIcon icon11 = new ImageIcon("구매방식.png");
+		
+		JLabel lblNewLabel_6 = new JLabel(new ImageIcon("구매방식.png"));
+//		JLabel imageLabel = new JLabel(icon11);
+//		add(imageLabel);
+		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
-		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_2.createSequentialGroup().addGap(74).addComponent(lblNewLabel_6).addGap(383)
-						.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-						.addContainerGap()));
-		gl_panel_2
-				.setVerticalGroup(
-						gl_panel_2.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panel_2.createSequentialGroup().addContainerGap()
-										.addGroup(gl_panel_2.createParallelGroup(Alignment.BASELINE)
-												.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(lblNewLabel_6))
-										.addGap(609)));
+		gl_panel_2.setHorizontalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addGap(57)
+					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
+					.addGap(218)
+					.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel_2.setVerticalGroup(
+			gl_panel_2.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_2.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
+					.addGap(13))
+		);
 		panel_2.setLayout(gl_panel_2);
 //		panel_2.setBackground(new Color(255, 255, 255));
 		panel.setOpaque(false);
