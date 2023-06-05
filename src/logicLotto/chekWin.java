@@ -225,19 +225,15 @@ public class chekWin extends JFrame {
 						continue;
 					}
 				}
-				lbl = new JLabel(new ImageIcon("미선택번호("+arr[z] + ").png"));
+//				lbl = new JLabel(new ImageIcon("미선택번호("+arr[z] + ").png"));
 				linePanel.add(lbl);
 			}
 
 			lbl = new JLabel("          " + gen.m.getPayedlottoMap().get(i).getWinOrLose());
 			linePanel.add(lbl);
-<<<<<<< HEAD
 			print.add(linePanel);
-=======
-			print.add(linePanel); // Add the line panel to the main panel
->>>>>>> branch 'master' of https://github.com/vghwo896/FuqGit.git
+			print.add(linePanel); 
 
-			// Add empty panels as separators
 			print.add(linePanel); 
 
 			if (i != gen.m.getPayedlottoMap().size()) {
