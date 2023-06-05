@@ -9,6 +9,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
+
+import logicLotto.GenNumber;
+import logicLotto.LottoManager;
+
 import javax.swing.SpringLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -25,6 +29,7 @@ public class chekWin extends JFrame {
 	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
 
 	public chekWin(GenNumber gen, int[] win) {
+		ImageIcon winMoney = new ImageIcon("winMoney.png");
 		LottoManager m = gen.m;
 		win = gen.panbyeolWinLose();
 		setVisible(true);
@@ -146,12 +151,11 @@ public class chekWin extends JFrame {
 		panel.add(lblNewLabel_2_1_1_1);
 
 		JLabel label = new JLabel(new ImageIcon("로또당첨금액.png"));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
-		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, btnNewButton);
 		contentPane.add(label);
 
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -72, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -138, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, label, -10, SpringLayout.EAST, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, -44, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 10, SpringLayout.WEST, contentPane);
@@ -181,8 +185,9 @@ public class chekWin extends JFrame {
 		lblNewLabel_4.setText("당첨금액 : " + money + "원");
 
 		JPanel panel_2 = new JPanel();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 0, SpringLayout.NORTH, panel_2);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
-		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 6, SpringLayout.EAST, label);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 206, SpringLayout.WEST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_2, -538, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
 		contentPane.add(panel_2);
@@ -256,17 +261,21 @@ public class chekWin extends JFrame {
 		}
 		JScrollPane scrollPane = new JScrollPane(print); // Create a scroll pane and add pnl2 to it
 		sl_contentPane.putConstraint(SpringLayout.NORTH, scrollPane, 6, SpringLayout.SOUTH, panel_2);
-		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 6, SpringLayout.EAST, label);
+		sl_contentPane.putConstraint(SpringLayout.WEST, scrollPane, 1, SpringLayout.EAST, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, scrollPane, 0, SpringLayout.NORTH, lblNewLabel_4);
-		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -5, SpringLayout.EAST, panel);
+		sl_contentPane.putConstraint(SpringLayout.EAST, scrollPane, -127, SpringLayout.EAST, contentPane);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED); // Set vertical scroll bar
 																						// policy
 		scrollPane.getVerticalScrollBar().setUnitIncrement(10);
 		getContentPane().add(scrollPane);
 
-		JButton btnNewButton_1 = new JButton("당첨금 수령");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 20, SpringLayout.SOUTH, label);
-		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 10, SpringLayout.WEST, contentPane);
+		JButton btnNewButton_1 = new JButton(winMoney);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 30, SpringLayout.SOUTH, label);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -6, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -808, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, contentPane);
+		
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 
 			@Override
