@@ -123,6 +123,7 @@ public class chekWin extends JFrame {
 
 		JLabel lblNewLabel_2_1_1 = new JLabel(new ImageIcon(win[6] + ".png"));
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1, 10, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1, 625, SpringLayout.WEST, panel);
 		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1, -10, SpringLayout.SOUTH, panel);
 		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1, -49, SpringLayout.EAST, panel);
 		panel.add(lblNewLabel_2_1_1);
@@ -138,10 +139,9 @@ public class chekWin extends JFrame {
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel(plus);
 		sl_panel.putConstraint(SpringLayout.NORTH, lblNewLabel_2_1_1_1, 10, SpringLayout.NORTH, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 47, SpringLayout.EAST, lblNewLabel_2_1);
-		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, -10, SpringLayout.SOUTH, panel);
-		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1_1, -165, SpringLayout.EAST, panel);
-		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1, 45, SpringLayout.EAST, lblNewLabel_2_1_1_1);
+		sl_panel.putConstraint(SpringLayout.WEST, lblNewLabel_2_1_1_1, 45, SpringLayout.EAST, lblNewLabel_2_1);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblNewLabel_2_1_1_1, 0, SpringLayout.SOUTH, lblNewLabel);
+		sl_panel.putConstraint(SpringLayout.EAST, lblNewLabel_2_1_1_1, -8, SpringLayout.WEST, lblNewLabel_2_1_1);
 		panel.add(lblNewLabel_2_1_1_1);
 
 		JLabel label = new JLabel(new ImageIcon("로또당첨금액.png"));
@@ -198,18 +198,24 @@ public class chekWin extends JFrame {
 			}
 		}
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
-		ImageIcon icon11 = new ImageIcon("구매방식.png");
+
+//		JLabel lblNewLabel_6 = new JLabel();
+		ImageIcon icon11 = new ImageIcon("구매방식투명.png");
+//		ImageIcon icon11 = new ImageIcon("구매방식.png");
 		JLabel lblNewLabel_6 = new JLabel(icon11);
-		JLabel imageLabel = new JLabel(icon11);
+//		JLabel imageLabel = new JLabel(icon11);
+//		add(imageLabel);
+//		imageLabel.setBounds(400, 300, 100, 50);
+//		lblNewLabel_6.setOpaque(false);
 //		add(imageLabel);
 		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
-					.addGap(57)
+					.addGap(25)
 					.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 182, GroupLayout.PREFERRED_SIZE)
-					.addGap(218)
+					.addGap(250)
 					.addComponent(lblNewLabel_5, GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
 					.addContainerGap())
 		);
@@ -217,7 +223,7 @@ public class chekWin extends JFrame {
 			gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_panel_2.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblNewLabel_6, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE))
 					.addGap(13))
