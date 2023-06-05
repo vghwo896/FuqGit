@@ -23,7 +23,7 @@ public class chekWin extends JFrame {
 	ImageIcon plus = new ImageIcon("plus.png");
 	private JPanel contentPane;
 	int sumMoney = 0;
-	private final JLabel RainbowCircle = new JLabel("무지개색 동그라미");
+
 
 	public chekWin(GenNumber gen, int[] win) {
 		ImageIcon winMoney = new ImageIcon("winMoney.png");
@@ -145,7 +145,7 @@ public class chekWin extends JFrame {
 		panel.add(lblNewLabel_2_1_1_1);
 
 		JLabel label = new JLabel(new ImageIcon("로또당첨금액.png"));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 29, SpringLayout.SOUTH, panel);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
 		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
 
@@ -283,8 +283,7 @@ public class chekWin extends JFrame {
 
 		// 당첨금 수령 버튼
 		JButton btnNewButton_1 = new JButton(winMoney);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 607, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -31, SpringLayout.NORTH, btnNewButton_1);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 31, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -6, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -808, SpringLayout.EAST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, contentPane);
