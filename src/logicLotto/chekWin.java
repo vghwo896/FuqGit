@@ -40,10 +40,11 @@ public class chekWin extends JFrame {
 
 		JPanel pnl = new JPanel();
 		pnl.setLayout(null);
-		pnl.setBackground(new Color(222, 239, 255));
+//		pnl.setBackground(new Color(222, 239, 255));
+		pnl.setOpaque(false);
 		pnl.setBounds(0, 0, 1024, 800);
 		setBackground(new Color(255, 255, 255));
-
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		contentPane = new JPanel();
@@ -151,11 +152,12 @@ public class chekWin extends JFrame {
 		panel.add(lblNewLabel_2_1_1_1);
 
 		JLabel label = new JLabel(new ImageIcon("로또당첨금액.png"));
-		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 119, SpringLayout.SOUTH, btnNewButton);
+		sl_contentPane.putConstraint(SpringLayout.WEST, label, 0, SpringLayout.WEST, contentPane);
 		contentPane.add(label);
 
 		JLabel lblNewLabel_4 = new JLabel("당첨금액");
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -138, SpringLayout.NORTH, lblNewLabel_4);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, label, -141, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, label, -10, SpringLayout.EAST, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel_4, -44, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel_4, 10, SpringLayout.WEST, contentPane);
@@ -185,11 +187,12 @@ public class chekWin extends JFrame {
 		lblNewLabel_4.setText("당첨금액 : " + money + "원");
 
 		JPanel panel_2 = new JPanel();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 0, SpringLayout.NORTH, panel_2);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
 		sl_contentPane.putConstraint(SpringLayout.WEST, panel_2, 206, SpringLayout.WEST, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_2, -538, SpringLayout.SOUTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.EAST, panel_2, -125, SpringLayout.EAST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, label, 0, SpringLayout.NORTH, panel_2);
+		panel_2.setOpaque(false);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_2, 14, SpringLayout.SOUTH, panel);
+		sl_contentPane.putConstraint(SpringLayout.SOUTH, panel_2, -538, SpringLayout.SOUTH, contentPane);
 		contentPane.add(panel_2);
 
 		int winCount = 0;
@@ -202,6 +205,7 @@ public class chekWin extends JFrame {
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
 
 		JLabel lblNewLabel_6 = new JLabel("구매방식");
+//		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(gl_panel_2.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_2.createSequentialGroup().addGap(74).addComponent(lblNewLabel_6).addGap(383)
@@ -217,7 +221,8 @@ public class chekWin extends JFrame {
 												.addComponent(lblNewLabel_6))
 										.addGap(609)));
 		panel_2.setLayout(gl_panel_2);
-		panel_2.setBackground(new Color(222, 239, 255));
+//		panel_2.setBackground(new Color(255, 255, 255));
+		panel.setOpaque(false);
 		JPanel print = new JPanel();
 		print.setBackground(new Color(255, 255, 255));
 
@@ -270,7 +275,7 @@ public class chekWin extends JFrame {
 		getContentPane().add(scrollPane);
 
 		JButton btnNewButton_1 = new JButton(winMoney);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 30, SpringLayout.SOUTH, label);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, btnNewButton_1, 31, SpringLayout.SOUTH, label);
 		sl_contentPane.putConstraint(SpringLayout.SOUTH, btnNewButton_1, -6, SpringLayout.NORTH, lblNewLabel_4);
 		sl_contentPane.putConstraint(SpringLayout.EAST, btnNewButton_1, -808, SpringLayout.EAST, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, btnNewButton_1, 0, SpringLayout.WEST, contentPane);
@@ -287,6 +292,10 @@ public class chekWin extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_7 = new JLabel(new ImageIcon("checkBack.png"));
+		lblNewLabel_7.setSize(1024,800);
+		contentPane.add(lblNewLabel_7);
 
 		btnNewButton.addActionListener(new ActionListener() {
 

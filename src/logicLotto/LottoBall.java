@@ -50,19 +50,27 @@ class ImageFrame extends JFrame {
 		JButton edit6 = new JButton(overWrite);
 		JButton deleteAll = new JButton(deleteALL);
 		JLabel logoJLabel = new JLabel(new ImageIcon("LOGO.png"));
-		
-		
+		JLabel background = new JLabel(new ImageIcon("뒷배경.png"));
+//		JPanel back = new JPanel();
+//		back.setBoun
+//		back.add(background);
+		background.setLayout(null);
+		background.setBounds(0, 0, 1080, 800);
+		background.setOpaque(true);
 		
 		pnlGuide.setBounds(10, 0, 211, 761); // 설명란
 		pnlGuide.setLayout(null);
-		pnlGuide.setBackground(new Color(222, 239, 255));
+//		pnlGuide.setBackground(new Color(255,0,0,0));
+		pnlGuide.setOpaque(false);
 		pnlLeft.setBounds(211, 0, 412, 761);// 번호 선택란
-		pnlLeft.setBackground(new Color(222, 239, 255));
+//		pnlLeft.setBackground(new Color(255,0,0,0));
 		pnlLeft.setLayout(null);
 		pnlRight.setBounds(620, 0, 644, 761);
-		pnlRight.setBackground(new Color(222, 239, 255));
+		pnlLeft.setOpaque(false);
+//		pnlRight.setBackground(new Color(255,0,0,0));
 		pnlRight.setLayout(null);// 번호 선택하면 나오는 부분
-
+		pnlRight.setOpaque(false);
+		
 		JLabel[] lbl = new JLabel[47]; // 번호 선택 버튼
 		
 		logoJLabel.setBounds(50, 30, 257, 87);
@@ -728,17 +736,19 @@ class ImageFrame extends JFrame {
 		setResizable(false);
 		setVisible(true);
 
-		add(pnlGuide);
-		add(pnlLeft);
-		add(pnlRight);
-
+		background.add(pnlGuide);
+		background.add(pnlLeft);
+		background.add(pnlRight);
+		add(background);
+//		setI
 		// 홈버튼 이미지 삽입
 		JPanel pnlhome = new JPanel();
 		pnlhome.setLayout(null); // 위치설정
 		pnlhome.setBounds(0, 0, 100, 80);
-		pnlhome.setBackground(new Color(222, 239, 255));
+//		pnlhome.setBackground(new Color(222, 239, 255));
 		JButton home = new JButton();
-		home.setPreferredSize(new Dimension(44, 44)); // 버튼크기지정
+		home.setPreferredSize(new Dimension(44, 44));// 버튼크기지정
+//		home.setOpaque(false);
 		home.setBackground(new Color(255, 255, 255)); 
 		home.setBorderPainted(false); // 외곽선 없애줌
 		home.setFocusPainted(false); // 선택시 테두리 사용 x
@@ -746,7 +756,8 @@ class ImageFrame extends JFrame {
 		home.setIcon(img);
 		home.setBounds(10, 10, 100, 80);
 		pnlhome.add(home);
-		add(pnlhome);
+		pnlhome.setOpaque(false);
+		background.add(pnlhome);
 		setLocationRelativeTo(null); // 창이 가운데 나오게함
 
 		// 홈버튼을 누르면 메인 로비로 돌아가게 만들기
@@ -763,7 +774,7 @@ class ImageFrame extends JFrame {
 
 					if (result == JOptionPane.CLOSED_OPTION) {
 					} else if (result == JOptionPane.OK_OPTION) {
-						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
+//						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
 						lm.getLottoMap().clear();
 						new MainLotto(gen);
 						dispose();
