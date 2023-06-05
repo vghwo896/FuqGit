@@ -198,9 +198,15 @@ public class chekWin extends JFrame {
 			}
 		}
 		lblNewLabel_5.setText("당첨개수 : " + winCount + "개");
-		ImageIcon icon11 = new ImageIcon("구매방식.png");
+
+//		JLabel lblNewLabel_6 = new JLabel();
+		ImageIcon icon11 = new ImageIcon("구매방식투명.png");
+//		ImageIcon icon11 = new ImageIcon("구매방식.png");
 		JLabel lblNewLabel_6 = new JLabel(icon11);
-		JLabel imageLabel = new JLabel(icon11);
+//		JLabel imageLabel = new JLabel(icon11);
+//		add(imageLabel);
+//		imageLabel.setBounds(400, 300, 100, 50);
+//		lblNewLabel_6.setOpaque(false);
 //		add(imageLabel);
 		lblNewLabel_6.setOpaque(false);
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
