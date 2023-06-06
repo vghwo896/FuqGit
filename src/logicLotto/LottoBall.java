@@ -502,8 +502,9 @@ class ImageFrame extends JFrame {
 						lbl[i].setIcon(new ImageIcon("미선택번호(" + i + ").png"));
 
 					}
+					System.out.println(gen.getList());
 					gn.Confirmed(key, new Lotto());
-
+					
 					if (key == 1) {
 						for (int i = 0; i < 6; i++) {
 							// 번호 선택 버튼}
@@ -579,8 +580,6 @@ class ImageFrame extends JFrame {
 						}
 
 					}
-					
-					
 					key = lm.getLottoMap().size() + 1;
 					SelectCount = 0;
 
@@ -702,6 +701,7 @@ class ImageFrame extends JFrame {
 		                     chooselbl6[i].setIcon(new ImageIcon("번호(미선택).png"));
 		                  }
 		                  key = 1;
+		           
 		               }
 
 
@@ -769,18 +769,21 @@ class ImageFrame extends JFrame {
 					int result = JOptionPane.showConfirmDialog(null,
 							"결제 되지 않은 조개가" + lm.getLottoMap().size() + " 개 있어..." + "정말 나갈꺼야..??", "결제 안내",
 							JOptionPane.YES_NO_OPTION);
-
 					if (result == JOptionPane.CLOSED_OPTION) {
 					} else if (result == JOptionPane.OK_OPTION) {
 //						JOptionPane.showMessageDialog(null, "구매가 취소됐어....");
 						lm.getLottoMap().clear();
+						gen.getList().clear();
 						new MainLotto(gen);
 						dispose();
+						key= 1;
 						setVisible(false);
 					} else if (result == JOptionPane.CANCEL_OPTION) {
+						
 					}
 
 				} else {
+					
 					new MainLotto(gen);
 					dispose();
 					setVisible(false);
